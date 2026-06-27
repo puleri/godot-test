@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://c84tqkfcqhgk8"]
+[gd_scene format=3 uid="uid://c84tqkfcqhgk8"]
 
-[ext_resource type="Script" path="res://scripts/main.gd" id="1_u7t1m"]
+[ext_resource type="Script" uid="uid://dc8ifw754fkeu" path="res://scripts/main.gd" id="1_u7t1m"]
 
-[node name="Main" type="Control"]
+[node name="Main" type="Control" unique_id=1346825173]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u7t1m")
 
-[node name="HelloLabel" type="Label" parent="."]
+[node name="HelloLabel" type="Label" parent="." unique_id=429500203]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -25,6 +25,6 @@ offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 36
-text = "Hello, world!"
+text = "Hello, Towel :)"
 horizontal_alignment = 1
 vertical_alignment = 1
