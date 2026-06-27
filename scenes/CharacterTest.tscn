@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b121qef6erpf3"]
+
+[ext_resource type="PackedScene" uid="uid://lsea7dml45h6" path="res://FBX/Rook.fbx" id="1_1jdma"]
+
+[node name="CharacterTest" type="Node3D" unique_id=1152185677]
+
+[node name="Rook" parent="." unique_id=811247315 instance=ExtResource("1_1jdma")]
