@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://117b5fi3ylp8"]
+
+[ext_resource type="ArrayMesh" uid="uid://87mg8nwewwnm" path="res://Objects/Door_test.obj" id="1_lu17r"]
+[ext_resource type="Material" uid="uid://ccuqyelqwain2" path="res://Materials/BlackToon.tres" id="2_fsmr3"]
+[ext_resource type="Material" uid="uid://jy5qaflc0y0q" path="res://Materials/GreyToon.tres" id="2_lxy05"]
+
+[node name="Door01" type="Node3D" unique_id=989831881]
+
+[node name="DoorTest" type="MeshInstance3D" parent="." unique_id=1069080471]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0.25477302, 0)
+mesh = ExtResource("1_lu17r")
+surface_material_override/0 = ExtResource("2_lxy05")
+surface_material_override/1 = ExtResource("2_fsmr3")

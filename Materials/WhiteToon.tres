@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://fc8jacmlue8n"]
+
+[resource]
+blend_mode = 1
+diffuse_mode = 3
+specular_mode = 1
+emission_enabled = true
+emission = Color(1, 1, 1, 1)

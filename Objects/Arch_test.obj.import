@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://daix438cuovhe"
+path="res://.godot/imported/Arch_test.obj-a643774932e0885811b9ab6acbb92d5d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Arch_test.obj-a643774932e0885811b9ab6acbb92d5d.mesh"]
+
+source_file="res://Objects/Arch_test.obj"
+dest_files=["res://.godot/imported/Arch_test.obj-a643774932e0885811b9ab6acbb92d5d.mesh", "res://.godot/imported/Arch_test.obj-a643774932e0885811b9ab6acbb92d5d.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

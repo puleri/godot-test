@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cetlsywssf2kw"
-path="res://.godot/imported/Screw.fbx-d8a9c4189754eb8a2848c4769c2798fe.scn"
+uid="uid://lsea7dml45h6"
+path="res://.godot/imported/Rook.fbx-5d6129c4649bc1ceb7338ec317cea8cf.scn"
 
 [deps]
 
-source_file="res://FBX/Screw.fbx"
-dest_files=["res://.godot/imported/Screw.fbx-d8a9c4189754eb8a2848c4769c2798fe.scn"]
+source_file="res://Objects/Rook.fbx"
+dest_files=["res://.godot/imported/Rook.fbx-5d6129c4649bc1ceb7338ec317cea8cf.scn"]
 
 [params]
 

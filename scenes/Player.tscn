@@ -1,30 +1,31 @@
 [gd_scene format=3 uid="uid://brg4gso7dpl2n"]
 
-[ext_resource type="PackedScene" uid="uid://lsea7dml45h6" path="res://FBX/Rook.fbx" id="1_b86ki"]
 [ext_resource type="Script" uid="uid://dwr4qnt7fcrtc" path="res://scripts/player_controller.gd" id="2_0m2aq"]
+[ext_resource type="PackedScene" uid="uid://bhms8fejjme5c" path="res://Rook/Rook_v2.tscn" id="2_3li8b"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_player"]
-radius = 0.35
-height = 1.8
+radius = 0.091308594
+height = 0.47758788
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" unique_id=557277699]
 script = ExtResource("2_0m2aq")
+max_walk_speed = 2.0
+ground_deceleration = 100.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1351764398]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23879394, 0)
 shape = SubResource("CapsuleShape3D_player")
 
-[node name="VisualPivot" type="Node3D" parent="."]
-position = Vector3(0, 0.25, 0)
+[node name="VisualPivot" type="Node3D" parent="." unique_id=1196648015]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 
-[node name="Rook" parent="VisualPivot" instance=ExtResource("1_b86ki")]
+[node name="Rook2" parent="VisualPivot" unique_id=811247315 instance=ExtResource("2_3li8b")]
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=2055849568]
 
-[node name="Camera3D" type="Camera3D" parent="."]
-position = Vector3(0, 2.31, 10)
-rotation = Vector3(-0.174533, 0, 0)
-current = true
+[node name="Camera3D" type="Camera3D" parent="." unique_id=760102314]
+transform = Transform3D(1, 0, 0, 0, 0.9848077, 0.17364825, 0, -0.17364825, 0.9848077, 0, 2.31, 10)
 projection = 1
-size = 5.1
+current = true
 fov = 62.0
+size = 5.1

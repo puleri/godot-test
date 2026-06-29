@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://lsea7dml45h6"
-path="res://.godot/imported/Rook.fbx-4474ccf4388076b0aa05ebd8e0be8e79.scn"
+uid="uid://2medhb1ung4e"
+path="res://.godot/imported/Barrel.fbx-31c93dd51657bed404b96b2d28d7b112.scn"
 
 [deps]
 
-source_file="res://FBX/Rook.fbx"
-dest_files=["res://.godot/imported/Rook.fbx-4474ccf4388076b0aa05ebd8e0be8e79.scn"]
+source_file="res://Objects/Barrel.fbx"
+dest_files=["res://.godot/imported/Barrel.fbx-31c93dd51657bed404b96b2d28d7b112.scn"]
 
 [params]
 

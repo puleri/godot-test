@@ -1,17 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://c84tqkfcqhgk8"]
+[gd_scene format=3 uid="uid://c84tqkfcqhgk8"]
 
 [ext_resource type="PackedScene" uid="uid://brg4gso7dpl2n" path="res://scenes/Player.tscn" id="1_h8wvw"]
+[ext_resource type="Material" uid="uid://ccuqyelqwain2" path="res://Materials/BlackToon.tres" id="2_0bbpv"]
 [ext_resource type="Script" uid="uid://b0hmh308tgxuv" path="res://scripts/chessboard_trigger.gd" id="2_smb6l"]
+[ext_resource type="PackedScene" uid="uid://117b5fi3ylp8" path="res://Objects/Door01.tscn" id="5_c01mt"]
+[ext_resource type="PackedScene" uid="uid://vjf0ruyp7rs8" path="res://Objects/ArchTest.tscn" id="6_c01mt"]
+[ext_resource type="PackedScene" uid="uid://defo8smbyjqfh" path="res://Objects/Newbarrel.tscn" id="6_jlsqs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
 size = Vector3(38, 0.2, 18)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_elqb8"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_floor"]
-albedo_color = Color(0.47, 0.36143, 0.1598, 1)
-albedo_texture = SubResource("PlaceholderTexture2D_elqb8")
-roughness = 0.58
 
 [sub_resource type="BoxMesh" id="BoxMesh_floor"]
 size = Vector3(38, 0.2, 18)
@@ -35,23 +32,6 @@ size = Vector3(1.6, 1, 4)
 [sub_resource type="BoxShape3D" id="BoxShape3D_chessboard_trigger"]
 size = Vector3(1.8, 1.8, 1.8)
 
-[sub_resource type="BoxMesh" id="BoxMesh_chessboard_tile"]
-size = Vector3(0.24, 0.04, 0.24)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tile_light"]
-albedo_color = Color(0.94, 0.9, 0.78, 1)
-emission_enabled = true
-emission = Color(0.32, 0.28, 0.16, 1)
-emission_energy_multiplier = 0.25
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tile_dark"]
-albedo_color = Color(0.07, 0.08, 0.1, 1)
-roughness = 0.36
-
-[sub_resource type="SphereMesh" id="SphereMesh_chessboard_glow"]
-radius = 1.15
-height = 2.3
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_chessboard_glow"]
 transparency = 1
 albedo_color = Color(0.34, 0.62, 1, 0.18)
@@ -59,9 +39,26 @@ emission_enabled = true
 emission = Color(0.22, 0.48, 1, 1)
 emission_energy_multiplier = 1.7
 
+[sub_resource type="SphereMesh" id="SphereMesh_chessboard_glow"]
+radius = 1.15
+height = 2.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tile_light"]
+albedo_color = Color(0.94, 0.9, 0.78, 1)
+emission_enabled = true
+emission = Color(0.32, 0.28, 0.16, 1)
+emission_energy_multiplier = 0.25
+
+[sub_resource type="BoxMesh" id="BoxMesh_chessboard_tile"]
+size = Vector3(0.24, 0.04, 0.24)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tile_dark"]
+albedo_color = Color(0.07, 0.08, 0.1, 1)
+roughness = 0.36
+
 [node name="Main" type="Node3D" unique_id=1346825173]
 
-[node name="Player" parent="." unique_id=6424090 instance=ExtResource("1_h8wvw")]
+[node name="Player" parent="." unique_id=557277699 instance=ExtResource("1_h8wvw")]
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=1783237821]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
@@ -71,7 +68,8 @@ shape = SubResource("BoxShape3D_floor")
 debug_color = Color(0, 0.6, 0.69803923, 0.827451)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1243654736]
-material_override = SubResource("StandardMaterial3D_floor")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.029291444, 0)
+material_override = ExtResource("2_0bbpv")
 mesh = SubResource("BoxMesh_floor")
 
 [node name="JumpBlockLow" type="StaticBody3D" parent="." unique_id=1586483312]
@@ -105,100 +103,118 @@ light_color = Color(0.94, 0.98, 1, 1)
 light_energy = 1.25
 omni_range = 12.0
 
-[node name="ChessboardTrigger" type="Area3D" parent="."]
+[node name="ChessboardTrigger" type="Area3D" parent="." unique_id=728308958]
 transform = Transform3D(1, 0, 0, 0, 0.9848077, 0.17364818, 0, -0.17364818, 0.9848077, 15.5, 1.2, 0)
 script = ExtResource("2_smb6l")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ChessboardTrigger"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChessboardTrigger" unique_id=1494119090]
 shape = SubResource("BoxShape3D_chessboard_trigger")
 
-[node name="Glow" type="MeshInstance3D" parent="ChessboardTrigger"]
+[node name="Glow" type="MeshInstance3D" parent="ChessboardTrigger" unique_id=633867399]
 material_override = SubResource("StandardMaterial3D_chessboard_glow")
 mesh = SubResource("SphereMesh_chessboard_glow")
 
-[node name="GlowLight" type="OmniLight3D" parent="ChessboardTrigger"]
+[node name="GlowLight" type="OmniLight3D" parent="ChessboardTrigger" unique_id=282953711]
 light_color = Color(0.42, 0.66, 1, 1)
 light_energy = 1.1
 omni_range = 4.0
 
-[node name="Board" type="Node3D" parent="ChessboardTrigger"]
+[node name="Board" type="Node3D" parent="ChessboardTrigger" unique_id=1311712768]
 
-[node name="Tile00" type="MeshInstance3D" parent="ChessboardTrigger/Board"]
+[node name="Tile00" type="MeshInstance3D" parent="ChessboardTrigger/Board" unique_id=614643736]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36, 0, -0.36)
 material_override = SubResource("StandardMaterial3D_tile_light")
 mesh = SubResource("BoxMesh_chessboard_tile")
 
-[node name="Tile01" type="MeshInstance3D" parent="ChessboardTrigger/Board"]
+[node name="Tile01" type="MeshInstance3D" parent="ChessboardTrigger/Board" unique_id=2010479631]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12, 0, -0.36)
 material_override = SubResource("StandardMaterial3D_tile_dark")
 mesh = SubResource("BoxMesh_chessboard_tile")
 
-[node name="Tile02" type="MeshInstance3D" parent="ChessboardTrigger/Board"]
+[node name="Tile02" type="MeshInstance3D" parent="ChessboardTrigger/Board" unique_id=1509190023]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12, 0, -0.36)
 material_override = SubResource("StandardMaterial3D_tile_light")
 mesh = SubResource("BoxMesh_chessboard_tile")
 
-[node name="Tile03" type="MeshInstance3D" parent="ChessboardTrigger/Board"]
+[node name="Tile03" type="MeshInstance3D" parent="ChessboardTrigger/Board" unique_id=1742704503]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36, 0, -0.36)
 material_override = SubResource("StandardMaterial3D_tile_dark")
 mesh = SubResource("BoxMesh_chessboard_tile")
 
-[node name="Tile10" type="MeshInstance3D" parent="ChessboardTrigger/Board"]
+[node name="Tile10" type="MeshInstance3D" parent="ChessboardTrigger/Board" unique_id=605023225]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36, 0, -0.12)
 material_override = SubResource("StandardMaterial3D_tile_dark")
 mesh = SubResource("BoxMesh_chessboard_tile")
 
-[node name="Tile11" type="MeshInstance3D" parent="ChessboardTrigger/Board"]
+[node name="Tile11" type="MeshInstance3D" parent="ChessboardTrigger/Board" unique_id=1187134467]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12, 0, -0.12)
 material_override = SubResource("StandardMaterial3D_tile_light")
 mesh = SubResource("BoxMesh_chessboard_tile")
 
-[node name="Tile12" type="MeshInstance3D" parent="ChessboardTrigger/Board"]
+[node name="Tile12" type="MeshInstance3D" parent="ChessboardTrigger/Board" unique_id=1910664917]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12, 0, -0.12)
 material_override = SubResource("StandardMaterial3D_tile_dark")
 mesh = SubResource("BoxMesh_chessboard_tile")
 
-[node name="Tile13" type="MeshInstance3D" parent="ChessboardTrigger/Board"]
+[node name="Tile13" type="MeshInstance3D" parent="ChessboardTrigger/Board" unique_id=327802316]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36, 0, -0.12)
 material_override = SubResource("StandardMaterial3D_tile_light")
 mesh = SubResource("BoxMesh_chessboard_tile")
 
-[node name="Tile20" type="MeshInstance3D" parent="ChessboardTrigger/Board"]
+[node name="Tile20" type="MeshInstance3D" parent="ChessboardTrigger/Board" unique_id=1775409972]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36, 0, 0.12)
 material_override = SubResource("StandardMaterial3D_tile_light")
 mesh = SubResource("BoxMesh_chessboard_tile")
 
-[node name="Tile21" type="MeshInstance3D" parent="ChessboardTrigger/Board"]
+[node name="Tile21" type="MeshInstance3D" parent="ChessboardTrigger/Board" unique_id=382271790]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12, 0, 0.12)
 material_override = SubResource("StandardMaterial3D_tile_dark")
 mesh = SubResource("BoxMesh_chessboard_tile")
 
-[node name="Tile22" type="MeshInstance3D" parent="ChessboardTrigger/Board"]
+[node name="Tile22" type="MeshInstance3D" parent="ChessboardTrigger/Board" unique_id=1992039141]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12, 0, 0.12)
 material_override = SubResource("StandardMaterial3D_tile_light")
 mesh = SubResource("BoxMesh_chessboard_tile")
 
-[node name="Tile23" type="MeshInstance3D" parent="ChessboardTrigger/Board"]
+[node name="Tile23" type="MeshInstance3D" parent="ChessboardTrigger/Board" unique_id=59581135]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36, 0, 0.12)
 material_override = SubResource("StandardMaterial3D_tile_dark")
 mesh = SubResource("BoxMesh_chessboard_tile")
 
-[node name="Tile30" type="MeshInstance3D" parent="ChessboardTrigger/Board"]
+[node name="Tile30" type="MeshInstance3D" parent="ChessboardTrigger/Board" unique_id=876250261]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36, 0, 0.36)
 material_override = SubResource("StandardMaterial3D_tile_dark")
 mesh = SubResource("BoxMesh_chessboard_tile")
 
-[node name="Tile31" type="MeshInstance3D" parent="ChessboardTrigger/Board"]
+[node name="Tile31" type="MeshInstance3D" parent="ChessboardTrigger/Board" unique_id=1455733458]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12, 0, 0.36)
 material_override = SubResource("StandardMaterial3D_tile_light")
 mesh = SubResource("BoxMesh_chessboard_tile")
 
-[node name="Tile32" type="MeshInstance3D" parent="ChessboardTrigger/Board"]
+[node name="Tile32" type="MeshInstance3D" parent="ChessboardTrigger/Board" unique_id=371991287]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12, 0, 0.36)
 material_override = SubResource("StandardMaterial3D_tile_dark")
 mesh = SubResource("BoxMesh_chessboard_tile")
 
-[node name="Tile33" type="MeshInstance3D" parent="ChessboardTrigger/Board"]
+[node name="Tile33" type="MeshInstance3D" parent="ChessboardTrigger/Board" unique_id=1032054395]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36, 0, 0.36)
 material_override = SubResource("StandardMaterial3D_tile_light")
 mesh = SubResource("BoxMesh_chessboard_tile")
+
+[node name="Barrel" parent="." unique_id=1229816567 instance=ExtResource("6_jlsqs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0037005, 0.27649748, 0.033763647)
+
+[node name="Door01" parent="." unique_id=989831881 instance=ExtResource("5_c01mt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8481953, -0.07979131, -1.2315761)
+
+[node name="ArchTest" parent="." unique_id=221741334 instance=ExtResource("6_c01mt")]
+transform = Transform3D(0.76, 0, 0, 0, 0.76, 0, 0, 0, 0.76, -2.0672116, -0.059603214, -1.3999989)
+
+[node name="ArchTest3" parent="." unique_id=593418512 instance=ExtResource("6_c01mt")]
+transform = Transform3D(0.76, 0, 0, 0, 0.76, 0, 0, 0, 0.76, -2.0672116, 1.9147606, -2.2353046)
+
+[node name="ArchTest4" parent="." unique_id=1564851641 instance=ExtResource("6_c01mt")]
+transform = Transform3D(0.76, 0, 0, 0, 0.76, 0, 0, 0, 0.76, -11.09226, 1.9147606, -2.2353046)
+
+[node name="ArchTest2" parent="." unique_id=1721214357 instance=ExtResource("6_c01mt")]
+transform = Transform3D(0.76, 0, 0, 0, 0.76, 0, 0, 0, 0.76, -11.081691, -0.059603214, -1.3999989)
