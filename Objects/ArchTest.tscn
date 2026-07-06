@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://vjf0ruyp7rs8"]
 
 [ext_resource type="ArrayMesh" uid="uid://daix438cuovhe" path="res://Objects/Arch_test.obj" id="1_w0fb4"]
-[ext_resource type="Material" uid="uid://ccuqyelqwain2" path="res://Materials/BlackToon.tres" id="2_byjl2"]
+[ext_resource type="Material" uid="uid://bhtxaoaw8srl1" path="res://Materials/BrownToon.tres" id="2_w0fb4"]
 
 [node name="ArchTest" type="Node3D" unique_id=221741334]
 
 [node name="ArchTest" type="MeshInstance3D" parent="." unique_id=1087515779]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3126279, 0, 0.8142822)
 mesh = ExtResource("1_w0fb4")
-surface_material_override/0 = ExtResource("2_byjl2")
+surface_material_override/0 = ExtResource("2_w0fb4")

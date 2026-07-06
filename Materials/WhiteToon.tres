@@ -5,4 +5,3 @@ blend_mode = 1
 diffuse_mode = 3
 specular_mode = 1
 emission_enabled = true
-emission = Color(1, 1, 1, 1)

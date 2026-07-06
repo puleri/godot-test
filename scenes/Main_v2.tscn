@@ -1,11 +1,12 @@
-[gd_scene format=3 uid="uid://c84tqkfcqhgk8"]
+[gd_scene format=3 uid="uid://j5oy752pebl5"]
 
-[ext_resource type="PackedScene" uid="uid://brg4gso7dpl2n" path="res://scenes/Player.tscn" id="1_h8wvw"]
-[ext_resource type="Material" uid="uid://bhtxaoaw8srl1" path="res://Materials/BrownToon.tres" id="2_c01mt"]
-[ext_resource type="Script" uid="uid://b0hmh308tgxuv" path="res://scripts/chessboard_trigger.gd" id="2_smb6l"]
-[ext_resource type="PackedScene" uid="uid://117b5fi3ylp8" path="res://Objects/Door01.tscn" id="5_c01mt"]
-[ext_resource type="PackedScene" uid="uid://vjf0ruyp7rs8" path="res://Objects/ArchTest.tscn" id="6_c01mt"]
-[ext_resource type="PackedScene" uid="uid://defo8smbyjqfh" path="res://Objects/Newbarrel.tscn" id="6_jlsqs"]
+[ext_resource type="Material" uid="uid://bhtxaoaw8srl1" path="res://Materials/BrownToon.tres" id="2_egnwd"]
+[ext_resource type="Script" uid="uid://b0hmh308tgxuv" path="res://scripts/chessboard_trigger.gd" id="3_hoqs6"]
+[ext_resource type="PackedScene" uid="uid://defo8smbyjqfh" path="res://Objects/Newbarrel.tscn" id="4_44fgt"]
+[ext_resource type="PackedScene" uid="uid://117b5fi3ylp8" path="res://Objects/Door01.tscn" id="5_cgh2w"]
+[ext_resource type="PackedScene" uid="uid://drgg4l7alccvd" path="res://scenes/ROOK_v2.tscn" id="6_7gcg1"]
+[ext_resource type="PackedScene" uid="uid://vjf0ruyp7rs8" path="res://Objects/ArchTest.tscn" id="6_l2hr3"]
+[ext_resource type="Script" uid="uid://cllkecjc7oi8w" path="res://scripts/player_controller_SideScroll.gd" id="7_egnwd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
 size = Vector3(38, 0.2, 18)
@@ -75,8 +76,6 @@ glow_intensity = 0.2
 
 [node name="Main" type="Node3D" unique_id=1346825173]
 
-[node name="Player" parent="." unique_id=557277699 instance=ExtResource("1_h8wvw")]
-
 [node name="Floor" type="StaticBody3D" parent="." unique_id=1783237821]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 
@@ -86,7 +85,7 @@ debug_color = Color(0, 0.6, 0.69803923, 0.827451)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1243654736]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.029291444, 0)
-material_override = ExtResource("2_c01mt")
+material_override = ExtResource("2_egnwd")
 mesh = SubResource("BoxMesh_floor")
 
 [node name="JumpBlockLow" type="StaticBody3D" parent="." unique_id=1586483312]
@@ -110,13 +109,13 @@ material_override = SubResource("StandardMaterial3D_blocks")
 mesh = SubResource("BoxMesh_block_high")
 
 [node name="KeyLight" type="DirectionalLight3D" parent="." unique_id=1931533352]
-transform = Transform3D(0.76604426, 0.52654094, -0.368688, 0, 0.5735765, 0.819152, 0.6427878, -0.6275067, 0.439385, 0, 0, 0)
+transform = Transform3D(0.76604426, 0.52654094, -0.36868802, 0, 0.5735765, 0.819152, 0.6427878, -0.6275067, 0.43938503, -3.2447176, 2.0031338, 0)
 light_energy = 2.8
 shadow_enabled = true
 
 [node name="ChessboardTrigger" type="Area3D" parent="." unique_id=728308958]
 transform = Transform3D(1, 0, 0, 0, 0.9848077, 0.17364818, 0, -0.17364818, 0.9848077, 15.5, 1.2, 0)
-script = ExtResource("2_smb6l")
+script = ExtResource("3_hoqs6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChessboardTrigger" unique_id=1494119090]
 shape = SubResource("BoxShape3D_chessboard_trigger")
@@ -212,17 +211,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36, 0, 0.36)
 material_override = SubResource("StandardMaterial3D_tile_light")
 mesh = SubResource("BoxMesh_chessboard_tile")
 
-[node name="Barrel" parent="." unique_id=1229816567 instance=ExtResource("6_jlsqs")]
+[node name="Barrel" parent="." unique_id=1229816567 instance=ExtResource("4_44fgt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0037005, 0.27649748, 0.033763647)
 
-[node name="Door01" parent="." unique_id=989831881 instance=ExtResource("5_c01mt")]
+[node name="Door01" parent="." unique_id=989831881 instance=ExtResource("5_cgh2w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8481953, -0.07979131, -1.2315761)
 
-[node name="ArchTest" parent="." unique_id=221741334 instance=ExtResource("6_c01mt")]
+[node name="ArchTest" parent="." unique_id=221741334 instance=ExtResource("6_l2hr3")]
 transform = Transform3D(0.76, 0, 0, 0, 0.76, 0, 0, 0, 0.76, -2.0672116, -0.059603214, -1.3999989)
 
-[node name="ArchTest3" parent="." unique_id=593418512 instance=ExtResource("6_c01mt")]
+[node name="ArchTest3" parent="." unique_id=593418512 instance=ExtResource("6_l2hr3")]
 transform = Transform3D(0.76, 0, 0, 0, 0.76, 0, 0, 0, 0.76, -2.0672116, 1.9147606, -2.2353046)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=372680065]
 environment = SubResource("Environment_jlsqs")
+
+[node name="Player" parent="." unique_id=557277699 instance=ExtResource("6_7gcg1")]
+script = ExtResource("7_egnwd")
+phase_1_camera_position = Vector3(0, 0.5, 10)
+phase_1_camera_rotation = Vector3(0, 0, 0)
