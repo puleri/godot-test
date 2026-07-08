@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://drgg4l7alccvd" path="res://scenes/ROOK_v2.tscn" id="6_7gcg1"]
 [ext_resource type="PackedScene" uid="uid://vjf0ruyp7rs8" path="res://Objects/ArchTest.tscn" id="6_l2hr3"]
 [ext_resource type="Script" uid="uid://cllkecjc7oi8w" path="res://scripts/player_controller_SideScroll.gd" id="7_egnwd"]
+[ext_resource type="Script" uid="uid://cvhar58u2m4lq" path="res://scripts/background_music.gd" id="8_music_script"]
+[ext_resource type="AudioStream" path="res://Music/level-1/01-bg.mp3" id="9_level_music"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
 size = Vector3(38, 0.2, 18)
@@ -75,6 +77,12 @@ glow_enabled = true
 glow_intensity = 0.2
 
 [node name="Main" type="Node3D" unique_id=1346825173]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1127940705]
+stream = ExtResource("9_level_music")
+volume_db = -8.0
+autoplay = true
+script = ExtResource("8_music_script")
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=1783237821]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)

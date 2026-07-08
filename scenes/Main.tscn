@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://117b5fi3ylp8" path="res://Objects/Door01.tscn" id="5_c01mt"]
 [ext_resource type="PackedScene" uid="uid://vjf0ruyp7rs8" path="res://Objects/ArchTest.tscn" id="6_c01mt"]
 [ext_resource type="PackedScene" uid="uid://defo8smbyjqfh" path="res://Objects/Newbarrel.tscn" id="6_jlsqs"]
+[ext_resource type="Script" uid="uid://cvhar58u2m4lq" path="res://scripts/background_music.gd" id="7_music_script"]
+[ext_resource type="AudioStream" path="res://Music/level-1/01-bg.mp3" id="8_level_music"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
 size = Vector3(38, 0.2, 18)
@@ -74,6 +76,12 @@ glow_enabled = true
 glow_intensity = 0.2
 
 [node name="Main" type="Node3D" unique_id=1346825173]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1127940705]
+stream = ExtResource("8_level_music")
+volume_db = -8.0
+autoplay = true
+script = ExtResource("7_music_script")
 
 [node name="Player" parent="." unique_id=557277699 instance=ExtResource("1_h8wvw")]
 

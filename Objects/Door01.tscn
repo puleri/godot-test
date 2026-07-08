@@ -1,13 +1,40 @@
 [gd_scene format=3 uid="uid://117b5fi3ylp8"]
 
 [ext_resource type="ArrayMesh" uid="uid://87mg8nwewwnm" path="res://Objects/Door_test.obj" id="1_lu17r"]
+[ext_resource type="Script" uid="uid://d2ybxf40lp8jn" path="res://scripts/door_bump_wiggle.gd" id="1_wiggle"]
 [ext_resource type="Material" uid="uid://ccuqyelqwain2" path="res://Materials/BlackToon.tres" id="2_fsmr3"]
 [ext_resource type="Material" uid="uid://jy5qaflc0y0q" path="res://Materials/GreyToon.tres" id="2_lxy05"]
+[ext_resource type="AudioStream" path="res://Music/FX/knock1.mp3" id="5_knock"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bump_trigger"]
+size = Vector3(1.25, 1.25, 0.45)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_door_collision"]
+size = Vector3(1.13, 1.13, 0.12)
 
 [node name="Door01" type="Node3D" unique_id=989831881]
+script = ExtResource("1_wiggle")
 
-[node name="DoorTest" type="MeshInstance3D" parent="." unique_id=1069080471]
+[node name="KnockSound" type="AudioStreamPlayer" parent="." unique_id=1751197163]
+stream = ExtResource("5_knock")
+volume_db = 1.0
+
+[node name="HingePivot" type="Node3D" parent="." unique_id=1760442920]
+
+[node name="DoorTest" type="MeshInstance3D" parent="HingePivot" unique_id=1069080471]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0.25477302, 0)
 mesh = ExtResource("1_lu17r")
 surface_material_override/0 = ExtResource("2_lxy05")
 surface_material_override/1 = ExtResource("2_fsmr3")
+
+[node name="DoorBody" type="StaticBody3D" parent="HingePivot" unique_id=1179276119]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HingePivot/DoorBody" unique_id=1845688415]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.56, 0.62, 0.1)
+shape = SubResource("BoxShape3D_door_collision")
+
+[node name="BumpTrigger" type="Area3D" parent="." unique_id=2139899880]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.56, 0.7, 0.1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BumpTrigger" unique_id=233217119]
+shape = SubResource("BoxShape3D_bump_trigger")
