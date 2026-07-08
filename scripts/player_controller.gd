@@ -53,6 +53,10 @@ var walk_blend_amount: float = 0.0
 var using_animation_tree: bool = false
 var transition_started: bool = false
 var camera_tween: Tween
+var interaction_locked := false
+var movement_speed_multiplier := 1.0
+var manual_jump_enabled := true
+var player_collision_shapes: Array[CollisionShape3D] = []
 
 # Rook animation names come from the imported FBX animation list.
 const IDLE_ANIMATION := "Skeleton|Idle"
@@ -64,6 +68,7 @@ const JUMP_STATE := "Jump"
 
 func _ready() -> void:
 	animation_player = _find_animation_player(self)
+	_cache_player_collision_shapes()
 	global_position.z = side_plane_z
 
 	if visual_pivot != null:
@@ -76,6 +81,12 @@ func _ready() -> void:
 	_initialize_animation_pose()
 
 func _physics_process(delta: float) -> void:
+	if interaction_locked:
+		velocity = Vector3.ZERO
+		_update_phase_camera()
+		_update_animation(delta, false)
+		return
+
 	var movement_input := Vector3.ZERO
 	match current_phase:
 		ControlPhase.PHASE_1_PLATFORMER:
@@ -103,7 +114,7 @@ func handle_phase_2_movement(delta: float) -> Vector3:
 
 	var forward_input := Input.get_axis("move_down", "move_up")
 	var forward_direction := global_transform.basis.x.normalized()
-	var target_velocity := forward_direction * forward_input * max_walk_speed
+	var target_velocity := forward_direction * forward_input * _get_current_max_walk_speed()
 	target_velocity.y = 0.0
 	_update_ground_plane_velocity(target_velocity, target_velocity.normalized() if target_velocity.length() > 0.0 else Vector3.ZERO, delta)
 	return target_velocity.normalized() if target_velocity.length() > 0.0 else Vector3.ZERO
@@ -135,6 +146,36 @@ func transition_to_phase_2(trigger: Node = null) -> void:
 		game_camera.fov = phase_2_camera_fov
 		_start_camera_transition()
 
+func set_interaction_locked(is_locked: bool) -> void:
+	interaction_locked = is_locked
+	if interaction_locked:
+		velocity = Vector3.ZERO
+
+func set_movement_speed_multiplier(multiplier: float) -> void:
+	movement_speed_multiplier = maxf(multiplier, 0.0)
+
+func set_manual_jump_enabled(is_enabled: bool) -> void:
+	manual_jump_enabled = is_enabled
+
+func set_character_visual_visible(is_visible: bool) -> void:
+	if visual_pivot != null:
+		visual_pivot.visible = is_visible
+
+func set_player_collision_enabled(is_enabled: bool) -> void:
+	if player_collision_shapes.is_empty():
+		_cache_player_collision_shapes()
+
+	for collision_shape in player_collision_shapes:
+		if is_instance_valid(collision_shape):
+			collision_shape.set_deferred("disabled", not is_enabled)
+
+func _cache_player_collision_shapes() -> void:
+	player_collision_shapes.clear()
+	for node in find_children("*", "CollisionShape3D", true, false):
+		var collision_shape := node as CollisionShape3D
+		if collision_shape != null:
+			player_collision_shapes.append(collision_shape)
+
 func _read_phase_1_cardinal_input() -> Vector3:
 	var horizontal_input := Input.get_axis("move_left", "move_right")
 	if not is_zero_approx(horizontal_input):
@@ -151,13 +192,14 @@ func _axis_sign(value: float) -> float:
 
 func _update_phase_1_ground_velocity(cardinal_input: Vector3, delta: float) -> void:
 	var acceleration := _get_ground_plane_acceleration(cardinal_input)
+	var current_max_walk_speed := _get_current_max_walk_speed()
 
 	if not is_zero_approx(cardinal_input.x):
-		velocity.x = move_toward(velocity.x, cardinal_input.x * max_walk_speed, acceleration * delta)
+		velocity.x = move_toward(velocity.x, cardinal_input.x * current_max_walk_speed, acceleration * delta)
 		velocity.z = 0.0
 	elif not is_zero_approx(cardinal_input.z):
 		velocity.x = 0.0
-		velocity.z = move_toward(velocity.z, cardinal_input.z * max_walk_speed, acceleration * delta)
+		velocity.z = move_toward(velocity.z, cardinal_input.z * current_max_walk_speed, acceleration * delta)
 	else:
 		_decelerate_phase_1_ground_velocity(acceleration, delta)
 
@@ -182,12 +224,15 @@ func _get_ground_plane_acceleration(movement_input: Vector3) -> float:
 
 	return ground_acceleration if is_on_floor() else air_acceleration
 
+func _get_current_max_walk_speed() -> float:
+	return max_walk_speed * movement_speed_multiplier
+
 func _update_vertical_velocity(delta: float) -> bool:
 	if is_on_floor():
 		if velocity.y < 0.0:
 			velocity.y = 0.0
 
-		if Input.is_action_just_pressed("jump"):
+		if manual_jump_enabled and Input.is_action_just_pressed("jump"):
 			velocity.y = jump_velocity
 			return true
 	else:
