@@ -17,7 +17,7 @@ script = ExtResource("1_wiggle")
 
 [node name="KnockSound" type="AudioStreamPlayer" parent="." unique_id=1751197163]
 stream = ExtResource("5_knock")
-volume_db = 1.0
+volume_db = -20.4
 
 [node name="HingePivot" type="Node3D" parent="." unique_id=1760442920]
 

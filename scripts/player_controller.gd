@@ -49,6 +49,8 @@ var current_animation_state: String = ""
 var idle_animation_name: String = ""
 var walk_animation_name: String = ""
 var jump_animation_name: String = ""
+var barrel_idle_animation_name: String = ""
+var barrel_walk_animation_name: String = ""
 var walk_blend_amount: float = 0.0
 var using_animation_tree: bool = false
 var transition_started: bool = false
@@ -56,6 +58,9 @@ var camera_tween: Tween
 var interaction_locked := false
 var movement_speed_multiplier := 1.0
 var manual_jump_enabled := true
+var barrel_animation_mode_enabled := false
+var barrel_hop_animation_active := false
+var barrel_animation_fallback_warned := false
 var player_collision_shapes: Array[CollisionShape3D] = []
 
 # Rook animation names come from the imported FBX animation list.
@@ -63,6 +68,8 @@ const IDLE_ANIMATION := "Skeleton|Idle"
 const WALK_ANIMATION_PRIMARY := "Skeleton|Walk_v3"
 const WALK_ANIMATION_FALLBACK := "Skeleton|Walk"
 const JUMP_ANIMATION := "Skeleton|Jump"
+const BARREL_IDLE_ANIMATION := "Skeleton|Barrel_Idle"
+const BARREL_WALK_ANIMATION := "Skeleton|Barrel_Walk"
 const GROUND_STATE := "Ground"
 const JUMP_STATE := "Jump"
 
@@ -156,6 +163,27 @@ func set_movement_speed_multiplier(multiplier: float) -> void:
 
 func set_manual_jump_enabled(is_enabled: bool) -> void:
 	manual_jump_enabled = is_enabled
+
+func set_barrel_animation_mode_enabled(is_enabled: bool) -> void:
+	if barrel_animation_mode_enabled == is_enabled:
+		return
+
+	barrel_animation_mode_enabled = is_enabled
+	_warn_if_barrel_animation_fallback_needed()
+
+	if using_animation_tree:
+		_rebuild_animation_tree()
+	else:
+		current_animation = ""
+
+func set_barrel_hop_animation_active(is_active: bool) -> void:
+	barrel_hop_animation_active = is_active
+	if using_animation_tree and state_machine_playback != null:
+		var target_state := JUMP_STATE if barrel_hop_animation_active else GROUND_STATE
+		state_machine_playback.travel(target_state)
+		current_animation_state = target_state
+	else:
+		current_animation = ""
 
 func set_character_visual_visible(is_visible: bool) -> void:
 	if visual_pivot != null:
@@ -310,21 +338,28 @@ func _update_animation_tree(normalized_speed: float, jumped: bool) -> void:
 	animation_tree.set("parameters/%s/GroundBlend/blend_amount" % GROUND_STATE, walk_blend_amount)
 	animation_tree.set("parameters/%s/WalkSpeed/scale" % GROUND_STATE, _get_walk_playback_scale(normalized_speed))
 
-	var target_state := JUMP_STATE if jumped or not is_on_floor() else GROUND_STATE
+	var target_state := GROUND_STATE
+	if barrel_hop_animation_active:
+		target_state = JUMP_STATE
+	elif not barrel_animation_mode_enabled:
+		target_state = JUMP_STATE if jumped or not is_on_floor() else GROUND_STATE
 	if target_state != current_animation_state:
 		state_machine_playback.travel(target_state)
 		current_animation_state = target_state
 
 func _update_animation_player_fallback(normalized_speed: float, jumped: bool) -> void:
-	var target_animation := idle_animation_name
+	var target_animation := _get_active_idle_animation_name()
 	var blend_time := walk_blend_out_time
 	var playback_scale := 1.0
 
-	if jumped or not is_on_floor():
+	if barrel_hop_animation_active:
+		target_animation = jump_animation_name
+		blend_time = jump_blend_time
+	elif not barrel_animation_mode_enabled and (jumped or not is_on_floor()):
 		target_animation = jump_animation_name
 		blend_time = jump_blend_time
 	elif normalized_speed > walk_animation_threshold:
-		target_animation = walk_animation_name
+		target_animation = _get_active_walk_animation_name()
 		blend_time = walk_blend_in_time
 		playback_scale = _get_walk_playback_scale(normalized_speed)
 
@@ -358,13 +393,24 @@ func _configure_animation_tree() -> void:
 	idle_animation_name = _resolve_required_animation(IDLE_ANIMATION)
 	walk_animation_name = _resolve_walk_animation()
 	jump_animation_name = _resolve_required_animation(JUMP_ANIMATION)
+	barrel_idle_animation_name = _resolve_optional_animation(BARREL_IDLE_ANIMATION)
+	barrel_walk_animation_name = _resolve_optional_animation(BARREL_WALK_ANIMATION)
 
 	if idle_animation_name.is_empty() or walk_animation_name.is_empty() or jump_animation_name.is_empty():
 		push_warning("PlayerController is missing one or more Rook animations. Falling back to direct AnimationPlayer playback.")
 		_play_animation(idle_animation_name)
 		return
 
-	var ground_tree := _build_ground_blend_tree(idle_animation_name, walk_animation_name)
+	if not _rebuild_animation_tree():
+		return
+
+	using_animation_tree = true
+
+func _rebuild_animation_tree() -> bool:
+	if animation_tree == null or animation_player == null:
+		return false
+
+	var ground_tree := _build_ground_blend_tree(_get_active_idle_animation_name(), _get_active_walk_animation_name())
 	var jump_node := AnimationNodeAnimation.new()
 	jump_node.animation = jump_animation_name
 
@@ -382,11 +428,15 @@ func _configure_animation_tree() -> void:
 	if state_machine_playback == null:
 		push_warning("PlayerController could not initialize AnimationTree playback. Falling back to AnimationPlayer blends.")
 		animation_tree.active = false
-		return
+		using_animation_tree = false
+		return false
 
 	state_machine_playback.start(GROUND_STATE)
 	current_animation_state = GROUND_STATE
-	using_animation_tree = true
+	walk_blend_amount = 0.0
+	animation_tree.set("parameters/%s/GroundBlend/blend_amount" % GROUND_STATE, walk_blend_amount)
+	animation_tree.set("parameters/%s/WalkSpeed/scale" % GROUND_STATE, min_walk_playback_scale)
+	return true
 
 func _build_ground_blend_tree(idle_animation: String, walk_animation: String) -> AnimationNodeBlendTree:
 	var idle_node := AnimationNodeAnimation.new()
@@ -419,6 +469,12 @@ func _resolve_required_animation(animation_name: String) -> String:
 		return animation_name
 
 	push_warning("Rook animation not found: %s" % animation_name)
+	return ""
+
+func _resolve_optional_animation(animation_name: String) -> String:
+	if animation_player != null and animation_player.has_animation(animation_name):
+		return animation_name
+
 	return ""
 
 func _resolve_walk_animation() -> String:
@@ -467,6 +523,30 @@ func _configure_animation_loops() -> void:
 	_set_animation_loop(WALK_ANIMATION_PRIMARY, Animation.LOOP_LINEAR)
 	_set_animation_loop(WALK_ANIMATION_FALLBACK, Animation.LOOP_LINEAR)
 	_set_animation_loop(JUMP_ANIMATION, Animation.LOOP_NONE)
+	_set_animation_loop(BARREL_IDLE_ANIMATION, Animation.LOOP_LINEAR)
+	_set_animation_loop(BARREL_WALK_ANIMATION, Animation.LOOP_LINEAR)
+
+func _get_active_idle_animation_name() -> String:
+	if barrel_animation_mode_enabled and _has_barrel_animation_pair():
+		return barrel_idle_animation_name
+
+	return idle_animation_name
+
+func _get_active_walk_animation_name() -> String:
+	if barrel_animation_mode_enabled and _has_barrel_animation_pair():
+		return barrel_walk_animation_name
+
+	return walk_animation_name
+
+func _has_barrel_animation_pair() -> bool:
+	return not barrel_idle_animation_name.is_empty() and not barrel_walk_animation_name.is_empty()
+
+func _warn_if_barrel_animation_fallback_needed() -> void:
+	if not barrel_animation_mode_enabled or _has_barrel_animation_pair() or barrel_animation_fallback_warned:
+		return
+
+	barrel_animation_fallback_warned = true
+	push_warning("Barrel animations not found. Falling back to normal idle/walk animations.")
 
 func _set_animation_loop(animation_name: String, loop_mode: int) -> void:
 	if animation_player.has_animation(animation_name):

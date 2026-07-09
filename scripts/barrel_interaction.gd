@@ -75,11 +75,14 @@ func enter_barrel(player: CharacterBody3D) -> void:
 	_set_side_collision_enabled(false)
 	_set_player_collision_enabled(player, false)
 	_set_player_visual_visible(player, true)
+	_set_player_barrel_hop_animation_active(player, true)
 	await _hop_player_to(player, _get_inside_position(player))
+	_set_player_barrel_hop_animation_active(player, false)
 
 	_set_player_collision_enabled(player, true)
 	_set_player_movement_speed_multiplier(player, occupied_speed_multiplier)
 	_set_player_manual_jump_enabled(player, false)
+	_set_player_barrel_animation_mode_enabled(player, true)
 	_set_player_locked(player, false)
 	player_inside = true
 	_sync_barrel_to_player(player)
@@ -100,12 +103,15 @@ func exit_barrel() -> void:
 	_set_player_locked(player, true)
 	_set_player_movement_speed_multiplier(player, 1.0)
 	_set_player_manual_jump_enabled(player, true)
+	_set_player_barrel_animation_mode_enabled(player, false)
 	_set_player_collision_enabled(player, false)
 	_set_barrel_lifted(false)
 	_set_player_visual_visible(player, true)
 	player_inside = false
 	player.global_position = _get_inside_position(player)
+	_set_player_barrel_hop_animation_active(player, true)
 	await _hop_player_to(player, _get_exit_position(player))
+	_set_player_barrel_hop_animation_active(player, false)
 
 	_set_player_collision_enabled(player, true)
 	_set_side_collision_enabled(true)
@@ -239,6 +245,14 @@ func _set_player_movement_speed_multiplier(player: CharacterBody3D, multiplier: 
 func _set_player_manual_jump_enabled(player: CharacterBody3D, is_enabled: bool) -> void:
 	if player.has_method("set_manual_jump_enabled"):
 		player.set_manual_jump_enabled(is_enabled)
+
+func _set_player_barrel_animation_mode_enabled(player: CharacterBody3D, is_enabled: bool) -> void:
+	if player.has_method("set_barrel_animation_mode_enabled"):
+		player.set_barrel_animation_mode_enabled(is_enabled)
+
+func _set_player_barrel_hop_animation_active(player: CharacterBody3D, is_active: bool) -> void:
+	if player.has_method("set_barrel_hop_animation_active"):
+		player.set_barrel_hop_animation_active(is_active)
 
 func _set_side_collision_enabled(is_enabled: bool) -> void:
 	for collision_shape in side_collision_shapes:
