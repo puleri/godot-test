@@ -7,7 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://vjf0ruyp7rs8" path="res://Objects/ArchTest.tscn" id="6_c01mt"]
 [ext_resource type="PackedScene" uid="uid://defo8smbyjqfh" path="res://Objects/Newbarrel.tscn" id="6_jlsqs"]
 [ext_resource type="Script" uid="uid://cvhar58u2m4lq" path="res://scripts/background_music.gd" id="7_music_script"]
-[ext_resource type="AudioStream" path="res://Music/level-1/01-bg.mp3" id="8_level_music"]
+[ext_resource type="AudioStream" uid="uid://dlmuval313gd" path="res://Music/level-1/01-bg.mp3" id="8_level_music"]
+[ext_resource type="PackedScene" uid="uid://cg3j6h82jtxsw" path="res://Objects/PressurePlate.tscn" id="9_plate"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
 size = Vector3(38, 0.2, 18)
@@ -222,6 +223,10 @@ mesh = SubResource("BoxMesh_chessboard_tile")
 
 [node name="Barrel" parent="." unique_id=1229816567 instance=ExtResource("6_jlsqs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0037005, 0.27649748, 0.033763647)
+
+[node name="PressurePlate" parent="." unique_id=952225016 instance=ExtResource("9_plate")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9232273, 0.035, 1.7023618)
+target_door_path = NodePath("../Door01")
 
 [node name="Door01" parent="." unique_id=989831881 instance=ExtResource("5_c01mt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8481953, -0.07979131, -1.2315761)

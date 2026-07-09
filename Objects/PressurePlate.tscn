@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cg3j6h82jtxsw"]
+
+[ext_resource type="Script" uid="uid://d0mp6yasqxycv" path="res://scripts/pressure_plate.gd" id="1_plate"]
+[ext_resource type="Material" uid="uid://jy5qaflc0y0q" path="res://Materials/GreyToon.tres" id="2_grey"]
+[ext_resource type="Material" uid="uid://bs70trtb4dusn" path="res://Materials/BlueToon.tres" id="3_blue"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_plate"]
+size = Vector3(1.2, 0.07, 1.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_weight_area"]
+size = Vector3(1.05, 0.42, 1.05)
+
+[node name="PressurePlate" type="Node3D"]
+script = ExtResource("1_plate")
+inactive_material = ExtResource("2_grey")
+active_material = ExtResource("3_blue")
+
+[node name="PlateVisual" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_plate")
+material_override = ExtResource("2_grey")
+
+[node name="WeightArea" type="Area3D" parent="."]
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WeightArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18, 0)
+shape = SubResource("BoxShape3D_weight_area")

@@ -109,6 +109,7 @@ func exit_barrel() -> void:
 	_set_player_visual_visible(player, true)
 	player_inside = false
 	player.global_position = _get_inside_position(player)
+	_set_side_collision_enabled(true)
 	_set_player_barrel_hop_animation_active(player, true)
 	await _hop_player_to(player, _get_exit_position(player))
 	_set_player_barrel_hop_animation_active(player, false)
@@ -366,3 +367,6 @@ func _restore_music_filter_immediately() -> void:
 
 	music_filter.cutoff_hz = normal_music_cutoff_hz
 	AudioServer.set_bus_effect_enabled(bus_index, effect_index, false)
+
+func is_pressure_plate_weight_source() -> bool:
+	return true
