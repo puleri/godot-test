@@ -25,6 +25,10 @@ enum ControlPhase {
 @export var turn_speed: float = 2.8
 @export var phase_1_camera_position: Vector3 = Vector3(0.0, .5, 10.0)
 @export var phase_1_camera_rotation: Vector3 = Vector3(0, 0.0, 0.0)
+@export var phase_1_flipped_camera_position: Vector3 = Vector3(0.0, 0.5, -10.0)
+@export var phase_1_flipped_camera_rotation: Vector3 = Vector3(0.0, PI, 0.0)
+@export var phase_1_camera_flip_duration: float = 0.35
+@export var mirror_phase_1_controls_when_camera_flipped := true
 @export var phase_2_camera_position: Vector3 = Vector3(-6.0, 3.0, 0.0)
 @export var phase_2_camera_rotation: Vector3 = Vector3(-0.35, -PI / 2.0, 0.0)
 @export var camera_transition_duration: float = 1.1
@@ -55,6 +59,11 @@ var walk_blend_amount: float = 0.0
 var using_animation_tree: bool = false
 var transition_started: bool = false
 var camera_tween: Tween
+var outside_phase_1_camera_position: Vector3
+var outside_phase_1_camera_rotation: Vector3
+var active_phase_1_camera_position: Vector3
+var active_phase_1_camera_rotation: Vector3
+var phase_1_camera_flipped := false
 var interaction_locked := false
 var movement_speed_multiplier := 1.0
 var manual_jump_enabled := true
@@ -77,6 +86,7 @@ func _ready() -> void:
 	animation_player = _find_animation_player(self)
 	_cache_player_collision_shapes()
 	global_position.z = side_plane_z
+	_store_phase_1_camera_defaults()
 
 	if visual_pivot != null:
 		visual_pivot.rotation.y = facing_right_yaw
@@ -185,6 +195,29 @@ func set_barrel_hop_animation_active(is_active: bool) -> void:
 	else:
 		current_animation = ""
 
+func set_phase_1_camera_flipped(is_flipped: bool) -> void:
+	if phase_1_camera_flipped == is_flipped:
+		return
+
+	phase_1_camera_flipped = is_flipped
+	var target_position := phase_1_flipped_camera_position if phase_1_camera_flipped else outside_phase_1_camera_position
+	var target_rotation := phase_1_flipped_camera_rotation if phase_1_camera_flipped else outside_phase_1_camera_rotation
+
+	if camera_tween != null:
+		camera_tween.kill()
+
+	if current_phase != ControlPhase.PHASE_1_PLATFORMER or game_camera == null or phase_1_camera_flip_duration <= 0.0:
+		active_phase_1_camera_position = target_position
+		active_phase_1_camera_rotation = target_rotation
+		return
+
+	camera_tween = create_tween()
+	camera_tween.set_parallel(true)
+	camera_tween.set_trans(Tween.TRANS_SINE)
+	camera_tween.set_ease(Tween.EASE_IN_OUT)
+	camera_tween.tween_property(self, "active_phase_1_camera_position", target_position, phase_1_camera_flip_duration)
+	camera_tween.tween_property(self, "active_phase_1_camera_rotation", target_rotation, phase_1_camera_flip_duration)
+
 func set_character_visual_visible(is_visible: bool) -> void:
 	if visual_pivot != null:
 		visual_pivot.visible = is_visible
@@ -205,15 +238,22 @@ func _cache_player_collision_shapes() -> void:
 			player_collision_shapes.append(collision_shape)
 
 func _read_phase_1_cardinal_input() -> Vector3:
-	var horizontal_input := Input.get_axis("move_left", "move_right")
+	var input_sign := _get_phase_1_input_sign()
+	var horizontal_input := Input.get_axis("move_left", "move_right") * input_sign
 	if not is_zero_approx(horizontal_input):
 		return Vector3(_axis_sign(horizontal_input), 0.0, 0.0)
 
-	var vertical_input := Input.get_axis("move_down", "move_up")
+	var vertical_input := Input.get_axis("move_down", "move_up") * input_sign
 	if not is_zero_approx(vertical_input):
 		return Vector3(0.0, 0.0, _axis_sign(vertical_input) * phase_1_vertical_axis_sign)
 
 	return Vector3.ZERO
+
+func _get_phase_1_input_sign() -> float:
+	if mirror_phase_1_controls_when_camera_flipped and phase_1_camera_flipped:
+		return -1.0
+
+	return 1.0
 
 func _axis_sign(value: float) -> float:
 	return 1.0 if value > 0.0 else -1.0
@@ -279,24 +319,30 @@ func _update_facing(movement_input: Vector3) -> void:
 	elif absf(movement_input.z) > 0.0:
 		visual_pivot.rotation.y = facing_up_yaw if movement_input.z < 0.0 else facing_down_yaw
 
+func _store_phase_1_camera_defaults() -> void:
+	outside_phase_1_camera_position = phase_1_camera_position
+	outside_phase_1_camera_rotation = phase_1_camera_rotation
+	active_phase_1_camera_position = outside_phase_1_camera_position
+	active_phase_1_camera_rotation = outside_phase_1_camera_rotation
+
 func _configure_phase_1_camera() -> void:
 	if game_camera == null:
 		return
 
 	game_camera.projection = Camera3D.PROJECTION_ORTHOGONAL
-	game_camera.position = phase_1_camera_position
-	game_camera.rotation = phase_1_camera_rotation
+	game_camera.position = active_phase_1_camera_position
+	game_camera.rotation = active_phase_1_camera_rotation
 
 func _update_phase_camera() -> void:
 	if current_phase != ControlPhase.PHASE_1_PLATFORMER or game_camera == null:
 		return
 
 	game_camera.global_position = Vector3(
-		global_position.x + phase_1_camera_position.x,
-		global_position.y + phase_1_camera_position.y,
-		side_plane_z + phase_1_camera_position.z
+		global_position.x + active_phase_1_camera_position.x,
+		global_position.y + active_phase_1_camera_position.y,
+		side_plane_z + active_phase_1_camera_position.z
 	)
-	game_camera.global_rotation = phase_1_camera_rotation
+	game_camera.global_rotation = active_phase_1_camera_rotation
 
 func _start_camera_transition() -> void:
 	if camera_tween != null:

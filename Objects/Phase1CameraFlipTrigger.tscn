@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ddmmhuf86f88k"]
+
+[ext_resource type="Script" uid="uid://bi6k1nhjlmvkw" path="res://scripts/phase_1_camera_flip_trigger.gd" id="1_trigger"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_camera_flip_trigger"]
+size = Vector3(1.4, 1.6, 0.45)
+
+[node name="Phase1CameraFlipTrigger" type="Area3D"]
+monitorable = false
+script = ExtResource("1_trigger")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_camera_flip_trigger")

@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cvhar58u2m4lq" path="res://scripts/background_music.gd" id="7_music_script"]
 [ext_resource type="AudioStream" uid="uid://dlmuval313gd" path="res://Music/level-1/01-bg.mp3" id="8_level_music"]
 [ext_resource type="PackedScene" uid="uid://cg3j6h82jtxsw" path="res://Objects/PressurePlate.tscn" id="9_plate"]
+[ext_resource type="PackedScene" uid="uid://ddmmhuf86f88k" path="res://Objects/Phase1CameraFlipTrigger.tscn" id="10_camera_flip"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
 size = Vector3(38, 0.2, 18)
@@ -230,6 +231,9 @@ target_door_path = NodePath("../Door01")
 
 [node name="Door01" parent="." unique_id=989831881 instance=ExtResource("5_c01mt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8481953, -0.07979131, -1.2315761)
+
+[node name="Phase1CameraFlipTrigger" parent="." instance=ExtResource("10_camera_flip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2, 0.7, -1.55)
 
 [node name="ArchTest" parent="." unique_id=221741334 instance=ExtResource("6_c01mt")]
 transform = Transform3D(0.76, 0, 0, 0, 0.76, 0, 0, 0, 0.76, -2.0672116, -0.059603214, -1.3999989)
