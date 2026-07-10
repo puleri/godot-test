@@ -3,6 +3,7 @@ extends CharacterBody3D
 enum ControlPhase {
 	PHASE_1_PLATFORMER,
 	PHASE_2_THIRD_PERSON,
+	PHASE_3_STATIC_ISOMETRIC,
 }
 
 @export var max_walk_speed: float = 5.0
@@ -33,6 +34,10 @@ enum ControlPhase {
 @export var phase_2_camera_rotation: Vector3 = Vector3(-0.35, -PI / 2.0, 0.0)
 @export var camera_transition_duration: float = 1.1
 @export var phase_2_camera_fov: float = 62.0
+@export var phase_3_static_camera_position: Vector3 = Vector3(0.0, 2.2, 5.5)
+@export var phase_3_static_camera_rotation: Vector3 = Vector3(deg_to_rad(-30.0), -PI / 4.0, 0.0)
+@export var phase_3_static_camera_size: float = 12.0
+@export var phase_3_camera_transition_duration: float = 1.1
 @export var walk_blend_in_time: float = 0.16
 @export var walk_blend_out_time: float = 0.12
 @export var jump_blend_time: float = 0.05
@@ -59,10 +64,14 @@ var walk_blend_amount: float = 0.0
 var using_animation_tree: bool = false
 var transition_started: bool = false
 var camera_tween: Tween
+var player_starting_position: Vector3
 var outside_phase_1_camera_position: Vector3
 var outside_phase_1_camera_rotation: Vector3
 var active_phase_1_camera_position: Vector3
 var active_phase_1_camera_rotation: Vector3
+var phase_3_static_camera_pivot: Vector3
+var phase_3_static_camera_base_position: Vector3
+var phase_3_static_camera_base_rotation: Vector3
 var phase_1_camera_flipped := false
 var interaction_locked := false
 var movement_speed_multiplier := 1.0
@@ -86,6 +95,7 @@ func _ready() -> void:
 	animation_player = _find_animation_player(self)
 	_cache_player_collision_shapes()
 	global_position.z = side_plane_z
+	player_starting_position = global_position
 	_store_phase_1_camera_defaults()
 
 	if visual_pivot != null:
@@ -110,6 +120,8 @@ func _physics_process(delta: float) -> void:
 			movement_input = handle_phase_1_movement(delta)
 		ControlPhase.PHASE_2_THIRD_PERSON:
 			movement_input = handle_phase_2_movement(delta)
+		ControlPhase.PHASE_3_STATIC_ISOMETRIC:
+			movement_input = handle_phase_1_movement(delta)
 
 	var jumped := _update_vertical_velocity(delta)
 
@@ -137,17 +149,13 @@ func handle_phase_2_movement(delta: float) -> Vector3:
 	return target_velocity.normalized() if target_velocity.length() > 0.0 else Vector3.ZERO
 
 func transition_to_phase_2(trigger: Node = null) -> void:
-	if transition_started:
+	if current_phase != ControlPhase.PHASE_1_PLATFORMER or transition_started:
 		return
 
 	transition_started = true
 	current_phase = ControlPhase.PHASE_2_THIRD_PERSON
 
-	if trigger != null:
-		trigger.hide()
-		if trigger is Area3D:
-			trigger.set_deferred("monitoring", false)
-			trigger.set_deferred("monitorable", false)
+	_deactivate_phase_trigger(trigger)
 
 	var camera_transform := Transform3D.IDENTITY
 	if game_camera != null:
@@ -162,6 +170,34 @@ func transition_to_phase_2(trigger: Node = null) -> void:
 		game_camera.projection = Camera3D.PROJECTION_PERSPECTIVE
 		game_camera.fov = phase_2_camera_fov
 		_start_camera_transition()
+
+func transition_to_phase_3_static_isometric(trigger: Node = null) -> void:
+	if current_phase == ControlPhase.PHASE_3_STATIC_ISOMETRIC:
+		return
+
+	current_phase = ControlPhase.PHASE_3_STATIC_ISOMETRIC
+	phase_3_static_camera_pivot = player_starting_position
+	phase_3_static_camera_base_position = phase_3_static_camera_position
+	phase_3_static_camera_base_rotation = phase_3_static_camera_rotation
+	_deactivate_phase_trigger(trigger)
+
+	if game_camera == null:
+		return
+
+	var camera_transform := game_camera.global_transform
+	game_camera.top_level = true
+	game_camera.global_transform = camera_transform
+	game_camera.projection = Camera3D.PROJECTION_ORTHOGONAL
+	_start_static_isometric_camera_transition()
+
+func _deactivate_phase_trigger(trigger: Node) -> void:
+	if trigger == null:
+		return
+
+	trigger.hide()
+	if trigger is Area3D:
+		trigger.set_deferred("monitoring", false)
+		trigger.set_deferred("monitorable", false)
 
 func set_interaction_locked(is_locked: bool) -> void:
 	interaction_locked = is_locked
@@ -205,6 +241,10 @@ func set_phase_1_camera_flipped(is_flipped: bool) -> void:
 
 	if camera_tween != null:
 		camera_tween.kill()
+
+	if current_phase == ControlPhase.PHASE_3_STATIC_ISOMETRIC:
+		_start_static_isometric_camera_orbit(is_flipped)
+		return
 
 	if current_phase != ControlPhase.PHASE_1_PLATFORMER or game_camera == null or phase_1_camera_flip_duration <= 0.0:
 		active_phase_1_camera_position = target_position
@@ -354,6 +394,40 @@ func _start_camera_transition() -> void:
 	camera_tween.set_ease(Tween.EASE_OUT)
 	camera_tween.tween_property(game_camera, "position", phase_2_camera_position, camera_transition_duration)
 	camera_tween.tween_property(game_camera, "rotation", phase_2_camera_rotation, camera_transition_duration)
+
+func _start_static_isometric_camera_transition() -> void:
+	if camera_tween != null:
+		camera_tween.kill()
+
+	camera_tween = create_tween()
+	camera_tween.set_parallel(true)
+	camera_tween.set_trans(Tween.TRANS_CUBIC)
+	camera_tween.set_ease(Tween.EASE_OUT)
+	camera_tween.tween_property(game_camera, "global_position", phase_3_static_camera_position, phase_3_camera_transition_duration)
+	camera_tween.tween_property(game_camera, "global_rotation", phase_3_static_camera_rotation, phase_3_camera_transition_duration)
+	camera_tween.tween_property(game_camera, "size", phase_3_static_camera_size, phase_3_camera_transition_duration)
+
+func _start_static_isometric_camera_orbit(is_flipped: bool) -> void:
+	if game_camera == null:
+		return
+
+	var orbit_angle := PI / -2.0 if is_flipped else 0.0
+	var orbit_basis := Basis(Vector3.UP, orbit_angle)
+	var target_position := phase_3_static_camera_pivot + orbit_basis * (phase_3_static_camera_base_position - phase_3_static_camera_pivot)
+	var target_rotation := phase_3_static_camera_base_rotation + Vector3(0.0, orbit_angle, 0.0)
+	var duration := maxf(phase_1_camera_flip_duration, 0.0)
+
+	if duration <= 0.0:
+		game_camera.global_position = target_position
+		game_camera.global_rotation = target_rotation
+		return
+
+	camera_tween = create_tween()
+	camera_tween.set_parallel(true)
+	camera_tween.set_trans(Tween.TRANS_SINE)
+	camera_tween.set_ease(Tween.EASE_IN_OUT)
+	camera_tween.tween_property(game_camera, "global_position", target_position, duration)
+	camera_tween.tween_property(game_camera, "global_rotation", target_rotation, duration)
 
 func _update_animation(delta: float, jumped: bool) -> void:
 	var normalized_speed := _get_normalized_walk_speed()

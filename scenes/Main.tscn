@@ -60,6 +60,13 @@ size = Vector3(0.24, 0.04, 0.24)
 albedo_color = Color(0.07, 0.08, 0.1, 1)
 roughness = 0.36
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_isometric_chessboard_glow"]
+transparency = 1
+albedo_color = Color(1, 0.62, 0.22, 0.2)
+emission_enabled = true
+emission = Color(1, 0.45, 0.12, 1)
+emission_energy_multiplier = 1.9
+
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c01mt"]
 sky_top_color = Color(0.747417, 0.25295204, 0, 1)
 sky_horizon_color = Color(0.9325592, 0.53330976, 0.36213818, 1)
@@ -136,6 +143,7 @@ material_override = SubResource("StandardMaterial3D_chessboard_glow")
 mesh = SubResource("SphereMesh_chessboard_glow")
 
 [node name="GlowLight" type="OmniLight3D" parent="ChessboardTrigger" unique_id=282953711]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 1.4901161e-08, 0, -1.4901161e-08, 1.0000001, 0.5282707, 0.028800845, -0.057199538)
 light_color = Color(0.42, 0.66, 1, 1)
 light_energy = 1.1
 omni_range = 4.0
@@ -218,6 +226,105 @@ material_override = SubResource("StandardMaterial3D_tile_dark")
 mesh = SubResource("BoxMesh_chessboard_tile")
 
 [node name="Tile33" type="MeshInstance3D" parent="ChessboardTrigger/Board" unique_id=1032054395]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36, 0, 0.36)
+material_override = SubResource("StandardMaterial3D_tile_light")
+mesh = SubResource("BoxMesh_chessboard_tile")
+
+[node name="StaticIsometricChessboardTrigger" type="Area3D" parent="." unique_id=123585369]
+transform = Transform3D(1, 0, 0, 0, 0.9848077, 0.17364818, 0, -0.17364818, 0.9848077, -4.015081, 1.2, 0.9361477)
+script = ExtResource("2_smb6l")
+target_transition_method = &"transition_to_phase_3_static_isometric"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticIsometricChessboardTrigger" unique_id=1424355701]
+shape = SubResource("BoxShape3D_chessboard_trigger")
+
+[node name="Glow" type="MeshInstance3D" parent="StaticIsometricChessboardTrigger" unique_id=45624657]
+material_override = SubResource("StandardMaterial3D_isometric_chessboard_glow")
+mesh = SubResource("SphereMesh_chessboard_glow")
+
+[node name="GlowLight" type="OmniLight3D" parent="StaticIsometricChessboardTrigger" unique_id=638778103]
+light_color = Color(1, 0.54, 0.24, 1)
+light_energy = 1.2
+omni_range = 4.0
+
+[node name="Board" type="Node3D" parent="StaticIsometricChessboardTrigger" unique_id=673664478]
+
+[node name="Tile00" type="MeshInstance3D" parent="StaticIsometricChessboardTrigger/Board" unique_id=1018248744]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36, 0, -0.36)
+material_override = SubResource("StandardMaterial3D_tile_light")
+mesh = SubResource("BoxMesh_chessboard_tile")
+
+[node name="Tile01" type="MeshInstance3D" parent="StaticIsometricChessboardTrigger/Board" unique_id=678001642]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12, 0, -0.36)
+material_override = SubResource("StandardMaterial3D_tile_dark")
+mesh = SubResource("BoxMesh_chessboard_tile")
+
+[node name="Tile02" type="MeshInstance3D" parent="StaticIsometricChessboardTrigger/Board" unique_id=625996749]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12, 0, -0.36)
+material_override = SubResource("StandardMaterial3D_tile_light")
+mesh = SubResource("BoxMesh_chessboard_tile")
+
+[node name="Tile03" type="MeshInstance3D" parent="StaticIsometricChessboardTrigger/Board" unique_id=1844496428]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36, 0, -0.36)
+material_override = SubResource("StandardMaterial3D_tile_dark")
+mesh = SubResource("BoxMesh_chessboard_tile")
+
+[node name="Tile10" type="MeshInstance3D" parent="StaticIsometricChessboardTrigger/Board" unique_id=1743868380]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36, 0, -0.12)
+material_override = SubResource("StandardMaterial3D_tile_dark")
+mesh = SubResource("BoxMesh_chessboard_tile")
+
+[node name="Tile11" type="MeshInstance3D" parent="StaticIsometricChessboardTrigger/Board" unique_id=691903384]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12, 0, -0.12)
+material_override = SubResource("StandardMaterial3D_tile_light")
+mesh = SubResource("BoxMesh_chessboard_tile")
+
+[node name="Tile12" type="MeshInstance3D" parent="StaticIsometricChessboardTrigger/Board" unique_id=981710635]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12, 0, -0.12)
+material_override = SubResource("StandardMaterial3D_tile_dark")
+mesh = SubResource("BoxMesh_chessboard_tile")
+
+[node name="Tile13" type="MeshInstance3D" parent="StaticIsometricChessboardTrigger/Board" unique_id=1063303295]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36, 0, -0.12)
+material_override = SubResource("StandardMaterial3D_tile_light")
+mesh = SubResource("BoxMesh_chessboard_tile")
+
+[node name="Tile20" type="MeshInstance3D" parent="StaticIsometricChessboardTrigger/Board" unique_id=1869076823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36, 0, 0.12)
+material_override = SubResource("StandardMaterial3D_tile_light")
+mesh = SubResource("BoxMesh_chessboard_tile")
+
+[node name="Tile21" type="MeshInstance3D" parent="StaticIsometricChessboardTrigger/Board" unique_id=1117517808]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12, 0, 0.12)
+material_override = SubResource("StandardMaterial3D_tile_dark")
+mesh = SubResource("BoxMesh_chessboard_tile")
+
+[node name="Tile22" type="MeshInstance3D" parent="StaticIsometricChessboardTrigger/Board" unique_id=431007225]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12, 0, 0.12)
+material_override = SubResource("StandardMaterial3D_tile_light")
+mesh = SubResource("BoxMesh_chessboard_tile")
+
+[node name="Tile23" type="MeshInstance3D" parent="StaticIsometricChessboardTrigger/Board" unique_id=1667473054]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36, 0, 0.12)
+material_override = SubResource("StandardMaterial3D_tile_dark")
+mesh = SubResource("BoxMesh_chessboard_tile")
+
+[node name="Tile30" type="MeshInstance3D" parent="StaticIsometricChessboardTrigger/Board" unique_id=449622938]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36, 0, 0.36)
+material_override = SubResource("StandardMaterial3D_tile_dark")
+mesh = SubResource("BoxMesh_chessboard_tile")
+
+[node name="Tile31" type="MeshInstance3D" parent="StaticIsometricChessboardTrigger/Board" unique_id=704128433]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12, 0, 0.36)
+material_override = SubResource("StandardMaterial3D_tile_light")
+mesh = SubResource("BoxMesh_chessboard_tile")
+
+[node name="Tile32" type="MeshInstance3D" parent="StaticIsometricChessboardTrigger/Board" unique_id=1489596701]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12, 0, 0.36)
+material_override = SubResource("StandardMaterial3D_tile_dark")
+mesh = SubResource("BoxMesh_chessboard_tile")
+
+[node name="Tile33" type="MeshInstance3D" parent="StaticIsometricChessboardTrigger/Board" unique_id=1588061238]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36, 0, 0.36)
 material_override = SubResource("StandardMaterial3D_tile_light")
 mesh = SubResource("BoxMesh_chessboard_tile")
