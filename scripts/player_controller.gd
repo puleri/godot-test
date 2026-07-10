@@ -36,7 +36,7 @@ enum ControlPhase {
 @export var camera_transition_duration: float = 1.1
 @export var phase_2_camera_fov: float = 62.0
 @export var phase_3_static_camera_position: Vector3 = Vector3(0.0, 2.2, 5.5)
-@export var phase_3_static_camera_rotation: Vector3 = Vector3(deg_to_rad(-15.0), -PI / 4.0, 0.0)
+@export var phase_3_static_camera_rotation: Vector3 = Vector3(deg_to_rad(-30.0), -PI / 4.0, 0.0)
 @export var phase_3_static_camera_size: float = 12.0
 @export var phase_3_camera_transition_duration: float = 1.1
 @export var walk_blend_in_time: float = 0.16
