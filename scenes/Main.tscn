@@ -98,11 +98,12 @@ script = ExtResource("7_music_script")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=432675117]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.502954)
 shape = SubResource("BoxShape3D_floor")
 debug_color = Color(0, 0.6, 0.69803923, 0.827451)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1243654736]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.029291444, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20821476, -0.0051754937, -3.5861754)
 material_override = ExtResource("2_c01mt")
 mesh = SubResource("BoxMesh_floor")
 
@@ -139,6 +140,7 @@ script = ExtResource("2_smb6l")
 shape = SubResource("BoxShape3D_chessboard_trigger")
 
 [node name="Glow" type="MeshInstance3D" parent="ChessboardTrigger" unique_id=633867399]
+transform = Transform3D(1, 0, 0, 0, 1, 1.4901161e-08, 0, -1.4901161e-08, 1, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_chessboard_glow")
 mesh = SubResource("SphereMesh_chessboard_glow")
 
@@ -231,7 +233,7 @@ material_override = SubResource("StandardMaterial3D_tile_light")
 mesh = SubResource("BoxMesh_chessboard_tile")
 
 [node name="StaticIsometricChessboardTrigger" type="Area3D" parent="." unique_id=123585369]
-transform = Transform3D(1, 0, 0, 0, 0.9848077, 0.17364818, 0, -0.17364818, 0.9848077, -4.015081, 1.2, 0.9361477)
+transform = Transform3D(1, 0, 0, 0, 0.9848077, 0.17364818, 0, -0.17364818, 0.9848077, -1.9755125, 1.2, 0.9361477)
 script = ExtResource("2_smb6l")
 target_transition_method = &"transition_to_phase_3_static_isometric"
 

@@ -29,13 +29,14 @@ enum ControlPhase {
 @export var phase_1_flipped_camera_position: Vector3 = Vector3(0.0, 0.5, -10.0)
 @export var phase_1_flipped_camera_rotation: Vector3 = Vector3(0.0, PI, 0.0)
 @export var phase_1_camera_flip_duration: float = 0.35
+@export var camera_flip_control_pause_duration: float = 0.6
 @export var mirror_phase_1_controls_when_camera_flipped := true
 @export var phase_2_camera_position: Vector3 = Vector3(-6.0, 3.0, 0.0)
 @export var phase_2_camera_rotation: Vector3 = Vector3(-0.35, -PI / 2.0, 0.0)
 @export var camera_transition_duration: float = 1.1
 @export var phase_2_camera_fov: float = 62.0
 @export var phase_3_static_camera_position: Vector3 = Vector3(0.0, 2.2, 5.5)
-@export var phase_3_static_camera_rotation: Vector3 = Vector3(deg_to_rad(-30.0), -PI / 4.0, 0.0)
+@export var phase_3_static_camera_rotation: Vector3 = Vector3(deg_to_rad(-15.0), -PI / 4.0, 0.0)
 @export var phase_3_static_camera_size: float = 12.0
 @export var phase_3_camera_transition_duration: float = 1.1
 @export var walk_blend_in_time: float = 0.16
@@ -73,6 +74,7 @@ var phase_3_static_camera_pivot: Vector3
 var phase_3_static_camera_base_position: Vector3
 var phase_3_static_camera_base_rotation: Vector3
 var phase_1_camera_flipped := false
+var camera_flip_control_pause_remaining := 0.0
 var interaction_locked := false
 var movement_speed_multiplier := 1.0
 var manual_jump_enabled := true
@@ -108,7 +110,8 @@ func _ready() -> void:
 	_initialize_animation_pose()
 
 func _physics_process(delta: float) -> void:
-	if interaction_locked:
+	_update_camera_flip_control_pause(delta)
+	if interaction_locked or _is_camera_flip_control_paused():
 		velocity = Vector3.ZERO
 		_update_phase_camera()
 		_update_animation(delta, false)
@@ -236,6 +239,7 @@ func set_phase_1_camera_flipped(is_flipped: bool) -> void:
 		return
 
 	phase_1_camera_flipped = is_flipped
+	_pause_controls_for_camera_flip()
 	var target_position := phase_1_flipped_camera_position if phase_1_camera_flipped else outside_phase_1_camera_position
 	var target_rotation := phase_1_flipped_camera_rotation if phase_1_camera_flipped else outside_phase_1_camera_rotation
 
@@ -269,6 +273,18 @@ func set_player_collision_enabled(is_enabled: bool) -> void:
 	for collision_shape in player_collision_shapes:
 		if is_instance_valid(collision_shape):
 			collision_shape.set_deferred("disabled", not is_enabled)
+
+func _pause_controls_for_camera_flip() -> void:
+	camera_flip_control_pause_remaining = maxf(camera_flip_control_pause_duration, 0.0)
+
+func _update_camera_flip_control_pause(delta: float) -> void:
+	if camera_flip_control_pause_remaining <= 0.0:
+		return
+
+	camera_flip_control_pause_remaining = maxf(camera_flip_control_pause_remaining - delta, 0.0)
+
+func _is_camera_flip_control_paused() -> bool:
+	return camera_flip_control_pause_remaining > 0.0
 
 func _cache_player_collision_shapes() -> void:
 	player_collision_shapes.clear()
