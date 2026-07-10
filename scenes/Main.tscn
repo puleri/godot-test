@@ -226,13 +226,13 @@ mesh = SubResource("BoxMesh_chessboard_tile")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0037005, 0.27649748, 0.033763647)
 
 [node name="PressurePlate" parent="." unique_id=952225016 instance=ExtResource("9_plate")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9232273, 0.035, 1.7023618)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8818393, 0.035, 0.009527326)
 target_door_path = NodePath("../Door01")
 
 [node name="Door01" parent="." unique_id=989831881 instance=ExtResource("5_c01mt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8481953, -0.07979131, -1.2315761)
 
-[node name="Phase1CameraFlipTrigger" parent="." instance=ExtResource("10_camera_flip")]
+[node name="Phase1CameraFlipTrigger" parent="." unique_id=1903672257 instance=ExtResource("10_camera_flip")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2, 0.7, -1.55)
 
 [node name="ArchTest" parent="." unique_id=221741334 instance=ExtResource("6_c01mt")]

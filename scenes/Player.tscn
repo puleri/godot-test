@@ -24,7 +24,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=2055849568]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=760102314]
-transform = Transform3D(1, 0, 0, 0, 0.9848077, 0.17364825, 0, -0.17364825, 0.9848077, 0, 2.31, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 10)
 projection = 1
 current = true
 fov = 62.0

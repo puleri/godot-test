@@ -23,10 +23,10 @@ enum ControlPhase {
 @export var third_person_visual_yaw: float = 0.0
 @export var phase_1_vertical_axis_sign: float = -1.0
 @export var turn_speed: float = 2.8
-@export var phase_1_camera_position: Vector3 = Vector3(0.0, 2.31, 10.0)
-@export var phase_1_camera_rotation: Vector3 = Vector3(-0.174533, 0.0, 0.0)
-@export var phase_1_flipped_camera_position: Vector3 = Vector3(0.0, 2.31, -10.0)
-@export var phase_1_flipped_camera_rotation: Vector3 = Vector3(-0.174533, PI, 0.0)
+@export var phase_1_camera_position: Vector3 = Vector3(0.0, 0.5, 10.0)
+@export var phase_1_camera_rotation: Vector3 = Vector3(0.0, 0.0, 0.0)
+@export var phase_1_flipped_camera_position: Vector3 = Vector3(0.0, 0.5, -10.0)
+@export var phase_1_flipped_camera_rotation: Vector3 = Vector3(0.0, PI, 0.0)
 @export var phase_1_camera_flip_duration: float = 0.35
 @export var mirror_phase_1_controls_when_camera_flipped := true
 @export var phase_2_camera_position: Vector3 = Vector3(-6.0, 3.0, 0.0)
