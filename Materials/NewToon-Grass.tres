@@ -1,0 +1,28 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://lcnfeyjp604x"]
+
+[ext_resource type="Shader" uid="uid://70flgb4ewoav" path="res://Materials/stylized.gdshader" id="1_rhi3e"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_rhi3e")
+shader_parameter/albedo_color = Color(0.6842881, 0.56672484, 0.31623143, 1)
+shader_parameter/albedo_affect = 0.0
+shader_parameter/use_stepped = true
+shader_parameter/steps = 2.0
+shader_parameter/step_smoothness = 0.20000000298024
+shader_parameter/shadow_tint = Color(0.8268779, 0.44320983, 0.07362182, 1)
+shader_parameter/shadow_tint_amount = 0.70000001043084
+shader_parameter/specular = 0.0
+shader_parameter/normal_strength = 0.0
+shader_parameter/use_rim = true
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/rim_amount = 2.0
+shader_parameter/rim_smoothness = 0.2
+shader_parameter/rim_mask_shadow = 1.0
+shader_parameter/rim_blend = 1.0
+shader_parameter/use_pattern = false
+shader_parameter/pattern_uv_mode = 2
+shader_parameter/pattern_tiling = 32.0
+shader_parameter/pattern_amount = 0.5
+shader_parameter/pattern_smoothness = 0.5
+shader_parameter/pattern_blend = 0.2

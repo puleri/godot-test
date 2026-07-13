@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c2wmcss1ujhi7"]
+
+[ext_resource type="PackedScene" uid="uid://tpjvu2i4vaq2" path="res://Mesh/Harboretum-Mesh/StoneRailing-Corner.fbx" id="1_aow8p"]
+[ext_resource type="Material" uid="uid://do7a82h5f47uf" path="res://Materials/NewToon-Stone.tres" id="2_2fpor"]
+
+[node name="StoneRailing-Corner" unique_id=529572122 instance=ExtResource("1_aow8p")]
+
+[node name="StoneRailing-Corner" parent="." index="0" unique_id=1519945750]
+surface_material_override/0 = ExtResource("2_2fpor")

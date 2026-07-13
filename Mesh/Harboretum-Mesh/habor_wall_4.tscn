@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b8gvft8nhrm8j"]
+
+[ext_resource type="PackedScene" uid="uid://c02m87a71xure" path="res://Mesh/Harboretum-Mesh/HaborWall-4.fbx" id="1_t6s1x"]
+[ext_resource type="Material" uid="uid://b5v5br2k0catq" path="res://Materials/NewToon-Black.tres" id="2_6e2su"]
+[ext_resource type="Material" uid="uid://do7a82h5f47uf" path="res://Materials/NewToon-Stone.tres" id="3_76rq7"]
+
+[node name="HaborWall-4" unique_id=1603839333 instance=ExtResource("1_t6s1x")]
+
+[node name="HarborWall-4" parent="." index="0" unique_id=1721320467]
+surface_material_override/0 = ExtResource("2_6e2su")
+surface_material_override/1 = ExtResource("3_76rq7")

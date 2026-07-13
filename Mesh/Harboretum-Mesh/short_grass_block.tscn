@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://lg2nk4rjl6et"]
+
+[ext_resource type="PackedScene" uid="uid://dr4dakity47s" path="res://Mesh/Harboretum-Mesh/ShortGrassBlock.fbx" id="1_ngtl5"]
+[ext_resource type="Material" uid="uid://b5v5br2k0catq" path="res://Materials/NewToon-Black.tres" id="2_rioyi"]
+[ext_resource type="Material" uid="uid://lcnfeyjp604x" path="res://Materials/NewToon-Grass.tres" id="3_ym7js"]
+
+[node name="ShortGrassBlock" unique_id=2014710421 instance=ExtResource("1_ngtl5")]
+
+[node name="ShortGrassBlock" parent="." index="0" unique_id=357601059]
+surface_material_override/0 = ExtResource("2_rioyi")
+surface_material_override/1 = ExtResource("3_ym7js")

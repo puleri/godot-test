@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bhwt01cbdydu4"]
+
+[ext_resource type="PackedScene" uid="uid://cyr2s0w2eaq7c" path="res://Mesh/Harboretum-Mesh/TallGrassBlock.fbx" id="1_rtrt2"]
+[ext_resource type="Material" uid="uid://b5v5br2k0catq" path="res://Materials/NewToon-Black.tres" id="2_epim6"]
+[ext_resource type="Material" uid="uid://lcnfeyjp604x" path="res://Materials/NewToon-Grass.tres" id="3_64cik"]
+
+[node name="TallGrassBlock" unique_id=602064309 instance=ExtResource("1_rtrt2")]
+
+[node name="TallGrassBlock" parent="." index="0" unique_id=179514675]
+surface_material_override/0 = ExtResource("2_epim6")
+surface_material_override/1 = ExtResource("3_64cik")

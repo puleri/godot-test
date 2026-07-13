@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://t6n7i4up506n"]
+
+[ext_resource type="PackedScene" uid="uid://ctspjsmt6oft8" path="res://Mesh/Harboretum-Mesh/HaborArchway.fbx" id="1_7m4w8"]
+[ext_resource type="Material" uid="uid://b5v5br2k0catq" path="res://Materials/NewToon-Black.tres" id="2_3nwta"]
+[ext_resource type="Material" uid="uid://do7a82h5f47uf" path="res://Materials/NewToon-Stone.tres" id="3_7jnv3"]
+
+[node name="HaborArchway" unique_id=852411595 instance=ExtResource("1_7m4w8")]
+
+[node name="HarborArchway" parent="." index="0" unique_id=676138486]
+surface_material_override/0 = ExtResource("2_3nwta")
+surface_material_override/1 = ExtResource("3_7jnv3")

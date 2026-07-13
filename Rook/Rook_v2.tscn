@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://bhms8fejjme5c"]
 
 [ext_resource type="PackedScene" uid="uid://lsea7dml45h6" path="res://Objects/Rook.fbx" id="1_nu6bc"]
-[ext_resource type="Material" uid="uid://ccuqyelqwain2" path="res://Materials/BlackToon.tres" id="2_fh2fo"]
-[ext_resource type="Material" uid="uid://fc8jacmlue8n" path="res://Materials/WhiteToon.tres" id="3_bp5qx"]
+[ext_resource type="Material" uid="uid://b5v5br2k0catq" path="res://Materials/NewToon-Black.tres" id="2_nu6bc"]
+[ext_resource type="Material" uid="uid://fc8jacmlue8n" path="res://Materials/EmissiveWhite.tres" id="3_bp5qx"]
 
 [node name="Rook" unique_id=811247315 instance=ExtResource("1_nu6bc")]
 
-[node name="Skeleton3D" parent="Skeleton" parent_id_path=PackedInt32Array(1758387717) index="0" unique_id=1616054117]
+[node name="Skeleton3D" parent="Skeleton" parent_id_path=PackedInt32Array(1613353773) index="0" unique_id=1144242596]
 bones/0/position = Vector3(-0.00019026743, -2.4075097e-13, -0.00035625312)
 bones/0/rotation = Quaternion(0.70686775, 0.01838652, -0.018386537, 0.7068677)
 bones/2/rotation = Quaternion(-0.22646771, -0.08943495, 0.8797434, 0.40836912)
@@ -41,6 +41,6 @@ bones/73/rotation = Quaternion(-0.6963153, 0.051906176, 0.025290515, 0.71540976)
 bones/75/position = Vector3(0.000222191, 0.00065767363, -7.659802e-05)
 bones/75/rotation = Quaternion(0.8565981, 0.3357142, -0.38209108, 0.08684543)
 
-[node name="Theif_Mesh_Rig" parent="Skeleton/Skeleton3D" index="0" unique_id=1799087458]
-surface_material_override/0 = ExtResource("2_fh2fo")
+[node name="Theif_Mesh_Rig" parent="Skeleton/Skeleton3D" index="0" unique_id=1869393174]
+surface_material_override/0 = ExtResource("2_nu6bc")
 surface_material_override/1 = ExtResource("3_bp5qx")

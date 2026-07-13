@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://de3mblf3tybbx"]
+
+[ext_resource type="PackedScene" uid="uid://rpipbf1ahf0y" path="res://Mesh/Harboretum-Mesh/Build-EntryWay.tscn" id="1_gwxef"]
+[ext_resource type="PackedScene" uid="uid://bhms8fejjme5c" path="res://Rook/Rook_v2.tscn" id="2_uoaor"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gwxef"]
+sky_top_color = Color(0.58827215, 0.31382376, 0.2811152, 1)
+sky_horizon_color = Color(0.82911927, 0.5960828, 0.44010445, 1)
+sky_energy_multiplier = 1.2
+ground_bottom_color = Color(0.59896696, 0.33982533, 0.2684637, 1)
+ground_horizon_color = Color(0.83, 0.69443333, 0.5395, 1)
+sun_angle_max = 0.0
+
+[sub_resource type="Sky" id="Sky_nxtc6"]
+sky_material = SubResource("ProceduralSkyMaterial_gwxef")
+
+[sub_resource type="Environment" id="Environment_uoaor"]
+background_mode = 2
+background_color = Color(0.38, 0.34871334, 0.3306, 1)
+sky = SubResource("Sky_nxtc6")
+ambient_light_sky_contribution = 0.5
+glow_intensity = 0.0
+fog_mode = 1
+fog_density = 1.0
+
+[node name="DemoA1" type="Node3D" unique_id=335856259]
+
+[node name="Node3D" parent="." unique_id=1146930490 instance=ExtResource("1_gwxef")]
+
+[node name="Rook" parent="." unique_id=811247315 instance=ExtResource("2_uoaor")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 3.5402637, 1.8166046, 2.796523)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=26306015]
+transform = Transform3D(1, 0, 0, 0, 0.900812, 0.43420944, 0, -0.43420944, 0.900812, 4.899019, 6.2356086, 10.827842)
+projection = 1
+size = 10.286
+
+[node name="45" type="Camera3D" parent="." unique_id=695785120]
+transform = Transform3D(0.74977624, -0.28731266, 0.59605956, 0, 0.900812, 0.43420944, -0.6616914, -0.3255599, 0.6754074, 10.27916, 6.2356086, 4.437237)
+projection = 1
+size = 10.286
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=952602893]
+environment = SubResource("Environment_uoaor")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1859417399]
+transform = Transform3D(-0.9997446, 9.310847e-10, 0.02260007, 0.019076373, 0.5362099, 0.8438691, -0.0121183805, 0.8440847, -0.5360729, 0, 6.9235277, 0)

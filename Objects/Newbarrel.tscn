@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://2medhb1ung4e" path="res://Objects/Barrel.fbx" id="1_epb58"]
 [ext_resource type="Script" uid="uid://cemfma6fpbq4l" path="res://scripts/barrel_interaction.gd" id="2_bmy04"]
-[ext_resource type="Material" uid="uid://ccuqyelqwain2" path="res://Materials/BlackToon.tres" id="2_oaphm"]
-[ext_resource type="Material" uid="uid://fc8jacmlue8n" path="res://Materials/WhiteToon.tres" id="3_xteh1"]
+[ext_resource type="Material" uid="uid://b5v5br2k0catq" path="res://Materials/NewToon-Black.tres" id="3_oaphm"]
+[ext_resource type="Material" uid="uid://cx3ylu7w4bgiv" path="res://Materials/NewToon-Metal.tres" id="4_xteh1"]
 
 [node name="Barrel" unique_id=1229816567 instance=ExtResource("1_epb58")]
 script = ExtResource("2_bmy04")
 
 [node name="Cylinder_006" parent="." index="0" unique_id=137006602]
-surface_material_override/0 = ExtResource("2_oaphm")
-surface_material_override/1 = ExtResource("3_xteh1")
+surface_material_override/0 = ExtResource("3_oaphm")
+surface_material_override/1 = ExtResource("4_xteh1")

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b8j116vehmjke"]
+
+[ext_resource type="PackedScene" uid="uid://ckl0kusyi0qgy" path="res://Mesh/Harboretum-Mesh/WoodWalk-Legs.fbx" id="1_2au43"]
+[ext_resource type="Material" uid="uid://65oe7h30g0d4" path="res://Materials/NewToon-WoodPlank.tres" id="2_1hpc8"]
+
+[node name="WoodWalk-Legs" unique_id=855666122 instance=ExtResource("1_2au43")]
+
+[node name="WoodWalk-Legs" parent="." index="0" unique_id=219812624]
+material_override = ExtResource("2_1hpc8")
+surface_material_override/0 = ExtResource("2_1hpc8")

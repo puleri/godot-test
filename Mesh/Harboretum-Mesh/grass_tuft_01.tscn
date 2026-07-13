@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cvs22qova3dbc"]
+
+[ext_resource type="PackedScene" uid="uid://c7e2d6wm6ibu4" path="res://Mesh/Harboretum-Mesh/GrassTuft01.fbx" id="1_epmdu"]
+[ext_resource type="Material" uid="uid://lcnfeyjp604x" path="res://Materials/NewToon-Grass.tres" id="2_a1jvb"]
+
+[node name="GrassTuft01" unique_id=2118252949 instance=ExtResource("1_epmdu")]
+
+[node name="GrassTuft01" parent="." index="0" unique_id=762676101]
+material_override = ExtResource("2_a1jvb")
+surface_material_override/0 = ExtResource("2_a1jvb")

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dwqt638imjflj"]
+
+[ext_resource type="PackedScene" uid="uid://bsev0bogy4ysj" path="res://Mesh/Harboretum-Mesh/StoneTile-Block-9.fbx" id="1_oui7n"]
+[ext_resource type="Material" uid="uid://b5v5br2k0catq" path="res://Materials/NewToon-Black.tres" id="2_ibpr3"]
+[ext_resource type="Material" uid="uid://do7a82h5f47uf" path="res://Materials/NewToon-Stone.tres" id="3_e8s2w"]
+
+[node name="StoneTile-Block-9" unique_id=661275332 instance=ExtResource("1_oui7n")]
+
+[node name="StoneTile_Block" parent="." index="0" unique_id=2057897143]
+surface_material_override/0 = ExtResource("2_ibpr3")
+surface_material_override/1 = ExtResource("3_e8s2w")
