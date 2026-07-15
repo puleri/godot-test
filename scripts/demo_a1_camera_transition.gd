@@ -11,22 +11,29 @@ extends Node3D
 
 var startup_camera_tween: Tween
 var next_stage_camera_tween: Tween
-var next_stage_camera_started := false
+var current_camera_stage := 0
+var first_stage_camera_position := Vector3.ZERO
+var first_stage_camera_rotation := Vector3.ZERO
+var second_stage_camera_position := Vector3.ZERO
+var second_stage_camera_rotation := Vector3.ZERO
+var stage_camera_targets_initialized := false
 
 func _ready() -> void:
+	_cache_stage_camera_targets()
 	_start_camera_transition_to_target()
 
 func _physics_process(_delta: float) -> void:
-	if next_stage_camera_started:
-		return
-
 	var player := get_node_or_null(player_path) as Node3D
 	if player == null:
 		return
 
-	if player.global_position.z <= next_stage_trigger_position.z:
-		next_stage_camera_started = true
-		_start_next_stage_camera_transition()
+	var next_camera_stage := 1 if player.global_position.z <= next_stage_trigger_position.z else 0
+	if next_camera_stage == current_camera_stage:
+		return
+
+	current_camera_stage = next_camera_stage
+	_start_stage_camera_transition(current_camera_stage)
+	_set_player_controls_inverted(current_camera_stage == 1)
 
 func _start_camera_transition_to_target() -> void:
 	var start_camera := get_node_or_null(start_camera_path) as Camera3D
@@ -67,14 +74,17 @@ func _finish_camera_transition(transition_camera: Camera3D, target_camera: Camer
 
 	startup_camera_tween = null
 
-func _start_next_stage_camera_transition() -> void:
+func _start_stage_camera_transition(camera_stage: int) -> void:
 	var stage_camera := _get_active_stage_camera()
 	if stage_camera == null:
 		push_warning("Demo_A1 next stage camera transition skipped: no active camera found.")
 		return
 
-	var target_position := stage_camera.global_position + next_stage_camera_offset
-	var target_rotation := stage_camera.global_rotation + Vector3(0.0, deg_to_rad(next_stage_camera_yaw_degrees), 0.0)
+	if not stage_camera_targets_initialized:
+		_cache_stage_camera_targets(stage_camera)
+
+	var target_position := second_stage_camera_position if camera_stage == 1 else first_stage_camera_position
+	var target_rotation := second_stage_camera_rotation if camera_stage == 1 else first_stage_camera_rotation
 	if next_stage_camera_transition_duration <= 0.0:
 		stage_camera.global_position = target_position
 		stage_camera.global_rotation = target_rotation
@@ -98,6 +108,23 @@ func _get_active_stage_camera() -> Camera3D:
 		return target_camera
 
 	return get_viewport().get_camera_3d()
+
+func _cache_stage_camera_targets(stage_camera: Camera3D = null) -> void:
+	if stage_camera == null:
+		stage_camera = get_node_or_null(target_camera_path) as Camera3D
+	if stage_camera == null:
+		return
+
+	first_stage_camera_position = stage_camera.global_position
+	first_stage_camera_rotation = stage_camera.global_rotation
+	second_stage_camera_position = first_stage_camera_position + next_stage_camera_offset
+	second_stage_camera_rotation = first_stage_camera_rotation + Vector3(0.0, deg_to_rad(next_stage_camera_yaw_degrees), 0.0)
+	stage_camera_targets_initialized = true
+
+func _set_player_controls_inverted(is_inverted: bool) -> void:
+	var player := get_node_or_null(player_path)
+	if player != null and player.has_method("set_phase_1_camera_flipped"):
+		player.call("set_phase_1_camera_flipped", is_inverted)
 
 func _on_next_stage_camera_transition_finished() -> void:
 	next_stage_camera_tween = null
