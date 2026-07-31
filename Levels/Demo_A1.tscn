@@ -23,7 +23,7 @@ background_mode = 2
 background_color = Color(0.38, 0.34871334, 0.3306, 1)
 sky = SubResource("Sky_nxtc6")
 ambient_light_sky_contribution = 0.5
-glow_intensity = 0.0
+glow_enabled = true
 fog_mode = 1
 fog_density = 1.0
 
@@ -41,6 +41,7 @@ side_plane_z = 2.796523
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.9666046, -7.7)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MovementFloor" unique_id=928830938]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.042859077, 0)
 shape = SubResource("BoxShape3D_demo_floor")
 debug_color = Color(0.2, 0.7, 1, 0.35)
 
@@ -59,3 +60,4 @@ environment = SubResource("Environment_uoaor")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1859417399]
 transform = Transform3D(-0.9997446, 9.310847e-10, 0.02260007, 0.019076373, 0.5362099, 0.8438691, -0.0121183805, 0.8440847, -0.5360729, 0, 6.9235277, 0)
+shadow_enabled = true

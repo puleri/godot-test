@@ -11,6 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://qykllwvpaj7" path="res://Mesh/Harboretum-Mesh/stone_railing.tscn" id="9_s4cuf"]
 [ext_resource type="PackedScene" uid="uid://bhwt01cbdydu4" path="res://Mesh/Harboretum-Mesh/tall_grass_block.tscn" id="10_yb5ed"]
 [ext_resource type="PackedScene" uid="uid://lg2nk4rjl6et" path="res://Mesh/Harboretum-Mesh/short_grass_block.tscn" id="11_1hb2o"]
+[ext_resource type="Shader" uid="uid://c2tsaurjhjo47" path="res://Materials/Water.tres" id="12_1hb2o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dmhcf"]
+render_priority = 0
+shader = ExtResource("12_1hb2o")
+shader_parameter/Time = 1.0
 
 [node name="Node3D" type="Node3D" unique_id=1146930490]
 
@@ -19,6 +25,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.955891, -0.015070915, 1.00
 
 [node name="StoneTile-Block4" parent="." unique_id=2116407225 instance=ExtResource("6_dea3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.955891, -0.015070915, -0.9648776)
+
+[node name="StoneTile-Block5" parent="." unique_id=1408684281 instance=ExtResource("6_dea3m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.955891, -0.015070915, -3.1626925)
 
 [node name="StoneTile-Block-22" parent="." unique_id=661275332 instance=ExtResource("6_gd7qx")]
 transform = Transform3D(0.9999986, 0.001624889, -0.0003210013, -0.0016249716, 0.9999986, -0.0002528069, 0.0003205822, 0.0002533381, 0.99999994, -1.0203216, -0.015070915, 0.9755006)
@@ -100,3 +109,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -17)
 
 [node name="GrassTuft02" parent="." unique_id=580981932 instance=ExtResource("7_s4cuf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -11)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1347127617]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11543083, -0.6495228, -11.83025)
+size = Vector3(123.536545, 1, 93.897575)
+material = SubResource("ShaderMaterial_dmhcf")
