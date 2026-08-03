@@ -1,18 +1,20 @@
-[gd_resource type="ShaderMaterial" format=3 uid="uid://65oe7h30g0d4"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cyxmnuf6pnqw8"]
 
-[ext_resource type="Shader" uid="uid://70flgb4ewoav" path="res://Materials/stylized.gdshader" id="1_5gaah"]
+[ext_resource type="Shader" uid="uid://70flgb4ewoav" path="res://Materials/stylized.gdshader" id="1_i67fv"]
+[ext_resource type="Texture2D" uid="uid://br1p51mywnejh" path="res://Textures/T_Treasure01.png" id="2_q41r0"]
 
 [resource]
 render_priority = 0
-shader = ExtResource("1_5gaah")
-shader_parameter/albedo_color = Color(0.37090516, 0.29754537, 0.25008002, 1)
-shader_parameter/albedo_affect = 0.5000000074506
+shader = ExtResource("1_i67fv")
+shader_parameter/albedo_color = Color(0.8878564, 0.871927, 0.7918574, 1)
+shader_parameter/albedo_texture = ExtResource("2_q41r0")
+shader_parameter/albedo_affect = 1.0
 shader_parameter/use_stepped = true
 shader_parameter/steps = 1.0
-shader_parameter/step_smoothness = 0.0
+shader_parameter/step_smoothness = 0.3
 shader_parameter/shadow_tint = Color(0, 0, 0, 1)
-shader_parameter/shadow_tint_amount = 1.0
-shader_parameter/specular = 0.0
+shader_parameter/shadow_tint_amount = 0.4
+shader_parameter/specular = 0.5000000074506
 shader_parameter/normal_strength = 0.0
 shader_parameter/use_rim = true
 shader_parameter/rim_color = Color(1, 1, 1, 1)

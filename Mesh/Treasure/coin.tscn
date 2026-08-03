@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b4bt8u2iqbafe"]
+
+[ext_resource type="PackedScene" uid="uid://cfkla6mxfo4cw" path="res://Mesh/Treasure/Coin.fbx" id="1_vfbcc"]
+[ext_resource type="Script" uid="uid://6srjgta5cxwm" path="res://scripts/Collectibles.gd" id="2_5e826"]
+[ext_resource type="Material" uid="uid://cyxmnuf6pnqw8" path="res://Materials/Coin.tres" id="2_dn3qe"]
+
+[node name="Coin" unique_id=291861624 instance=ExtResource("1_vfbcc")]
+script = ExtResource("2_5e826")
+
+[node name="Cylinder_001" parent="." index="0" unique_id=938522483]
+surface_material_override/0 = ExtResource("2_dn3qe")

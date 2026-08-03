@@ -5,13 +5,13 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_xqf8m")
-shader_parameter/albedo_color = Color(0.6332453, 0.5599647, 0.47811168, 1)
+shader_parameter/albedo_color = Color(0.38, 0.34276, 0.30020002, 1)
 shader_parameter/albedo_affect = 0.0
 shader_parameter/use_stepped = true
-shader_parameter/steps = 2.0
-shader_parameter/step_smoothness = 0.0
+shader_parameter/steps = 1.0
+shader_parameter/step_smoothness = 0.15000000223518
 shader_parameter/shadow_tint = Color(0, 0, 0, 1)
-shader_parameter/shadow_tint_amount = 0.4
+shader_parameter/shadow_tint_amount = 0.5000000074506
 shader_parameter/specular = 0.0
 shader_parameter/normal_strength = 0.0
 shader_parameter/use_rim = true

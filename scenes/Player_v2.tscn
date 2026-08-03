@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://csg8qevfclebv"]
+
+[ext_resource type="Script" uid="uid://dwr4qnt7fcrtc" path="res://scripts/player_controller.gd" id="1_prk5l"]
+[ext_resource type="PackedScene" uid="uid://k6a077dq0ihf" path="res://Rook/v2/Rook_v2-2.tscn" id="2_prk5l"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_player"]
+radius = 0.091308594
+height = 0.47758788
+
+[node name="Player" type="CharacterBody3D" unique_id=557277699]
+script = ExtResource("1_prk5l")
+max_walk_speed = 2.0
+ground_deceleration = 100.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1351764398]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.23879394, 0)
+shape = SubResource("CapsuleShape3D_player")
+
+[node name="VisualPivot" type="Node3D" parent="." unique_id=1196648015]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.25, 0)
+
+[node name="Rook_v2" parent="VisualPivot" unique_id=2059784872 instance=ExtResource("2_prk5l")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.015453078, 0)
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=2055849568]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=760102314]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 10)
+projection = 1
+current = true
+fov = 62.0
+size = 5.1
