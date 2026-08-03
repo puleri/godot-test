@@ -30,7 +30,7 @@ fog_density = 1.0
 
 [node name="DemoA1" type="Node3D" unique_id=335856259]
 script = ExtResource("3_camera_transition")
-player_path = NodePath("")
+player_path = NodePath("Player")
 
 [node name="Node3D" parent="." unique_id=1146930490 instance=ExtResource("1_gwxef")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25385857)

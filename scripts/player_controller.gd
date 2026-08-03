@@ -85,7 +85,7 @@ var player_collision_shapes: Array[CollisionShape3D] = []
 
 # Rook animation names come from the imported FBX animation list.
 const IDLE_ANIMATION := "Skeleton|Idle"
-const WALK_ANIMATION_PRIMARY := "Skeleton|Walk_v3"
+const WALK_ANIMATION_PRIMARY := "Skeleton|Walk_v2"
 const WALK_ANIMATION_FALLBACK := "Skeleton|Walk"
 const JUMP_ANIMATION := "Skeleton|Jump"
 const BARREL_IDLE_ANIMATION := "Skeleton|Barrel_Idle"
