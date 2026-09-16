@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://chehs02qdlkaf"]
+
+[ext_resource type="PackedScene" uid="uid://xqp1hjqnu3q6" path="res://Characters/Mouse/Mouse_v1.fbx" id="1_aatd2"]
+[ext_resource type="Material" uid="uid://cl5lg12nqfqfs" path="res://Materials/LightPurp.tres" id="2_s5brb"]
+[ext_resource type="Material" uid="uid://bhtl6cdnvny08" path="res://Materials/DarkPurp.tres" id="3_s6bsi"]
+[ext_resource type="Material" uid="uid://fc8jacmlue8n" path="res://Materials/EmissiveWhite.tres" id="4_553k1"]
+
+[node name="Mouse_v1" unique_id=1667552361 instance=ExtResource("1_aatd2")]
+
+[node name="Ear_006" parent="." index="0" unique_id=1549617381]
+transform = Transform3D(25, 0, 0, 0, -1.0927847e-06, 25, 0, -25, -1.0927847e-06, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_s5brb")
+surface_material_override/1 = ExtResource("3_s6bsi")
+surface_material_override/2 = ExtResource("4_553k1")

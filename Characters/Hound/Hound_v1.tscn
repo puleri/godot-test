@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://di6giky6wkt3o"]
+
+[ext_resource type="PackedScene" uid="uid://dmmmmh45wl25h" path="res://Characters/Hound/Hound_v1.fbx" id="1_fnnao"]
+[ext_resource type="Material" uid="uid://i6v1lc6bfju0" path="res://Materials/LightBlue.tres" id="2_adyw6"]
+[ext_resource type="Material" uid="uid://oe152laiphc2" path="res://Materials/DarkBlue.tres" id="3_lsgt5"]
+[ext_resource type="Material" uid="uid://fc8jacmlue8n" path="res://Materials/EmissiveWhite.tres" id="4_lsgt5"]
+
+[node name="Hound_v1" unique_id=1969415367 instance=ExtResource("1_fnnao")]
+
+[node name="Hat_006" parent="." index="0" unique_id=1685022197]
+transform = Transform3D(50, 0, 0, 0, -2.1855694e-06, 50, 0, -50, -2.1855694e-06, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_adyw6")
+surface_material_override/1 = ExtResource("3_lsgt5")
+surface_material_override/2 = ExtResource("4_lsgt5")

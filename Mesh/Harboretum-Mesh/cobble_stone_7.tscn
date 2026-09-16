@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://5kw5m1slm4am"]
+
+[ext_resource type="PackedScene" uid="uid://1pvjt1v4oeqb" path="res://Mesh/Harboretum-Mesh/CobbleStone_7.fbx" id="1_1lkss"]
+[ext_resource type="Material" uid="uid://b5v5br2k0catq" path="res://Materials/NewToon-Black.tres" id="2_vabjo"]
+[ext_resource type="Material" uid="uid://do7a82h5f47uf" path="res://Materials/NewToon-Stone.tres" id="3_kdmjc"]
+
+[node name="CobbleStone_7" unique_id=1033690202 instance=ExtResource("1_1lkss")]
+
+[node name="Cube_023" parent="." index="0" unique_id=1234035097]
+surface_material_override/0 = ExtResource("2_vabjo")
+surface_material_override/1 = ExtResource("3_kdmjc")

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b71q143li0mfe"]
+
+[ext_resource type="PackedScene" uid="uid://b774vh3hmm3o4" path="res://Characters/Mouse/Mouse_v2.fbx" id="1_quwiw"]
+[ext_resource type="Material" uid="uid://cl5lg12nqfqfs" path="res://Materials/LightPurp.tres" id="2_1hhkx"]
+[ext_resource type="Material" uid="uid://bhtl6cdnvny08" path="res://Materials/DarkPurp.tres" id="3_tlwmk"]
+
+[node name="Mouse_v2" unique_id=1238967255 instance=ExtResource("1_quwiw")]
+
+[node name="Skeleton3D" parent="Root" parent_id_path=PackedInt32Array(1171090405) index="0" unique_id=2001602967]
+bones/0/rotation = Quaternion(0.7013131, 0.090332285, -0.09033227, 0.7013131)
+bones/1/rotation = Quaternion(-2.6692547e-08, -2.6692543e-08, -0.7071068, 0.7071067)
+bones/1/scale = Vector3(1, 1, 1)
+bones/3/rotation = Quaternion(-0.05991766, 0, 0, 0.99820334)
+bones/4/rotation = Quaternion(-0.16249962, -0.34510937, -0.58075154, 0.7191809)
+
+[node name="Mouse" parent="Root/Skeleton3D" index="0" unique_id=902574448]
+surface_material_override/0 = ExtResource("2_1hhkx")
+surface_material_override/1 = ExtResource("3_tlwmk")
