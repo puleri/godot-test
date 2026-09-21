@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://h0io22tujls7" path="res://Characters/Hound/hound_v2.tscn" id="5_kb0x7"]
 [ext_resource type="PackedScene" uid="uid://b71q143li0mfe" path="res://Characters/Mouse/mouse_v2.tscn" id="6_pl785"]
 [ext_resource type="PackedScene" uid="uid://defo8smbyjqfh" path="res://Objects/Newbarrel.tscn" id="7_kb0x7"]
+[ext_resource type="PackedScene" uid="uid://bhtnnecjain8t" path="res://UI/HUD.tscn" id="8_pl785"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_demo_floor"]
 size = Vector3(16, 0.2, 28)
@@ -23,12 +24,10 @@ sun_angle_max = 0.0
 sky_material = SubResource("ProceduralSkyMaterial_gwxef")
 
 [sub_resource type="Environment" id="Environment_uoaor"]
-background_mode = 2
-background_color = Color(0.09, 0.09, 0.09, 1)
+background_mode = 1
 sky = SubResource("Sky_nxtc6")
 ambient_light_source = 1
 ambient_light_sky_contribution = 0.5
-glow_enabled = true
 fog_mode = 1
 fog_density = 1.0
 
@@ -61,6 +60,7 @@ environment = SubResource("Environment_uoaor")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1859417399]
 transform = Transform3D(0.5783431, -0.6944034, 0.42816272, 0.019076375, 0.53620994, 0.8438692, -0.8155707, -0.47987804, 0.32336003, 0, 6.9235277, 0)
+visible = false
 shadow_enabled = true
 directional_shadow_max_distance = 30.0
 sky_mode = 1
@@ -69,7 +69,7 @@ sky_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1997118, 1.684453, -9.495344)
 
 [node name="Coin2" parent="." unique_id=422238251 instance=ExtResource("3_pl785")]
-transform = Transform3D(0.9400503, 0, -0.3410359, 0, 1, 0, 0.3410359, 0, 0.9400503, -0.23112965, 2.0410233, 0.268991)
+transform = Transform3D(0.9400503, 0, -0.3410359, 0, 1, 0, 0.3410359, 0, 0.9400503, 1.6232028, 2.0410233, -0.8712487)
 
 [node name="Player" parent="." unique_id=557277699 instance=ExtResource("4_rnulc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.6028056, 2)
@@ -88,3 +88,19 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.628498, 1.2995853, -1
 
 [node name="Barrel" parent="." unique_id=1229816567 instance=ExtResource("7_kb0x7")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 8, 1.7224433, -1)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=121772585]
+transform = Transform3D(0.57834303, -0.69440335, 0.4281627, 0.019076373, 0.5362099, 0.8438691, -0.8155706, -0.47987804, 0.32335997, 3.075272, 2.8430853, -1.769581)
+omni_attenuation = 0.62
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=1851292659]
+transform = Transform3D(0.57834303, -0.69440335, 0.4281627, 0.019076373, 0.5362099, 0.8438691, -0.8155706, -0.47987804, 0.32335997, 7.3364987, 2.8430853, -1.769581)
+omni_attenuation = 0.62
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=603584126]
+transform = Transform3D(0.8440017, 0.00025303828, 0.5363405, -0.53634053, 0.00039818868, 0.8440016, 0, -0.9999999, 0.0004717866, 9.510188, 6.50767, -9.306654)
+spot_range = 10.035
+spot_attenuation = 0.0
+spot_angle = 22.36
+
+[node name="HUD" parent="." unique_id=349835243 instance=ExtResource("8_pl785")]

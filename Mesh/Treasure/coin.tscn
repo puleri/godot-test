@@ -4,8 +4,19 @@
 [ext_resource type="Script" uid="uid://6srjgta5cxwm" path="res://scripts/Collectibles.gd" id="2_5e826"]
 [ext_resource type="Material" uid="uid://cyxmnuf6pnqw8" path="res://Materials/Coin.tres" id="2_dn3qe"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_kb0x7"]
+
 [node name="Coin" unique_id=291861624 instance=ExtResource("1_vfbcc")]
 script = ExtResource("2_5e826")
 
 [node name="Cylinder_001" parent="." index="0" unique_id=938522483]
+transform = Transform3D(75, 0, 0, 0, -3.2783541e-06, 75, 0, -75, -3.2783541e-06, 0, 0, 0)
 surface_material_override/0 = ExtResource("2_dn3qe")
+
+[node name="Area3D" type="Area3D" parent="." index="1" unique_id=1868593718]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=1633560215]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 7.1054274e-15, 0, -7.1054274e-15, 0.9999999, 0, 0, 0)
+shape = SubResource("SphereShape3D_kb0x7")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

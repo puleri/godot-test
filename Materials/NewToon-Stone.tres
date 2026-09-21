@@ -1,17 +1,18 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://do7a82h5f47uf"]
 
 [ext_resource type="Shader" uid="uid://70flgb4ewoav" path="res://Materials/stylized.gdshader" id="1_xqf8m"]
+[ext_resource type="Texture2D" uid="uid://cod7rnmijaorm" path="res://Textures/dot-matrix-16x16 (1).png" id="2_4bndq"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_xqf8m")
-shader_parameter/albedo_color = Color(0.38, 0.34276, 0.30020002, 1)
+shader_parameter/albedo_color = Color(0.5067132, 0.4596085, 0.41258007, 1)
 shader_parameter/albedo_affect = 0.0
 shader_parameter/use_stepped = true
-shader_parameter/steps = 1.0
-shader_parameter/step_smoothness = 0.15000000223518
+shader_parameter/steps = 2.0
+shader_parameter/step_smoothness = 0.0
 shader_parameter/shadow_tint = Color(0, 0, 0, 1)
-shader_parameter/shadow_tint_amount = 0.5000000074506
+shader_parameter/shadow_tint_amount = 0.4
 shader_parameter/specular = 0.0
 shader_parameter/normal_strength = 0.0
 shader_parameter/use_rim = true
@@ -21,8 +22,9 @@ shader_parameter/rim_smoothness = 0.2
 shader_parameter/rim_mask_shadow = 1.0
 shader_parameter/rim_blend = 1.0
 shader_parameter/use_pattern = false
+shader_parameter/pattern_texture = ExtResource("2_4bndq")
 shader_parameter/pattern_uv_mode = 2
-shader_parameter/pattern_tiling = 32.0
-shader_parameter/pattern_amount = 0.5
+shader_parameter/pattern_tiling = 10.0
+shader_parameter/pattern_amount = 0.0
 shader_parameter/pattern_smoothness = 0.5
 shader_parameter/pattern_blend = 0.2

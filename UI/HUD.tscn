@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bhtnnecjain8t"]
+
+[ext_resource type="Texture2D" uid="uid://b3gfvf8ey8or" path="res://Textures/Icon-Coin.png" id="1_yixhe"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yixhe"]
+font_size = 47
+
+[node name="HUD" type="CanvasLayer" unique_id=349835243]
+
+[node name="Control" type="Control" parent="." unique_id=1572299226]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CoinIcon" type="Sprite2D" parent="Control" unique_id=235603483]
+position = Vector2(3627.0002, 161)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_yixhe")
+
+[node name="CoinCount" type="Label" parent="Control/CoinIcon" unique_id=260620087]
+offset_left = 124.0
+offset_top = -97.333496
+offset_right = 216.0
+offset_bottom = -32.333496
+rotation = -0.45494062
+text = "x 00"
+label_settings = SubResource("LabelSettings_yixhe")
+metadata/_edit_use_anchors_ = true
