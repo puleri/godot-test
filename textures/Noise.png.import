@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cod7rnmijaorm"
-path.s3tc="res://.godot/imported/dot-matrix-16x16 (1).png-cda5b1c35d6213c9efb563afcab9d009.s3tc.ctex"
+uid="uid://c7q6ueeng340j"
+path.s3tc="res://.godot/imported/Noise.png-ee76eeba7f961ca35892777ec89f1a5d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/dot-matrix-16x16 (1).png"
-dest_files=["res://.godot/imported/dot-matrix-16x16 (1).png-cda5b1c35d6213c9efb563afcab9d009.s3tc.ctex"]
+source_file="res://textures/Noise.png"
+dest_files=["res://.godot/imported/Noise.png-ee76eeba7f961ca35892777ec89f1a5d.s3tc.ctex"]
 
 [params]
 

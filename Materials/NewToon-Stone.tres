@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://do7a82h5f47uf"]
 
 [ext_resource type="Shader" uid="uid://70flgb4ewoav" path="res://Materials/stylized.gdshader" id="1_xqf8m"]
-[ext_resource type="Texture2D" uid="uid://cod7rnmijaorm" path="res://Textures/dot-matrix-16x16 (1).png" id="2_4bndq"]
+[ext_resource type="Texture2D" uid="uid://cod7rnmijaorm" path="res://textures/dot-matrix-16x16 (1).png" id="2_4bndq"]
 
 [resource]
 render_priority = 0

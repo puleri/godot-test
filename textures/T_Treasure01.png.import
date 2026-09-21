@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7q6ueeng340j"
-path.s3tc="res://.godot/imported/Noise.png-ee76eeba7f961ca35892777ec89f1a5d.s3tc.ctex"
+uid="uid://br1p51mywnejh"
+path.s3tc="res://.godot/imported/T_Treasure01.png-4da9f49593ca2d944c27db21c1859420.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/Noise.png"
-dest_files=["res://.godot/imported/Noise.png-ee76eeba7f961ca35892777ec89f1a5d.s3tc.ctex"]
+source_file="res://textures/T_Treasure01.png"
+dest_files=["res://.godot/imported/T_Treasure01.png-4da9f49593ca2d944c27db21c1859420.s3tc.ctex"]
 
 [params]
 

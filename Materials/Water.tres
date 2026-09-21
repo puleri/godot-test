@@ -1,6 +1,6 @@
 [gd_resource type="VisualShader" format=3 uid="uid://c2tsaurjhjo47"]
 
-[ext_resource type="Texture2D" uid="uid://c7q6ueeng340j" path="res://Textures/Noise.png" id="1_7u5yi"]
+[ext_resource type="Texture2D" uid="uid://c7q6ueeng340j" path="res://textures/Noise.png" id="1_7u5yi"]
 
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_1eskk"]
 default_input_values = [0, 0.0, 1, 0.03]

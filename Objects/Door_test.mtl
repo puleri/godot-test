@@ -1,0 +1,8 @@
+# Material slots referenced by Door_test.obj.
+# Door01.tscn replaces both surfaces with Godot materials at runtime.
+
+newmtl Metal
+Kd 0.308769 0.308769 0.308769
+
+newmtl Material.002
+Kd 0.105614 0.105614 0.105614

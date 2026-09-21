@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://cyxmnuf6pnqw8"]
 
 [ext_resource type="Shader" uid="uid://70flgb4ewoav" path="res://Materials/stylized.gdshader" id="1_i67fv"]
-[ext_resource type="Texture2D" uid="uid://br1p51mywnejh" path="res://Textures/T_Treasure01.png" id="2_q41r0"]
+[ext_resource type="Texture2D" uid="uid://br1p51mywnejh" path="res://textures/T_Treasure01.png" id="2_q41r0"]
 
 [resource]
 render_priority = 0
