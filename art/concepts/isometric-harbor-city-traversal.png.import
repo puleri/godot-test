@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3gfvf8ey8or"
-path="res://.godot/imported/Icon-Coin.png-7ebdb5bfee952131ea67897642c80cd9.ctex"
+uid="uid://cdhak51nw3bon"
+path="res://.godot/imported/isometric-harbor-city-traversal.png-92b36b3b7eff2e692ea311f21f681975.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/Icon-Coin.png"
-dest_files=["res://.godot/imported/Icon-Coin.png-7ebdb5bfee952131ea67897642c80cd9.ctex"]
+source_file="res://art/concepts/isometric-harbor-city-traversal.png"
+dest_files=["res://.godot/imported/isometric-harbor-city-traversal.png-92b36b3b7eff2e692ea311f21f681975.ctex"]
 
 [params]
 
