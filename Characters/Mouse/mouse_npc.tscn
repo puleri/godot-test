@@ -43,3 +43,7 @@ run_clip = "Root|Run"
 alert_clip = "Root|Alert"
 walk_reference_speed = 0.75
 run_reference_speed = 1.2
+blend_full_speed = 1.2
+blend_in_seconds = 0.12
+blend_out_seconds = 0.18
+playback_smoothing_seconds = 0.08

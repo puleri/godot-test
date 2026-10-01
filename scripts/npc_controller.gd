@@ -36,6 +36,7 @@ var _target_index := -1
 var _pause_remaining := 0.0
 var _stuck_elapsed := 0.0
 var _last_target_distance := INF
+var _stuck_progress := 0.0
 var _heading_yaw := 0.0
 var _last_visual_yaw := 0.0
 var _rng := RandomNumberGenerator.new()
@@ -79,7 +80,7 @@ func _physics_process(delta: float) -> void:
 	var resolved_velocity: Vector3 = (global_position - previous_position) / maxf(delta, 0.0001)
 	var horizontal_speed: float = Vector2(resolved_velocity.x, resolved_velocity.z).length()
 	if horizontal_speed > 0.001:
-		_update_visual_facing(Vector3(resolved_velocity.x, 0.0, resolved_velocity.z))
+		_update_visual_facing(Vector3(resolved_velocity.x, 0.0, resolved_velocity.z), delta)
 	else:
 		# Animation and pre-turning must never alter a stationary actor's last
 		# valid world-space facing direction.
@@ -103,22 +104,28 @@ func _update_route(delta: float) -> void:
 	to_target.y = 0.0
 	var distance := to_target.length()
 	if distance <= arrival_radius:
-		_arrive()
+		if Vector2(velocity.x, velocity.z).length() <= 0.04:
+			_arrive()
+		else:
+			_stop_horizontal(delta)
 		return
 	if not _has_ground_ahead(to_target.normalized()):
 		_recover_from_blockage()
 		return
 
 	_state = State.MOVING
-	var desired_speed := minf(_current_speed(), maxf(0.08, distance * 3.0))
+	var braking_distance := maxf(distance - arrival_radius, 0.0)
+	var desired_speed := minf(_current_speed(), sqrt(2.0 * braking * braking_distance))
 	_steer_toward(to_target.normalized(), desired_speed, delta)
-	if distance >= _last_target_distance - 0.01:
-		_stuck_elapsed += delta
-	else:
-		_stuck_elapsed = 0.0
+	_stuck_progress += maxf(_last_target_distance - distance, 0.0) if is_finite(_last_target_distance) else 0.0
+	_stuck_elapsed += delta
 	_last_target_distance = distance
 	if _stuck_elapsed >= stuck_timeout_seconds:
-		_recover_from_blockage()
+		if _stuck_progress < 0.06 and Vector2(velocity.x, velocity.z).length() > 0.05:
+			_recover_from_blockage()
+		else:
+			_stuck_elapsed = 0.0
+			_stuck_progress = 0.0
 
 
 func _move_to_single_point(delta: float) -> void:
@@ -134,20 +141,21 @@ func _move_to_single_point(delta: float) -> void:
 
 func _arrive() -> void:
 	_state = State.IDLE
-	_stop_horizontal(1.0)
 	_pause_remaining = _rng.randf_range(minf(pause_min_seconds, pause_max_seconds), maxf(pause_min_seconds, pause_max_seconds))
 	if _animation_driver != null and _rng.randf() < alert_chance_on_arrival:
 		_animation_driver.play_alert()
 	_stuck_elapsed = 0.0
+	_stuck_progress = 0.0
 	_last_target_distance = INF
 	_choose_next_target()
 
 
 func _recover_from_blockage() -> void:
-	_stop_horizontal(1.0)
+	_stop_horizontal(0.2)
 	_state = State.IDLE
 	_pause_remaining = maxf(0.25, _rng.randf_range(pause_min_seconds, pause_max_seconds))
 	_stuck_elapsed = 0.0
+	_stuck_progress = 0.0
 	_last_target_distance = INF
 	_choose_next_target()
 
@@ -213,14 +221,16 @@ func _turn_heading_toward(direction: Vector3, delta: float) -> bool:
 	# A separate world-space heading gates movement until the next route leg is
 	# aligned; only resolved movement is allowed to turn the visual pivot.
 	_heading_yaw = rotate_toward(_heading_yaw, desired_yaw, turn_speed * delta)
-	return absf(angle_difference(_heading_yaw, desired_yaw)) <= move_after_turn_angle
+	var visual_target := _heading_yaw + visual_forward_yaw_offset
+	_set_visual_yaw(rotate_toward(_last_visual_yaw, visual_target, turn_speed * delta))
+	return absf(angle_difference(_heading_yaw, desired_yaw)) <= move_after_turn_angle and absf(angle_difference(_last_visual_yaw, visual_target)) <= move_after_turn_angle
 
 
-func _update_visual_facing(resolved_direction: Vector3) -> void:
+func _update_visual_facing(resolved_direction: Vector3, delta: float) -> void:
 	if resolved_direction.length_squared() < 0.000001:
 		return
 	var desired_yaw := atan2(-resolved_direction.x, -resolved_direction.z) + visual_forward_yaw_offset
-	_set_visual_yaw(desired_yaw)
+	_set_visual_yaw(rotate_toward(_last_visual_yaw, desired_yaw, turn_speed * delta))
 
 
 func _set_visual_yaw(yaw: float) -> void:
