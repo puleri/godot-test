@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://bhtnnecjain8t"]
 
 [ext_resource type="Texture2D" uid="uid://b3gfvf8ey8or" path="res://textures/Icon-Coin.png" id="1_yixhe"]
+[ext_resource type="Script" path="res://scripts/hud.gd" id="2_hud"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yixhe"]
 font_size = 47
 
 [node name="HUD" type="CanvasLayer" unique_id=349835243]
+script = ExtResource("2_hud")
 
 [node name="Control" type="Control" parent="." unique_id=1572299226]
 layout_mode = 3

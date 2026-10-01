@@ -15,7 +15,9 @@ enum State { IDLE, MOVING }
 @export_range(0.0, PI, 0.01) var move_after_turn_angle := 0.12
 @export var visual_pivot_path: NodePath = ^"VisualPivot"
 # Rotates the source asset's authored forward axis into Godot's -Z forward.
-# Hound (+X forward) uses PI / 2; Mouse (+Z forward) uses PI.
+# Both supplied visual meshes need their authored +X forward aligned to Godot
+# -Z. Hound and Mouse therefore use PI / 2; do not infer this from skeleton
+# bone axes, which differ from the rendered mesh orientation.
 @export var visual_forward_yaw_offset := 0.0
 @export var arrival_radius := 0.12
 @export var pause_min_seconds := 1.0

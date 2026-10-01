@@ -6,7 +6,7 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_kb0x7"]
 
-[node name="Coin" unique_id=291861624 instance=ExtResource("1_vfbcc")]
+[node name="Coin" unique_id=291861624 groups=["coins"] instance=ExtResource("1_vfbcc")]
 script = ExtResource("2_5e826")
 
 [node name="Cylinder_001" parent="." index="0" unique_id=938522483]
