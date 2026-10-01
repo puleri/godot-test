@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/npc_controller.gd" id="1_controller"]
+[ext_resource type="PackedScene" path="res://Characters/Mouse/mouse_v2.tscn" id="2_model"]
+[ext_resource type="Script" path="res://scripts/npc_animation_driver.gd" id="3_animation"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mouse"]
+radius = 0.14
+height = 0.34
+
+[node name="Mouse_v2" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 1
+script = ExtResource("1_controller")
+route_mode = 1
+walk_speed = 0.75
+run_speed = 1.2
+acceleration = 5.0
+braking = 8.0
+arrival_radius = 0.09
+visual_forward_yaw_offset = 3.1415927
+pause_min_seconds = 0.5
+pause_max_seconds = 2.0
+locomotion_uses_run = true
+alert_chance_on_arrival = 0.15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+position = Vector3(0, 0.17, 0)
+shape = SubResource("CapsuleShape3D_mouse")
+
+[node name="VisualPivot" type="Node3D" parent="."]
+position = Vector3(0, 0.17, 0)
+
+[node name="Model" parent="VisualPivot" instance=ExtResource("2_model")]
+scale = Vector3(0.5, 0.5, 0.5)
+
+[node name="AnimationDriver" type="Node" parent="."]
+script = ExtResource("3_animation")
+animation_player_path = NodePath("../VisualPivot/Model/AnimationPlayer")
+idle_clip = "Root|Idle"
+walk_clip = "Root|Walk01"
+run_clip = "Root|Run"
+alert_clip = "Root|Alert"
+walk_reference_speed = 0.75
+run_reference_speed = 1.2

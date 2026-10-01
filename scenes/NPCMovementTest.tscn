@@ -1,0 +1,156 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="PackedScene" path="res://Characters/Hound/hound_npc.tscn" id="1_hound"]
+[ext_resource type="PackedScene" path="res://Characters/Mouse/mouse_npc.tscn" id="2_mouse"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_floor"]
+size = Vector3(10, 0.2, 8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
+size = Vector3(10, 0.2, 8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_obstacle"]
+size = Vector3(0.25, 0.8, 2.0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_obstacle"]
+size = Vector3(0.25, 0.8, 2.0)
+
+[sub_resource type="SphereMesh" id="SphereMesh_marker"]
+radius = 0.06
+height = 0.12
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_marker"]
+albedo_color = Color(1, 0.75, 0.15, 1)
+emission_enabled = true
+emission = Color(1, 0.45, 0.03, 1)
+
+[sub_resource type="Environment" id="Environment_test"]
+background_mode = 1
+background_color = Color(0.07, 0.09, 0.13, 1)
+ambient_light_source = 3
+ambient_light_color = Color(0.7, 0.75, 0.9, 1)
+ambient_light_energy = 0.7
+
+[node name="NPCMovementTest" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_test")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-55, -25, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+position = Vector3(0, 7, 8)
+rotation_degrees = Vector3(-35, 0, 0)
+current = true
+
+[node name="Floor" type="StaticBody3D" parent="."]
+position = Vector3(0, -0.1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_floor")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_floor")
+
+[node name="Obstacle" type="StaticBody3D" parent="."]
+position = Vector3(-1.8, 0.4, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Obstacle"]
+mesh = SubResource("BoxMesh_obstacle")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Obstacle"]
+shape = SubResource("BoxShape3D_obstacle")
+
+[node name="Hound" parent="." instance=ExtResource("1_hound")]
+position = Vector3(-2.5, 0, 0)
+route_path = NodePath("../HoundRoute")
+random_seed = 3101
+
+[node name="MouseA" parent="." instance=ExtResource("2_mouse")]
+position = Vector3(2.0, 0, -1.3)
+route_path = NodePath("../MouseRouteA")
+random_seed = 3201
+
+[node name="MouseB" parent="." instance=ExtResource("2_mouse")]
+position = Vector3(2.5, 0, 0.6)
+route_path = NodePath("../MouseRouteB")
+random_seed = 3202
+start_delay_seconds = 0.7
+
+[node name="HoundRoute" type="Node3D" parent="."]
+
+[node name="PointA" type="Marker3D" parent="HoundRoute"]
+position = Vector3(-2.5, 0, 0)
+
+[node name="RouteMarker" type="MeshInstance3D" parent="HoundRoute/PointA"]
+mesh = SubResource("SphereMesh_marker")
+material_override = SubResource("StandardMaterial3D_marker")
+
+[node name="PointB" type="Marker3D" parent="HoundRoute"]
+position = Vector3(-1.1, 0, 0)
+
+[node name="RouteMarker" type="MeshInstance3D" parent="HoundRoute/PointB"]
+mesh = SubResource("SphereMesh_marker")
+material_override = SubResource("StandardMaterial3D_marker")
+
+[node name="PointC" type="Marker3D" parent="HoundRoute"]
+position = Vector3(-1.1, 0, -1.2)
+
+[node name="RouteMarker" type="MeshInstance3D" parent="HoundRoute/PointC"]
+mesh = SubResource("SphereMesh_marker")
+material_override = SubResource("StandardMaterial3D_marker")
+
+[node name="MouseRouteA" type="Node3D" parent="."]
+
+[node name="PointA" type="Marker3D" parent="MouseRouteA"]
+position = Vector3(2.0, 0, -1.3)
+
+[node name="RouteMarker" type="MeshInstance3D" parent="MouseRouteA/PointA"]
+mesh = SubResource("SphereMesh_marker")
+material_override = SubResource("StandardMaterial3D_marker")
+
+[node name="PointB" type="Marker3D" parent="MouseRouteA"]
+position = Vector3(3.3, 0, -1.3)
+
+[node name="RouteMarker" type="MeshInstance3D" parent="MouseRouteA/PointB"]
+mesh = SubResource("SphereMesh_marker")
+material_override = SubResource("StandardMaterial3D_marker")
+
+[node name="PointC" type="Marker3D" parent="MouseRouteA"]
+position = Vector3(2.7, 0, -2.2)
+
+[node name="RouteMarker" type="MeshInstance3D" parent="MouseRouteA/PointC"]
+mesh = SubResource("SphereMesh_marker")
+material_override = SubResource("StandardMaterial3D_marker")
+
+[node name="MouseRouteB" type="Node3D" parent="."]
+
+[node name="PointA" type="Marker3D" parent="MouseRouteB"]
+position = Vector3(2.5, 0, 0.6)
+
+[node name="RouteMarker" type="MeshInstance3D" parent="MouseRouteB/PointA"]
+mesh = SubResource("SphereMesh_marker")
+material_override = SubResource("StandardMaterial3D_marker")
+
+[node name="PointB" type="Marker3D" parent="MouseRouteB"]
+position = Vector3(3.5, 0, 0.8)
+
+[node name="RouteMarker" type="MeshInstance3D" parent="MouseRouteB/PointB"]
+mesh = SubResource("SphereMesh_marker")
+material_override = SubResource("StandardMaterial3D_marker")
+
+[node name="PointC" type="Marker3D" parent="MouseRouteB"]
+position = Vector3(2.8, 0, 1.5)
+
+[node name="RouteMarker" type="MeshInstance3D" parent="MouseRouteB/PointC"]
+mesh = SubResource("SphereMesh_marker")
+material_override = SubResource("StandardMaterial3D_marker")
+
+[node name="PointBeyondEdge" type="Marker3D" parent="MouseRouteB"]
+position = Vector3(5.45, 0, 0.8)
+
+[node name="RouteMarker" type="MeshInstance3D" parent="MouseRouteB/PointBeyondEdge"]
+mesh = SubResource("SphereMesh_marker")
+material_override = SubResource("StandardMaterial3D_marker")

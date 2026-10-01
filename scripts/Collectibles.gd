@@ -14,4 +14,5 @@ func collected ():
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	collected()
+	if body is CharacterBody3D and body.name == "Player":
+		collected()

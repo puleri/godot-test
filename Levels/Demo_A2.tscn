@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://wtfbqkfr7d5e" path="res://Mesh/Harboretum-Mesh/Build-EntryWay_v2.tscn" id="2_10yvp"]
 [ext_resource type="PackedScene" uid="uid://b4bt8u2iqbafe" path="res://Mesh/Treasure/coin.tscn" id="3_pl785"]
 [ext_resource type="PackedScene" uid="uid://csg8qevfclebv" path="res://scenes/Player_v2.tscn" id="4_rnulc"]
-[ext_resource type="PackedScene" uid="uid://h0io22tujls7" path="res://Characters/Hound/hound_v2.tscn" id="5_kb0x7"]
-[ext_resource type="PackedScene" uid="uid://b71q143li0mfe" path="res://Characters/Mouse/mouse_v2.tscn" id="6_pl785"]
+[ext_resource type="PackedScene" path="res://Characters/Hound/hound_npc.tscn" id="5_kb0x7"]
+[ext_resource type="PackedScene" path="res://Characters/Mouse/mouse_npc.tscn" id="6_pl785"]
 [ext_resource type="PackedScene" uid="uid://defo8smbyjqfh" path="res://Objects/Newbarrel.tscn" id="7_kb0x7"]
 [ext_resource type="PackedScene" uid="uid://bhtnnecjain8t" path="res://UI/HUD.tscn" id="8_pl785"]
 
@@ -75,16 +75,74 @@ transform = Transform3D(0.9400503, 0, -0.3410359, 0, 1, 0, 0.3410359, 0, 0.94005
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.6028056, 2)
 
 [node name="Hound_v2" parent="." unique_id=1994242750 instance=ExtResource("5_kb0x7")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 7, 1.6899645, -11)
+position = Vector3(7, 1.13, -11)
+route_path = NodePath("../HoundRoute")
+random_seed = 1001
 
 [node name="Mouse_v2" parent="." unique_id=1238967255 instance=ExtResource("6_pl785")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 5.324681, 1.2984242, -11.068178)
+position = Vector3(5.324681, 1.13, -11.068178)
+route_path = NodePath("../MouseRouteA")
+random_seed = 2001
+start_delay_seconds = 0.2
 
 [node name="Mouse_v3" parent="." unique_id=860996211 instance=ExtResource("6_pl785")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.6363063, 1.2984242, -11.5621195)
+position = Vector3(4.6363063, 1.13, -11.5621195)
+route_path = NodePath("../MouseRouteB")
+random_seed = 2002
+start_delay_seconds = 0.8
 
 [node name="Mouse_v4" parent="." unique_id=1830713955 instance=ExtResource("6_pl785")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.628498, 1.2995853, -10.520475)
+position = Vector3(4.6284987, 1.13, -10.520475)
+route_path = NodePath("../MouseRouteC")
+random_seed = 2003
+start_delay_seconds = 1.4
+
+[node name="HoundRoute" type="Node3D" parent="."]
+
+[node name="PointA" type="Marker3D" parent="HoundRoute"]
+position = Vector3(7, 1.13, -11)
+
+[node name="PointB" type="Marker3D" parent="HoundRoute"]
+position = Vector3(7.7, 1.13, -11)
+
+[node name="PointC" type="Marker3D" parent="HoundRoute"]
+position = Vector3(7.7, 1.13, -10.25)
+
+[node name="PointD" type="Marker3D" parent="HoundRoute"]
+position = Vector3(7, 1.13, -10.25)
+
+[node name="MouseRouteA" type="Node3D" parent="."]
+
+[node name="PointA" type="Marker3D" parent="MouseRouteA"]
+position = Vector3(5.324681, 1.13, -11.068178)
+
+[node name="PointB" type="Marker3D" parent="MouseRouteA"]
+position = Vector3(5.75, 1.13, -10.8)
+
+[node name="PointC" type="Marker3D" parent="MouseRouteA"]
+position = Vector3(5.55, 1.13, -11.55)
+
+[node name="MouseRouteB" type="Node3D" parent="."]
+
+[node name="PointA" type="Marker3D" parent="MouseRouteB"]
+position = Vector3(4.6363063, 1.13, -11.5621195)
+
+[node name="PointB" type="Marker3D" parent="MouseRouteB"]
+position = Vector3(4.25, 1.13, -11.15)
+
+[node name="PointC" type="Marker3D" parent="MouseRouteB"]
+position = Vector3(4.95, 1.13, -11.2)
+
+[node name="MouseRouteC" type="Node3D" parent="."]
+
+[node name="PointA" type="Marker3D" parent="MouseRouteC"]
+position = Vector3(4.6284987, 1.13, -10.520475)
+
+[node name="PointB" type="Marker3D" parent="MouseRouteC"]
+position = Vector3(4.25, 1.13, -10.85)
+
+[node name="PointC" type="Marker3D" parent="MouseRouteC"]
+position = Vector3(5.05, 1.13, -10.75)
 
 [node name="Barrel" parent="." unique_id=1229816567 instance=ExtResource("7_kb0x7")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 8, 1.7224433, -1)
