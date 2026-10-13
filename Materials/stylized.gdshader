@@ -26,6 +26,7 @@ uniform float rim_amount = 2.0;
 uniform float rim_smoothness = 0.2;
 uniform float rim_mask_shadow : hint_range(0.0, 1.0, 0.05) = 1.0;
 uniform float rim_blend : hint_range(0.0, 1.0, 0.05) = 1.0;
+uniform bool rim_uses_light_color = false;
 
 group_uniforms Shader.Pattern;
 uniform bool use_pattern = true;
@@ -101,7 +102,8 @@ void light () {
 		rim_value = smoothstep(0.5 - (rim_smoothness / 2.0), 0.5 + (rim_smoothness / 2.0), rim_value);
 		rim_value = mix(rim_value, rim_value * light, rim_mask_shadow);
 
-		diffuse += rim_color.rgb * rim_value * rim_blend;
+		vec3 rim_light_color = rim_uses_light_color ? (LIGHT_COLOR / PI) : vec3(1.0);
+		diffuse += rim_color.rgb * rim_light_color * rim_value * rim_blend;
 	}
 
 	DIFFUSE_LIGHT += mix(diffuse, ALBEDO * diffuse, albedo_affect);

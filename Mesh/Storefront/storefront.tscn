@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://b1yfrhhp7xx2b"]
+
+[ext_resource type="PackedScene" uid="uid://borpcnckhutn5" path="res://Mesh/Storefront/storefront.glb" id="1_store"]
+[ext_resource type="Script" path="res://Mesh/Storefront/storefront_material_setup.gd" id="2_materials"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_store"]
+size = Vector3(8.35, 6.45, 4.8)
+
+[node name="Storefront" type="Node3D" unique_id=735804597]
+script = ExtResource("2_materials")
+
+[node name="Model" parent="." unique_id=525251111 instance=ExtResource("1_store")]
+
+[node name="BuildingCollision" type="StaticBody3D" parent="." unique_id=499149427]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BuildingCollision" unique_id=2101046066]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.225, 0)
+shape = SubResource("BoxShape3D_store")
+
+[node name="LeftWindowGroundLight" type="SpotLight3D" parent="."]
+position = Vector3(-2.32, 2.02, 2.72)
+rotation = Vector3(-2.3, 0, 0)
+light_color = Color(1, 0.4, 0.08, 1)
+light_energy = 1.35
+light_cull_mask = 1
+shadow_enabled = true
+spot_range = 5.45
+spot_attenuation = 3.0
+spot_angle = 50.0
+
+[node name="RightWindowGroundLight" type="SpotLight3D" parent="."]
+position = Vector3(2.32, 2.02, 2.72)
+rotation = Vector3(-2.3, 0, 0)
+light_color = Color(1, 0.4, 0.08, 1)
+light_energy = 1.35
+light_cull_mask = 1
+shadow_enabled = true
+spot_range = 5.45
+spot_attenuation = 3.0
+spot_angle = 50.0

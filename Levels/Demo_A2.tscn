@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" path="res://Characters/Mouse/mouse_npc.tscn" id="6_pl785"]
 [ext_resource type="PackedScene" uid="uid://defo8smbyjqfh" path="res://Objects/Newbarrel.tscn" id="7_kb0x7"]
 [ext_resource type="PackedScene" uid="uid://bhtnnecjain8t" path="res://UI/HUD.tscn" id="8_pl785"]
+[ext_resource type="PackedScene" path="res://Mesh/Storefront/storefront.tscn" id="9_storefront"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_demo_floor"]
 size = Vector3(16, 0.2, 28)
@@ -28,6 +29,7 @@ background_mode = 1
 sky = SubResource("Sky_nxtc6")
 ambient_light_source = 1
 ambient_light_sky_contribution = 0.5
+glow_enabled = true
 fog_mode = 1
 fog_density = 1.0
 
@@ -36,6 +38,9 @@ script = ExtResource("1_10yvp")
 
 [node name="LevelGeometry" parent="." unique_id=1146930490 instance=ExtResource("2_10yvp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013550758, 0.054533243, -0.26020336)
+
+[node name="Storefront" parent="." unique_id=1100406952 instance=ExtResource("9_storefront")]
+transform = Transform3D(0.027052939, 0, 0.5493342, 0, 0.54999995, 0, -0.5493342, 0, 0.027052939, -2.6064434, 1.1147486, -6.6)
 
 [node name="MovementFloor" type="StaticBody3D" parent="." unique_id=2020899719]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.9666046, -7.7)
@@ -75,74 +80,74 @@ transform = Transform3D(0.9400503, 0, -0.3410359, 0, 1, 0, 0.3410359, 0, 0.94005
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.6028056, 2)
 
 [node name="Hound_v2" parent="." unique_id=1994242750 instance=ExtResource("5_kb0x7")]
-position = Vector3(7, 1.13, -11)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.13, -11)
 route_path = NodePath("../HoundRoute")
 random_seed = 1001
 
 [node name="Mouse_v2" parent="." unique_id=1238967255 instance=ExtResource("6_pl785")]
-position = Vector3(5.324681, 1.13, -11.068178)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.324681, 1.13, -11.068178)
 route_path = NodePath("../MouseRouteA")
-random_seed = 2001
 start_delay_seconds = 0.2
+random_seed = 2001
 
 [node name="Mouse_v3" parent="." unique_id=860996211 instance=ExtResource("6_pl785")]
-position = Vector3(4.6363063, 1.13, -11.5621195)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6363063, 1.13, -11.5621195)
 route_path = NodePath("../MouseRouteB")
-random_seed = 2002
 start_delay_seconds = 0.8
+random_seed = 2002
 
 [node name="Mouse_v4" parent="." unique_id=1830713955 instance=ExtResource("6_pl785")]
-position = Vector3(4.6284987, 1.13, -10.520475)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6284986, 1.13, -10.520475)
 route_path = NodePath("../MouseRouteC")
-random_seed = 2003
 start_delay_seconds = 1.4
+random_seed = 2003
 
-[node name="HoundRoute" type="Node3D" parent="."]
+[node name="HoundRoute" type="Node3D" parent="." unique_id=1581423272]
 
-[node name="PointA" type="Marker3D" parent="HoundRoute"]
-position = Vector3(7, 1.13, -11)
+[node name="PointA" type="Marker3D" parent="HoundRoute" unique_id=1953760486]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.13, -11)
 
-[node name="PointB" type="Marker3D" parent="HoundRoute"]
-position = Vector3(7.7, 1.13, -11)
+[node name="PointB" type="Marker3D" parent="HoundRoute" unique_id=227576033]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7, 1.13, -11)
 
-[node name="PointC" type="Marker3D" parent="HoundRoute"]
-position = Vector3(7.7, 1.13, -10.25)
+[node name="PointC" type="Marker3D" parent="HoundRoute" unique_id=1818768876]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7, 1.13, -10.25)
 
-[node name="PointD" type="Marker3D" parent="HoundRoute"]
-position = Vector3(7, 1.13, -10.25)
+[node name="PointD" type="Marker3D" parent="HoundRoute" unique_id=2041480465]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.13, -10.25)
 
-[node name="MouseRouteA" type="Node3D" parent="."]
+[node name="MouseRouteA" type="Node3D" parent="." unique_id=2004053937]
 
-[node name="PointA" type="Marker3D" parent="MouseRouteA"]
-position = Vector3(5.324681, 1.13, -11.068178)
+[node name="PointA" type="Marker3D" parent="MouseRouteA" unique_id=757548712]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.324681, 1.13, -11.068178)
 
-[node name="PointB" type="Marker3D" parent="MouseRouteA"]
-position = Vector3(5.75, 1.13, -10.8)
+[node name="PointB" type="Marker3D" parent="MouseRouteA" unique_id=1538543443]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.75, 1.13, -10.8)
 
-[node name="PointC" type="Marker3D" parent="MouseRouteA"]
-position = Vector3(5.55, 1.13, -11.55)
+[node name="PointC" type="Marker3D" parent="MouseRouteA" unique_id=497057179]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.55, 1.13, -11.55)
 
-[node name="MouseRouteB" type="Node3D" parent="."]
+[node name="MouseRouteB" type="Node3D" parent="." unique_id=1467920248]
 
-[node name="PointA" type="Marker3D" parent="MouseRouteB"]
-position = Vector3(4.6363063, 1.13, -11.5621195)
+[node name="PointA" type="Marker3D" parent="MouseRouteB" unique_id=1613711908]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6363063, 1.13, -11.5621195)
 
-[node name="PointB" type="Marker3D" parent="MouseRouteB"]
-position = Vector3(4.25, 1.13, -11.15)
+[node name="PointB" type="Marker3D" parent="MouseRouteB" unique_id=1429778168]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25, 1.13, -11.15)
 
-[node name="PointC" type="Marker3D" parent="MouseRouteB"]
-position = Vector3(4.95, 1.13, -11.2)
+[node name="PointC" type="Marker3D" parent="MouseRouteB" unique_id=1509920181]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.95, 1.13, -11.2)
 
-[node name="MouseRouteC" type="Node3D" parent="."]
+[node name="MouseRouteC" type="Node3D" parent="." unique_id=1417982718]
 
-[node name="PointA" type="Marker3D" parent="MouseRouteC"]
-position = Vector3(4.6284987, 1.13, -10.520475)
+[node name="PointA" type="Marker3D" parent="MouseRouteC" unique_id=1572184988]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6284986, 1.13, -10.520475)
 
-[node name="PointB" type="Marker3D" parent="MouseRouteC"]
-position = Vector3(4.25, 1.13, -10.85)
+[node name="PointB" type="Marker3D" parent="MouseRouteC" unique_id=961068660]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25, 1.13, -10.85)
 
-[node name="PointC" type="Marker3D" parent="MouseRouteC"]
-position = Vector3(5.05, 1.13, -10.75)
+[node name="PointC" type="Marker3D" parent="MouseRouteC" unique_id=2077813371]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.05, 1.13, -10.75)
 
 [node name="Barrel" parent="." unique_id=1229816567 instance=ExtResource("7_kb0x7")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 8, 1.7224433, -1)

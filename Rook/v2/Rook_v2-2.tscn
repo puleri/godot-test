@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://k6a077dq0ihf"]
 
 [ext_resource type="PackedScene" uid="uid://dj2iket5j1jdw" path="res://Rook/v2/Rook_v2.fbx" id="1_4mk52"]
-[ext_resource type="Material" uid="uid://b5v5br2k0catq" path="res://Materials/NewToon-Black.tres" id="2_nsxbl"]
+[ext_resource type="Material" path="res://Materials/RookToon-Black.tres" id="2_nsxbl"]
 [ext_resource type="Material" uid="uid://fc8jacmlue8n" path="res://Materials/EmissiveWhite.tres" id="3_rq7tk"]
 
 [node name="Rook_v2" unique_id=2059784872 instance=ExtResource("1_4mk52")]
