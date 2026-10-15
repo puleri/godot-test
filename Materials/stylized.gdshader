@@ -1,5 +1,7 @@
 shader_type spatial;
 
+global uniform float storm_rim_suppression;
+
 group_uniforms Shader.Albedo;
 uniform vec4 albedo_color : source_color  = vec4(1.0);
 uniform sampler2D albedo_texture;
@@ -101,6 +103,7 @@ void light () {
 		float rim_value = fresnel(rim_amount, NORMAL, VIEW);
 		rim_value = smoothstep(0.5 - (rim_smoothness / 2.0), 0.5 + (rim_smoothness / 2.0), rim_value);
 		rim_value = mix(rim_value, rim_value * light, rim_mask_shadow);
+		rim_value *= 1.0 - clamp(storm_rim_suppression, 0.0, 1.0);
 
 		vec3 rim_light_color = rim_uses_light_color ? (LIGHT_COLOR / PI) : vec3(1.0);
 		diffuse += rim_color.rgb * rim_light_color * rim_value * rim_blend;
