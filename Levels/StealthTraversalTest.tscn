@@ -1,0 +1,763 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/stealth_test_level.gd" id="level"]
+
+[ext_resource type="Script" path="res://scripts/stealth_guard.gd" id="guard"]
+
+[ext_resource type="Script" path="res://scripts/stealth_test_player.gd" id="player_script"]
+
+[ext_resource type="PackedScene" path="res://scenes/Player_v2.tscn" id="player"]
+
+[ext_resource type="PackedScene" path="res://Characters/Hound/hound_npc.tscn" id="hound"]
+
+[ext_resource type="Shader" path="res://Materials/stylized.gdshader" id="darkness_shader"]
+
+[ext_resource type="Script" path="res://scripts/storm_flash_light.gd" id="storm_script"]
+
+[ext_resource type="AudioStream" path="res://Music/FX/Storm/storm-loop.mp3" id="storm_loop"]
+
+[ext_resource type="AudioStream" path="res://Music/FX/Storm/thunder.mp3" id="thunder"]
+
+[ext_resource type="AudioStream" path="res://Music/FX/Storm/loud-thunder.mp3" id="loud_thunder"]
+
+[ext_resource type="AudioStream" path="res://Music/FX/Storm/huge-thunder.mp3" id="huge_thunder"]
+
+[sub_resource type="ShaderMaterial" id="floor"]
+shader = ExtResource("darkness_shader")
+shader_parameter/albedo_color = Color(0.25, 0.32, 0.40, 1)
+shader_parameter/albedo_affect = 0.0
+shader_parameter/use_stepped = false
+shader_parameter/steps = 3.0
+shader_parameter/step_smoothness = 0.08
+shader_parameter/shadow_tint = Color(0, 0, 0, 1)
+shader_parameter/use_pattern = false
+shader_parameter/use_rim = false
+
+[sub_resource type="ShaderMaterial" id="grid"]
+shader = ExtResource("darkness_shader")
+shader_parameter/albedo_color = Color(0.30, 0.38, 0.46, 1)
+shader_parameter/albedo_affect = 0.0
+shader_parameter/use_stepped = false
+shader_parameter/steps = 3.0
+shader_parameter/step_smoothness = 0.08
+shader_parameter/shadow_tint = Color(0, 0, 0, 1)
+shader_parameter/use_pattern = false
+shader_parameter/use_rim = false
+
+[sub_resource type="ShaderMaterial" id="wall"]
+shader = ExtResource("darkness_shader")
+shader_parameter/albedo_color = Color(0.32, 0.42, 0.49, 1)
+shader_parameter/albedo_affect = 0.0
+shader_parameter/steps = 2.0
+shader_parameter/shadow_tint = Color(0, 0, 0, 1)
+shader_parameter/use_pattern = false
+shader_parameter/use_rim = true
+shader_parameter/rim_blend = 0.25
+shader_parameter/rim_uses_light_color = true
+
+[sub_resource type="ShaderMaterial" id="cover"]
+shader = ExtResource("darkness_shader")
+shader_parameter/albedo_color = Color(0.47, 0.50, 0.49, 1)
+shader_parameter/albedo_affect = 0.0
+shader_parameter/steps = 2.0
+shader_parameter/shadow_tint = Color(0, 0, 0, 1)
+shader_parameter/use_pattern = false
+shader_parameter/use_rim = true
+shader_parameter/rim_blend = 0.3
+shader_parameter/rim_uses_light_color = true
+
+[sub_resource type="ShaderMaterial" id="cap"]
+shader = ExtResource("darkness_shader")
+shader_parameter/albedo_color = Color(0.62, 0.56, 0.43, 1)
+shader_parameter/albedo_affect = 0.0
+shader_parameter/steps = 2.0
+shader_parameter/shadow_tint = Color(0, 0, 0, 1)
+shader_parameter/use_pattern = false
+shader_parameter/use_rim = true
+shader_parameter/rim_blend = 0.3
+shader_parameter/rim_uses_light_color = true
+
+[sub_resource type="StandardMaterial3D" id="gold"]
+albedo_color = Color(0.94, 0.71, 0.32, 1)
+roughness = 0.85
+
+emission_enabled = true
+emission = Color(0.94, 0.71, 0.32, 1)
+emission_energy_multiplier = 1.4
+
+[sub_resource type="StandardMaterial3D" id="blue"]
+albedo_color = Color(0.26, 0.68, 0.76, 1)
+roughness = 0.85
+
+emission_enabled = true
+emission = Color(0.26, 0.68, 0.76, 1)
+emission_energy_multiplier = 1.4
+
+[sub_resource type="StandardMaterial3D" id="dark"]
+albedo_color = Color(0.055, 0.09, 0.13, 1)
+roughness = 0.85
+
+[sub_resource type="Environment" id="environment"]
+background_mode = 1
+background_color = Color(0.009, 0.015, 0.027, 1)
+ambient_light_source = 3
+ambient_light_color = Color(0.4, 0.53, 0.72, 1)
+ambient_light_energy = 0.14
+tonemap_mode = 0
+
+[sub_resource type="NavigationMesh" id="navigation"]
+geometry_parsed_geometry_type = 1
+geometry_collision_mask = 1
+cell_size = 0.25
+cell_height = 0.25
+agent_height = 1.0
+agent_radius = 0.5
+agent_max_climb = 0.25
+region_min_size = 0.0
+region_merge_size = 0.0
+
+[sub_resource type="CylinderShape3D" id="trigger"]
+height = 2.0
+radius = 1.1
+
+[sub_resource type="TorusMesh" id="ring"]
+inner_radius = 0.95
+outer_radius = 1.07
+
+[sub_resource type="TorusMesh" id="player_ring"]
+inner_radius = 0.38
+outer_radius = 0.43
+
+[sub_resource type="PrismMesh" id="treasure"]
+size = Vector3(0.55, 0.75, 0.55)
+
+[sub_resource type="CylinderMesh" id="beacon"]
+top_radius = 0.07
+bottom_radius = 0.07
+height = 0.6
+
+[sub_resource type="SphereMesh" id="lamp_lens"]
+radius = 0.08
+height = 0.16
+
+[sub_resource type="BoxMesh" id="box_Floor"]
+size = Vector3(24, 0.5, 19)
+
+[sub_resource type="BoxShape3D" id="shape_Floor"]
+size = Vector3(24, 0.5, 19)
+
+[sub_resource type="BoxMesh" id="box_NorthBoundary"]
+size = Vector3(24.4, 1.5, 0.4)
+
+[sub_resource type="BoxShape3D" id="shape_NorthBoundary"]
+size = Vector3(24.4, 1.5, 0.4)
+
+[sub_resource type="BoxMesh" id="box_SouthBoundary"]
+size = Vector3(24.4, 1.5, 0.4)
+
+[sub_resource type="BoxShape3D" id="shape_SouthBoundary"]
+size = Vector3(24.4, 1.5, 0.4)
+
+[sub_resource type="BoxMesh" id="box_WestBoundary"]
+size = Vector3(0.4, 1.5, 19)
+
+[sub_resource type="BoxShape3D" id="shape_WestBoundary"]
+size = Vector3(0.4, 1.5, 19)
+
+[sub_resource type="BoxMesh" id="box_EastBoundary"]
+size = Vector3(0.4, 1.5, 19)
+
+[sub_resource type="BoxShape3D" id="shape_EastBoundary"]
+size = Vector3(0.4, 1.5, 19)
+
+[sub_resource type="BoxMesh" id="box_WestCover"]
+size = Vector3(4.8, 2.2, 1.1)
+
+[sub_resource type="BoxShape3D" id="shape_WestCover"]
+size = Vector3(4.8, 2.2, 1.1)
+
+[sub_resource type="BoxMesh" id="box_WestCoverCap"]
+size = Vector3(4.92, 0.1, 1.2200000000000002)
+
+[sub_resource type="BoxMesh" id="box_WestCoverStripe"]
+size = Vector3(4.8, 0.018, 0.07)
+
+[sub_resource type="BoxMesh" id="box_EastCover"]
+size = Vector3(1.2, 2.2, 5)
+
+[sub_resource type="BoxShape3D" id="shape_EastCover"]
+size = Vector3(1.2, 2.2, 5)
+
+[sub_resource type="BoxMesh" id="box_EastCoverCap"]
+size = Vector3(1.3199999999999998, 0.1, 5.12)
+
+[sub_resource type="BoxMesh" id="box_EastCoverStripe"]
+size = Vector3(1.2, 0.018, 0.07)
+
+[sub_resource type="BoxMesh" id="box_NorthCover"]
+size = Vector3(4, 2.2, 0.9)
+
+[sub_resource type="BoxShape3D" id="shape_NorthCover"]
+size = Vector3(4, 2.2, 0.9)
+
+[sub_resource type="BoxMesh" id="box_NorthCoverCap"]
+size = Vector3(4.12, 0.1, 1.02)
+
+[sub_resource type="BoxMesh" id="box_NorthCoverStripe"]
+size = Vector3(4, 0.018, 0.07)
+
+[sub_resource type="BoxMesh" id="box_GridXN10"]
+size = Vector3(0.02, 0.008, 18.6)
+
+[sub_resource type="BoxMesh" id="box_GridXN8"]
+size = Vector3(0.02, 0.008, 18.6)
+
+[sub_resource type="BoxMesh" id="box_GridXN6"]
+size = Vector3(0.02, 0.008, 18.6)
+
+[sub_resource type="BoxMesh" id="box_GridXN4"]
+size = Vector3(0.02, 0.008, 18.6)
+
+[sub_resource type="BoxMesh" id="box_GridXN2"]
+size = Vector3(0.02, 0.008, 18.6)
+
+[sub_resource type="BoxMesh" id="box_GridX0"]
+size = Vector3(0.02, 0.008, 18.6)
+
+[sub_resource type="BoxMesh" id="box_GridX2"]
+size = Vector3(0.02, 0.008, 18.6)
+
+[sub_resource type="BoxMesh" id="box_GridX4"]
+size = Vector3(0.02, 0.008, 18.6)
+
+[sub_resource type="BoxMesh" id="box_GridX6"]
+size = Vector3(0.02, 0.008, 18.6)
+
+[sub_resource type="BoxMesh" id="box_GridX8"]
+size = Vector3(0.02, 0.008, 18.6)
+
+[sub_resource type="BoxMesh" id="box_GridX10"]
+size = Vector3(0.02, 0.008, 18.6)
+
+[sub_resource type="BoxMesh" id="box_GridZN8"]
+size = Vector3(23.6, 0.008, 0.02)
+
+[sub_resource type="BoxMesh" id="box_GridZN6"]
+size = Vector3(23.6, 0.008, 0.02)
+
+[sub_resource type="BoxMesh" id="box_GridZN4"]
+size = Vector3(23.6, 0.008, 0.02)
+
+[sub_resource type="BoxMesh" id="box_GridZN2"]
+size = Vector3(23.6, 0.008, 0.02)
+
+[sub_resource type="BoxMesh" id="box_GridZ0"]
+size = Vector3(23.6, 0.008, 0.02)
+
+[sub_resource type="BoxMesh" id="box_GridZ2"]
+size = Vector3(23.6, 0.008, 0.02)
+
+[sub_resource type="BoxMesh" id="box_GridZ4"]
+size = Vector3(23.6, 0.008, 0.02)
+
+[sub_resource type="BoxMesh" id="box_GridZ6"]
+size = Vector3(23.6, 0.008, 0.02)
+
+[sub_resource type="BoxMesh" id="box_GridZ8"]
+size = Vector3(23.6, 0.008, 0.02)
+
+[sub_resource type="BoxMesh" id="box_Corner0"]
+size = Vector3(0.8, 0.08, 0.8)
+
+[sub_resource type="BoxMesh" id="box_Corner1"]
+size = Vector3(0.8, 0.08, 0.8)
+
+[sub_resource type="BoxMesh" id="box_Corner2"]
+size = Vector3(0.8, 0.08, 0.8)
+
+[sub_resource type="BoxMesh" id="box_Corner3"]
+size = Vector3(0.8, 0.08, 0.8)
+
+[node name="StealthTraversalTest" type="Node3D"]
+script = ExtResource("level")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("environment")
+
+[node name="StormFlashLight" type="DirectionalLight3D" parent="."]
+rotation = Vector3(-0.9, -0.45, 0)
+light_color = Color(0.56, 0.67, 1, 1)
+light_energy = 0.0
+shadow_enabled = true
+directional_shadow_max_distance = 60.0
+sky_mode = 0
+script = ExtResource("storm_script")
+storm_ambience = ExtResource("storm_loop")
+thunder_sounds = Array[AudioStream]([ExtResource("thunder"), ExtResource("loud_thunder"), ExtResource("huge_thunder")])
+
+[node name="CourtyardLights" type="Node3D" parent="."]
+
+[node name="EntrySpotlight" type="SpotLight3D" parent="CourtyardLights"]
+position = Vector3(-8, 4.8, 5.5)
+rotation_degrees = Vector3(-90, 0, 0)
+light_color = Color(1, 0.79, 0.52, 1)
+light_energy = 6.0
+shadow_enabled = true
+spot_range = 8.0
+spot_attenuation = 0.0
+spot_angle = 32.0
+spot_angle_attenuation = 0.7
+
+[node name="Lens" type="MeshInstance3D" parent="CourtyardLights/EntrySpotlight"]
+position = Vector3(0, 0, 0.12)
+mesh = SubResource("lamp_lens")
+material_override = SubResource("gold")
+cast_shadow = 0
+
+[node name="RelicSpotlight" type="SpotLight3D" parent="CourtyardLights"]
+position = Vector3(6, 5.5, -6)
+rotation_degrees = Vector3(-78, 25, 0)
+light_color = Color(0.62, 0.77, 1, 1)
+light_energy = 6.0
+shadow_enabled = true
+spot_range = 9.0
+spot_attenuation = 0.0
+spot_angle = 30.0
+spot_angle_attenuation = 0.7
+
+[node name="Lens" type="MeshInstance3D" parent="CourtyardLights/RelicSpotlight"]
+position = Vector3(0, 0, 0.12)
+mesh = SubResource("lamp_lens")
+material_override = SubResource("blue")
+cast_shadow = 0
+
+[node name="LevelCamera" type="Camera3D" parent="."]
+position = Vector3(18, 25, 25)
+rotation_degrees = Vector3(-39.063, 35.754, 0)
+projection = 1
+size = 26.5
+current = true
+far = 100.0
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("navigation")
+
+[node name="Geometry" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="Details" type="Node3D" parent="."]
+
+[node name="Floor" type="StaticBody3D" parent="NavigationRegion3D/Geometry"]
+position = Vector3(0, -0.25, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="NavigationRegion3D/Geometry/Floor"]
+mesh = SubResource("box_Floor")
+material_override = SubResource("floor")
+
+[node name="Collision" type="CollisionShape3D" parent="NavigationRegion3D/Geometry/Floor"]
+shape = SubResource("shape_Floor")
+
+[node name="NorthBoundary" type="StaticBody3D" parent="NavigationRegion3D/Geometry"]
+position = Vector3(0, 0.75, -9.5)
+
+[node name="Mesh" type="MeshInstance3D" parent="NavigationRegion3D/Geometry/NorthBoundary"]
+mesh = SubResource("box_NorthBoundary")
+material_override = SubResource("wall")
+
+[node name="Collision" type="CollisionShape3D" parent="NavigationRegion3D/Geometry/NorthBoundary"]
+shape = SubResource("shape_NorthBoundary")
+
+[node name="SouthBoundary" type="StaticBody3D" parent="NavigationRegion3D/Geometry"]
+position = Vector3(0, 0.75, 9.5)
+
+[node name="Mesh" type="MeshInstance3D" parent="NavigationRegion3D/Geometry/SouthBoundary"]
+mesh = SubResource("box_SouthBoundary")
+material_override = SubResource("wall")
+
+[node name="Collision" type="CollisionShape3D" parent="NavigationRegion3D/Geometry/SouthBoundary"]
+shape = SubResource("shape_SouthBoundary")
+
+[node name="WestBoundary" type="StaticBody3D" parent="NavigationRegion3D/Geometry"]
+position = Vector3(-12, 0.75, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="NavigationRegion3D/Geometry/WestBoundary"]
+mesh = SubResource("box_WestBoundary")
+material_override = SubResource("wall")
+
+[node name="Collision" type="CollisionShape3D" parent="NavigationRegion3D/Geometry/WestBoundary"]
+shape = SubResource("shape_WestBoundary")
+
+[node name="EastBoundary" type="StaticBody3D" parent="NavigationRegion3D/Geometry"]
+position = Vector3(12, 0.75, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="NavigationRegion3D/Geometry/EastBoundary"]
+mesh = SubResource("box_EastBoundary")
+material_override = SubResource("wall")
+
+[node name="Collision" type="CollisionShape3D" parent="NavigationRegion3D/Geometry/EastBoundary"]
+shape = SubResource("shape_EastBoundary")
+
+[node name="WestCover" type="StaticBody3D" parent="NavigationRegion3D/Geometry"]
+position = Vector3(-4, 1.1, 1.3)
+
+[node name="Mesh" type="MeshInstance3D" parent="NavigationRegion3D/Geometry/WestCover"]
+mesh = SubResource("box_WestCover")
+material_override = SubResource("cover")
+
+[node name="Collision" type="CollisionShape3D" parent="NavigationRegion3D/Geometry/WestCover"]
+shape = SubResource("shape_WestCover")
+
+[node name="WestCoverCap" type="Node3D" parent="Details"]
+position = Vector3(-4, 2.22, 1.3)
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/WestCoverCap"]
+mesh = SubResource("box_WestCoverCap")
+material_override = SubResource("cap")
+
+[node name="WestCoverStripe" type="Node3D" parent="Details"]
+position = Vector3(-4, 0.012, 2.15)
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/WestCoverStripe"]
+mesh = SubResource("box_WestCoverStripe")
+material_override = SubResource("gold")
+
+[node name="EastCover" type="StaticBody3D" parent="NavigationRegion3D/Geometry"]
+position = Vector3(3.1, 1.1, -1.5)
+
+[node name="Mesh" type="MeshInstance3D" parent="NavigationRegion3D/Geometry/EastCover"]
+mesh = SubResource("box_EastCover")
+material_override = SubResource("cover")
+
+[node name="Collision" type="CollisionShape3D" parent="NavigationRegion3D/Geometry/EastCover"]
+shape = SubResource("shape_EastCover")
+
+[node name="EastCoverCap" type="Node3D" parent="Details"]
+position = Vector3(3.1, 2.22, -1.5)
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/EastCoverCap"]
+mesh = SubResource("box_EastCoverCap")
+material_override = SubResource("cap")
+
+[node name="EastCoverStripe" type="Node3D" parent="Details"]
+position = Vector3(3.1, 0.012, 1.3)
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/EastCoverStripe"]
+mesh = SubResource("box_EastCoverStripe")
+material_override = SubResource("gold")
+
+[node name="NorthCover" type="StaticBody3D" parent="NavigationRegion3D/Geometry"]
+position = Vector3(-2.5, 1.1, -4)
+
+[node name="Mesh" type="MeshInstance3D" parent="NavigationRegion3D/Geometry/NorthCover"]
+mesh = SubResource("box_NorthCover")
+material_override = SubResource("cover")
+
+[node name="Collision" type="CollisionShape3D" parent="NavigationRegion3D/Geometry/NorthCover"]
+shape = SubResource("shape_NorthCover")
+
+[node name="NorthCoverCap" type="Node3D" parent="Details"]
+position = Vector3(-2.5, 2.22, -4)
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/NorthCoverCap"]
+mesh = SubResource("box_NorthCoverCap")
+material_override = SubResource("cap")
+
+[node name="NorthCoverStripe" type="Node3D" parent="Details"]
+position = Vector3(-2.5, 0.012, -3.25)
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/NorthCoverStripe"]
+mesh = SubResource("box_NorthCoverStripe")
+material_override = SubResource("gold")
+
+[node name="GridXN10" type="Node3D" parent="Details"]
+position = Vector3(-10, 0.005, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/GridXN10"]
+mesh = SubResource("box_GridXN10")
+material_override = SubResource("grid")
+
+[node name="GridXN8" type="Node3D" parent="Details"]
+position = Vector3(-8, 0.005, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/GridXN8"]
+mesh = SubResource("box_GridXN8")
+material_override = SubResource("grid")
+
+[node name="GridXN6" type="Node3D" parent="Details"]
+position = Vector3(-6, 0.005, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/GridXN6"]
+mesh = SubResource("box_GridXN6")
+material_override = SubResource("grid")
+
+[node name="GridXN4" type="Node3D" parent="Details"]
+position = Vector3(-4, 0.005, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/GridXN4"]
+mesh = SubResource("box_GridXN4")
+material_override = SubResource("grid")
+
+[node name="GridXN2" type="Node3D" parent="Details"]
+position = Vector3(-2, 0.005, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/GridXN2"]
+mesh = SubResource("box_GridXN2")
+material_override = SubResource("grid")
+
+[node name="GridX0" type="Node3D" parent="Details"]
+position = Vector3(0, 0.005, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/GridX0"]
+mesh = SubResource("box_GridX0")
+material_override = SubResource("grid")
+
+[node name="GridX2" type="Node3D" parent="Details"]
+position = Vector3(2, 0.005, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/GridX2"]
+mesh = SubResource("box_GridX2")
+material_override = SubResource("grid")
+
+[node name="GridX4" type="Node3D" parent="Details"]
+position = Vector3(4, 0.005, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/GridX4"]
+mesh = SubResource("box_GridX4")
+material_override = SubResource("grid")
+
+[node name="GridX6" type="Node3D" parent="Details"]
+position = Vector3(6, 0.005, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/GridX6"]
+mesh = SubResource("box_GridX6")
+material_override = SubResource("grid")
+
+[node name="GridX8" type="Node3D" parent="Details"]
+position = Vector3(8, 0.005, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/GridX8"]
+mesh = SubResource("box_GridX8")
+material_override = SubResource("grid")
+
+[node name="GridX10" type="Node3D" parent="Details"]
+position = Vector3(10, 0.005, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/GridX10"]
+mesh = SubResource("box_GridX10")
+material_override = SubResource("grid")
+
+[node name="GridZN8" type="Node3D" parent="Details"]
+position = Vector3(0, 0.005, -8)
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/GridZN8"]
+mesh = SubResource("box_GridZN8")
+material_override = SubResource("grid")
+
+[node name="GridZN6" type="Node3D" parent="Details"]
+position = Vector3(0, 0.005, -6)
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/GridZN6"]
+mesh = SubResource("box_GridZN6")
+material_override = SubResource("grid")
+
+[node name="GridZN4" type="Node3D" parent="Details"]
+position = Vector3(0, 0.005, -4)
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/GridZN4"]
+mesh = SubResource("box_GridZN4")
+material_override = SubResource("grid")
+
+[node name="GridZN2" type="Node3D" parent="Details"]
+position = Vector3(0, 0.005, -2)
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/GridZN2"]
+mesh = SubResource("box_GridZN2")
+material_override = SubResource("grid")
+
+[node name="GridZ0" type="Node3D" parent="Details"]
+position = Vector3(0, 0.005, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/GridZ0"]
+mesh = SubResource("box_GridZ0")
+material_override = SubResource("grid")
+
+[node name="GridZ2" type="Node3D" parent="Details"]
+position = Vector3(0, 0.005, 2)
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/GridZ2"]
+mesh = SubResource("box_GridZ2")
+material_override = SubResource("grid")
+
+[node name="GridZ4" type="Node3D" parent="Details"]
+position = Vector3(0, 0.005, 4)
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/GridZ4"]
+mesh = SubResource("box_GridZ4")
+material_override = SubResource("grid")
+
+[node name="GridZ6" type="Node3D" parent="Details"]
+position = Vector3(0, 0.005, 6)
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/GridZ6"]
+mesh = SubResource("box_GridZ6")
+material_override = SubResource("grid")
+
+[node name="GridZ8" type="Node3D" parent="Details"]
+position = Vector3(0, 0.005, 8)
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/GridZ8"]
+mesh = SubResource("box_GridZ8")
+material_override = SubResource("grid")
+
+[node name="Corner0" type="Node3D" parent="Details"]
+position = Vector3(-11, 0.05, -8.5)
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/Corner0"]
+mesh = SubResource("box_Corner0")
+material_override = SubResource("cap")
+
+[node name="Corner1" type="Node3D" parent="Details"]
+position = Vector3(11, 0.05, -8.5)
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/Corner1"]
+mesh = SubResource("box_Corner1")
+material_override = SubResource("cap")
+
+[node name="Corner2" type="Node3D" parent="Details"]
+position = Vector3(-11, 0.05, 8.5)
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/Corner2"]
+mesh = SubResource("box_Corner2")
+material_override = SubResource("cap")
+
+[node name="Corner3" type="Node3D" parent="Details"]
+position = Vector3(11, 0.05, 8.5)
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/Corner3"]
+mesh = SubResource("box_Corner3")
+material_override = SubResource("cap")
+
+[node name="Player" parent="." instance=ExtResource("player")]
+position = Vector3(-8, 0.49, 6.5)
+collision_layer = 4
+collision_mask = 1
+script = ExtResource("player_script")
+max_walk_speed = 3.4
+side_plane_z = 6.5
+jump_velocity = 6.5
+overview_camera_path = NodePath("../LevelCamera")
+
+[node name="PlayerMarker" type="MeshInstance3D" parent="Player"]
+position = Vector3(0, -0.44, 0)
+mesh = SubResource("player_ring")
+material_override = SubResource("blue")
+
+[node name="PlayerCaption" type="Label3D" parent="Player"]
+position = Vector3(0, 1.4, 0)
+billboard = 1
+font_size = 28
+pixel_size = 0.008
+outline_size = 8
+text = "YOU"
+modulate = Color(0.65, 0.95, 1, 1)
+
+[node name="Guard" parent="." instance=ExtResource("hound")]
+position = Vector3(6, 0, -5)
+script = ExtResource("guard")
+player_path = NodePath("../Player")
+route_path = NodePath("../GuardRoute")
+random_seed = 7401
+walk_speed = 1.3
+run_speed = 3.0
+acceleration = 6.0
+braking = 9.0
+pause_min_seconds = 1.0
+pause_max_seconds = 1.0
+alert_chance_on_arrival = 0.0
+show_vision = false
+
+[node name="SightLight" type="SpotLight3D" parent="Guard"]
+position = Vector3(0, 0.75, 0)
+light_color = Color(1, 0.9, 0.66, 1)
+light_energy = 8.0
+shadow_enabled = true
+shadow_bias = 0.03
+spot_range = 7.0
+spot_attenuation = 0.0
+spot_angle = 40.0
+spot_angle_attenuation = 0.35
+
+[node name="Lens" type="MeshInstance3D" parent="Guard/SightLight"]
+position = Vector3(0, 0, -0.12)
+mesh = SubResource("lamp_lens")
+material_override = SubResource("gold")
+cast_shadow = 0
+
+[node name="GuardRoute" type="Node3D" parent="."]
+
+[node name="A" type="Marker3D" parent="GuardRoute"]
+position = Vector3(8, 0, -5)
+
+[node name="B" type="Marker3D" parent="GuardRoute"]
+position = Vector3(8, 0, 5)
+
+[node name="C" type="Marker3D" parent="GuardRoute"]
+position = Vector3(-8, 0, 5)
+
+[node name="D" type="Marker3D" parent="GuardRoute"]
+position = Vector3(-8, 0, -5)
+
+[node name="Objective" type="Area3D" parent="."]
+position = Vector3(7, 0, -6.5)
+collision_layer = 0
+collision_mask = 4
+
+[node name="Trigger" type="CollisionShape3D" parent="Objective"]
+position = Vector3(0, 0.6, 0)
+shape = SubResource("trigger")
+
+[node name="Ring" type="MeshInstance3D" parent="Objective"]
+position = Vector3(0, 0.08, 0)
+mesh = SubResource("ring")
+material_override = SubResource("gold")
+
+[node name="Caption" type="Label3D" parent="Objective"]
+position = Vector3(0, 1.9, 0)
+billboard = 1
+font_size = 32
+pixel_size = 0.008
+outline_size = 8
+text = "01  /  RELIC"
+modulate = Color(0.94, 0.78, 0.48, 1)
+
+[node name="Treasure" type="MeshInstance3D" parent="Objective"]
+position = Vector3(0, 0.8, 0)
+mesh = SubResource("treasure")
+material_override = SubResource("gold")
+
+[node name="Beacon" type="MeshInstance3D" parent="Objective"]
+position = Vector3(0, 0.3, 0)
+mesh = SubResource("beacon")
+material_override = SubResource("gold")
+
+[node name="Exit" type="Area3D" parent="."]
+position = Vector3(-8, 0, 6.5)
+collision_layer = 0
+collision_mask = 4
+
+[node name="Trigger" type="CollisionShape3D" parent="Exit"]
+position = Vector3(0, 0.6, 0)
+shape = SubResource("trigger")
+
+[node name="Ring" type="MeshInstance3D" parent="Exit"]
+position = Vector3(0, 0.08, 0)
+mesh = SubResource("ring")
+material_override = SubResource("blue")
+
+[node name="Caption" type="Label3D" parent="Exit"]
+position = Vector3(0, 1.9, 0)
+billboard = 1
+font_size = 32
+pixel_size = 0.008
+outline_size = 8
+text = "02  /  EXTRACTION"
+modulate = Color(0.4, 0.85, 0.94, 1)

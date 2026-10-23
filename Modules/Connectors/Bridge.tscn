@@ -1,0 +1,422 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/level_connector.gd" id="1_66kjq"]
+[ext_resource type="PackedScene" path="res://Mesh/Harboretum-Mesh/stone_tile_block.tscn" id="2_db2er"]
+[ext_resource type="PackedScene" path="res://Mesh/Harboretum-Mesh/stone_railing.tscn" id="3_18ifx"]
+[ext_resource type="PackedScene" path="res://Mesh/Harboretum-Mesh/wood_planks.tscn" id="4_6456s"]
+[ext_resource type="PackedScene" path="res://Mesh/Harboretum-Mesh/wood_walk_legs.tscn" id="5_l2h73"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vrosn"]
+size = Vector3(2, 1.9, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dqeuu"]
+size = Vector3(2, 1.05, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dxo1t"]
+size = Vector3(2, 0.36, 2)
+
+[node name="Bridge" type="Node3D" unique_id=346531643]
+script = ExtResource("1_66kjq")
+module_label = "Bridge"
+
+[node name="Geometry" type="Node3D" parent="." unique_id=477989403]
+
+[node name="Piece_000" type="Node3D" parent="Geometry" unique_id=464462316]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_000" unique_id=1426082527 instance=ExtResource("2_db2er")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Geometry/Piece_000" unique_id=667894764]
+
+[node name="Shape" type="CollisionShape3D" parent="Geometry/Piece_000/Collision_001" unique_id=451618340]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_001" type="Node3D" parent="Geometry" unique_id=1017767746]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_001" unique_id=1250194467 instance=ExtResource("2_db2er")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Geometry/Piece_001" unique_id=1120508156]
+
+[node name="Shape" type="CollisionShape3D" parent="Geometry/Piece_001/Collision_001" unique_id=436840046]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_002" type="Node3D" parent="Geometry" unique_id=1333511309]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_002" unique_id=367483148 instance=ExtResource("2_db2er")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Geometry/Piece_002" unique_id=1244220262]
+
+[node name="Shape" type="CollisionShape3D" parent="Geometry/Piece_002/Collision_001" unique_id=1862568250]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_003" type="Node3D" parent="Geometry" unique_id=870224539]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3, 0, -1)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_003" unique_id=174119090 instance=ExtResource("3_18ifx")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Geometry/Piece_003" unique_id=1719282253]
+
+[node name="Shape" type="CollisionShape3D" parent="Geometry/Piece_003/Collision_001" unique_id=1489906989]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_004" type="Node3D" parent="Geometry" unique_id=1481270728]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 3, 0, -1)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_004" unique_id=1091235892 instance=ExtResource("3_18ifx")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Geometry/Piece_004" unique_id=667502283]
+
+[node name="Shape" type="CollisionShape3D" parent="Geometry/Piece_004/Collision_001" unique_id=1122167634]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_005" type="Node3D" parent="Geometry" unique_id=54338368]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -11)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_005" unique_id=1848812422 instance=ExtResource("2_db2er")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Geometry/Piece_005" unique_id=760750657]
+
+[node name="Shape" type="CollisionShape3D" parent="Geometry/Piece_005/Collision_001" unique_id=2061574605]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_006" type="Node3D" parent="Geometry" unique_id=932013450]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_006" unique_id=1479159281 instance=ExtResource("2_db2er")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Geometry/Piece_006" unique_id=144290867]
+
+[node name="Shape" type="CollisionShape3D" parent="Geometry/Piece_006/Collision_001" unique_id=2078981461]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_007" type="Node3D" parent="Geometry" unique_id=671734245]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -11)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_007" unique_id=1563363765 instance=ExtResource("2_db2er")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Geometry/Piece_007" unique_id=345535716]
+
+[node name="Shape" type="CollisionShape3D" parent="Geometry/Piece_007/Collision_001" unique_id=1419543362]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_008" type="Node3D" parent="Geometry" unique_id=390223916]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3, 0, -11)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_008" unique_id=562192519 instance=ExtResource("3_18ifx")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Geometry/Piece_008" unique_id=480721474]
+
+[node name="Shape" type="CollisionShape3D" parent="Geometry/Piece_008/Collision_001" unique_id=392466159]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_009" type="Node3D" parent="Geometry" unique_id=132262015]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 3, 0, -11)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_009" unique_id=1403620264 instance=ExtResource("3_18ifx")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Geometry/Piece_009" unique_id=1100261725]
+
+[node name="Shape" type="CollisionShape3D" parent="Geometry/Piece_009/Collision_001" unique_id=526981797]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_010" type="Node3D" parent="Geometry" unique_id=937649744]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_010" unique_id=1439924429 instance=ExtResource("4_6456s")]
+transform = Transform3D(1.0144657, 0, 0, 0, 0.99228495, 0, 0, 0, 0.9999343, -0.002379477, -0.18, 0)
+
+[node name="Collision_001" type="StaticBody3D" parent="Geometry/Piece_010" unique_id=879304104]
+
+[node name="Shape" type="CollisionShape3D" parent="Geometry/Piece_010/Collision_001" unique_id=589692645]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18, 0)
+shape = SubResource("BoxShape3D_dxo1t")
+
+[node name="Piece_011" type="Node3D" parent="Geometry" unique_id=1092941688]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_011" unique_id=1771902225 instance=ExtResource("4_6456s")]
+transform = Transform3D(1.0144657, 0, 0, 0, 0.99228495, 0, 0, 0, 0.9999343, -0.002379477, -0.18, 0)
+
+[node name="Collision_001" type="StaticBody3D" parent="Geometry/Piece_011" unique_id=1691381937]
+
+[node name="Shape" type="CollisionShape3D" parent="Geometry/Piece_011/Collision_001" unique_id=46772649]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18, 0)
+shape = SubResource("BoxShape3D_dxo1t")
+
+[node name="Piece_012" type="Node3D" parent="Geometry" unique_id=615506825]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_012" unique_id=1992596873 instance=ExtResource("4_6456s")]
+transform = Transform3D(1.0144657, 0, 0, 0, 0.99228495, 0, 0, 0, 0.9999343, -0.002379477, -0.18, 0)
+
+[node name="Collision_001" type="StaticBody3D" parent="Geometry/Piece_012" unique_id=1043815901]
+
+[node name="Shape" type="CollisionShape3D" parent="Geometry/Piece_012/Collision_001" unique_id=1051788056]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18, 0)
+shape = SubResource("BoxShape3D_dxo1t")
+
+[node name="Piece_013" type="Node3D" parent="Geometry" unique_id=1053730481]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3, 0, -3)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_013" unique_id=441075035 instance=ExtResource("3_18ifx")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Geometry/Piece_013" unique_id=476943415]
+
+[node name="Shape" type="CollisionShape3D" parent="Geometry/Piece_013/Collision_001" unique_id=1004850796]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_014" type="Node3D" parent="Geometry" unique_id=1317760348]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 3, 0, -3)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_014" unique_id=1538191854 instance=ExtResource("3_18ifx")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Geometry/Piece_014" unique_id=301151054]
+
+[node name="Shape" type="CollisionShape3D" parent="Geometry/Piece_014/Collision_001" unique_id=152514950]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_015" type="Node3D" parent="Geometry" unique_id=892843200]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_015" unique_id=662222008 instance=ExtResource("4_6456s")]
+transform = Transform3D(1.0144657, 0, 0, 0, 0.99228495, 0, 0, 0, 0.9999343, -0.002379477, -0.18, 0)
+
+[node name="Collision_001" type="StaticBody3D" parent="Geometry/Piece_015" unique_id=356288267]
+
+[node name="Shape" type="CollisionShape3D" parent="Geometry/Piece_015/Collision_001" unique_id=1820390578]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18, 0)
+shape = SubResource("BoxShape3D_dxo1t")
+
+[node name="Piece_016" type="Node3D" parent="Geometry" unique_id=2040809003]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_016" unique_id=1587748432 instance=ExtResource("4_6456s")]
+transform = Transform3D(1.0144657, 0, 0, 0, 0.99228495, 0, 0, 0, 0.9999343, -0.002379477, -0.18, 0)
+
+[node name="Collision_001" type="StaticBody3D" parent="Geometry/Piece_016" unique_id=688924967]
+
+[node name="Shape" type="CollisionShape3D" parent="Geometry/Piece_016/Collision_001" unique_id=1973745517]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18, 0)
+shape = SubResource("BoxShape3D_dxo1t")
+
+[node name="Piece_017" type="Node3D" parent="Geometry" unique_id=2032621261]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -5)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_017" unique_id=1410784228 instance=ExtResource("4_6456s")]
+transform = Transform3D(1.0144657, 0, 0, 0, 0.99228495, 0, 0, 0, 0.9999343, -0.002379477, -0.18, 0)
+
+[node name="Collision_001" type="StaticBody3D" parent="Geometry/Piece_017" unique_id=1701295383]
+
+[node name="Shape" type="CollisionShape3D" parent="Geometry/Piece_017/Collision_001" unique_id=1803320776]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18, 0)
+shape = SubResource("BoxShape3D_dxo1t")
+
+[node name="Piece_018" type="Node3D" parent="Geometry" unique_id=1130319773]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3, 0, -5)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_018" unique_id=1911394510 instance=ExtResource("3_18ifx")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Geometry/Piece_018" unique_id=650684321]
+
+[node name="Shape" type="CollisionShape3D" parent="Geometry/Piece_018/Collision_001" unique_id=2056451032]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_019" type="Node3D" parent="Geometry" unique_id=1820551642]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 3, 0, -5)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_019" unique_id=868776985 instance=ExtResource("3_18ifx")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Geometry/Piece_019" unique_id=30096260]
+
+[node name="Shape" type="CollisionShape3D" parent="Geometry/Piece_019/Collision_001" unique_id=2047732775]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_020" type="Node3D" parent="Geometry" unique_id=1425079256]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -7)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_020" unique_id=1628494578 instance=ExtResource("4_6456s")]
+transform = Transform3D(1.0144657, 0, 0, 0, 0.99228495, 0, 0, 0, 0.9999343, -0.002379477, -0.18, 0)
+
+[node name="Collision_001" type="StaticBody3D" parent="Geometry/Piece_020" unique_id=930609878]
+
+[node name="Shape" type="CollisionShape3D" parent="Geometry/Piece_020/Collision_001" unique_id=1776397373]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18, 0)
+shape = SubResource("BoxShape3D_dxo1t")
+
+[node name="Piece_021" type="Node3D" parent="Geometry" unique_id=910139145]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_021" unique_id=1707860390 instance=ExtResource("4_6456s")]
+transform = Transform3D(1.0144657, 0, 0, 0, 0.99228495, 0, 0, 0, 0.9999343, -0.002379477, -0.18, 0)
+
+[node name="Collision_001" type="StaticBody3D" parent="Geometry/Piece_021" unique_id=459278083]
+
+[node name="Shape" type="CollisionShape3D" parent="Geometry/Piece_021/Collision_001" unique_id=1495615833]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18, 0)
+shape = SubResource("BoxShape3D_dxo1t")
+
+[node name="Piece_022" type="Node3D" parent="Geometry" unique_id=1890979287]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -7)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_022" unique_id=1731323562 instance=ExtResource("4_6456s")]
+transform = Transform3D(1.0144657, 0, 0, 0, 0.99228495, 0, 0, 0, 0.9999343, -0.002379477, -0.18, 0)
+
+[node name="Collision_001" type="StaticBody3D" parent="Geometry/Piece_022" unique_id=1695219508]
+
+[node name="Shape" type="CollisionShape3D" parent="Geometry/Piece_022/Collision_001" unique_id=85699597]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18, 0)
+shape = SubResource("BoxShape3D_dxo1t")
+
+[node name="Piece_023" type="Node3D" parent="Geometry" unique_id=1280057323]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3, 0, -7)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_023" unique_id=612974195 instance=ExtResource("3_18ifx")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Geometry/Piece_023" unique_id=1397111978]
+
+[node name="Shape" type="CollisionShape3D" parent="Geometry/Piece_023/Collision_001" unique_id=342984378]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_024" type="Node3D" parent="Geometry" unique_id=1878758301]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 3, 0, -7)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_024" unique_id=1599558459 instance=ExtResource("3_18ifx")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Geometry/Piece_024" unique_id=323436450]
+
+[node name="Shape" type="CollisionShape3D" parent="Geometry/Piece_024/Collision_001" unique_id=1185249091]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_025" type="Node3D" parent="Geometry" unique_id=1382428026]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -9)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_025" unique_id=183975860 instance=ExtResource("4_6456s")]
+transform = Transform3D(1.0144657, 0, 0, 0, 0.99228495, 0, 0, 0, 0.9999343, -0.002379477, -0.18, 0)
+
+[node name="Collision_001" type="StaticBody3D" parent="Geometry/Piece_025" unique_id=173063458]
+
+[node name="Shape" type="CollisionShape3D" parent="Geometry/Piece_025/Collision_001" unique_id=1407785159]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18, 0)
+shape = SubResource("BoxShape3D_dxo1t")
+
+[node name="Piece_026" type="Node3D" parent="Geometry" unique_id=1453296736]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_026" unique_id=119311940 instance=ExtResource("4_6456s")]
+transform = Transform3D(1.0144657, 0, 0, 0, 0.99228495, 0, 0, 0, 0.9999343, -0.002379477, -0.18, 0)
+
+[node name="Collision_001" type="StaticBody3D" parent="Geometry/Piece_026" unique_id=2116097376]
+
+[node name="Shape" type="CollisionShape3D" parent="Geometry/Piece_026/Collision_001" unique_id=1648256668]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18, 0)
+shape = SubResource("BoxShape3D_dxo1t")
+
+[node name="Piece_027" type="Node3D" parent="Geometry" unique_id=1760591557]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -9)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_027" unique_id=1349048789 instance=ExtResource("4_6456s")]
+transform = Transform3D(1.0144657, 0, 0, 0, 0.99228495, 0, 0, 0, 0.9999343, -0.002379477, -0.18, 0)
+
+[node name="Collision_001" type="StaticBody3D" parent="Geometry/Piece_027" unique_id=598318813]
+
+[node name="Shape" type="CollisionShape3D" parent="Geometry/Piece_027/Collision_001" unique_id=30713284]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18, 0)
+shape = SubResource("BoxShape3D_dxo1t")
+
+[node name="Piece_028" type="Node3D" parent="Geometry" unique_id=891333857]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3, 0, -9)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_028" unique_id=1541912368 instance=ExtResource("3_18ifx")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Geometry/Piece_028" unique_id=838732939]
+
+[node name="Shape" type="CollisionShape3D" parent="Geometry/Piece_028/Collision_001" unique_id=1555835936]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_029" type="Node3D" parent="Geometry" unique_id=1666144822]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 3, 0, -9)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_029" unique_id=1381326674 instance=ExtResource("3_18ifx")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Geometry/Piece_029" unique_id=1974195750]
+
+[node name="Shape" type="CollisionShape3D" parent="Geometry/Piece_029/Collision_001" unique_id=758230742]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_030" type="Node3D" parent="Geometry" unique_id=1180240922]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.38, -3)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_030" unique_id=855666122 instance=ExtResource("5_l2h73")]
+transform = Transform3D(1.0144657, 0, 0, 0, 0.998665, 0, 0, 0, 0.9999342, 0.009018481, -0.9892608, -0.005890131)
+
+[node name="Piece_031" type="Node3D" parent="Geometry" unique_id=193423963]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.38, -3)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_031" unique_id=451496746 instance=ExtResource("5_l2h73")]
+transform = Transform3D(1.0144657, 0, 0, 0, 0.998665, 0, 0, 0, 0.9999342, 0.009018481, -0.9892608, -0.005890131)
+
+[node name="Piece_032" type="Node3D" parent="Geometry" unique_id=1797657643]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.38, -9)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_032" unique_id=1318318379 instance=ExtResource("5_l2h73")]
+transform = Transform3D(1.0144657, 0, 0, 0, 0.998665, 0, 0, 0, 0.9999342, 0.009018481, -0.9892608, -0.005890131)
+
+[node name="Piece_033" type="Node3D" parent="Geometry" unique_id=669746540]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.38, -9)
+
+[node name="Model" type="Node3D" parent="Geometry/Piece_033" unique_id=1628864119 instance=ExtResource("5_l2h73")]
+transform = Transform3D(1.0144657, 0, 0, 0, 0.998665, 0, 0, 0, 0.9999342, 0.009018481, -0.9892608, -0.005890131)
+
+[node name="Connections" type="Node3D" parent="." unique_id=626562659]
+
+[node name="South" type="Marker3D" parent="Connections" unique_id=2109149257]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+gizmo_extents = 1.5
+metadata/level_connection = true
+metadata/width = 6.0
+metadata/grid = 2.0
+
+[node name="North" type="Marker3D" parent="Connections" unique_id=1891537897]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+gizmo_extents = 1.5
+metadata/level_connection = true
+metadata/width = 6.0
+metadata/grid = 2.0

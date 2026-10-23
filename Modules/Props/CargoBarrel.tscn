@@ -1,0 +1,11 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://Objects/Barrel.fbx" id="model"]
+[ext_resource type="Material" path="res://Materials/NewToon-Black.tres" id="black"]
+[ext_resource type="Material" path="res://Materials/NewToon-Metal.tres" id="metal"]
+
+[node name="CargoBarrel" instance=ExtResource("model")]
+
+[node name="Cylinder_006" parent="." index="0"]
+surface_material_override/0 = ExtResource("black")
+surface_material_override/1 = ExtResource("metal")

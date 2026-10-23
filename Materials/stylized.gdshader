@@ -41,9 +41,24 @@ uniform float pattern_blend : hint_range(0.0, 1.0, 0.05) = 0.2;
 
 varying vec4 node_position;
 
+// A zero-width smoothstep is undefined. Materials use zero for hard toon bands.
+float toon_step(float edge, float width, float value) {
+	if (width <= 0.0) {
+		return step(edge, value);
+	}
+	return smoothstep(edge - width, edge + width, value);
+}
+
 float fresnel(float amount, vec3 normal, vec3 view)
 {
-	return pow((1.0 - clamp(dot(normalize(normal), normalize(view)), 0.0, 1.0 )), amount);
+	float base = 1.0 - clamp(dot(normalize(normal), normalize(view)), 0.0, 1.0);
+	if (amount <= 0.0) {
+		return 1.0;
+	}
+	if (base <= 0.0) {
+		return 0.0;
+	}
+	return pow(base, amount);
 }
 
 vec2 pattern_uv(vec2 uv, vec2 screen_uv){
@@ -57,7 +72,7 @@ float shape_value(float value, vec2 uv, vec2 screen_size){
 	float aspect = screen_size.y / screen_size.x;
 	vec2 pattern_uv = uv * pattern_tiling * vec2(1.0, aspect);
 	float shadow_pattern = texture(pattern_texture, pattern_uv).r;
-	shadow_pattern = clamp(smoothstep(shadow_pattern - pattern_smoothness, shadow_pattern + pattern_smoothness, value + pattern_amount), 0.0, value + pattern_amount);
+	shadow_pattern = clamp(toon_step(shadow_pattern, pattern_smoothness, value + pattern_amount), 0.0, value + pattern_amount);
 	return shadow_pattern;
 }
 
@@ -77,17 +92,18 @@ void fragment() {
 }
 
 void light () {
-	float ndotl = clamp(dot(NORMAL,LIGHT),0.0,1.0) * ATTENUATION;
+	float ndotl = clamp(dot(NORMAL,LIGHT),0.0,1.0) * max(ATTENUATION, 0.0);
 
 	float light = ndotl;
 
 	if(use_stepped){
-		float light_mult = light * steps;
+		float band_count = max(steps, 1.0);
+		float light_mult = light * band_count;
 		float step_base = floor(light_mult);
 		float light_factor = light_mult - step_base;
 
-		light_factor = smoothstep(0.5 - step_smoothness, 0.5 + step_smoothness, light_factor);
-		light = (step_base + light_factor) / steps;
+		light_factor = toon_step(0.5, step_smoothness, light_factor);
+		light = (step_base + light_factor) / band_count;
 	}
 
 	if(use_pattern){
@@ -96,12 +112,12 @@ void light () {
 		light = mix(light, shape_value(light, p_uv, VIEWPORT_SIZE), pattern_blend);
 	}
 
-	vec3 diffuse = vec3(pow(light, 1.0)) * (LIGHT_COLOR / PI);
+	vec3 diffuse = vec3(light) * (LIGHT_COLOR / PI);
 	diffuse = (shadow_tint.rgb * (1.0 - (light)) * shadow_tint_amount) + diffuse * light;
 
 	if(use_rim){
 		float rim_value = fresnel(rim_amount, NORMAL, VIEW);
-		rim_value = smoothstep(0.5 - (rim_smoothness / 2.0), 0.5 + (rim_smoothness / 2.0), rim_value);
+		rim_value = toon_step(0.5, rim_smoothness / 2.0, rim_value);
 		rim_value = mix(rim_value, rim_value * light, rim_mask_shadow);
 		rim_value *= 1.0 - clamp(storm_rim_suppression, 0.0, 1.0);
 
@@ -110,5 +126,9 @@ void light () {
 	}
 
 	DIFFUSE_LIGHT += mix(diffuse, ALBEDO * diffuse, albedo_affect);
-	SPECULAR_LIGHT += vec3(pow(light, 50.0)) * specular;
+	// Avoid evaluating powers in unlit pixels or multiplying an invalid result
+	// by zero. On Metal that can black out other lights' valid contributions.
+	if (specular > 0.0 && light > 0.0) {
+		SPECULAR_LIGHT += vec3(pow(min(light, 1.0), 50.0)) * specular;
+	}
 }

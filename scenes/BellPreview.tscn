@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="PackedScene" path="res://Mesh/Bell/bell.tscn" id="1_bell"]
+[ext_resource type="Script" path="res://scripts/bell_preview.gd" id="2_script"]
+
+[sub_resource type="Environment" id="Environment_studio"]
+background_mode = 1
+background_color = Color(0.025, 0.035, 0.045, 1)
+ambient_light_source = 3
+ambient_light_color = Color(0.62, 0.72, 0.85, 1)
+ambient_light_energy = 0.55
+reflected_light_source = 2
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="Material_floor"]
+albedo_color = Color(0.065, 0.085, 0.1, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="Mesh_floor"]
+size = Vector3(200, 0.1, 200)
+
+[sub_resource type="LabelSettings" id="Label_title"]
+font_size = 28
+font_color = Color(0.9, 0.75, 0.5, 1)
+
+[sub_resource type="LabelSettings" id="Label_help"]
+font_size = 18
+font_color = Color(0.7, 0.78, 0.84, 1)
+
+[node name="BellPreview" type="Node3D"]
+script = ExtResource("2_script")
+
+[node name="Bell" parent="." instance=ExtResource("1_bell")]
+autoplay_loop = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_studio")
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+position = Vector3(0, -0.05, 0)
+mesh = SubResource("Mesh_floor")
+material_override = SubResource("Material_floor")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+position = Vector3(2.6, 1.8, 4.4)
+rotation_degrees = Vector3(-11.05, 30.58, 0)
+projection = 1
+size = 3.7
+current = true
+
+[node name="Key" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-48, -32, 0)
+light_color = Color(1, 0.84, 0.65, 1)
+light_energy = 0.35
+
+[node name="StudioSpot" type="SpotLight3D" parent="."]
+position = Vector3(2.5, 4, 3.5)
+rotation_degrees = Vector3(-36.6, 35.5, 0)
+light_color = Color(1, 0.84, 0.65, 1)
+light_energy = 4.0
+shadow_enabled = true
+shadow_bias = 0.1
+spot_range = 12.0
+spot_attenuation = 1.0
+spot_angle = 45.0
+
+[node name="Rim" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-30, 140, 0)
+light_color = Color(0.55, 0.75, 1, 1)
+light_energy = 1.1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Title" type="Label" parent="CanvasLayer"]
+offset_left = 36.0
+offset_top = 28.0
+text = "BRONZE BELL / RINGING RIG"
+label_settings = SubResource("Label_title")
+
+[node name="Help" type="Label" parent="CanvasLayer"]
+offset_left = 36.0
+offset_top = 70.0
+text = "SPACE  Ring once     L  Continuous loop     R  Rest"
+label_settings = SubResource("Label_help")

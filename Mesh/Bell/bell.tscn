@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://Mesh/Bell/bell.glb" id="1_model"]
+[ext_resource type="Script" path="res://Mesh/Bell/bell.gd" id="2_script"]
+
+[node name="Bell" type="Node3D"]
+script = ExtResource("2_script")
+
+[node name="Model" parent="." instance=ExtResource("1_model")]
+scale = Vector3(0.6, 0.6, 0.6)

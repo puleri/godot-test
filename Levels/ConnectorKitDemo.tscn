@@ -1,0 +1,898 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://Modules/Connectors/Straight.tscn" id="1_4joll"]
+[ext_resource type="Script" path="res://scripts/level_connector.gd" id="2_ly7ns"]
+[ext_resource type="PackedScene" path="res://Modules/Connectors/TJunction.tscn" id="3_52bgq"]
+[ext_resource type="PackedScene" path="res://Modules/Connectors/Corner.tscn" id="4_7nogt"]
+[ext_resource type="PackedScene" path="res://Modules/Connectors/Bridge.tscn" id="5_ajcg6"]
+[ext_resource type="PackedScene" path="res://Modules/Connectors/Staircase.tscn" id="6_vcnke"]
+[ext_resource type="PackedScene" path="res://Mesh/Harboretum-Mesh/stone_tile_block.tscn" id="7_fybh7"]
+[ext_resource type="PackedScene" path="res://Mesh/Harboretum-Mesh/stone_railing.tscn" id="8_2yk2b"]
+[ext_resource type="PackedScene" path="res://scenes/Player_v2.tscn" id="9_6rbjc"]
+[ext_resource type="Script" path="res://scripts/courtyard_playtest_player.gd" id="10_qreuh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vrosn"]
+size = Vector3(2, 1.9, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dqeuu"]
+size = Vector3(2, 1.05, 0.3)
+
+[sub_resource type="Environment" id="Environment_m4mvm"]
+background_mode = 1
+background_color = Color(0.065, 0.095, 0.12, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.65, 0.74, 0.85, 1)
+ambient_light_energy = 0.65
+
+[node name="ConnectorKitDemo" type="Node3D" unique_id=261363886]
+
+[node name="Generated" type="Node3D" parent="." unique_id=1969690291]
+metadata/camera_size = 48.0
+
+[node name="Modules" type="Node3D" parent="Generated" unique_id=936945808]
+
+[node name="EntryWalk" type="Node3D" parent="Generated/Modules" unique_id=892572389 instance=ExtResource("1_4joll")]
+script = ExtResource("2_ly7ns")
+module_label = "Straight"
+
+[node name="Junction" type="Node3D" parent="Generated/Modules" unique_id=221791921 instance=ExtResource("3_52bgq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+script = ExtResource("2_ly7ns")
+module_label = "TJunction"
+
+[node name="Corner" type="Node3D" parent="Generated/Modules" unique_id=45434054 instance=ExtResource("4_7nogt")]
+transform = Transform3D(-4.371138e-08, 0, 1, 0, 1, 0, -1, 0, -4.371138e-08, -3, 0, -11)
+script = ExtResource("2_ly7ns")
+module_label = "Corner"
+
+[node name="Bridge" type="Node3D" parent="Generated/Modules" unique_id=346531643 instance=ExtResource("5_ajcg6")]
+transform = Transform3D(1, 0, -7.1054274e-15, 0, 1, 0, 7.1054274e-15, 0, 1, -6, 0, -14)
+script = ExtResource("2_ly7ns")
+module_label = "Bridge"
+
+[node name="Staircase" type="Node3D" parent="Generated/Modules" unique_id=514455321 instance=ExtResource("6_vcnke")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3, 0, -11)
+script = ExtResource("2_ly7ns")
+module_label = "Staircase"
+
+[node name="UpperWalk" type="Node3D" parent="Generated/Modules" unique_id=435400767 instance=ExtResource("1_4joll")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11, 2, -11)
+script = ExtResource("2_ly7ns")
+module_label = "Straight"
+
+[node name="StartCourt" type="Node3D" parent="Generated/Modules" unique_id=1700351613]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+script = ExtResource("2_ly7ns")
+module_label = "StartCourt"
+
+[node name="Geometry" type="Node3D" parent="Generated/Modules/StartCourt" unique_id=253044623]
+
+[node name="Piece_000" type="Node3D" parent="Generated/Modules/StartCourt/Geometry" unique_id=1370480817]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/StartCourt/Geometry/Piece_000" unique_id=1426082527 instance=ExtResource("7_fybh7")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/StartCourt/Geometry/Piece_000" unique_id=908072747]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/StartCourt/Geometry/Piece_000/Collision_001" unique_id=1128760568]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_001" type="Node3D" parent="Generated/Modules/StartCourt/Geometry" unique_id=645995188]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/StartCourt/Geometry/Piece_001" unique_id=731548876 instance=ExtResource("7_fybh7")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/StartCourt/Geometry/Piece_001" unique_id=1676497171]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/StartCourt/Geometry/Piece_001/Collision_001" unique_id=1938967209]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_002" type="Node3D" parent="Generated/Modules/StartCourt/Geometry" unique_id=1083239498]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/StartCourt/Geometry/Piece_002" unique_id=2103131204 instance=ExtResource("7_fybh7")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/StartCourt/Geometry/Piece_002" unique_id=658031887]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/StartCourt/Geometry/Piece_002/Collision_001" unique_id=37098839]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_003" type="Node3D" parent="Generated/Modules/StartCourt/Geometry" unique_id=772025333]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3, 0, -1)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/StartCourt/Geometry/Piece_003" unique_id=174119090 instance=ExtResource("8_2yk2b")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/StartCourt/Geometry/Piece_003" unique_id=396996904]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/StartCourt/Geometry/Piece_003/Collision_001" unique_id=221848835]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_004" type="Node3D" parent="Generated/Modules/StartCourt/Geometry" unique_id=899809897]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 3, 0, -1)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/StartCourt/Geometry/Piece_004" unique_id=227382768 instance=ExtResource("8_2yk2b")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/StartCourt/Geometry/Piece_004" unique_id=1321178461]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/StartCourt/Geometry/Piece_004/Collision_001" unique_id=159075747]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_005" type="Node3D" parent="Generated/Modules/StartCourt/Geometry" unique_id=854705291]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/StartCourt/Geometry/Piece_005" unique_id=833219142 instance=ExtResource("7_fybh7")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/StartCourt/Geometry/Piece_005" unique_id=1488932494]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/StartCourt/Geometry/Piece_005/Collision_001" unique_id=1894381209]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_006" type="Node3D" parent="Generated/Modules/StartCourt/Geometry" unique_id=1497740828]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/StartCourt/Geometry/Piece_006" unique_id=60141984 instance=ExtResource("7_fybh7")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/StartCourt/Geometry/Piece_006" unique_id=46143967]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/StartCourt/Geometry/Piece_006/Collision_001" unique_id=489302984]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_007" type="Node3D" parent="Generated/Modules/StartCourt/Geometry" unique_id=348613478]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/StartCourt/Geometry/Piece_007" unique_id=557235030 instance=ExtResource("7_fybh7")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/StartCourt/Geometry/Piece_007" unique_id=242944662]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/StartCourt/Geometry/Piece_007/Collision_001" unique_id=1160004730]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_008" type="Node3D" parent="Generated/Modules/StartCourt/Geometry" unique_id=1497819393]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3, 0, -3)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/StartCourt/Geometry/Piece_008" unique_id=55627881 instance=ExtResource("8_2yk2b")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/StartCourt/Geometry/Piece_008" unique_id=181689161]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/StartCourt/Geometry/Piece_008/Collision_001" unique_id=676753814]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_009" type="Node3D" parent="Generated/Modules/StartCourt/Geometry" unique_id=1812397172]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 3, 0, -3)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/StartCourt/Geometry/Piece_009" unique_id=678586553 instance=ExtResource("8_2yk2b")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/StartCourt/Geometry/Piece_009" unique_id=1513276694]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/StartCourt/Geometry/Piece_009/Collision_001" unique_id=442462809]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_010" type="Node3D" parent="Generated/Modules/StartCourt/Geometry" unique_id=1755417237]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/StartCourt/Geometry/Piece_010" unique_id=196978735 instance=ExtResource("7_fybh7")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/StartCourt/Geometry/Piece_010" unique_id=1767224149]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/StartCourt/Geometry/Piece_010/Collision_001" unique_id=557593541]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_011" type="Node3D" parent="Generated/Modules/StartCourt/Geometry" unique_id=1909461182]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/StartCourt/Geometry/Piece_011" unique_id=914457715 instance=ExtResource("7_fybh7")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/StartCourt/Geometry/Piece_011" unique_id=363993360]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/StartCourt/Geometry/Piece_011/Collision_001" unique_id=1121099938]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_012" type="Node3D" parent="Generated/Modules/StartCourt/Geometry" unique_id=1613309104]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -5)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/StartCourt/Geometry/Piece_012" unique_id=1346145088 instance=ExtResource("7_fybh7")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/StartCourt/Geometry/Piece_012" unique_id=1726074640]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/StartCourt/Geometry/Piece_012/Collision_001" unique_id=615332318]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_013" type="Node3D" parent="Generated/Modules/StartCourt/Geometry" unique_id=654918060]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3, 0, -5)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/StartCourt/Geometry/Piece_013" unique_id=388101640 instance=ExtResource("8_2yk2b")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/StartCourt/Geometry/Piece_013" unique_id=1223569444]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/StartCourt/Geometry/Piece_013/Collision_001" unique_id=2087465298]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_014" type="Node3D" parent="Generated/Modules/StartCourt/Geometry" unique_id=1547120689]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 3, 0, -5)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/StartCourt/Geometry/Piece_014" unique_id=631202318 instance=ExtResource("8_2yk2b")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/StartCourt/Geometry/Piece_014" unique_id=1443086971]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/StartCourt/Geometry/Piece_014/Collision_001" unique_id=2036055271]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_015" type="Node3D" parent="Generated/Modules/StartCourt/Geometry" unique_id=1709749503]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -6)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/StartCourt/Geometry/Piece_015" unique_id=786831837 instance=ExtResource("8_2yk2b")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/StartCourt/Geometry/Piece_015" unique_id=1937788766]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/StartCourt/Geometry/Piece_015/Collision_001" unique_id=1757998226]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_016" type="Node3D" parent="Generated/Modules/StartCourt/Geometry" unique_id=2116677797]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/StartCourt/Geometry/Piece_016" unique_id=339910306 instance=ExtResource("8_2yk2b")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/StartCourt/Geometry/Piece_016" unique_id=1429200745]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/StartCourt/Geometry/Piece_016/Collision_001" unique_id=963590580]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_017" type="Node3D" parent="Generated/Modules/StartCourt/Geometry" unique_id=1884654866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -6)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/StartCourt/Geometry/Piece_017" unique_id=1053441124 instance=ExtResource("8_2yk2b")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/StartCourt/Geometry/Piece_017" unique_id=709982681]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/StartCourt/Geometry/Piece_017/Collision_001" unique_id=1011100704]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Connections" type="Node3D" parent="Generated/Modules/StartCourt" unique_id=1762540716]
+
+[node name="South" type="Marker3D" parent="Generated/Modules/StartCourt/Connections" unique_id=270236481]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+gizmo_extents = 1.5
+metadata/level_connection = true
+metadata/width = 6.0
+metadata/grid = 2.0
+
+[node name="LowerCourt" type="Node3D" parent="Generated/Modules" unique_id=1907552341]
+transform = Transform3D(1, 0, -7.1054274e-15, 0, 1, 0, 7.1054274e-15, 0, 1, -6, 0, -26)
+script = ExtResource("2_ly7ns")
+module_label = "LowerCourt"
+
+[node name="Geometry" type="Node3D" parent="Generated/Modules/LowerCourt" unique_id=2079095397]
+
+[node name="Piece_000" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry" unique_id=760577647]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_000" unique_id=339543115 instance=ExtResource("7_fybh7")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_000" unique_id=253408370]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_000/Collision_001" unique_id=2055012243]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_001" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry" unique_id=1899020545]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_001" unique_id=1763103499 instance=ExtResource("7_fybh7")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_001" unique_id=142444411]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_001/Collision_001" unique_id=1870632402]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_002" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry" unique_id=1718898708]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_002" unique_id=1172901912 instance=ExtResource("7_fybh7")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_002" unique_id=2094121785]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_002/Collision_001" unique_id=537845638]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_003" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry" unique_id=627155291]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3, 0, -1)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_003" unique_id=349229878 instance=ExtResource("8_2yk2b")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_003" unique_id=1990268609]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_003/Collision_001" unique_id=2076468829]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_004" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry" unique_id=1240303808]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 3, 0, -1)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_004" unique_id=319902467 instance=ExtResource("8_2yk2b")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_004" unique_id=1891353442]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_004/Collision_001" unique_id=816523861]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_005" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry" unique_id=678184588]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_005" unique_id=459313994 instance=ExtResource("7_fybh7")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_005" unique_id=1923148335]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_005/Collision_001" unique_id=1431635186]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_006" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry" unique_id=260452237]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_006" unique_id=1012593155 instance=ExtResource("7_fybh7")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_006" unique_id=1717213149]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_006/Collision_001" unique_id=1632875846]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_007" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry" unique_id=863742668]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_007" unique_id=1250967400 instance=ExtResource("7_fybh7")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_007" unique_id=1464428586]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_007/Collision_001" unique_id=146957252]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_008" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry" unique_id=899232534]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3, 0, -3)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_008" unique_id=246558929 instance=ExtResource("8_2yk2b")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_008" unique_id=1052836660]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_008/Collision_001" unique_id=572710400]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_009" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry" unique_id=1089717105]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 3, 0, -3)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_009" unique_id=1763603729 instance=ExtResource("8_2yk2b")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_009" unique_id=478580874]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_009/Collision_001" unique_id=1847116781]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_010" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry" unique_id=922480802]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_010" unique_id=1020826718 instance=ExtResource("7_fybh7")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_010" unique_id=510107365]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_010/Collision_001" unique_id=1670134927]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_011" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry" unique_id=2106129312]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_011" unique_id=742406791 instance=ExtResource("7_fybh7")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_011" unique_id=1987794989]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_011/Collision_001" unique_id=2018239995]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_012" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry" unique_id=772617303]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -5)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_012" unique_id=1570327366 instance=ExtResource("7_fybh7")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_012" unique_id=60890367]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_012/Collision_001" unique_id=609506081]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_013" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry" unique_id=715109258]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3, 0, -5)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_013" unique_id=90753372 instance=ExtResource("8_2yk2b")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_013" unique_id=1876199528]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_013/Collision_001" unique_id=419650571]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_014" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry" unique_id=561477411]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 3, 0, -5)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_014" unique_id=761250139 instance=ExtResource("8_2yk2b")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_014" unique_id=923903236]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_014/Collision_001" unique_id=1168838803]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_015" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry" unique_id=766598964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -6)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_015" unique_id=998634330 instance=ExtResource("8_2yk2b")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_015" unique_id=2009570457]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_015/Collision_001" unique_id=2110424581]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_016" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry" unique_id=648869816]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_016" unique_id=469184312 instance=ExtResource("8_2yk2b")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_016" unique_id=1995244908]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_016/Collision_001" unique_id=51222370]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_017" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry" unique_id=107178824]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -6)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_017" unique_id=320790882 instance=ExtResource("8_2yk2b")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_017" unique_id=1391858563]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/LowerCourt/Geometry/Piece_017/Collision_001" unique_id=1540699734]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Connections" type="Node3D" parent="Generated/Modules/LowerCourt" unique_id=1254504580]
+
+[node name="South" type="Marker3D" parent="Generated/Modules/LowerCourt/Connections" unique_id=1264061391]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+gizmo_extents = 1.5
+metadata/level_connection = true
+metadata/width = 6.0
+metadata/grid = 2.0
+
+[node name="UpperCourt" type="Node3D" parent="Generated/Modules" unique_id=1007088963]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 19, 2, -11)
+script = ExtResource("2_ly7ns")
+module_label = "UpperCourt"
+
+[node name="Geometry" type="Node3D" parent="Generated/Modules/UpperCourt" unique_id=1291351773]
+
+[node name="Piece_000" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry" unique_id=576339695]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_000" unique_id=1655404064 instance=ExtResource("7_fybh7")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_000" unique_id=495613446]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_000/Collision_001" unique_id=225620797]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_001" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry" unique_id=319197294]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_001" unique_id=410238247 instance=ExtResource("7_fybh7")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_001" unique_id=114654797]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_001/Collision_001" unique_id=519638133]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_002" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry" unique_id=232574810]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_002" unique_id=2020658099 instance=ExtResource("7_fybh7")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_002" unique_id=1306120446]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_002/Collision_001" unique_id=1442466200]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_003" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry" unique_id=562034196]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3, 0, -1)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_003" unique_id=1318968274 instance=ExtResource("8_2yk2b")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_003" unique_id=2028344501]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_003/Collision_001" unique_id=597556972]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_004" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry" unique_id=1433978517]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 3, 0, -1)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_004" unique_id=1797907485 instance=ExtResource("8_2yk2b")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_004" unique_id=1700074604]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_004/Collision_001" unique_id=1302478522]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_005" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry" unique_id=766355947]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_005" unique_id=1848984149 instance=ExtResource("7_fybh7")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_005" unique_id=1072697628]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_005/Collision_001" unique_id=424365503]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_006" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry" unique_id=323336531]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_006" unique_id=1082273873 instance=ExtResource("7_fybh7")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_006" unique_id=699390446]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_006/Collision_001" unique_id=629832206]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_007" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry" unique_id=807984807]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_007" unique_id=1073107537 instance=ExtResource("7_fybh7")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_007" unique_id=1233511348]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_007/Collision_001" unique_id=203804388]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_008" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry" unique_id=654239709]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3, 0, -3)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_008" unique_id=493536358 instance=ExtResource("8_2yk2b")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_008" unique_id=209207309]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_008/Collision_001" unique_id=188742417]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_009" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry" unique_id=205688854]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 3, 0, -3)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_009" unique_id=409095789 instance=ExtResource("8_2yk2b")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_009" unique_id=856414286]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_009/Collision_001" unique_id=2070520915]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_010" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry" unique_id=1028162649]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_010" unique_id=1846752389 instance=ExtResource("7_fybh7")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_010" unique_id=639827061]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_010/Collision_001" unique_id=546359853]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_011" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry" unique_id=336079118]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_011" unique_id=202345219 instance=ExtResource("7_fybh7")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_011" unique_id=563301274]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_011/Collision_001" unique_id=783460090]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_012" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry" unique_id=2061530468]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -5)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_012" unique_id=193115997 instance=ExtResource("7_fybh7")]
+transform = Transform3D(0.9970902, 0, 0, 0, 0.9822873, 0, 0, 0, 0.9999976, -0.0029097795, -0.9177127, 2.2649765e-06)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_012" unique_id=76215406]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_012/Collision_001" unique_id=2112393876]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("BoxShape3D_vrosn")
+
+[node name="Piece_013" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry" unique_id=466810725]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3, 0, -5)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_013" unique_id=1587921566 instance=ExtResource("8_2yk2b")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_013" unique_id=1580353290]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_013/Collision_001" unique_id=472267765]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_014" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry" unique_id=1995672200]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 3, 0, -5)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_014" unique_id=883206709 instance=ExtResource("8_2yk2b")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_014" unique_id=965965317]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_014/Collision_001" unique_id=998523583]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_015" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry" unique_id=567434390]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -6)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_015" unique_id=408805218 instance=ExtResource("8_2yk2b")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_015" unique_id=256614163]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_015/Collision_001" unique_id=1213250187]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_016" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry" unique_id=1847923251]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_016" unique_id=639113335 instance=ExtResource("8_2yk2b")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_016" unique_id=1374768673]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_016/Collision_001" unique_id=59236358]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Piece_017" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry" unique_id=1033126320]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -6)
+
+[node name="Model" type="Node3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_017" unique_id=885014839 instance=ExtResource("8_2yk2b")]
+transform = Transform3D(1.0023385, 0, 0, 0, 1.0178956, 0, 0, 0, 1.0189579, -0.0058901906, -0.012594197, 8.940697e-08)
+
+[node name="Collision_001" type="StaticBody3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_017" unique_id=1450386403]
+
+[node name="Shape" type="CollisionShape3D" parent="Generated/Modules/UpperCourt/Geometry/Piece_017/Collision_001" unique_id=1579586804]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("BoxShape3D_dqeuu")
+
+[node name="Connections" type="Node3D" parent="Generated/Modules/UpperCourt" unique_id=1311673250]
+
+[node name="South" type="Marker3D" parent="Generated/Modules/UpperCourt/Connections" unique_id=1569804283]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+gizmo_extents = 1.5
+metadata/level_connection = true
+metadata/width = 6.0
+metadata/grid = 2.0
+
+[node name="Labels" type="Node3D" parent="Generated" unique_id=1409344480]
+
+[node name="Label_00" type="Label3D" parent="Generated/Labels" unique_id=1482314682]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, 4.5)
+pixel_size = 0.009
+billboard = 1
+modulate = Color(0.98, 0.86, 0.61, 1)
+outline_modulate = Color(0.03, 0.04, 0.05, 1)
+text = "START"
+font_size = 44
+outline_size = 8
+
+[node name="Label_01" type="Label3D" parent="Generated/Labels" unique_id=820660171]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, -3.5)
+pixel_size = 0.009
+billboard = 1
+modulate = Color(0.98, 0.86, 0.61, 1)
+outline_modulate = Color(0.03, 0.04, 0.05, 1)
+text = "STRAIGHT"
+font_size = 44
+outline_size = 8
+
+[node name="Label_02" type="Label3D" parent="Generated/Labels" unique_id=1868227528]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, -12)
+pixel_size = 0.009
+billboard = 1
+modulate = Color(0.98, 0.86, 0.61, 1)
+outline_modulate = Color(0.03, 0.04, 0.05, 1)
+text = "T-JUNCTION"
+font_size = 44
+outline_size = 8
+
+[node name="Label_03" type="Label3D" parent="Generated/Labels" unique_id=639380186]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 1.9, -10)
+pixel_size = 0.009
+billboard = 1
+modulate = Color(0.98, 0.86, 0.61, 1)
+outline_modulate = Color(0.03, 0.04, 0.05, 1)
+text = "CORNER"
+font_size = 44
+outline_size = 8
+
+[node name="Label_04" type="Label3D" parent="Generated/Labels" unique_id=1231253111]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.9, -20)
+pixel_size = 0.009
+billboard = 1
+modulate = Color(0.98, 0.86, 0.61, 1)
+outline_modulate = Color(0.03, 0.04, 0.05, 1)
+text = "WOODEN BRIDGE"
+font_size = 44
+outline_size = 8
+
+[node name="Label_05" type="Label3D" parent="Generated/Labels" unique_id=982616010]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.9, -30)
+pixel_size = 0.009
+billboard = 1
+modulate = Color(0.98, 0.86, 0.61, 1)
+outline_modulate = Color(0.03, 0.04, 0.05, 1)
+text = "LOWER COURT"
+font_size = 44
+outline_size = 8
+
+[node name="Label_06" type="Label3D" parent="Generated/Labels" unique_id=1213598936]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3.8, -11)
+pixel_size = 0.009
+billboard = 1
+modulate = Color(0.98, 0.86, 0.61, 1)
+outline_modulate = Color(0.03, 0.04, 0.05, 1)
+text = "STAIRCASE / +2m"
+font_size = 44
+outline_size = 8
+
+[node name="Label_07" type="Label3D" parent="Generated/Labels" unique_id=16981061]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 3.9, -11)
+pixel_size = 0.009
+billboard = 1
+modulate = Color(0.98, 0.86, 0.61, 1)
+outline_modulate = Color(0.03, 0.04, 0.05, 1)
+text = "UPPER WALK"
+font_size = 44
+outline_size = 8
+
+[node name="Label_08" type="Label3D" parent="Generated/Labels" unique_id=742533065]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 3.9, -11)
+pixel_size = 0.009
+billboard = 1
+modulate = Color(0.98, 0.86, 0.61, 1)
+outline_modulate = Color(0.03, 0.04, 0.05, 1)
+text = "UPPER COURT"
+font_size = 44
+outline_size = 8
+
+[node name="Markers" type="Node3D" parent="Generated" unique_id=1606084348]
+
+[node name="PlayerSpawn" type="Marker3D" parent="Generated/Markers" unique_id=1655078312]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 3)
+
+[node name="CameraFocus" type="Marker3D" parent="Generated/Markers" unique_id=1813482543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -12)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=214277105]
+environment = SubResource("Environment_m4mvm")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=856013133]
+transform = Transform3D(0.88294756, 0.3845686, -0.26927784, 0, 0.57357645, 0.81915206, 0.46947157, -0.72326833, 0.50643796, 0, 0, 0)
+light_color = Color(1, 0.87, 0.7, 1)
+light_energy = 1.3
+shadow_enabled = true
+directional_shadow_max_distance = 150.0
+
+[node name="Fill" type="DirectionalLight3D" parent="." unique_id=288288590]
+transform = Transform3D(-0.81915206, -0.32898995, 0.46984634, 0, 0.81915206, 0.57357645, -0.57357645, 0.46984634, -0.6710101, 0, 0, 0)
+light_color = Color(0.55, 0.7, 0.9, 1)
+light_energy = 0.35
+
+[node name="OverviewCamera" type="Camera3D" parent="." unique_id=1970729961]
+transform = Transform3D(0.8320503, -0.32984433, 0.4459765, 0, 0.80399555, 0.5946353, -0.5547002, -0.4947665, 0.66896474, 31, 32, 24)
+projection = 1
+current = true
+size = 48.0
+far = 200.0
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=557277699 instance=ExtResource("9_6rbjc")]
+floor_snap_length = 0.35
+script = ExtResource("10_qreuh")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=2123305655]
+
+[node name="Caption" type="Label" parent="HUD" unique_id=1770389257]
+offset_left = 48.0
+offset_top = 36.0
+offset_right = 48.0
+offset_bottom = 36.0
+theme_override_font_sizes/font_size = 34
+theme_override_colors/font_color = Color(0.94, 0.91, 0.82, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+text = "CONNECTOR KIT  /  6m CONNECTIONS  /  2m GRID
+WASD / arrows: move   Space: jump   Tab: camera   R: reset"

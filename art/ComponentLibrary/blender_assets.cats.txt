@@ -1,0 +1,12 @@
+# Blender Asset Catalog Definition File
+VERSION 1
+
+964d5dd7-1a1c-53cd-b82c-fefe775aa72f:01 Architecture:01 Architecture
+3d5ab2e0-ca39-56fc-8a7f-f565e1c92bda:02 Vegetation:02 Vegetation
+cbbfe6f2-3e9f-58b6-8ac1-9377bc275c85:03 Props and gameplay:03 Props and gameplay
+326fb673-ad28-5a5c-aff7-0a1f6d06c928:04 Buildings:04 Buildings
+43cdc61b-0805-5d7a-a2ca-3075ab32d09b:05 Characters:05 Characters
+2c250d5a-01e2-5869-85ba-350d62809952:06 Connector modules:06 Connector modules
+93285715-1eed-5f6a-8071-2dea568f546c:07 Room modules:07 Room modules
+70fcf535-9a70-53fc-9ddb-10382860b769:08 Assemblies:08 Assemblies
+cc34eb18-64e7-5f1d-8f05-82d2cddbd9c5:09 Earlier versions:09 Earlier versions
