@@ -84,6 +84,18 @@ light, shadow, hearing, and memory layers. Midnight Exchange now rewards staying
 still in deep shadow, supports quiet footsteps and landing noise, and lets
 spotlights, other guards’ lamps, and real lightning expose Rook.
 
+## Procedural animation study
+
+Open `scenes/ProceduralAnimationTest.tscn` and press **F6** to compare Rook's
+head-first turning, planted steps, body weight shifts, cape follow-through and
+landing recovery. **P** toggles the effects, **C** switches to a close camera,
+**T** plays a motion demo, **Space** jumps, and **R** resets.
+The shared Rook controller also enables the experiment in the existing levels.
+See [the motion study guide](docs/procedural-animation.md) for tuning and checks.
+Rook's base idle now keeps both feet planted while the body dips. This is baked
+during FBX import and remains active with **P** off; see the
+[idle animation guide](docs/rook-idle.md) for reimport instructions and checks.
+
 ## Rigged bell
 
 `Mesh/Bell/bell.tscn` is the reusable bronze bell with oak supports, iron hardware,

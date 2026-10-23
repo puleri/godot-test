@@ -35,4 +35,4 @@ func handle_phase_1_movement(delta: float) -> Vector3:
 
 func _update_facing(direction: Vector3) -> void:
 	if visual_pivot != null and direction.length_squared() > 0.001:
-		visual_pivot.rotation.y = atan2(-direction.z, direction.x)
+		_set_visual_facing_yaw(atan2(-direction.z, direction.x))

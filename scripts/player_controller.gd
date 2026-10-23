@@ -1,5 +1,9 @@
 extends CharacterBody3D
 
+signal procedural_animation_toggled(enabled: bool)
+
+const ProceduralPose = preload("res://scripts/rook_procedural_pose.gd")
+
 enum ControlPhase {
 	PHASE_1_PLATFORMER,
 	PHASE_2_THIRD_PERSON,
@@ -47,6 +51,24 @@ enum ControlPhase {
 @export var max_walk_playback_scale: float = 1.0
 @export var walk_animation_threshold: float = 0.03
 
+@export_group("Procedural Animation")
+@export var procedural_animation_enabled := true:
+	set(value):
+		procedural_animation_enabled = value
+		reset_procedural_motion()
+		if not value and visual_pivot != null:
+			visual_pivot.rotation.y = _target_visual_yaw
+		procedural_animation_toggled.emit(value)
+## Base turn timing. Head leads; pelvis and feet follow at separate rates.
+@export_range(0.0, 0.2, 0.005) var visual_turn_response := 0.055
+@export_range(0.0, 15.0, 0.5) var procedural_lean_degrees := 7.0
+## Fraction of leg length, not world units, so both Rook scene scales work.
+@export_range(0.0, 0.25, 0.01) var procedural_landing_compression := 0.12
+@export var procedural_foot_planting := true
+@export var procedural_cape_motion := true
+@export_range(0.0, 2.0, 0.05) var procedural_cape_strength := 1.0
+@export var procedural_toggle_key: Key = KEY_P
+
 @onready var visual_pivot: Node3D = get_node_or_null(visual_pivot_path) as Node3D
 @onready var animation_tree: AnimationTree = get_node_or_null(animation_tree_path) as AnimationTree
 @onready var game_camera: Camera3D = get_node_or_null(camera_path) as Camera3D
@@ -82,6 +104,11 @@ var barrel_animation_mode_enabled := false
 var barrel_hop_animation_active := false
 var barrel_animation_fallback_warned := false
 var player_collision_shapes: Array[CollisionShape3D] = []
+var procedural_pose: ProceduralPose
+var _target_visual_yaw := 0.0
+var _last_procedural_position := Vector3.ZERO
+var _skip_next_procedural_impact := true
+var _walk_cycle_phase := 0.0
 
 # Rook animation names come from the imported FBX animation list.
 const IDLE_ANIMATION := "Skeleton|Idle"
@@ -102,12 +129,21 @@ func _ready() -> void:
 
 	if visual_pivot != null:
 		visual_pivot.rotation.y = facing_right_yaw
+	_target_visual_yaw = facing_right_yaw
 
 	_configure_phase_1_camera()
 
 	_configure_animation_loops()
 	_configure_animation_tree()
 	_initialize_animation_pose()
+	_configure_procedural_pose()
+	reset_procedural_motion()
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode == procedural_toggle_key:
+		procedural_animation_enabled = not procedural_animation_enabled
+		print("Rook procedural animation: ", "ON" if procedural_animation_enabled else "OFF")
+		get_viewport().set_input_as_handled()
 
 func _physics_process(delta: float) -> void:
 	_update_camera_flip_control_pause(delta)
@@ -115,7 +151,12 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector3.ZERO
 		_update_phase_camera()
 		_update_animation(delta, false)
+		_update_visual_turn(delta)
+		reset_procedural_motion()
 		return
+	# Respawns and scripted relocations must not become acceleration/impact kicks.
+	if global_position.distance_to(_last_procedural_position) > maxf(1.0, max_walk_speed * delta * 4.0):
+		reset_procedural_motion()
 
 	var movement_input := Vector3.ZERO
 	match current_phase:
@@ -127,12 +168,17 @@ func _physics_process(delta: float) -> void:
 			movement_input = handle_phase_1_movement(delta)
 
 	var jumped := _update_vertical_velocity(delta)
+	var was_grounded := is_on_floor()
+	var falling_speed := maxf(-velocity.y, 0.0)
 
 	move_and_slide()
 	_update_phase_camera()
 
 	_update_facing(movement_input)
+	_update_visual_turn(delta)
 	_update_animation(delta, jumped)
+	var impact_speed := falling_speed if not was_grounded and is_on_floor() and falling_speed > 2.0 else 0.0
+	_update_procedural_pose(delta, impact_speed)
 
 func handle_phase_1_movement(delta: float) -> Vector3:
 	var cardinal_input := _read_phase_1_cardinal_input()
@@ -164,9 +210,16 @@ func transition_to_phase_2(trigger: Node = null) -> void:
 	if game_camera != null:
 		camera_transform = game_camera.global_transform
 
-	rotation.y = visual_pivot.rotation.y if visual_pivot != null else rotation.y
+	# Steering uses the requested heading, never the cosmetic turn's halfway pose.
+	var visual_world_yaw := visual_pivot.global_rotation.y if visual_pivot != null else rotation.y
+	rotation.y = _target_visual_yaw if visual_pivot != null else rotation.y
 	if visual_pivot != null:
-		visual_pivot.rotation.y = third_person_visual_yaw
+		if procedural_animation_enabled:
+			visual_pivot.global_rotation.y = visual_world_yaw
+		else:
+			visual_pivot.rotation.y = third_person_visual_yaw
+	_target_visual_yaw = third_person_visual_yaw
+	reset_procedural_motion()
 
 	if game_camera != null:
 		game_camera.global_transform = camera_transform
@@ -206,6 +259,7 @@ func set_interaction_locked(is_locked: bool) -> void:
 	interaction_locked = is_locked
 	if interaction_locked:
 		velocity = Vector3.ZERO
+	reset_procedural_motion()
 
 func set_movement_speed_multiplier(multiplier: float) -> void:
 	movement_speed_multiplier = maxf(multiplier, 0.0)
@@ -218,6 +272,7 @@ func set_barrel_animation_mode_enabled(is_enabled: bool) -> void:
 		return
 
 	barrel_animation_mode_enabled = is_enabled
+	reset_procedural_motion()
 	_warn_if_barrel_animation_fallback_needed()
 
 	if using_animation_tree:
@@ -369,11 +424,65 @@ func _update_facing(movement_input: Vector3) -> void:
 		return
 
 	if current_phase == ControlPhase.PHASE_2_THIRD_PERSON:
-		visual_pivot.rotation.y = third_person_visual_yaw
+		_set_visual_facing_yaw(third_person_visual_yaw)
 	elif absf(movement_input.x) > 0.0:
-		visual_pivot.rotation.y = facing_right_yaw if movement_input.x > 0.0 else facing_left_yaw
+		_set_visual_facing_yaw(facing_right_yaw if movement_input.x > 0.0 else facing_left_yaw)
 	elif absf(movement_input.z) > 0.0:
-		visual_pivot.rotation.y = facing_up_yaw if movement_input.z < 0.0 else facing_down_yaw
+		_set_visual_facing_yaw(facing_up_yaw if movement_input.z < 0.0 else facing_down_yaw)
+
+func _set_visual_facing_yaw(yaw: float) -> void:
+	_target_visual_yaw = yaw
+
+func _update_visual_turn(delta: float) -> void:
+	if visual_pivot == null:
+		return
+	if procedural_animation_enabled and not barrel_animation_mode_enabled and procedural_pose != null and visual_turn_response > 0.0:
+		var target_world := global_rotation.y + _target_visual_yaw
+		visual_pivot.global_rotation.y = procedural_pose.update_turn(delta, target_world, visual_pivot.global_rotation.y, visual_turn_response)
+	else:
+		visual_pivot.rotation.y = _target_visual_yaw
+
+func _configure_procedural_pose() -> void:
+	if visual_pivot == null:
+		return
+	var skeletons := visual_pivot.find_children("*", "Skeleton3D", true, false)
+	if skeletons.is_empty():
+		return
+	var skeleton := skeletons[0] as Skeleton3D
+	procedural_pose = ProceduralPose.new()
+	procedural_pose.name = "RookProceduralPose"
+	skeleton.add_child(procedural_pose)
+	procedural_pose.configure_locomotion(self, animation_player, idle_animation_name, walk_animation_name)
+	# Movement, base pose and modifiers share the physics clock.
+	skeleton.modifier_callback_mode_process = Skeleton3D.MODIFIER_CALLBACK_MODE_PROCESS_PHYSICS
+	if animation_tree != null:
+		animation_tree.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_PHYSICS
+
+func reset_procedural_motion() -> void:
+	_skip_next_procedural_impact = true
+	_walk_cycle_phase = 0.0
+	if is_inside_tree():
+		_last_procedural_position = global_position
+	if procedural_pose != null:
+		procedural_pose.reset_motion()
+
+func _update_procedural_pose(delta: float, impact_speed: float) -> void:
+	_last_procedural_position = global_position
+	if _skip_next_procedural_impact:
+		impact_speed = 0.0
+		_skip_next_procedural_impact = false
+	if procedural_pose == null:
+		return
+	if not procedural_animation_enabled or barrel_animation_mode_enabled or not visual_pivot.visible:
+		procedural_pose.reset_motion()
+		return
+	procedural_pose.foot_planting_enabled = procedural_foot_planting
+	procedural_pose.cape_motion_enabled = procedural_cape_motion
+	procedural_pose.cape_strength = procedural_cape_strength
+	procedural_pose.foot_placement.phase = _walk_cycle_phase
+	procedural_pose.max_lean_degrees = procedural_lean_degrees
+	procedural_pose.landing_compression = procedural_landing_compression
+	procedural_pose.update_motion(delta, _get_locomotion_velocity(), is_on_floor(), impact_speed, _get_current_max_walk_speed(), ground_acceleration)
 
 func _store_phase_1_camera_defaults() -> void:
 	outside_phase_1_camera_position = phase_1_camera_position
@@ -447,6 +556,12 @@ func _start_static_isometric_camera_orbit(is_flipped: bool) -> void:
 
 func _update_animation(delta: float, jumped: bool) -> void:
 	var normalized_speed := _get_normalized_walk_speed()
+	if _uses_distance_gait():
+		var actual_motion := _get_locomotion_velocity()
+		var actual_speed := Vector2(actual_motion.x, actual_motion.z).length() if not interaction_locked and not _is_camera_flip_control_paused() else 0.0
+		normalized_speed = clampf(actual_speed / maxf(_get_current_max_walk_speed(), 0.01), 0.0, 1.0)
+		if is_on_floor():
+			_walk_cycle_phase = fposmod(_walk_cycle_phase + actual_speed * delta / procedural_pose.foot_placement.stride_length, 1.0)
 	_update_ground_blend(normalized_speed, delta)
 
 	if using_animation_tree:
@@ -472,7 +587,11 @@ func _update_ground_blend(normalized_speed: float, delta: float) -> void:
 
 func _update_animation_tree(normalized_speed: float, jumped: bool) -> void:
 	animation_tree.set("parameters/%s/GroundBlend/blend_amount" % GROUND_STATE, walk_blend_amount)
-	animation_tree.set("parameters/%s/WalkSpeed/scale" % GROUND_STATE, _get_walk_playback_scale(normalized_speed))
+	if _uses_distance_gait():
+		animation_tree.set("parameters/%s/WalkSpeed/scale" % GROUND_STATE, 0.0)
+		animation_tree.set("parameters/%s/WalkSeek/seek_request" % GROUND_STATE, _walk_cycle_phase * animation_player.get_animation(walk_animation_name).length)
+	else:
+		animation_tree.set("parameters/%s/WalkSpeed/scale" % GROUND_STATE, _get_walk_playback_scale(normalized_speed))
 
 	var target_state := GROUND_STATE
 	if barrel_hop_animation_active:
@@ -504,6 +623,18 @@ func _update_animation_player_fallback(normalized_speed: float, jumped: bool) ->
 
 	animation_player.speed_scale = playback_scale
 	_play_animation(target_animation, blend_time)
+	if _uses_distance_gait() and target_animation == walk_animation_name:
+		animation_player.speed_scale = 0.0
+		animation_player.seek(_walk_cycle_phase * animation_player.get_animation(walk_animation_name).length, true)
+
+func _get_locomotion_velocity() -> Vector3:
+	# Riding a platform should carry planted feet, rather than play a walk cycle.
+	return get_real_velocity() - (get_platform_velocity() if is_on_floor() else Vector3.ZERO)
+
+
+func _uses_distance_gait() -> bool:
+	return procedural_animation_enabled and not barrel_animation_mode_enabled and procedural_pose != null
+
 
 func _get_walk_playback_scale(normalized_speed: float) -> float:
 	return lerpf(min_walk_playback_scale, max_walk_playback_scale, normalized_speed)
@@ -582,15 +713,18 @@ func _build_ground_blend_tree(idle_animation: String, walk_animation: String) ->
 	walk_node.animation = walk_animation
 
 	var walk_speed_node := AnimationNodeTimeScale.new()
+	var walk_seek_node := AnimationNodeTimeSeek.new()
 	var ground_blend_node := AnimationNodeBlend2.new()
 
 	var blend_tree := AnimationNodeBlendTree.new()
 	blend_tree.add_node("Idle", idle_node, Vector2(0, 0))
 	blend_tree.add_node("Walk", walk_node, Vector2(0, 140))
 	blend_tree.add_node("WalkSpeed", walk_speed_node, Vector2(220, 140))
+	blend_tree.add_node("WalkSeek", walk_seek_node, Vector2(420, 140))
 	blend_tree.add_node("GroundBlend", ground_blend_node, Vector2(440, 70))
-	blend_tree.connect_node("WalkSpeed", 0, "Walk")
+	blend_tree.connect_node("WalkSpeed", 0, "WalkSeek")
 	blend_tree.connect_node("GroundBlend", 0, "Idle")
+	blend_tree.connect_node("WalkSeek", 0, "Walk")
 	blend_tree.connect_node("GroundBlend", 1, "WalkSpeed")
 	blend_tree.connect_node("output", 0, "GroundBlend")
 	return blend_tree
