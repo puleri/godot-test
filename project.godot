@@ -63,14 +63,14 @@ interact={
 
 3d/physics_engine="Jolt Physics"
 
+[rendering]
+
+rendering_device/driver.windows="d3d12"
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality=0
+
 [shader_globals]
 
 storm_rim_suppression={
 "type": "float",
 "value": 0.0
 }
-
-[rendering]
-
-rendering_device/driver.windows="d3d12"
-lights_and_shadows/directional_shadow/soft_shadow_filter_quality=0

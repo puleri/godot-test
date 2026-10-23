@@ -8,12 +8,12 @@
 [ext_resource type="PackedScene" path="res://Characters/Mouse/mouse_npc.tscn" id="6_pl785"]
 [ext_resource type="PackedScene" uid="uid://defo8smbyjqfh" path="res://Objects/Newbarrel.tscn" id="7_kb0x7"]
 [ext_resource type="PackedScene" uid="uid://bhtnnecjain8t" path="res://UI/HUD.tscn" id="8_pl785"]
-[ext_resource type="PackedScene" path="res://Mesh/Storefront/storefront.tscn" id="9_storefront"]
-[ext_resource type="Script" path="res://scripts/storm_flash_light.gd" id="10_storm_flash"]
-[ext_resource type="AudioStream" path="res://Music/FX/Storm/storm-loop.mp3" id="11_storm_loop"]
-[ext_resource type="AudioStream" path="res://Music/FX/Storm/thunder.mp3" id="12_thunder"]
-[ext_resource type="AudioStream" path="res://Music/FX/Storm/loud-thunder.mp3" id="13_loud_thunder"]
-[ext_resource type="AudioStream" path="res://Music/FX/Storm/huge-thunder.mp3" id="14_huge_thunder"]
+[ext_resource type="PackedScene" uid="uid://b1yfrhhp7xx2b" path="res://Mesh/Storefront/storefront.tscn" id="9_storefront"]
+[ext_resource type="Script" uid="uid://b1xs1saffa1nc" path="res://scripts/storm_flash_light.gd" id="10_storm_flash"]
+[ext_resource type="AudioStream" uid="uid://bdk6s2xs1qjgq" path="res://Music/FX/Storm/storm-loop.mp3" id="11_storm_loop"]
+[ext_resource type="AudioStream" uid="uid://yfykqtyeea8r" path="res://Music/FX/Storm/thunder.mp3" id="12_thunder"]
+[ext_resource type="AudioStream" uid="uid://cst6cdqu0mqsf" path="res://Music/FX/Storm/loud-thunder.mp3" id="13_loud_thunder"]
+[ext_resource type="AudioStream" uid="uid://x0xdnmd1g8wv" path="res://Music/FX/Storm/huge-thunder.mp3" id="14_huge_thunder"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_demo_floor"]
 size = Vector3(16, 0.2, 28)
@@ -74,13 +74,12 @@ shadow_enabled = true
 directional_shadow_max_distance = 30.0
 sky_mode = 1
 
-[node name="StormFlashLight" type="DirectionalLight3D" parent="."]
-rotation = Vector3(-0.9, -0.45, 0)
+[node name="StormFlashLight" type="DirectionalLight3D" parent="." unique_id=1717427758]
+transform = Transform3D(0.90044713, 0.3407202, -0.27037892, 0, 0.62161, 0.7833269, 0.43496552, -0.7053445, 0.55972695, 0, 0, 0)
 light_color = Color(0.56, 0.67, 1, 1)
 light_energy = 0.0
 shadow_enabled = true
 directional_shadow_max_distance = 35.0
-sky_mode = 0
 script = ExtResource("10_storm_flash")
 storm_ambience = ExtResource("11_storm_loop")
 thunder_sounds = Array[AudioStream]([ExtResource("12_thunder"), ExtResource("13_loud_thunder"), ExtResource("14_huge_thunder")])
