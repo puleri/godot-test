@@ -7,6 +7,8 @@ extends "res://scripts/stealth_guard.gd"
 @export var has_lamp := true
 @export var lamp_range := 6.0
 @export var lamp_fov_degrees := 36.0
+@export var lamp_height_offset := 0.0
+@export_range(0.0, 60.0, 0.5) var lamp_downward_angle_degrees := 0.0
 @export var hearing_range := 14.0
 @export_range(0, 1) var sound_wall_transmission := 0.75
 @export var close_recognition_distance := 1.25
@@ -37,8 +39,10 @@ func _sync_sight_light() -> void:
 	if _sight_light == null:
 		return
 	_sight_light.visible = has_lamp
-	_sight_light.global_position = global_position + Vector3.UP * eye_height
-	_sight_light.look_at(_sight_light.global_position + sight_forward(), Vector3.UP)
+	_sight_light.global_position = global_position + Vector3.UP * (eye_height + lamp_height_offset)
+	var pitch := deg_to_rad(lamp_downward_angle_degrees)
+	var direction := sight_forward() * cos(pitch) - Vector3.UP * sin(pitch)
+	_sight_light.look_at(_sight_light.global_position + direction, Vector3.UP)
 	_sight_light.spot_range = lamp_range
 	_sight_light.spot_angle = lamp_fov_degrees * 0.5
 

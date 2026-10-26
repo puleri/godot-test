@@ -18,8 +18,13 @@ does not protect Rook when almost touching a guard, but a wall still does.
 
 The exposure sensor classifies Rook as **HIDDEN**, **DIM**, or **EXPOSED**.
 Exposure is a property of Rook's lighting, not a claim that any guard currently
-sees him. The compact guard awareness bar and state label communicate that
-threat. The simplified HUD shows the objective, alert, and controls; exposure,
+sees him. The top-center eye fills with the highest guard awareness, and the
+state label identifies the strongest threat. On pursuit the eye's alert lines
+fade to solid over 0.2 seconds. After that guard starts searching, the lines
+pulse between 30% and 100% opacity, taking 0.5 seconds in each direction.
+They fade away when the search ends; noise-only investigations do not activate
+them. The shared eye also runs in Demo A2, remaining empty without guards.
+The simplified HUD shows the objective, alert, and controls; exposure,
 lightning, and noise readouts have been removed.
 
 ## Same position, different illumination
@@ -170,11 +175,16 @@ The existing storm timing, restrikes, thunder, and visual treatment are retained
 | --- | --- | --- |
 | View range / full angle | 10m / 100° | 8m / 110° |
 | Lamp range / full angle | 7m / 40° | 5m / 32° |
+| Lamp height above root / downward aim | 1.3m / 12° | 0.8m / 12° |
 | Hearing range | 14m | 9m |
 | Base detection time at recognition strength 1 | 1.2s | 0.85s |
 | Close recognition radius | 1.25m | 1.25m |
 | Pursuit contact-loss delay | 0.65s | 0.65s |
 | Search duration after arrival | 6s | 6s |
+
+Lamp height is offset independently from the sight origin, so raising a lamp
+does not raise the guard's vision rays. The downward aim lights the ground
+ahead at a less shallow angle.
 
 Godot's `spot_angle` is a **half-angle**; the exported lamp FOV is a full angle.
 The controller converts between them. Debug sight cones show potential vision,
@@ -225,6 +235,7 @@ Run after Godot has imported the project:
 
 ```sh
 godot --headless --path . --fixed-fps 60 --script tests/test_guard_awareness.gd
+godot --headless --path . --fixed-fps 60 --script tests/test_alert_eye.gd
 godot --headless --path . --fixed-fps 60 --script tests/test_awareness_integration.gd
 godot --headless --path . --fixed-fps 60 --script tests/test_midnight_exchange.gd
 godot --headless --path . --fixed-fps 60 --script tests/test_stealth_guard.gd

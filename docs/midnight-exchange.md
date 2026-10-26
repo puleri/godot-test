@@ -5,14 +5,17 @@ editable level; the existing demo and harbor scenes remain available.
 
 Move with WASD/arrows, slow walk with Shift, jump with Space, hold E to work at
 the current objective, and press Q near a gold bell to make a distraction.
-Tab cycles **HUD only → HUD + guard vision → guard vision only → everything hidden**,
+Tab cycles **HUD only → HUD + guard vision → guard vision only → everything hidden → Styled HUD**,
 then returns to HUD only (the default). Hidden HUD includes all screen panels,
 result messages, floating labels, player/objective/exit rings, and bell pulses. Guard
 vision includes diagnostic sight cones and search markers. Tab still works after
 a win or capture, so hidden results can be revealed. R restarts. The objective display gives a
 distance and a direction relative to the camera. The full HUD keeps only that
-objective line at the top left, a compact guard alert at the top right, and a
-single controls line at the bottom.
+objective line at the top left, a suspicion eye and guard caption at top center,
+and a single controls line at the bottom. **Styled HUD** shows only the suspicion
+eye and the coin counter, using the hand-drawn artwork. Coin pickups update the
+counter even while another display mode is selected. The result panel appears
+in either HUD option when a run ends; Styled HUD hides world labels and markers.
 
 ## Encounter
 
@@ -84,7 +87,8 @@ Rebuilding replaces only `Levels/MidnightExchange.tscn`; save a hand-edited
 variant under a different name first. The new scripts extend the existing
 stealth controllers without changing the ambient NPCs or earlier encounters.
 
-The 43 integration assertions exercise all four display modes and hidden results,
+The 49 integration assertions exercise all five display modes, styled coin
+collection, frozen eye feedback, and hidden results,
 saved-scene navigation, every patrol
 corner, physical movement through the full route, real mouse vision and
 capture, ordered/interruptible work, a physical kite around the live Hound,

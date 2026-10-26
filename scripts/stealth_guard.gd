@@ -47,6 +47,7 @@ var _sight_light: SpotLight3D
 
 
 func _ready() -> void:
+	add_to_group("stealth_guards")
 	super._ready()
 	_player = get_node_or_null(player_path) as Node3D
 	_agent = NavigationAgent3D.new()

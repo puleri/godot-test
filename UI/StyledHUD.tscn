@@ -1,0 +1,55 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_hud"]
+[ext_resource type="PackedScene" path="res://UI/alert_eye.tscn" id="2_eye"]
+[ext_resource type="Texture2D" path="res://textures/Icon-Coin.png" id="3_coin"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_coin"]
+font_size = 47
+
+[node name="StyledHUD" type="CanvasLayer"]
+script = ExtResource("1_hud")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="EyeAnchor" type="Control" parent="Control"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+mouse_filter = 2
+
+[node name="AlertEye" parent="Control/EyeAnchor" instance=ExtResource("2_eye")]
+position = Vector2(-60.5, 20)
+scale = Vector2(0.5, 0.5)
+
+[node name="CoinIcon" type="Control" parent="Control"]
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_top = 60.0
+offset_right = -80.0
+offset_bottom = 60.0
+mouse_filter = 2
+modulate = Color(0.75686276, 0.7372549, 0.7137255, 1)
+scale = Vector2(0.28125, 0.28125)
+
+[node name="Art" type="Sprite2D" parent="Control/CoinIcon"]
+texture = ExtResource("3_coin")
+
+[node name="CoinCount" type="Label" parent="Control/CoinIcon"]
+offset_left = 124.0
+offset_top = -97.333496
+offset_right = 216.0
+offset_bottom = -32.333496
+rotation = -0.45494062
+text = "x 00"
+label_settings = SubResource("LabelSettings_coin")
+mouse_filter = 2

@@ -2,10 +2,12 @@ extends Node3D
 ## Medium encounter: time a mouse, draw away the Hound, then work the vault.
 
 signal ready_for_play
-enum DisplayMode { HUD_ONLY, HUD_AND_VISION, VISION_ONLY, HIDDEN }
+enum DisplayMode { HUD_ONLY, HUD_AND_VISION, VISION_ONLY, HIDDEN, STYLED_HUD }
 
 var display_mode: DisplayMode = DisplayMode.HUD_ONLY
 var _hud_layer: CanvasLayer
+var _styled_hud: CanvasLayer
+var _standard_hud_controls: Array[Control] = []
 var _world_labels: Array[Node] = []
 var _hud_markers: Array[Node] = []
 @onready var player: CharacterBody3D = $Player
@@ -17,7 +19,7 @@ var bell_cooldown := 0.0
 var elapsed := 0.0
 var _objective: Label
 var _guard_label: Label
-var _awareness: ProgressBar
+var _alert_eye: AlertEye
 @onready var exposure_sensor: StealthExposureSensor = $Player/ExposureSensor
 var _result: PanelContainer
 var _result_title: Label
@@ -60,8 +62,13 @@ func _input(event: InputEvent) -> void:
 
 func _apply_display_mode() -> void:
 	var hud_visible := display_mode in [DisplayMode.HUD_ONLY, DisplayMode.HUD_AND_VISION]
+	var styled_visible := display_mode == DisplayMode.STYLED_HUD
 	var vision_visible := display_mode in [DisplayMode.HUD_AND_VISION, DisplayMode.VISION_ONLY]
-	_hud_layer.visible = hud_visible
+	# The shared result panel remains available in either HUD option.
+	_hud_layer.visible = hud_visible or styled_visible
+	_styled_hud.visible = styled_visible
+	for control in _standard_hud_controls:
+		control.visible = hud_visible
 	for label in _world_labels:
 		label.visible = hud_visible
 	for marker in _hud_markers:
@@ -92,7 +99,6 @@ func _process(delta: float) -> void:
 			threat = guard
 	_guard_label.text = threat.guard_title + " / " + threat.state_name()
 	_guard_label.modulate = threat.state_color()
-	_awareness.value = threat.awareness * 100
 	var descriptions := ["01 / COPY THE SORTING MANIFEST", "02 / RELEASE THE VAULT CRANK", "03 / RECOVER THE NIGHT SEAL", "04 / RETURN TO THE BLUE EXIT"]
 	var destination: Vector3 = $Extraction.position if stage == 3 else $Stations.get_child(stage).position
 	var offset := destination - player.position
@@ -165,6 +171,8 @@ func _end_run(won: bool) -> void:
 	if finished:
 		return
 	finished = true
+	_alert_eye.freeze()
+	_styled_hud.get_node("Control/EyeAnchor/AlertEye").freeze()
 	player.set_interaction_locked(true)
 	for guard in guards:
 		guard.active = false
@@ -174,6 +182,8 @@ func _end_run(won: bool) -> void:
 
 
 func _build_hud() -> void:
+	_styled_hud = preload("res://UI/StyledHUD.tscn").instantiate()
+	add_child(_styled_hud)
 	var layer := CanvasLayer.new()
 	_hud_layer = layer
 	add_child(layer)
@@ -184,22 +194,24 @@ func _build_hud() -> void:
 	var panel: PanelContainer = _panel(16, 12)
 	panel.position = Vector2(28, 24)
 	screen.add_child(panel)
+	_standard_hud_controls.append(panel)
 	_objective = _label("PREPARING THE EXCHANGE", 14, Color("e4bc77"))
 	panel.add_child(_objective)
-	var threat: PanelContainer = _panel(14, 10)
-	threat.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT)
-	threat.position = Vector2(-288, 24)
-	threat.custom_minimum_size.x = 260
+	var threat := Control.new()
 	screen.add_child(threat)
-	var threat_box := VBoxContainer.new()
-	threat_box.add_theme_constant_override("separation", 4)
-	threat.add_child(threat_box)
+	_standard_hud_controls.append(threat)
+	threat.set_anchors_and_offsets_preset(Control.PRESET_CENTER_TOP)
+	threat.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_alert_eye = preload("res://UI/alert_eye.tscn").instantiate()
+	_alert_eye.position = Vector2(-60.5, 20)
+	_alert_eye.scale = Vector2(0.5, 0.5)
+	threat.add_child(_alert_eye)
 	_guard_label = _label("PATROLS PREPARING", 12)
-	threat_box.add_child(_guard_label)
-	_awareness = ProgressBar.new()
-	_awareness.custom_minimum_size = Vector2(232, 4)
-	_awareness.show_percentage = false
-	threat_box.add_child(_awareness)
+	_guard_label.position = Vector2(-150, 138)
+	_guard_label.custom_minimum_size.x = 300
+	_guard_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_guard_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	threat.add_child(_guard_label)
 	var footer: PanelContainer = _panel(16, 10)
 	footer.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
 	footer.offset_left = 28
@@ -207,7 +219,8 @@ func _build_hud() -> void:
 	footer.offset_top = -62
 	footer.offset_bottom = -24
 	screen.add_child(footer)
-	footer.add_child(_label("WASD / ARROWS  move     SHIFT  slow walk     SPACE  jump     E  hold to work     Q  nearby bell     TAB  HUD / vision     R  restart", 12, Color("91a9b7")))
+	_standard_hud_controls.append(footer)
+	footer.add_child(_label("WASD / ARROWS  move     SHIFT  slow walk     SPACE  jump     E  hold to work     Q  nearby bell     TAB  HUD / vision / styled HUD     R  restart", 12, Color("91a9b7")))
 	_result = _panel()
 	_result.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
 	_result.position = Vector2(-330, -100)

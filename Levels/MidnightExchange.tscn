@@ -4884,6 +4884,8 @@ exposure_sensor_path = NodePath("../../Player/ExposureSensor")
 has_lamp = true
 lamp_range = 5.0
 lamp_fov_degrees = 32.0
+lamp_height_offset = 0.48
+lamp_downward_angle_degrees = 12.0
 hearing_range = 9.0
 sound_wall_transmission = 0.75
 close_recognition_distance = 1.25
@@ -4913,7 +4915,7 @@ pause_min_seconds = 2.0
 random_seed = 901
 
 [node name="SightLight" type="SpotLight3D" parent="Guards/SortingMouse" unique_id=1863328451 groups=["stealth_lights"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32, 0)
+transform = Transform3D(1, 0, 0, 0, 0.9781476, -0.20791169, 0, 0.20791169, 0.9781476, 0, 0.8, 0)
 light_energy = 8.0
 shadow_enabled = true
 spot_attenuation = 0.0
@@ -4927,6 +4929,8 @@ exposure_sensor_path = NodePath("../../Player/ExposureSensor")
 has_lamp = true
 lamp_range = 7.0
 lamp_fov_degrees = 40.0
+lamp_height_offset = 0.55
+lamp_downward_angle_degrees = 12.0
 hearing_range = 14.0
 sound_wall_transmission = 0.75
 close_recognition_distance = 1.25
@@ -4957,7 +4961,7 @@ pause_max_seconds = 1.8
 random_seed = 902
 
 [node name="SightLight" type="SpotLight3D" parent="Guards/CrankHound" unique_id=287837298 groups=["stealth_lights"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+transform = Transform3D(1, 0, 0, 0, 0.9781476, -0.20791169, 0, 0.20791169, 0.9781476, 0, 1.3, 0)
 light_energy = 8.0
 shadow_enabled = true
 spot_attenuation = 0.0
@@ -4971,6 +4975,8 @@ exposure_sensor_path = NodePath("../../Player/ExposureSensor")
 has_lamp = true
 lamp_range = 5.0
 lamp_fov_degrees = 32.0
+lamp_height_offset = 0.48
+lamp_downward_angle_degrees = 12.0
 hearing_range = 9.0
 sound_wall_transmission = 0.75
 close_recognition_distance = 1.25
@@ -5000,7 +5006,7 @@ pause_min_seconds = 2.0
 random_seed = 903
 
 [node name="SightLight" type="SpotLight3D" parent="Guards/VaultMouse" unique_id=418046305 groups=["stealth_lights"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32, 0)
+transform = Transform3D(1, 0, 0, 0, 0.9781476, -0.20791169, 0, 0.20791169, 0.9781476, 0, 0.8, 0)
 light_energy = 8.0
 shadow_enabled = true
 spot_attenuation = 0.0

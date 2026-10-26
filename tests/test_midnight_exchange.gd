@@ -12,6 +12,9 @@ func _initialize() -> void:
 func _run() -> void:
 	create_timer(100).timeout.connect(func(): push_error("Exchange tests timed out"); quit(1))
 	level = load("res://Levels/MidnightExchange.tscn").instantiate()
+	var test_coin = load("res://Mesh/Treasure/coin.tscn").instantiate()
+	test_coin.position = Vector3(0, 100, 0)
+	level.add_child(test_coin)
 	root.add_child(level)
 	current_scene = level
 	await level.ready_for_play
@@ -34,7 +37,15 @@ func _run() -> void:
 	await process_frame
 	_check(_display_matches(false, false), "Holding Tab does not skip display modes")
 	await _press_tab()
-	_check(_display_matches(true, false), "Tab wraps to HUD only and key release does not advance it")
+	_check(level.display_mode == level.DisplayMode.STYLED_HUD and level._styled_hud.visible and _display_matches(false, false), "Tab selects Styled HUD without world labels or vision")
+	var styled_eye = level._styled_hud.get_node("Control/EyeAnchor/AlertEye")
+	_check(styled_eye.is_visible_in_tree() and level._styled_hud.get_node("Control/CoinIcon/CoinCount").is_visible_in_tree(), "Styled HUD shows the suspicion eye and coin counter")
+	test_coin.collected()
+	test_coin.collected()
+	_check(level._styled_hud.coins_collected == 1 and level._styled_hud.coin_count.text == "x 01", "Styled counter tracks real coin pickups exactly once")
+	await _press_tab()
+	_check(level._styled_hud.coins_collected == 1, "Coin count survives changing HUD options")
+	_check(_display_matches(true, false) and not level._styled_hud.visible, "Tab wraps to HUD only and key release does not advance it")
 	_check(player.position.distance_to(Vector3(0, 0.49, 14)) < 0.1, "Rook starts inside the protected exit court")
 	_check(level.guards.size() == 3 and level.get_node("Guards/SortingMouse/VisualPivot/Model").scene_file_path.contains("mouse_v2"), "Saved encounter includes two real mouse models and one Hound")
 	_check(level.region.navigation_mesh.get_polygon_count() > 0, "Saved geometry bakes a navigation surface")
@@ -146,7 +157,10 @@ func _run() -> void:
 	_check(level.finished and player.interaction_locked, "All three stages and a clear exit complete the encounter")
 	_check(level._result.visible and not level._result.is_visible_in_tree(), "Finishing in hidden mode keeps the result UI hidden")
 	await _press_tab()
-	_check(level._result.is_visible_in_tree() and _display_matches(true, false), "Tab reveals the result after the run has finished")
+	_check(level._result.is_visible_in_tree() and level._styled_hud.visible and _display_matches(false, false), "Styled HUD reveals the result after the run has finished")
+	_check(not styled_eye.is_processing(), "Completion freezes the styled eye too")
+	await _press_tab()
+	_check(level._result.is_visible_in_tree() and _display_matches(true, false), "Standard HUD also retains the result")
 	_check(not hound.active and not mouse.active, "Completion stops every guard")
 	var camera: Camera3D = level.get_node("LevelCamera")
 	var before := camera.position
@@ -161,7 +175,7 @@ func _run() -> void:
 	root.add_child(level)
 	await level.ready_for_play
 	_check(level.stage == 0 and level.bell_cooldown == 0 and not level.finished, "Restart restores objectives, bells and active play")
-	_check(_display_matches(true, false), "Restart restores the default HUD-only display")
+	_check(_display_matches(true, false) and not level._styled_hud.visible and level._styled_hud.coins_collected == 0, "Restart restores default HUD and resets styled coins")
 	level.set_process(false)
 	level.player.set_physics_process(false)
 	for guard in level.guards:

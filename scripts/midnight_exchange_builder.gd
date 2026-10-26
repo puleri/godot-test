@@ -212,6 +212,8 @@ func _exchange_guards(level: Node3D) -> void:
 		guard.lamp_fov_degrees = 40.0 if i == 1 else 32.0
 		guard.field_of_view_degrees = 100.0 if i == 1 else 110.0
 		guard.eye_height = 0.75 if i == 1 else 0.32
+		guard.lamp_height_offset = 0.55 if i == 1 else 0.48
+		guard.lamp_downward_angle_degrees = 12.0
 		guard.player_sight_offset = Vector3(0, 0.45, 0)
 		guard.seconds_to_detect = 1.2 if i == 1 else 0.85
 		guard.capture_distance = 0.85 if i == 1 else 0.7
@@ -225,7 +227,8 @@ func _exchange_guards(level: Node3D) -> void:
 		guards.add_child(guard)
 		var beam := SpotLight3D.new()
 		beam.name = "SightLight"
-		beam.position.y = guard.eye_height
+		beam.position.y = guard.eye_height + guard.lamp_height_offset
+		beam.rotation_degrees.x = -guard.lamp_downward_angle_degrees
 		beam.light_energy = 8.0
 		beam.shadow_enabled = true
 		beam.shadow_bias = 0.03
