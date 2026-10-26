@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cs4wmfdl2o8o"]
+
+[ext_resource type="Script" uid="uid://cjappp25yfj71" path="res://scripts/alert_eye.gd" id="1_mlmom"]
+[ext_resource type="Texture2D" uid="uid://b2fqjjuuc7rav" path="res://textures/Eye.png" id="1_o5msl"]
+[ext_resource type="Texture2D" uid="uid://q0lskbvtv0go" path="res://textures/Eye-Alert.png" id="3_2won1"]
+
+[node name="AlertEye" type="Node2D" unique_id=949045580]
+script = ExtResource("1_mlmom")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=35702670]
+offset_right = 40.0
+offset_bottom = 40.0
+offset_transform_position = Vector2(-4.29, 0)
+value = 50.0
+fill_mode = 3
+texture_under = ExtResource("1_o5msl")
+texture_over = ExtResource("3_2won1")
+texture_progress = ExtResource("1_o5msl")
+tint_under = Color(0.76, 0.73947996, 0.7144, 0.078431375)
+tint_over = Color(1, 1, 1, 0)
+tint_progress = Color(0.75686276, 0.7372549, 0.7137255, 1)

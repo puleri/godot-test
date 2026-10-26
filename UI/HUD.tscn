@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://bhtnnecjain8t"]
 
 [ext_resource type="Texture2D" uid="uid://b3gfvf8ey8or" path="res://textures/Icon-Coin.png" id="1_yixhe"]
-[ext_resource type="Script" path="res://scripts/hud.gd" id="2_hud"]
+[ext_resource type="PackedScene" uid="uid://cs4wmfdl2o8o" path="res://UI/alert_eye.tscn" id="2_4n7mi"]
+[ext_resource type="Script" uid="uid://nf0twgbi7bk5" path="res://scripts/hud.gd" id="2_hud"]
+[ext_resource type="PackedScene" uid="uid://c82sljdu1or11" path="res://UI/DialogueBox.tscn" id="4_uk570"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yixhe"]
 font_size = 47
@@ -17,7 +19,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="AlertEye" parent="Control" unique_id=949045580 instance=ExtResource("2_4n7mi")]
+position = Vector2(1850, 20)
+
 [node name="CoinIcon" type="Sprite2D" parent="Control" unique_id=235603483]
+modulate = Color(0.75686276, 0.7372549, 0.7137255, 1)
 position = Vector2(3627.0002, 161)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_yixhe")
@@ -31,3 +37,6 @@ rotation = -0.45494062
 text = "x 00"
 label_settings = SubResource("LabelSettings_yixhe")
 metadata/_edit_use_anchors_ = true
+
+[node name="DialogueBox" parent="Control" unique_id=354801412 instance=ExtResource("4_uk570")]
+position = Vector2(2016, 1857)

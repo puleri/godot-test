@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://cd2m1cabrepfb" path="res://scripts/exchange_station.gd" id="18_r3gqw"]
 [ext_resource type="PackedScene" uid="uid://b4bt8u2iqbafe" path="res://Mesh/Treasure/coin.tscn" id="19_unb0v"]
 [ext_resource type="PackedScene" path="res://Mesh/Bell/bell.tscn" id="20_bell"]
+[ext_resource type="PackedScene" uid="uid://bbr7pulqj6ht6" path="res://Mesh/Boat/Boat_v1.tscn" id="21_frn33"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_4mltw"]
 geometry_parsed_geometry_type = 1
@@ -5210,3 +5211,6 @@ modulate = Color(0.4745098, 0.8627451, 0.8901961, 1)
 text = "EXTRACTION"
 font_size = 36
 outline_size = 8
+
+[node name="Boat_v1" parent="." unique_id=254482798 instance=ExtResource("21_frn33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.97705746, 0.20659666, 11.470418)

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c82sljdu1or11"]
+
+[ext_resource type="Texture2D" uid="uid://cmmep4ri0uhj1" path="res://textures/DialogueBox/TextBox-BG.png" id="1_ys8mp"]
+[ext_resource type="Texture2D" uid="uid://dbn7nf0q6j1xo" path="res://textures/DialogueBox/TextBox-Edges.png" id="2_5mryu"]
+[ext_resource type="Texture2D" uid="uid://dobacng6exe48" path="res://textures/DialogueBox/TextBox-Splatter.png" id="3_4jsxm"]
+[ext_resource type="Texture2D" uid="uid://dd2i78e7lw51i" path="res://textures/Buttons/SpaceBar-Line.png" id="4_5mryu"]
+
+[node name="DialogueBox" type="Node2D" unique_id=354801412]
+
+[node name="BG" type="Sprite2D" parent="." unique_id=1392243050]
+texture = ExtResource("1_ys8mp")
+
+[node name="Edges" type="Sprite2D" parent="." unique_id=300384239]
+texture = ExtResource("2_5mryu")
+
+[node name="Splatter" type="Sprite2D" parent="." unique_id=1159197732]
+texture = ExtResource("3_4jsxm")
+
+[node name="ContinueButton" type="Sprite2D" parent="." unique_id=2025742898]
+position = Vector2(546, 223)
+texture = ExtResource("4_5mryu")
