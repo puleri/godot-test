@@ -4,6 +4,19 @@ extends Node3D
 signal ready_for_play
 enum DisplayMode { HUD_ONLY, HUD_AND_VISION, VISION_ONLY, HIDDEN, STYLED_HUD }
 
+@export var readable_lamp_ground := true
+@export var play_opening_dialogue := true
+
+const OPENING_DIALOGUE: Array[Dictionary] = [
+	{"speaker": "Pot Goblin", "text": "Rook, winter solstice is this weekend! I need you to pick up a couple things."},
+	{"speaker": "Rook", "text": "Some coin?"},
+	{"speaker": "Pot Goblin", "text": "Exactly, I am boiling some goose"},
+	{"speaker": "Rook", "text": "That isn't a goose"},
+]
+var _dialogue: Node2D
+var _dialogue_layer: CanvasLayer
+
+
 var display_mode: DisplayMode = DisplayMode.HUD_ONLY
 var _hud_layer: CanvasLayer
 var _styled_hud: CanvasLayer
@@ -28,6 +41,7 @@ var _bell_audio: AudioStreamPlayer
 
 
 func _ready() -> void:
+	_configure_ground_lighting()
 	get_window().content_scale_size = Vector2i(1440, 900)
 	get_window().content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
 	for guard in $Guards.get_children():
@@ -49,7 +63,23 @@ func _ready() -> void:
 		await get_tree().physics_frame
 	for guard in guards:
 		guard.navigation_ready = true
+	if play_opening_dialogue:
+		_start_opening_dialogue()
 	ready_for_play.emit()
+
+
+func _configure_ground_lighting() -> void:
+	if not readable_lamp_ground:
+		return
+	# Surface overrides belong to these instances, preserving the shared art and
+	# other levels. Rebuilt encounters inherit the same treatment on startup.
+	var stone := preload("res://Materials/NewToon-Stone.tres")
+	var readable_stone := stone.duplicate() as ShaderMaterial
+	readable_stone.set_shader_parameter("toon_local_lighting", true)
+	for mesh: MeshInstance3D in $NavigationRegion3D/StoneFloor.find_children("*", "MeshInstance3D", true, false):
+		for surface in mesh.mesh.get_surface_count():
+			if mesh.get_active_material(surface) == stone:
+				mesh.set_surface_override_material(surface, readable_stone)
 
 
 func _input(event: InputEvent) -> void:
@@ -76,6 +106,7 @@ func _apply_display_mode() -> void:
 		marker.layers = 1 if hud_visible else 0
 	for guard in guards:
 		guard.set_vision_visible(vision_visible)
+		guard.set_suspicion_visible(hud_visible or styled_visible)
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
@@ -283,3 +314,43 @@ func _on_noise_emitted(at: Vector3, audible_radius: float, kind: String) -> void
 		return
 	for guard in guards:
 		guard.hear_sound(at, audible_radius, kind)
+
+
+func _start_opening_dialogue() -> void:
+	elapsed = 0.0
+	# A separate HUD layer keeps story text readable in every Tab display mode.
+	_dialogue_layer = CanvasLayer.new()
+	_dialogue_layer.layer = 20
+	_dialogue_layer.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(_dialogue_layer)
+	var screen := Control.new()
+	screen.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	screen.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_dialogue_layer.add_child(screen)
+	var shade := ColorRect.new()
+	shade.color = Color(0.025, 0.035, 0.055, 0.20)
+	shade.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	screen.add_child(shade)
+	_dialogue = preload("res://UI/DialogueBox.tscn").instantiate()
+	screen.add_child(_dialogue)
+	screen.resized.connect(_layout_dialogue.bind(screen))
+	_layout_dialogue(screen)
+	_hud_layer.hide()
+	_styled_hud.hide()
+	for label in _world_labels:
+		label.hide()
+	player.set_interaction_locked(true)
+	get_tree().paused = true
+	_dialogue.dialogue_finished.connect(func():
+		get_tree().paused = false
+		player.set_interaction_locked(false)
+		_apply_display_mode()
+		_dialogue_layer.queue_free())
+	_dialogue.start_dialogue(OPENING_DIALOGUE)
+
+
+func _layout_dialogue(screen: Control) -> void:
+	var fit := minf((screen.size.x - 48.0) / 1667.0, 0.77)
+	_dialogue.scale = Vector2.ONE * fit
+	_dialogue.position = Vector2(screen.size.x * 0.5, screen.size.y - 300.0 * fit)

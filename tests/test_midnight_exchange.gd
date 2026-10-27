@@ -12,6 +12,7 @@ func _initialize() -> void:
 func _run() -> void:
 	create_timer(100).timeout.connect(func(): push_error("Exchange tests timed out"); quit(1))
 	level = load("res://Levels/MidnightExchange.tscn").instantiate()
+	level.play_opening_dialogue = false
 	var test_coin = load("res://Mesh/Treasure/coin.tscn").instantiate()
 	test_coin.position = Vector3(0, 100, 0)
 	level.add_child(test_coin)
@@ -172,6 +173,7 @@ func _run() -> void:
 	await process_frame
 	# A fresh run must reset the ordered stations and bell cooldown.
 	level = load("res://Levels/MidnightExchange.tscn").instantiate()
+	level.play_opening_dialogue = false
 	root.add_child(level)
 	await level.ready_for_play
 	_check(level.stage == 0 and level.bell_cooldown == 0 and not level.finished, "Restart restores objectives, bells and active play")

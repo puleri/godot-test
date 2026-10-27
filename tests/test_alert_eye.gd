@@ -80,6 +80,7 @@ func _run() -> void:
 	await process_frame
 
 	var level = load("res://Levels/MidnightExchange.tscn").instantiate()
+	level.play_opening_dialogue = false
 	root.add_child(level)
 	current_scene = level
 	await level.ready_for_play

@@ -13,6 +13,9 @@ uniform float steps = 3.0;
 uniform float step_smoothness : hint_range(0.0, 1.0, 0.05) = 0.3;
 uniform vec4 shadow_tint : source_color;
 uniform float shadow_tint_amount : hint_range(0.0, 1.0, 0.1) = 0.4;
+// Low-angle lamps gain discrete dark fill tones; authored bright bands remain.
+// Directional/storm lighting retains the original response.
+uniform bool toon_local_lighting = false;
 
 group_uniforms Shader.Specular;
 uniform float specular : hint_range(0.0, 1.0, 0.05) = 0.0;
@@ -93,6 +96,7 @@ void fragment() {
 
 void light () {
 	float ndotl = clamp(dot(NORMAL,LIGHT),0.0,1.0) * max(ATTENUATION, 0.0);
+	bool toon_local = toon_local_lighting && !LIGHT_IS_DIRECTIONAL;
 
 	float light = ndotl;
 
@@ -104,6 +108,15 @@ void light () {
 
 		light_factor = toon_step(0.5, step_smoothness, light_factor);
 		light = (step_base + light_factor) / band_count;
+	}
+
+	if(toon_local && use_stepped){
+		// Preserve the original 0.5 / 1.0 bright bands and their squared response.
+		// Only lift grazing illumination into two flat, darker fill tones. The
+		// attenuated input keeps these inside real beams and outside shadows.
+		float fill = 0.25 * step(0.008, ndotl);
+		fill = max(fill, 0.375 * step(0.10, ndotl));
+		light = max(light, fill);
 	}
 
 	if(use_pattern){

@@ -43,6 +43,7 @@ var _vision_material: StandardMaterial3D
 var _vision_refresh := 0.0
 var _state_label: Label3D
 var _last_seen_marker: MeshInstance3D
+var _suspicion_bubble: Node3D
 var _sight_light: SpotLight3D
 
 
@@ -156,6 +157,8 @@ func _change_state(next: GuardState) -> void:
 	guard_state = next
 	_repath_remaining = 0.0
 	_requested_destination = Vector3.INF
+	if _suspicion_bubble != null:
+		_suspicion_bubble.refresh()
 	if next == GuardState.SEARCH:
 		_search_elapsed = 0.0
 		_search_travel_elapsed = 0.0
@@ -249,7 +252,7 @@ func _build_feedback() -> void:
 	add_child(_vision_instance)
 	_vision_instance.global_transform = Transform3D.IDENTITY
 	_state_label = Label3D.new()
-	_state_label.position.y = 1.55
+	_state_label.position.y = eye_height + 1.85
 	_state_label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	_state_label.font_size = 32
 	_state_label.pixel_size = 0.008
@@ -267,6 +270,9 @@ func _build_feedback() -> void:
 	_last_seen_marker.top_level = true
 	add_child(_last_seen_marker)
 	_last_seen_marker.visible = false
+	_suspicion_bubble = preload("res://scripts/guard_suspicion_bubble.gd").new()
+	_suspicion_bubble.name = "SuspicionBubble"
+	add_child(_suspicion_bubble)
 
 
 func _update_feedback(delta: float) -> void:
@@ -315,3 +321,7 @@ func _vision_edge(angle_degrees: float) -> Vector3:
 	if not hit.is_empty():
 		endpoint = hit.position
 	return Vector3(endpoint.x, 0.04, endpoint.z)
+
+
+func set_suspicion_visible(enabled: bool) -> void:
+	_suspicion_bubble.set_enabled(enabled)

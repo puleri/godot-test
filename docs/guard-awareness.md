@@ -134,6 +134,50 @@ geometry provide the gameplay inputs. Midnight Exchange's registered fixtures
 cast visual shadows too, so visible shelter and gameplay obstruction agree as
 closely as the authored geometry permits.
 
+## Readable toon lamp cones
+
+Midnight Exchange opts its stone floor into `toon_local_lighting`. The two
+original hard toon bands cut off grazing illumination before brightness was
+applied. The floor now adds two discrete dark fill tones below the first
+original band, keeping its squared bright-band response and crisp stone facets.
+The fill starts only inside an attenuated light footprint; beam edges, range,
+and cover shadows still bound it. No ambient glow is added.
+
+The encounter duplicates only its floor's stone material at startup. Shared
+materials, characters, earlier levels, and directional storm shading retain
+the authored response. Static local fixtures gain the same dark fill tones;
+their existing bright bands keep their original values. The level's
+`readable_lamp_ground` Inspector option can be disabled before starting the
+scene to compare the original look.
+
+Guard lamp energy, position, aim, range, and cone width are unchanged by this
+fix. The exposure sensor and guard detection rules are unchanged too.
+
+Before and after, with identical light settings and camera:
+
+![Original toon ground with missing low-angle lamp illumination.](images/headlamp-ground-before.png)
+
+![Readable lamp tones with crisp toon bands and deep shadows.](images/headlamp-ground-after.png)
+
+The Hound facing its open aisle, with other fixtures disabled for this capture:
+
+![Isolated Hound lamp with flat toon tones and a dark surrounding floor.](images/headlamp-cone-toon.png)
+
+Run the renderer checks and recreate encounter comparisons with:
+
+```sh
+godot --path . --audio-driver Dummy --script tests/test_headlamp_readability.gd
+godot --path . --audio-driver Dummy --script tests/test_toon_lighting.gd
+godot --path . --audio-driver Dummy --script tools/preview_headlamp_lighting.gd -- --capture-dir=/tmp/headlamps
+```
+
+These GPU checks require a real renderer, not `--headless`. They compare the
+mouse and Hound cones against the legacy material, verify connected lit ground
+with discrete tones, black pixels outside the cones and behind cover, and
+unchanged directional and ambient lighting. The preview also saves isolated
+headlamp comparisons with static fixtures disabled. The saved-scene awareness
+checks verify the ground material is local to this encounter.
+
 ## Hearing and movement
 
 Sound arrives as a discrete event: position, audible radius, and kind.
@@ -242,10 +286,10 @@ godot --headless --path . --fixed-fps 60 --script tests/test_stealth_guard.gd
 ```
 
 The focused awareness suite has 37 checks, and the saved-scene integration suite
-has 9. They verify physics occlusion, both body samples, deep-shadow protection,
+has 11. They verify physics occlusion, both body samples, deep-shadow protection,
 partial cover, elapsed-time accumulation, lamp separation, shared lamps, real
 storm pulses, hearing attenuation, quiet input, landing events,
-and frozen sighting memory. The 43-check Midnight Exchange suite
+and frozen sighting memory. The 49-check Midnight Exchange suite
 exercises patrols, the full physical route, objectives, live Hound kiting,
 extraction, restart, and actual mouse capture. The original stealth and harbor suites each pass their 31 checks, confirming
 that earlier detection behavior remains intact.
@@ -256,3 +300,26 @@ This replaces `Levels/MidnightExchange.tscn`; preserve hand-edited variants unde
 another name. For GPU views, run `tools/preview_midnight_exchange.gd` without
 `--headless`. Existing macOS certificate and storm-resource shutdown messages
 can appear despite passing assertions.
+
+
+### Suspicion bubble
+
+All `StealthGuard` variants use `textures/Exclamation.png` through the shared
+`guard_suspicion_bubble.gd` feedback controller. The bubble stays 48 logical
+pixels tall, projects from above the guard's head, and keeps the pointed tail
+anchored while the paper stretches. Suspicion enters with an 8px rise, a small
+straightening tilt, and a 0.25s squash-and-stretch pop. A subtle 2px bob and
+cream-to-amber paper tint follow residual awareness. Confirmed pursuit adds one
+120% punch and a coral tint. Clearing suspicion shrinks/fades it over 0.18s.
+
+Brief lost sight does not restart the entrance. Search retains the bubble only
+while visual suspicion remains; sound-only investigations do not imply confirmed
+detection. The existing eye still reports the exact awareness amount. Camera
+rays hide bubbles behind solid level geometry, and behind-camera bubbles are
+hidden. Midnight Exchange shows them in its standard and Styled HUD modes and
+hides them in vision-only/hidden modes. Pause also pauses animation; ending an
+encounter freezes the feedback with the guards.
+
+Run `godot --headless --path . --script tests/test_suspicion_bubble.gd` for state,
+repeat-trigger, disappearance, display-mode and occlusion checks on both models.
+Add `-- --preview` to a graphical run for `/tmp/bubble-*.png` captures.

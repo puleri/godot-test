@@ -110,3 +110,27 @@ describes visible pause timers, throwable distractions, and a brief opportunity
 to break sight. This encounter adapts those ideas to Rook through deterministic
 pause countdowns, reusable noise bells, short exposed tasks, and cover loops.
 The game's cleaning/combat systems are not part of this level.
+
+
+### Opening dialogue HUD test
+
+Opening Midnight Exchange plays the four-line Pot Goblin / Rook winter-solstice
+exchange using `UI/DialogueBox.tscn`, including the existing ink panel, edges,
+splatter and Space key art. The reusable `scripts/dialogue_box.gd` controller
+adds warm cream text, gold/cyan speaker colors, a soft pop-in, punctuation-aware
+text reveal, a pulsing advance prompt and a short fade out. The panel fits the
+viewport width and stays anchored near the bottom.
+
+**Space or Enter** reveals the current line; press again to advance. The last
+line stays until the player dismisses it. Gameplay, guards, storm and the run
+clock pause during the exchange; gameplay HUD panels and world labels return
+after closing. The opening replays on restart. Set `play_opening_dialogue` to
+`false` for gameplay-only tests or previews. Dialogue data is the typed
+`OPENING_DIALOGUE` array in `scripts/midnight_exchange.gd`.
+
+Run `godot --headless --path . --script tests/test_opening_dialogue.gd` for
+input, exact text, pause and resume checks. Run the same command without
+`--headless`, adding `-- --preview`, to save rendered line and small-window
+previews to `/tmp/midnight-dialogue-*.png`.
+
+![Opening dialogue HUD](images/midnight-opening-dialogue.png)

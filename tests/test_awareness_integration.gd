@@ -11,9 +11,15 @@ func _initialize() -> void:
 func _run() -> void:
 	create_timer(30).timeout.connect(func(): push_error("Awareness integration timed out"); quit(1))
 	var level = load("res://Levels/MidnightExchange.tscn").instantiate()
+	level.play_opening_dialogue = false
 	root.add_child(level)
 	current_scene = level
 	await level.ready_for_play
+	var stone := load("res://Materials/NewToon-Stone.tres") as ShaderMaterial
+	var ground: MeshInstance3D = level.get_node("NavigationRegion3D/StoneFloor/Piece_000/Model/StoneTile_Block")
+	var local_stone := ground.get_active_material(1) as ShaderMaterial
+	_check(local_stone != stone and local_stone.get_shader_parameter("toon_local_lighting") == true, "Saved encounter enables readable lighting on its own ground material")
+	_check(stone.get_shader_parameter("toon_local_lighting") != true, "Shared stone art retains the original toon response for other levels")
 	var storm = level.get_node("StormFlashLight")
 	storm.stop_flashing()
 	var sensor: StealthExposureSensor = level.exposure_sensor
