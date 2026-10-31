@@ -27,16 +27,25 @@ func _run() -> void:
 			_capture_dir = argument.trim_prefix("--capture-dir=")
 	if not _capture_dir.is_empty():
 		DirAccess.make_dir_recursive_absolute(_capture_dir)
+	RenderingServer.global_shader_parameter_set("comic_lighting", false)
 	_build_fixture()
-	for specification in [
+	var lamps := [
 		{"name": "mouse", "height": 0.8, "range": 5.0, "half_angle": 16.0,
 			"depths": [2.0, 2.5, 3.0, 3.5, 4.0, 4.5], "width": 0.25},
 		{"name": "hound", "height": 1.3, "range": 7.0, "half_angle": 20.0,
 			"depths": [3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0], "width": 0.4},
-	]:
+	]
+	for specification in lamps:
 		await _test_lamp(specification)
 	await _test_toon_bands()
 	await _test_other_illumination()
+	_environment.ambient_light_source = Environment.AMBIENT_SOURCE_DISABLED
+	_key.visible = false
+	_lamp.rotation_degrees = Vector3(-12.0, 0.0, 0.0)
+	_lamp.shadow_enabled = true
+	for specification in lamps:
+		await _test_lamp(specification, true)
+	await _test_single_band()
 	print("HEADLAMP GPU CHECKS: %d passed, %d failed" % [_checks - _failures, _failures])
 	quit(0 if _failures == 0 else 1)
 
@@ -95,15 +104,18 @@ func _build_fixture() -> void:
 	_camera.make_current()
 
 
-func _test_lamp(specification: Dictionary) -> void:
-	_lamp.position.y = specification.height
+func _test_lamp(specification: Dictionary, comic: bool = false) -> void:
+	var name: String = specification.name + ("_comic" if comic else "")
+	RenderingServer.global_shader_parameter_set("comic_lighting", false)
+	_lamp.position = Vector3(0.0, specification.height, 0.0)
 	_lamp.spot_range = specification.range
 	_lamp.spot_angle = specification.half_angle
 	_lamp.visible = true
 	_material.set_shader_parameter("toon_local_lighting", false)
-	var legacy := await _capture(specification.name + "_legacy")
+	var legacy := await _capture(name + "_legacy")
+	RenderingServer.global_shader_parameter_set("comic_lighting", comic)
 	_material.set_shader_parameter("toon_local_lighting", true)
-	var readable := await _capture(specification.name + "_readable")
+	var readable := await _capture(name + "_readable")
 	var weakest := 1.0
 	var legacy_sum := 0.0
 	var readable_sum := 0.0
@@ -117,22 +129,90 @@ func _test_lamp(specification: Dictionary) -> void:
 			legacy_sum += _at(legacy, point)
 			samples += 1
 	_check(weakest > 0.12,
-		"%s: toon bands keep the cone connected and readable (weakest %.3f)" % [specification.name, weakest])
+		"%s: light keeps the cone connected and readable (weakest %.3f)" % [name, weakest])
 	_check(readable_sum / samples > legacy_sum / samples + 0.12,
-		"%s: actual lamp reveals grazing ground missing from legacy bands (%.3f vs %.3f)" % [specification.name, readable_sum / samples, legacy_sum / samples])
+		"%s: actual lamp reveals grazing ground missing from legacy bands (%.3f vs %.3f)" % [name, readable_sum / samples, legacy_sum / samples])
 	var outside := 0.0
 	for point in [Vector3(-4.0, 0.0, -3.0), Vector3(4.0, 0.0, -3.0), Vector3(0.0, 0.0, 2.0), Vector3(0.0, 0.0, -8.5)]:
 		outside = maxf(outside, _at(readable, point))
 	_check(outside < 0.015,
-		"%s: outside, behind and beyond the lamp remain dark (brightest %.3f)" % [specification.name, outside])
+		"%s: outside, behind and beyond the lamp remain dark (brightest %.3f)" % [name, outside])
 	_cover.visible = true
-	var blocked := await _capture(specification.name + "_blocked")
+	var blocked := await _capture(name + "_blocked")
 	var shadow_peak := 0.0
 	for depth in [3.5, 4.0, 4.5]:
 		shadow_peak = maxf(shadow_peak, _at(blocked, Vector3(0.0, 0.0, -depth)))
 	_check(shadow_peak < 0.03,
-		"%s: solid cover still blocks the readable lamp cone (brightest shadow %.3f)" % [specification.name, shadow_peak])
+		"%s: solid cover still blocks the readable lamp cone (brightest shadow %.3f)" % [name, shadow_peak])
 	_cover.visible = false
+
+
+func _test_single_band() -> void:
+	RenderingServer.global_shader_parameter_set("comic_lighting", true)
+	_lamp.spot_range = 50.0
+	_lamp.spot_angle = 60.0
+	_lamp.shadow_enabled = false
+	# Sweep across all four former lit tiers, both with and without the
+	# encounter's readable-floor override. There must be just one lit value.
+	for readable in [false, true]:
+		_material.set_shader_parameter("toon_local_lighting", readable)
+		var darkest := 1.0
+		var brightest := 0.0
+		for lambert in [0.025, 0.075, 0.13, 0.21, 0.3, 0.6, 0.85, 0.95]:
+			_aim_for_lambert(lambert)
+			var frame := await _capture("comic_spot_%s_%.3f" % [readable, lambert])
+			var brightness := _at(frame, Vector3.ZERO)
+			darkest = minf(darkest, brightness)
+			brightest = maxf(brightest, brightness)
+		_check(darkest > 0.12 and brightest - darkest < 0.008,
+			"Comic spotlight has one lit tone across grazing and direct light, readable=%s (%.3f–%.3f)" % [readable, darkest, brightest])
+	_aim_for_lambert(0.004)
+	var below_edge := await _capture("comic_spot_below_edge")
+	_check(_at(below_edge, Vector3.ZERO) < 0.015, "Comic spotlight keeps a hard dark cutoff")
+	_lamp.visible = false
+	var omni := OmniLight3D.new()
+	omni.light_energy = 8.0
+	omni.omni_range = 50.0
+	omni.omni_attenuation = 0.0
+	_world.add_child(omni)
+	var darkest := 1.0
+	var brightest := 0.0
+	for lambert in [0.025, 0.13, 0.3, 0.6, 0.95]:
+		omni.position = Vector3(0.0, 10.0 * lambert, 10.0 * sqrt(1.0 - lambert * lambert))
+		var frame := await _capture("comic_omni_%.3f" % lambert)
+		var brightness := _at(frame, Vector3.ZERO)
+		darkest = minf(darkest, brightness)
+		brightest = maxf(brightest, brightness)
+	_check(darkest > 0.12 and brightest - darkest < 0.008,
+		"Comic point lamps have one lit tone (%.3f–%.3f)" % [darkest, brightest])
+	omni.queue_free()
+	await process_frame
+	_key.visible = true
+	darkest = 1.0
+	brightest = 0.0
+	for lambert in [0.6, 0.75, 0.95]:
+		_key.rotation.x = -asin(lambert)
+		var frame := await _capture("comic_directional_%.3f" % lambert)
+		var brightness := _at(frame, Vector3.ZERO)
+		darkest = minf(darkest, brightness)
+		brightest = maxf(brightest, brightness)
+	_check(darkest > 0.05 and brightest - darkest < 0.008,
+		"Comic directional lighting has one lit tone (%.3f–%.3f)" % [darkest, brightest])
+	_key.rotation.x = -asin(0.4)
+	var shadow := await _capture("comic_directional_shadow")
+	_check(_at(shadow, Vector3.ZERO) < 0.015, "Comic directional lighting keeps its shadow side dark")
+	_key.visible = false
+	var unlit := await _capture("comic_unlit")
+	_check(_at(unlit, Vector3.ZERO) < 0.015, "Comic mode adds no light to an unlit surface")
+	_environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
+	_environment.ambient_light_color = Color(0.4, 0.5, 0.7)
+	_environment.ambient_light_energy = 0.3
+	_environment.ambient_light_sky_contribution = 0.0
+	var ambient := await _capture("comic_ambient")
+	RenderingServer.global_shader_parameter_set("comic_lighting", false)
+	var original := await _capture("original_ambient")
+	_check(_at(ambient, Vector3.ZERO) > 0.05 and _difference(ambient, original) < 0.004,
+		"Comic mode preserves the existing ambient base palette")
 
 
 func _test_toon_bands() -> void:

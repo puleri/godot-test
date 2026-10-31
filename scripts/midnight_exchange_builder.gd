@@ -10,6 +10,11 @@ func build_exchange() -> Node3D:
 	var level := Node3D.new()
 	level.name = "MidnightExchange"
 	level.set_script(preload("res://scripts/midnight_exchange.gd"))
+	level.add_child(preload("res://scenes/backdrops/HarborBackdrop.tscn").instantiate())
+	var warehouse := preload("res://Modules/Buildings/StoneWarehouse.tscn").instantiate()
+	warehouse.name = "NorthQuayWarehouse"
+	warehouse.position = Vector3(-7, 0, -24)
+	level.add_child(warehouse)
 	var region := NavigationRegion3D.new()
 	region.name = "NavigationRegion3D"
 	var nav := NavigationMesh.new()

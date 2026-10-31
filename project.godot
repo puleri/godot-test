@@ -70,6 +70,10 @@ lights_and_shadows/directional_shadow/soft_shadow_filter_quality=0
 
 [shader_globals]
 
+comic_lighting={
+"type": "bool",
+"value": true
+}
 storm_rim_suppression={
 "type": "float",
 "value": 0.0

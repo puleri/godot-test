@@ -12,6 +12,7 @@ import re
 import shutil
 import struct
 import subprocess
+import sys
 import tempfile
 import uuid
 
@@ -23,6 +24,43 @@ OUT = ROOT / "art" / "ComponentLibrary"
 BLEND = OUT / "Rook_Component_Library.blend"
 OUT.mkdir(parents=True, exist_ok=True)
 (OUT / ".gdignore").touch()
+
+
+def native_records():
+    """Finished native meshes and editable assemblies; exclude loose studies."""
+    return [{
+        "name": title,
+        "slug": slug,
+        "category": "01 Architecture",
+        "source": "ComponentLibrary/foundation.blend#Object/" + name,
+        "native_source": "ComponentLibrary/foundation.blend",
+        "native_object": name,
+        "library_scale": 4.0,
+        "notes": "Native editable mesh and original materials, uniformly enlarged 4x for larger building modules. "
+                 "The window spans approximately 1.54 x 1.60 m, enough for the current Rook reference bounds. "
+                 "Collection pivot is centered on the base; authoring placement is recorded in the inventory.",
+    } for name, title, slug in [
+        ("Foundation", "Foundation", "foundation"),
+        ("Retaining_wall", "Retaining wall", "retaining_wall"),
+        ("Foundation_corner", "Foundation corner", "foundation_corner"),
+        ("Plain_stone_wall.001", "Plain stone wall", "plain_stone_wall"),
+        ("Windowed_stone_wall", "Windowed stone wall", "windowed_stone_wall"),
+        ("Door_stone_wall", "Door stone wall", "door_stone_wall"),
+        ("Plain_stone_corner_wall", "Plain stone corner wall", "plain_stone_corner_wall"),
+        ("Broken_arch_wall", "Broken arch wall", "broken_arch_wall"),
+    ]] + [{
+        "name": "Stone warehouse",
+        "slug": "stone_warehouse",
+        "category": "04 Buildings",
+        "source": "art/StoneWarehouse/StoneWarehouse.blend#Collection/Stone Warehouse",
+        "godot_source": "Modules/Buildings/StoneWarehouse.tscn",
+        "native_source": "art/StoneWarehouse/StoneWarehouse.blend",
+        "native_collection": "Stone Warehouse",
+        "notes": "Complete two-story Night Cargo warehouse with 441 editable pieces in five section collections. "
+                 "Native geometry, shared materials and bevel modifiers retained. Ground-level origin; "
+                 "Blender -Y / Godot +Z facade. Includes the submerged quay, roof, loading doors and details; "
+                 "closed exterior. Godot collision and runtime materials are provided by the separate game scene.",
+    }]
 
 
 def prepare_sources(folder):
@@ -86,9 +124,83 @@ def new_collection(name, scene):
 
 def native_objects(record, collection):
     with bpy.data.libraries.load(str(ROOT / record["native_source"]), link=False) as (source, target):
-        target.objects = source.objects
-        target.actions = source.actions
+        if "native_collection" in record:
+            assert record["native_collection"] in source.collections, record["source"]
+            target.collections = [record["native_collection"]]
+        elif "native_object" in record:
+            assert record["native_object"] in source.objects, record["source"]
+            target.objects = [record["native_object"]]
+        else:
+            target.objects = source.objects
+            target.actions = source.actions
+    if "native_collection" in record:
+        appended = target.collections[0]
+        # Keep the source's editable section hierarchy under one library asset.
+        # Remove the appended asset root so the browser has exactly one entry.
+        for child in list(appended.children):
+            collection.children.link(child)
+        for obj in appended.objects:
+            collection.objects.link(obj)
+        bpy.data.collections.remove(appended)
+        objects = list(collection.all_objects)
+        bpy.context.scene.frame_set(0)
+        bpy.context.view_layer.update()
+        points = []
+        for obj in objects:
+            if obj.type in {"MESH", "CURVE"}:
+                evaluated = obj.evaluated_get(bpy.context.evaluated_depsgraph_get())
+                points.extend(evaluated.matrix_world @ Vector(v) for v in evaluated.bound_box)
+        low = Vector(tuple(min(p[i] for p in points) for i in range(3)))
+        high = Vector(tuple(max(p[i] for p in points) for i in range(3)))
+        record["stats"] = {
+            "mesh_count": sum(obj.type in {"MESH", "CURVE"} for obj in objects),
+            "surface_count": sum(len(obj.data.materials) for obj in objects if obj.type in {"MESH", "CURVE"}),
+            "bone_count": 0, "clips": [], "ports": [],
+            "bounds_min": [low.x, low.z, -high.y],
+            "bounds_max": [high.x, high.z, -low.y],
+        }
+        record["source_collection_count"] = len(collection.children)
+        return objects
     objects = [obj for obj in target.objects if obj]
+    if "native_object" in record:
+        obj = objects[0]
+        assert obj.type == "MESH" and obj.parent is None and not obj.modifiers, record["source"]
+        collection.objects.link(obj)
+        bpy.context.scene.frame_set(0)
+        bpy.context.view_layer.update()
+        # The plain wall has a single keyed authoring transform at frame 1.
+        # Freeze its evaluated pose so that static library placement cannot be
+        # reset by that keyframe when the overview or workspace changes frame.
+        pose = obj.evaluated_get(bpy.context.evaluated_depsgraph_get()).matrix_world.copy()
+        if obj.animation_data:
+            action = obj.animation_data.action
+            assert action and tuple(action.frame_range) == (1.0, 1.0), record["source"]
+            record["source_transform_action"] = action.name
+            record["notes"] += " Single-frame authoring transform frozen as static geometry placement."
+            obj.animation_data_clear()
+        obj.matrix_world = pose
+        bpy.context.view_layer.update()
+        record["source_matrix_world"] = [list(row) for row in obj.matrix_world]
+        # Read actual mesh coordinates using the evaluated authoring transform.
+        points = [obj.matrix_world @ vertex.co for vertex in obj.data.vertices]
+        low = Vector(tuple(min(p[i] for p in points) for i in range(3)))
+        high = Vector(tuple(max(p[i] for p in points) for i in range(3)))
+        pivot = Vector(((low.x + high.x)/2, (low.y + high.y)/2, low.z))
+        record["source_base_pivot"] = list(pivot)
+        obj.location -= pivot
+        factor = record.get("library_scale", 1.0)
+        obj.location *= factor
+        obj.scale *= factor
+        low, high = (low-pivot)*factor, (high-pivot)*factor
+        record["stats"] = {
+            "mesh_count": 1, "surface_count": len(obj.data.materials),
+            "vertex_count": len(obj.data.vertices), "polygon_count": len(obj.data.polygons),
+            "bone_count": 0, "clips": [], "ports": [],
+            # Match the inventory's Godot Y-up bounds convention.
+            "bounds_min": [low.x, low.z, -high.y],
+            "bounds_max": [high.x, high.z, -low.y],
+        }
+        return objects
     root = next(obj for obj in objects if obj.name == record["native_root"])
 
     def belongs(obj):
@@ -143,9 +255,13 @@ def import_component(record, folder, masters):
             obj.data.display_type = "STICK"
         if obj.type == "EMPTY":
             obj.empty_display_size = 0.16
-    collection["Godot source"] = record["source"]
+    collection["Source" if "native_object" in record or "native_collection" in record else "Godot source"] = record["source"]
     collection["Notes"] = record["notes"]
-    collection["Units"] = "Metres; Blender Z up. Origin and relative transforms preserved."
+    if "library_scale" in record:
+        collection["Library scale"] = record["library_scale"]
+    collection["Units"] = ("Metres; Blender Z up. Base-centered pivot; authored rotation preserved; library scale recorded."
+                           if "native_object" in record else
+                           "Metres; Blender Z up. Origin and relative transforms preserved.")
     collection.asset_mark()
     collection.asset_data.description = record["name"] + ". " + record["notes"] + " Source: " + record["source"]
     collection.asset_data.author = "Rook project"
@@ -229,7 +345,7 @@ def build_overview(records, components, overview):
     accent_mat = flat_material("Library / amber text", (0.95, 0.57, 0.21))
     muted_mat = flat_material("Library / slate text", (0.46, 0.56, 0.65))
     text_object(labels, "ROOK / COMPONENT LIBRARY", (0, 5, 0), 1.1, title_mat)
-    text_object(labels, "44 reusable collections  /  metres  /  original pivots + editable meshes", (0, 3.5, 0), 0.43, muted_mat)
+    text_object(labels, f"{len(records)} reusable collections  /  metres  /  editable meshes", (0, 3.5, 0), 0.43, muted_mat)
     text_object(labels, "Asset Browser: Current File  |  Drag into Modeling Workspace  |  Read START HERE in Text Editor", (0, 2.5, 0), 0.36, accent_mat)
     y = 0
     max_width = 76.0
@@ -303,7 +419,7 @@ def add_studio(scene, bottom):
 def write_help(records):
     help_text = """ROOK COMPONENT LIBRARY — START HERE
 
-44 component collections from the current project. All geometry is editable.
+COMPONENT_COUNT component collections from the current project. All geometry is editable.
 Units: metres; Blender Z up. Asset origins and relative transforms are retained.
 
 REUSE IN THIS FILE
@@ -334,6 +450,29 @@ Dimensions below each item are Blender X/Y/Z in metres. Individual stone tiles
 are about 2 m, connectors use 6 m ports. Godot (x,y,z) maps to Blender (x,-z,y).
 Connection markers retain their original names/transforms: local +Y outward.
 
+NATIVE ARCHITECTURE
+Foundation, retaining wall, foundation corner, plain stone wall and windowed
+stone wall come from the five named meshes in ComponentLibrary/foundation.blend.
+Their rotation, mesh data and material slots are preserved. Library modules are
+uniformly 4x their source size, so fewer placements cover a building surface.
+The window spans approximately 1.54 x 1.60 m, compared with Rook's 1.34 x 1.36 m
+reference bounds. Scaling changes dimensions, not the polygon count per piece.
+Their placement is rebased to a centered ground-level pivot for reuse; original
+authoring transforms and base pivots are recorded in component_inventory.json.
+Loose studies, reference objects, cameras and lights are excluded.
+Additional 4x wall modules include the door wall, L-shaped stone corner and broken
+arch. Numbered modeling variants are excluded. The new modules' single-frame
+authoring poses are frozen for stable static placement. The original plain wall
+is now sourced from Plain_stone_wall.001; its library name stays Plain stone wall.
+
+STONE WAREHOUSE / BUILDINGS
+The complete Night Cargo warehouse is appended from its native StoneWarehouse.blend.
+All 441 pieces remain editable in five section collections, with shared materials
+and bevel modifiers. Its original ground-level placement pivot is preserved;
+the quay extends below ground. The front faces Blender -Y / Godot +Z.
+The separate Modules/Buildings/StoneWarehouse.tscn supplies game collision and
+runtime toon materials. Editing the library does not update that game export.
+
 RIGS
 Bell: original native source, 3 bones, Ring / RingLoop actions, game scale 0.6.
 Storefront: current game geometry with separate editable mesh pieces.
@@ -355,8 +494,9 @@ INVENTORY
 """
     for record in records:
         help_text += "\n" + record["name"] + "\n  " + record["source"] + "\n"
-    text = bpy.data.texts.new("START HERE - reuse and source notes")
-    text.write(help_text)
+    text = bpy.data.texts.get("START HERE - reuse and source notes") or bpy.data.texts.new("START HERE - reuse and source notes")
+    text.clear()
+    text.write(help_text.replace("COMPONENT_COUNT", str(len(records))))
 
 
 def render_asset_previews(records, components, overview, folder):
@@ -403,10 +543,82 @@ def render_asset_previews(records, components, overview, folder):
     bpy.data.scenes.remove(scene)
 
 
+def save_library(records, overview):
+    bpy.ops.file.pack_all()
+    catalog = ["# Blender Asset Catalog Definition File", "VERSION 1", ""]
+    for category in sorted({record["category"] for record in records}):
+        catalog.append(f"{uuid.uuid5(uuid.NAMESPACE_URL, 'rook/' + category)}:{category}:{category}")
+    (OUT / "blender_assets.cats.txt").write_text("\n".join(catalog) + "\n")
+    (OUT / "component_inventory.json").write_text(json.dumps(records, indent=2) + "\n")
+    bpy.context.preferences.filepaths.save_version = 0
+    overview["Component count"] = len(records)
+    overview["Instructions"] = "Read START HERE in the Text Editor; use Current File in Asset Browser."
+    bpy.ops.wm.save_as_mainfile(filepath=str(BLEND), compress=True)
+    overview.render.filepath = str(OUT / "component_overview.png")
+    bpy.ops.render.render(write_still=True)
+    # Keep the convenient top-level copy in sync with the documented library.
+    mirror = ROOT / "ComponentLibrary"
+    mirror.mkdir(exist_ok=True)
+    (mirror / ".gdignore").touch()
+    for name in [BLEND.name, "component_inventory.json", "blender_assets.cats.txt", "component_overview.png"]:
+        shutil.copy2(OUT / name, mirror / name)
+    print("COMPONENT_LIBRARY_SAVED", BLEND, len(records), "components", flush=True)
+
+
+def update_native_components(only=None):
+    """Refresh native additions without re-exporting or changing existing masters."""
+    bpy.ops.wm.open_mainfile(filepath=str(BLEND))
+    records = json.loads((OUT / "component_inventory.json").read_text())
+    additions = native_records()
+    if only:
+        assert only <= {record["slug"] for record in additions}, "Unknown native component slug"
+        additions = [record for record in additions if record["slug"] in only]
+    slugs = {record["slug"] for record in additions}
+    masters = bpy.data.scenes["Asset Sources"]
+    activate(masters)
+    for record in records:
+        if record["slug"] in slugs:
+            collection = bpy.data.collections[record["name"]]
+            for obj in list(collection.all_objects):
+                bpy.data.objects.remove(obj, do_unlink=True)
+            for child in list(collection.children):
+                bpy.data.collections.remove(child)
+            bpy.data.collections.remove(collection)
+    records = [record for record in records if record["slug"] not in slugs]
+    components = {record["slug"]: (
+        bpy.data.collections[record["name"]],
+        Vector(record["blender_bounds_min"]), Vector(record["blender_bounds_max"]),
+    ) for record in records}
+    for record in additions:
+        components[record["slug"]] = import_component(record, None, masters)
+    records.extend(additions)
+    old_overview = bpy.data.scenes["Component Overview"]
+    for collection in list(old_overview.collection.children):
+        assert not collection.asset_data, "Do not remove asset collections from overview"
+        for obj in list(collection.objects):
+            bpy.data.objects.remove(obj, do_unlink=True)
+        bpy.data.collections.remove(collection)
+    bpy.data.scenes.remove(old_overview)
+    overview = bpy.data.scenes.new("Component Overview")
+    overview.unit_settings.system = "METRIC"
+    overview.unit_settings.scale_length = 1
+    overview.frame_set(0)
+    write_help(records)
+    bottom = build_overview(records, components, overview)
+    add_studio(overview, bottom)
+    with tempfile.TemporaryDirectory(prefix="rook-native-previews-") as temporary:
+        render_asset_previews(additions, components, overview, Path(temporary))
+    save_library(records, overview)
+
+
 def main():
+    if "--native-only" in sys.argv:
+        only = set(sys.argv[sys.argv.index("--only") + 1].split(",")) if "--only" in sys.argv else None
+        update_native_components(only)
+        return
     with tempfile.TemporaryDirectory(prefix="rook-component-library-") as temporary:
         folder = Path(temporary)
-        records = export_godot(folder)
+        records = export_godot(folder) + native_records()
         bpy.ops.wm.read_factory_settings(use_empty=True)
         overview = bpy.context.scene
         overview.name = "Component Overview"
@@ -433,18 +645,7 @@ def main():
         for collection in list(bpy.data.collections):
             if not collection.users and not collection.asset_data:
                 bpy.data.collections.remove(collection)
-        catalog = ["# Blender Asset Catalog Definition File", "VERSION 1", ""]
-        for category in sorted({record["category"] for record in records}):
-            catalog.append(f"{uuid.uuid5(uuid.NAMESPACE_URL, 'rook/' + category)}:{category}:{category}")
-        (OUT / "blender_assets.cats.txt").write_text("\n".join(catalog) + "\n")
-        (OUT / "component_inventory.json").write_text(json.dumps(records, indent=2) + "\n")
-        bpy.context.preferences.filepaths.save_version = 0
-        overview["Component count"] = len(records)
-        overview["Instructions"] = "Read START HERE in the Text Editor; use Current File in Asset Browser."
-        bpy.ops.wm.save_as_mainfile(filepath=str(BLEND), compress=True)
-        overview.render.filepath = str(OUT / "component_overview.png")
-        bpy.ops.render.render(write_still=True)
-        print("COMPONENT_LIBRARY_SAVED", BLEND, flush=True)
+        save_library(records, overview)
 
 
 if __name__ == "__main__":

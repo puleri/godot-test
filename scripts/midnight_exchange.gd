@@ -6,6 +6,9 @@ enum DisplayMode { HUD_ONLY, HUD_AND_VISION, VISION_ONLY, HIDDEN, STYLED_HUD }
 
 @export var readable_lamp_ground := true
 @export var play_opening_dialogue := true
+@export var play_establishing_shot := true
+@export_range(1.0, 20.0) var establishing_shot_duration := 7.0
+var _establishing_shot: Node
 
 const OPENING_DIALOGUE: Array[Dictionary] = [
 	{"speaker": "Pot Goblin", "text": "Rook, winter solstice is this weekend! I need you to pick up a couple things."},
@@ -41,6 +44,7 @@ var _bell_audio: AudioStreamPlayer
 
 
 func _ready() -> void:
+	_configure_harbor_backdrop()
 	_configure_ground_lighting()
 	get_window().content_scale_size = Vector2i(1440, 900)
 	get_window().content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
@@ -64,8 +68,47 @@ func _ready() -> void:
 	for guard in guards:
 		guard.navigation_ready = true
 	if play_opening_dialogue:
-		_start_opening_dialogue()
+		if play_establishing_shot:
+			_start_establishing_shot()
+		else:
+			_start_opening_dialogue()
 	ready_for_play.emit()
+
+
+func _configure_harbor_backdrop() -> void:
+	if not has_node("HarborBackdrop"):
+		add_child(preload("res://scenes/backdrops/HarborBackdrop.tscn").instantiate())
+	var world: WorldEnvironment = $WorldEnvironment
+	world.environment = world.environment.duplicate()
+	var sky := Sky.new()
+	sky.process_mode = Sky.PROCESS_MODE_REALTIME
+	var material := ShaderMaterial.new()
+	material.shader = preload("res://Materials/harbor_sky.gdshader")
+	sky.sky_material = material
+	world.environment.sky = sky
+	world.environment.background_mode = Environment.BG_SKY
+	# Moving clouds are visual only; retain the encounter's authored lighting.
+	world.environment.reflected_light_source = Environment.REFLECTION_SOURCE_DISABLED
+	# Ambient lighting stays explicitly sourced from the existing encounter.
+	$HarborWater.hide()
+
+
+func _start_establishing_shot() -> void:
+	elapsed = 0.0
+	_hud_layer.hide()
+	_styled_hud.hide()
+	for label in _world_labels:
+		label.hide()
+	for marker in _hud_markers:
+		marker.layers = 0
+	_establishing_shot = preload("res://scripts/exchange_establishing_shot.gd").new()
+	_establishing_shot.name = "EstablishingShot"
+	_establishing_shot.duration = establishing_shot_duration
+	add_child(_establishing_shot)
+	_establishing_shot.completed.connect(func():
+		_establishing_shot = null
+		_start_opening_dialogue())
+	_establishing_shot.start(self)
 
 
 func _configure_ground_lighting() -> void:

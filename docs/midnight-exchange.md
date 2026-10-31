@@ -134,3 +134,78 @@ input, exact text, pause and resume checks. Run the same command without
 previews to `/tmp/midnight-dialogue-*.png`.
 
 ![Opening dialogue HUD](images/midnight-opening-dialogue.png)
+
+### Harbor establishing shot
+
+The opening now starts with a seven-second perspective long shot: a slow dolly
+across the exchange quay toward the harbor skyline, lighthouse and storm clouds.
+Space, Enter or Escape skips directly to the existing opening dialogue; that
+keypress is consumed. The shot hides HUD and objective markers and pauses Rook,
+patrols and the encounter clock. It then cuts to the unchanged orthographic
+camera for dialogue and gameplay. A temporary cool fill light reveals the quay
+only during the shot and is removed before dialogue.
+
+`play_establishing_shot` disables just the camera opening, and
+`establishing_shot_duration` adjusts its duration. `play_opening_dialogue = false`
+skips the entire opening for gameplay tests and previews, as before. Restart
+replays the opening.
+
+`scenes/backdrops/HarborBackdrop.tscn` supplies deterministic, batched low-poly
+warehouse silhouettes, timber quays, islands, lighthouse and a water plane.
+Its decorative meshes have no collision, navigation, shadows or real window
+lights. They use rendering layer 2 so encounter lamps do not illuminate them.
+The level installs its own procedural night-sky material without changing shared
+environment resources or the existing ambient-light settings. This is a first
+geometry pass; the concept art's detailed facades are not production assets.
+The builder includes the backdrop so regenerating the level retains it.
+
+```sh
+godot --headless --path . --script tests/test_establishing_shot.gd
+```
+
+Run with a real renderer and `-- --preview` to save the first and last frames
+as `/tmp/midnight-establishing-0.png` and `/tmp/midnight-establishing-1.png`.
+The checks cover the dedicated camera, paused actors and clock, hidden HUD,
+non-colliding backdrop, natural completion, skip input and dialogue handoff.
+
+![Harbor establishing shot](images/midnight-establishing.png)
+
+Verification: the 49 encounter assertions, opening-dialogue checks and both
+establishing-shot paths pass. The Metal preview also emits renderer geometry/light
+unpairing errors when the test removes each entire level, plus the existing
+shutdown resource warnings; no shader or script errors occurred during playback.
+
+### Moving cloud layers
+
+The harbor sky now composites three independently drifting cloud layers: a slow
+far bank, a middle layer moving across it, and faster overhead clouds that fade
+near the horizon. Tune `far_cloud_velocity`, `middle_cloud_velocity`,
+`near_cloud_velocity` and `cloud_motion_speed` in
+`Materials/harbor_sky.gdshader`; setting the multiplier to zero freezes motion.
+Godot's shader time continues while gameplay is paused for the opening.
+
+The effect uses five procedural noise samples per visible sky pixel and adds
+no cloud meshes, textures, lights or shadows. The cubemap pass uses a constant
+color, realtime sky processing is explicit, and sky reflections are disabled;
+the encounter retains its existing ambient-light source. Actual GPU cost still
+depends on resolution and hardware and has not been benchmarked.
+
+Run `godot --path . --audio-driver Dummy --script tools/preview_harbor_clouds.gd`
+with a real renderer for a four-second fixed-camera comparison. It saves
+`/tmp/midnight-clouds-0.png` and `/tmp/midnight-clouds-4.png` and checks that the
+sky changes while camera motion, gameplay and the encounter clock stay paused.
+
+### Blender modeling reference
+
+`art/MidnightExchange/MidnightExchange_Workspace.blend` contains the saved level
+and harbor as locked references, a separate collection for new objects and an
+embedded GLB export helper. See [the Blender workspace guide](midnight-blender-workspace.md)
+for modeling, export and Godot placement instructions.
+
+### North quay warehouse
+
+The reusable **NorthQuayWarehouse** exterior now stands beyond the north wall at
+`(-7, 0, -24)`. It uses all five new stone Architecture components, with timber
+framing, warm windows, loading doors and a slate roof. Its collision stays outside
+the courtyard, and its windows add no gameplay lights. See [the warehouse guide](stone-warehouse.md)
+for the editable Blender source, Godot scene and verification commands.

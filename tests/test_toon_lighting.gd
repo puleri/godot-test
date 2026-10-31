@@ -31,20 +31,23 @@ func _run() -> void:
 		{"name": "hard_rim", "stepped": true, "specular": 0.0, "rim": true, "steps": 2.0},
 		{"name": "zero_band_count", "stepped": true, "specular": 0.0, "rim": false, "steps": 0.0},
 	]
-	for test_case in cases:
-		_material.set_shader_parameter("use_stepped", test_case.stepped)
-		_material.set_shader_parameter("steps", test_case.steps)
-		_material.set_shader_parameter("specular", test_case.specular)
-		_material.set_shader_parameter("use_rim", test_case.rim)
-		_lamp.visible = false
-		var baseline := await _capture(test_case.name + "_baseline")
-		_check(_lit_pixel_count(baseline) > 1000, test_case.name + ": fixture renders a lit floor")
-		_lamp.visible = true
-		for direction in [0.0, PI * 0.5, PI]:
-			_lamp.rotation.y = direction
-			var frame := await _capture(test_case.name + "_" + str(direction))
-			var darkened := _darkened_pixel_count(baseline, frame)
-			_check(darkened == 0, "%s: spotlight at %.2f does not erase existing light (%d bad pixels)" % [test_case.name, direction, darkened])
+	for comic in [false, true]:
+		RenderingServer.global_shader_parameter_set("comic_lighting", comic)
+		var mode := "comic_" if comic else "original_"
+		for test_case in cases:
+			_material.set_shader_parameter("use_stepped", test_case.stepped)
+			_material.set_shader_parameter("steps", test_case.steps)
+			_material.set_shader_parameter("specular", test_case.specular)
+			_material.set_shader_parameter("use_rim", test_case.rim)
+			_lamp.visible = false
+			var baseline := await _capture(mode + test_case.name + "_baseline")
+			_check(_lit_pixel_count(baseline) > 1000, mode + test_case.name + ": fixture renders a lit floor")
+			_lamp.visible = true
+			for direction in [0.0, PI * 0.5, PI]:
+				_lamp.rotation.y = direction
+				var frame := await _capture(mode + test_case.name + "_" + str(direction))
+				var darkened := _darkened_pixel_count(baseline, frame)
+				_check(darkened == 0, "%s: spotlight at %.2f does not erase existing light (%d bad pixels)" % [mode + test_case.name, direction, darkened])
 	print("TOON GPU CHECKS: %d passed, %d failed" % [_checks - _failures, _failures])
 	quit(0 if _failures == 0 else 1)
 

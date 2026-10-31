@@ -1,6 +1,7 @@
 shader_type spatial;
 
 global uniform float storm_rim_suppression;
+global uniform bool comic_lighting;
 
 group_uniforms Shader.Albedo;
 uniform vec4 albedo_color : source_color  = vec4(1.0);
@@ -97,10 +98,17 @@ void fragment() {
 void light () {
 	float ndotl = clamp(dot(NORMAL,LIGHT),0.0,1.0) * max(ATTENUATION, 0.0);
 	bool toon_local = toon_local_lighting && !LIGHT_IS_DIRECTIONAL;
+	bool single_band = comic_lighting && use_stepped;
 
 	float light = ndotl;
 
-	if(use_stepped){
+	if(single_band){
+		// One lit tone, including grazing guard beams. Local lights use the old
+		// middle band's intensity so broad flat pools do not wash out the floor.
+		float threshold = LIGHT_IS_DIRECTIONAL ? 0.5 : 0.008;
+		float intensity = LIGHT_IS_DIRECTIONAL ? 1.0 : 0.5;
+		light = step(threshold, ndotl) * intensity;
+	} else if(use_stepped){
 		float band_count = max(steps, 1.0);
 		float light_mult = light * band_count;
 		float step_base = floor(light_mult);
@@ -110,7 +118,7 @@ void light () {
 		light = (step_base + light_factor) / band_count;
 	}
 
-	if(toon_local && use_stepped){
+	if(toon_local && use_stepped && !single_band){
 		// Preserve the original 0.5 / 1.0 bright bands and their squared response.
 		// Only lift grazing illumination into two flat, darker fill tones. The
 		// attenuated input keeps these inside real beams and outside shadows.
@@ -119,7 +127,7 @@ void light () {
 		light = max(light, fill);
 	}
 
-	if(use_pattern){
+	if(use_pattern && !single_band){
 		vec2 p_uv = pattern_uv(UV, SCREEN_UV);
 
 		light = mix(light, shape_value(light, p_uv, VIEWPORT_SIZE), pattern_blend);
@@ -130,18 +138,18 @@ void light () {
 
 	if(use_rim){
 		float rim_value = fresnel(rim_amount, NORMAL, VIEW);
-		rim_value = toon_step(0.5, rim_smoothness / 2.0, rim_value);
+		rim_value = toon_step(0.5, single_band ? 0.0 : rim_smoothness / 2.0, rim_value);
 		rim_value = mix(rim_value, rim_value * light, rim_mask_shadow);
 		rim_value *= 1.0 - clamp(storm_rim_suppression, 0.0, 1.0);
 
 		vec3 rim_light_color = rim_uses_light_color ? (LIGHT_COLOR / PI) : vec3(1.0);
-		diffuse += rim_color.rgb * rim_light_color * rim_value * rim_blend;
+		diffuse += rim_color.rgb * rim_light_color * rim_value * rim_blend * (single_band ? 0.2 : 1.0);
 	}
 
 	DIFFUSE_LIGHT += mix(diffuse, ALBEDO * diffuse, albedo_affect);
 	// Avoid evaluating powers in unlit pixels or multiplying an invalid result
 	// by zero. On Metal that can black out other lights' valid contributions.
-	if (specular > 0.0 && light > 0.0) {
+	if (specular > 0.0 && light > 0.0 && !single_band) {
 		SPECULAR_LIGHT += vec3(pow(min(light, 1.0), 50.0)) * specular;
 	}
 }

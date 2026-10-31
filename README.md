@@ -36,11 +36,21 @@ godot --headless --path . --fixed-fps 60 --script tests/test_stealth_guard.gd
 
 The shared toon shader guards its specular calculations and handles zero-width
 toon bands as hard steps, fixing black wedges around overlapping spotlights.
+The `comic_lighting` shader global is enabled for a flatter style: stepped
+materials use one lit tone and shadow, lamps retain a low cutoff for grazing
+beams, and rim highlights are hard-edged at 20% of their authored strength.
+Turn it off in **Project Settings → Shader Globals** to restore the original
+material bands. This changes rendered lighting; stealth exposure still uses the
+authored light settings and obstruction checks.
 Run its GPU regression with a real renderer (without `--headless`):
 
 ```sh
 godot --path . --audio-driver Dummy --script tests/test_toon_lighting.gd
+godot --path . --audio-driver Dummy --script tests/test_headlamp_readability.gd
 ```
+
+`tools/preview_comic_lighting.gd` saves before/after gameplay, isolated guard
+lamp, and lightning views in `/tmp/comic-lighting-preview`.
 
 ## Modular level building
 
@@ -84,6 +94,9 @@ light, shadow, hearing, and memory layers. Midnight Exchange now rewards staying
 still in deep shadow, supports quiet footsteps and landing noise, and lets
 spotlights, other guards’ lamps, and real lightning expose Rook.
 
+The [performance note](docs/performance.md) records optimization priorities,
+stealth lighting constraints, and a repeatable profiling workflow.
+
 ## Procedural animation study
 
 Open `scenes/ProceduralAnimationTest.tscn` and press **F6** to compare Rook's
@@ -106,7 +119,7 @@ Blender source, API and checks are described in [docs/bell.md](docs/bell.md).
 
 ## Blender reference library
 
-`art/ComponentLibrary/Rook_Component_Library.blend` contains 44 reusable component
+`art/ComponentLibrary/Rook_Component_Library.blend` contains 53 reusable component
 collections: building pieces, vegetation, props, characters, the storefront and
 bell, connector/room modules, and existing entryway assemblies. It opens to a
 labeled overview and includes a modeling workspace, asset catalogs and source

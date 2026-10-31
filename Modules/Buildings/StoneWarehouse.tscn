@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://c00d8o8yw0csf"]
+
+[ext_resource type="Script" uid="uid://bxo4b1hgnw1hn" path="res://Mesh/StoneWarehouse/stone_warehouse_materials.gd" id="1_5f417"]
+[ext_resource type="PackedScene" uid="uid://0uuwemrbuymx" path="res://Mesh/StoneWarehouse/stone_warehouse.glb" id="2_qomaw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xdk6s"]
+size = Vector3(9.25, 4.65, 6.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1y45o"]
+size = Vector3(10.5, 0.85, 8.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2xn7o"]
+size = Vector3(2.7, 0.28, 0.7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iun41"]
+size = Vector3(2.7, 0.56, 0.7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r4bem"]
+size = Vector3(2.7, 0.84, 0.7)
+
+[node name="StoneWarehouse" type="Node3D" unique_id=1714867003]
+script = ExtResource("1_5f417")
+metadata/description = "Two-story stone harbor warehouse; closed exterior, local front +Z"
+metadata/source = "art/StoneWarehouse/StoneWarehouse.blend"
+
+[node name="Visual" parent="." unique_id=797861248 instance=ExtResource("2_qomaw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04175377, 0.033866882, -0.00093460083)
+
+[node name="SolidExterior" type="StaticBody3D" parent="." unique_id=154668240]
+collision_mask = 0
+
+[node name="Building" type="CollisionShape3D" parent="SolidExterior" unique_id=622725861]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.325, 0)
+shape = SubResource("BoxShape3D_xdk6s")
+
+[node name="Quay" type="CollisionShape3D" parent="SolidExterior" unique_id=1764539384]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.425, 0.45)
+shape = SubResource("BoxShape3D_1y45o")
+
+[node name="Step0" type="CollisionShape3D" parent="SolidExterior" unique_id=28488397]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14, 5.35)
+shape = SubResource("BoxShape3D_2xn7o")
+
+[node name="Step1" type="CollisionShape3D" parent="SolidExterior" unique_id=361726165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28, 5)
+shape = SubResource("BoxShape3D_iun41")
+
+[node name="Step2" type="CollisionShape3D" parent="SolidExterior" unique_id=1490767634]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42, 4.65)
+shape = SubResource("BoxShape3D_r4bem")

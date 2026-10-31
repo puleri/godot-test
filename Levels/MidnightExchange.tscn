@@ -21,6 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://b4bt8u2iqbafe" path="res://Mesh/Treasure/coin.tscn" id="19_unb0v"]
 [ext_resource type="PackedScene" path="res://Mesh/Bell/bell.tscn" id="20_bell"]
 [ext_resource type="PackedScene" uid="uid://bbr7pulqj6ht6" path="res://Mesh/Boat/Boat_v1.tscn" id="21_frn33"]
+[ext_resource type="PackedScene" path="res://scenes/backdrops/HarborBackdrop.tscn" id="22_backdrop"]
+[ext_resource type="PackedScene" path="res://Modules/Buildings/StoneWarehouse.tscn" id="23_warehouse"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_4mltw"]
 geometry_parsed_geometry_type = 1
@@ -4688,7 +4690,7 @@ transform = Transform3D(1.4571357, 0, 0, 0, 1.3796337, 0, 0, 0, 1.27636, -0.1278
 environment = SubResource("Environment_8mydv")
 
 [node name="HarborWater" type="MeshInstance3D" parent="." unique_id=1621089006]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.3, -3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.027656555, -2.251826, -3.0033913)
 material_override = SubResource("StandardMaterial3D_xa4nc")
 mesh = SubResource("PlaneMesh_mpypo")
 
@@ -5220,3 +5222,18 @@ outline_size = 8
 
 [node name="Boat_v1" parent="." unique_id=254482798 instance=ExtResource("21_frn33")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.97705746, 0.20659666, 11.470418)
+
+[node name="HarborBackdrop" parent="." unique_id=1068543068 instance=ExtResource("22_backdrop")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -108.39322)
+
+[node name="HarborBackdrop3" parent="HarborBackdrop" unique_id=368209812 instance=ExtResource("22_backdrop")]
+transform = Transform3D(0.40184683, 0, 0.915707, 0, 1, 0, -0.915707, 0, 0.40184683, -135.80743, 0, 38.780205)
+
+[node name="HarborBackdrop" parent="HarborBackdrop" unique_id=1412532344 instance=ExtResource("22_backdrop")]
+transform = Transform3D(0.79675925, 0, 0.60429686, 0, 1, 0, -0.60429686, 0, 0.79675925, 84.911194, 0, 11.4461975)
+
+[node name="HarborBackdrop2" parent="HarborBackdrop" unique_id=1117559820 instance=ExtResource("22_backdrop")]
+transform = Transform3D(0.9998203, 0, -0.01897481, 0, 1, 0, 0.01897481, 0, 0.9998203, -2.8867645, 0, 72.23767)
+
+[node name="NorthQuayWarehouse" parent="." instance=ExtResource("23_warehouse")]
+position = Vector3(-7, 0, -24)

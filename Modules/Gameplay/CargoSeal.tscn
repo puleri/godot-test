@@ -1,49 +1,42 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://byxkd1qhpwgjt"]
 
-[ext_resource type="Script" path="res://scripts/cargo_seal.gd" id="script"]
-[ext_resource type="PackedScene" path="res://Mesh/Treasure/coin.tscn" id="coin"]
+[ext_resource type="PackedScene" uid="uid://b4bt8u2iqbafe" path="res://Mesh/Treasure/coin.tscn" id="coin"]
+[ext_resource type="Script" uid="uid://brnok5wxd41pt" path="res://scripts/cargo_seal.gd" id="script"]
 
 [sub_resource type="CylinderShape3D" id="trigger"]
 radius = 0.9
-height = 2.0
-
-[sub_resource type="TorusMesh" id="ring"]
-inner_radius = 0.70
-outer_radius = 0.78
 
 [sub_resource type="StandardMaterial3D" id="gold"]
 shading_mode = 0
 albedo_color = Color(1, 0.74, 0.31, 1)
 
-[node name="CargoSeal" type="Area3D"]
+[sub_resource type="TorusMesh" id="ring"]
+inner_radius = 0.7
+outer_radius = 0.78
+
+[node name="CargoSeal" type="Area3D" unique_id=836796822]
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("script")
 
-[node name="Trigger" type="CollisionShape3D" parent="."]
-position = Vector3(0, 0.75, 0)
+[node name="Trigger" type="CollisionShape3D" parent="." unique_id=2054693658]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 shape = SubResource("trigger")
 
-[node name="Visual" parent="." instance=ExtResource("coin")]
-position = Vector3(0, 0.85, 0)
+[node name="Visual" parent="." unique_id=1065379073 instance=ExtResource("coin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
 script = null
 
-[node name="Area3D" parent="Visual" index="1"]
-collision_layer = 0
-collision_mask = 0
-monitoring = false
-monitorable = false
-
-[node name="Ring" type="MeshInstance3D" parent="."]
-position = Vector3(0, 0.06, 0)
-mesh = SubResource("ring")
+[node name="Ring" type="MeshInstance3D" parent="." unique_id=1982672824]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
 material_override = SubResource("gold")
+mesh = SubResource("ring")
 
-[node name="Caption" type="Label3D" parent="."]
-position = Vector3(0, 2, 0)
-billboard = 1
-font_size = 28
+[node name="Caption" type="Label3D" parent="." unique_id=1593688571]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 pixel_size = 0.006
-outline_size = 8
-modulate = Color(1, 0.80, 0.45, 1)
+billboard = 1
+modulate = Color(1, 0.8, 0.45, 1)
 text = "CARGO SEAL"
+font_size = 28
+outline_size = 8
