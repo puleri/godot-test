@@ -1,0 +1,5199 @@
+{
+  "scope": "Bounded static inspection; Lua parsed as literals, never executed; no gameplay observations",
+  "app": "/Users/mattpuleri/Library/Application Support/Steam/steamapps/common/mark_of_the_ninja/ninja.app",
+  "binary": {
+    "bytes": 8812288,
+    "sha256": "443cac4d542bc65fdb72d10f8b622637125f81bc74d9fc43e5ecd7a0f79a14fe",
+    "header_hex": "cefaedfe0700000003000000",
+    "format": "Mach-O 32-bit i386"
+  },
+  "inventory": {
+    "lua_files": 858,
+    "lua_bytes": 43893047
+  },
+  "sources": [
+    {
+      "path": "data/attributes/med_guard_rifle.lua",
+      "bytes": 5790,
+      "sha256": "c00e2b578c76c587e40cceaf2b33fbf4865d131f0ab505675cb2bff0e3784276",
+      "root": "Attributes",
+      "components": [
+        {
+          "componenttype": "viz",
+          "fields": {
+            "soundgroups": {
+              "pointer": "/Attributes/components/0/soundgroups",
+              "byte_offset": 557,
+              "value": [
+                "ninja/Guard_1",
+                "ninja/Guard_1/Suspicious",
+                "ninja/Guard_1/Agitated",
+                "ninja/Guard_1/Normal",
+                "ninja/Guard_1/Terrorized",
+                "ninja/Guard_1/Scripted",
+                "ninja/Guard_2",
+                "ninja/Guard_2/Suspicious",
+                "ninja/Guard_2/Agitated",
+                "ninja/Guard_2/Normal",
+                "ninja/Guard_2/Terrorized",
+                "ninja/Guard_2/Scripted"
+              ]
+            },
+            "skins": {
+              "pointer": "/Attributes/components/0/skins",
+              "byte_offset": 876,
+              "value": [
+                {
+                  "lit_sources": [
+                    "med_goon"
+                  ],
+                  "auto_load": true,
+                  "name": "default",
+                  "unlit_sources": [
+                    "med_goon_dark"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "componenttype": "physics",
+          "fields": {
+            "maxsounddistance": {
+              "pointer": "/Attributes/components/2/maxsounddistance",
+              "byte_offset": 1425,
+              "value": 0
+            },
+            "soundfilter": {
+              "pointer": "/Attributes/components/2/soundfilter",
+              "byte_offset": 1557,
+              "value": 0
+            }
+          }
+        },
+        {
+          "componenttype": "combat",
+          "fields": {
+            "aimtargetnoiseradius": {
+              "pointer": "/Attributes/components/3/aimtargetnoiseradius",
+              "byte_offset": 2418,
+              "value": 0
+            }
+          }
+        },
+        {
+          "componenttype": "lighting",
+          "fields": {
+            "lights": {
+              "pointer": "/Attributes/components/4/lights",
+              "byte_offset": 2471,
+              "value": [
+                {
+                  "offset": [
+                    -70,
+                    20
+                  ],
+                  "direction": [
+                    -1536,
+                    -224
+                  ],
+                  "symbol": "med_gun",
+                  "visiblelight": true,
+                  "source_offset": [
+                    0,
+                    0
+                  ],
+                  "dustspeed": 1,
+                  "emittype": 2,
+                  "source_tex": "lightsource.tex",
+                  "source_size": [
+                    32,
+                    32
+                  ],
+                  "arcangle": 25,
+                  "colour": [
+                    255,
+                    255,
+                    255,
+                    255
+                  ]
+                }
+              ]
+            },
+            "lightsymbols": {
+              "pointer": "/Attributes/components/4/lightsymbols",
+              "byte_offset": 2702,
+              "value": [
+                "med_hed"
+              ]
+            },
+            "canbelit": {
+              "pointer": "/Attributes/components/4/canbelit",
+              "byte_offset": 2726,
+              "value": true
+            },
+            "lightsensors": {
+              "pointer": "/Attributes/components/4/lightsensors",
+              "byte_offset": 2744,
+              "value": [
+                [
+                  0,
+                  50
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "componenttype": "ai",
+          "fields": {
+            "targetpriority": {
+              "pointer": "/Attributes/components/8/targetpriority",
+              "byte_offset": 3700,
+              "value": 25
+            },
+            "hearingoffset": {
+              "pointer": "/Attributes/components/8/hearingoffset",
+              "byte_offset": 3717,
+              "value": [
+                0,
+                192
+              ]
+            },
+            "lineofsightrangeunlit": {
+              "pointer": "/Attributes/components/8/lineofsightrangeunlit",
+              "byte_offset": 3765,
+              "value": 1600
+            },
+            "proxrange": {
+              "pointer": "/Attributes/components/8/proxrange",
+              "byte_offset": 3780,
+              "value": 51.2
+            },
+            "visionfastupdaterange": {
+              "pointer": "/Attributes/components/8/visionfastupdaterange",
+              "byte_offset": 3825,
+              "value": 960
+            },
+            "canjoinsquad": {
+              "pointer": "/Attributes/components/8/canjoinsquad",
+              "byte_offset": 3842,
+              "value": true
+            },
+            "cannoticeinterests": {
+              "pointer": "/Attributes/components/8/cannoticeinterests",
+              "byte_offset": 3866,
+              "value": true
+            },
+            "noticerange": {
+              "pointer": "/Attributes/components/8/noticerange",
+              "byte_offset": 3883,
+              "value": 640
+            },
+            "hearingrange": {
+              "pointer": "/Attributes/components/8/hearingrange",
+              "byte_offset": 3942,
+              "value": 64
+            },
+            "pathcaps": {
+              "pointer": "/Attributes/components/8/pathcaps",
+              "byte_offset": 3954,
+              "value": {
+                "canusedoorways": true,
+                "canclimbceiling": false,
+                "maxjumpspeed": 0,
+                "canuseoneway": false,
+                "maxhopoverwallheight": 256,
+                "maxfalldist": 256,
+                "canuseladders": true,
+                "runningstopdistance": 64,
+                "stopdistance": 64,
+                "canusevents": false,
+                "canclimbwall": false,
+                "canuseswingpoints": false
+              }
+            },
+            "visionupdate": {
+              "pointer": "/Attributes/components/8/visionupdate",
+              "byte_offset": 4206,
+              "value": 0.4
+            },
+            "forgetinterest": {
+              "pointer": "/Attributes/components/8/forgetinterest",
+              "byte_offset": 4225,
+              "value": {
+                "time": 60,
+                "random": 0
+              }
+            },
+            "forgetenemy": {
+              "pointer": "/Attributes/components/8/forgetenemy",
+              "byte_offset": 4354,
+              "value": {
+                "time": 20,
+                "random": 0
+              }
+            },
+            "interestmarkereffect": {
+              "pointer": "/Attributes/components/8/interestmarkereffect",
+              "byte_offset": 4428,
+              "value": "sound_ring_goon"
+            },
+            "squadmergeradius": {
+              "pointer": "/Attributes/components/8/squadmergeradius",
+              "byte_offset": 4465,
+              "value": 384
+            },
+            "lineofsightrange": {
+              "pointer": "/Attributes/components/8/lineofsightrange",
+              "byte_offset": 4486,
+              "value": 2240
+            },
+            "visioncones": {
+              "pointer": "/Attributes/components/8/visioncones",
+              "byte_offset": 4503,
+              "value": [
+                {
+                  "offset": [
+                    0,
+                    0
+                  ],
+                  "isrendered": false,
+                  "symbol": "med_hed",
+                  "range": 1152,
+                  "rotation": -0.14478888888889,
+                  "nightvision": false,
+                  "oneways": "ignore",
+                  "detectmovement": false,
+                  "angle": 0.43611111111111,
+                  "base": 0,
+                  "peripheral": false
+                },
+                {
+                  "offset": [
+                    0,
+                    0
+                  ],
+                  "isrendered": false,
+                  "symbol": "med_hed",
+                  "peripheral": true,
+                  "rotation": -0.14478888888889,
+                  "nightvision": false,
+                  "oneways": "ignore",
+                  "detectmovement": false,
+                  "angle": 0.69777777777778,
+                  "base": 128,
+                  "range": 2048
+                },
+                {
+                  "offset": [
+                    0,
+                    16
+                  ],
+                  "isrendered": true,
+                  "symbol": "med_hed",
+                  "range": 256,
+                  "rotation": 0,
+                  "nightvision": true,
+                  "oneways": "block",
+                  "detectmovement": false,
+                  "angle": 1.3955555555556,
+                  "peripheral": false
+                },
+                {
+                  "offset": [
+                    -70,
+                    20
+                  ],
+                  "isrendered": false,
+                  "symbol": "med_gun",
+                  "peripheral": true,
+                  "rotation": 0.14478888888889,
+                  "nightvision": false,
+                  "oneways": "oneway",
+                  "detectmovement": false,
+                  "angle": 0.43611111111111,
+                  "base": 0,
+                  "range": -1536
+                }
+              ]
+            }
+          }
+        },
+        {
+          "componenttype": "usable",
+          "fields": {
+            "hidingspotswitchdistance": {
+              "pointer": "/Attributes/components/9/hidingspotswitchdistance",
+              "byte_offset": 5311,
+              "value": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "data/attributes/guard_dog.lua",
+      "bytes": 4184,
+      "sha256": "01cad2a215848db2dc2d45b5a5223ee6360727c9a46a6094e5be1900c6b9228b",
+      "root": "Attributes",
+      "components": [
+        {
+          "componenttype": "viz",
+          "fields": {
+            "soundgroups": {
+              "pointer": "/Attributes/components/0/soundgroups",
+              "byte_offset": 311,
+              "value": [
+                "ninja/Dog"
+              ]
+            },
+            "skins": {
+              "pointer": "/Attributes/components/0/skins",
+              "byte_offset": 334,
+              "value": [
+                {
+                  "lit_sources": [
+                    "med_dog"
+                  ],
+                  "auto_load": true,
+                  "name": "default",
+                  "unlit_sources": [
+                    "med_dog_dark"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "componenttype": "lighting",
+          "fields": {
+            "lightsymbols": {
+              "pointer": "/Attributes/components/1/lightsymbols",
+              "byte_offset": 524,
+              "value": [
+                "dog_hed"
+              ]
+            },
+            "canbelit": {
+              "pointer": "/Attributes/components/1/canbelit",
+              "byte_offset": 548,
+              "value": true
+            }
+          }
+        },
+        {
+          "componenttype": "physics",
+          "fields": {
+            "maxsounddistance": {
+              "pointer": "/Attributes/components/2/maxsounddistance",
+              "byte_offset": 812,
+              "value": 0
+            },
+            "soundfilter": {
+              "pointer": "/Attributes/components/2/soundfilter",
+              "byte_offset": 874,
+              "value": 0
+            }
+          }
+        },
+        {
+          "componenttype": "combat",
+          "fields": {
+            "aimtargetnoiseradius": {
+              "pointer": "/Attributes/components/3/aimtargetnoiseradius",
+              "byte_offset": 1385,
+              "value": 0
+            }
+          }
+        },
+        {
+          "componenttype": "usable",
+          "fields": {
+            "hidingspotswitchdistance": {
+              "pointer": "/Attributes/components/7/hidingspotswitchdistance",
+              "byte_offset": 2238,
+              "value": 0
+            }
+          }
+        },
+        {
+          "componenttype": "ai",
+          "fields": {
+            "targetpriority": {
+              "pointer": "/Attributes/components/8/targetpriority",
+              "byte_offset": 2653,
+              "value": 99
+            },
+            "hearingoffset": {
+              "pointer": "/Attributes/components/8/hearingoffset",
+              "byte_offset": 2670,
+              "value": [
+                0,
+                64
+              ]
+            },
+            "lineofsightrangeunlit": {
+              "pointer": "/Attributes/components/8/lineofsightrangeunlit",
+              "byte_offset": 2714,
+              "value": 6400
+            },
+            "proxrange": {
+              "pointer": "/Attributes/components/8/proxrange",
+              "byte_offset": 2729,
+              "value": 64
+            },
+            "visionfastupdaterange": {
+              "pointer": "/Attributes/components/8/visionfastupdaterange",
+              "byte_offset": 2772,
+              "value": 960
+            },
+            "canjoinsquad": {
+              "pointer": "/Attributes/components/8/canjoinsquad",
+              "byte_offset": 2789,
+              "value": false
+            },
+            "cannoticeinterests": {
+              "pointer": "/Attributes/components/8/cannoticeinterests",
+              "byte_offset": 2814,
+              "value": true
+            },
+            "noticerange": {
+              "pointer": "/Attributes/components/8/noticerange",
+              "byte_offset": 2831,
+              "value": 0
+            },
+            "hearingrange": {
+              "pointer": "/Attributes/components/8/hearingrange",
+              "byte_offset": 2889,
+              "value": 64
+            },
+            "pathcaps": {
+              "pointer": "/Attributes/components/8/pathcaps",
+              "byte_offset": 2901,
+              "value": {
+                "canusedoorways": false,
+                "canclimbceiling": false,
+                "maxjumpspeed": 0,
+                "canuseoneway": false,
+                "maxhopoverwallheight": 64,
+                "maxfalldist": 0,
+                "canuseladders": false,
+                "runningstopdistance": 64,
+                "stopdistance": 64,
+                "canusevents": false,
+                "canclimbwall": false,
+                "canuseswingpoints": false
+              }
+            },
+            "visionupdate": {
+              "pointer": "/Attributes/components/8/visionupdate",
+              "byte_offset": 3152,
+              "value": 0.4
+            },
+            "forgetenemy": {
+              "pointer": "/Attributes/components/8/forgetenemy",
+              "byte_offset": 3234,
+              "value": {
+                "time": 20,
+                "random": 0
+              }
+            },
+            "squadmergeradius": {
+              "pointer": "/Attributes/components/8/squadmergeradius",
+              "byte_offset": 3271,
+              "value": 0
+            },
+            "lineofsightrange": {
+              "pointer": "/Attributes/components/8/lineofsightrange",
+              "byte_offset": 3290,
+              "value": 6400
+            },
+            "interestmarkereffect": {
+              "pointer": "/Attributes/components/8/interestmarkereffect",
+              "byte_offset": 3316,
+              "value": "sound_ring_goon"
+            },
+            "forgetinterest": {
+              "pointer": "/Attributes/components/8/forgetinterest",
+              "byte_offset": 3351,
+              "value": {
+                "time": 25,
+                "random": 4
+              }
+            },
+            "visioncones": {
+              "pointer": "/Attributes/components/8/visioncones",
+              "byte_offset": 3383,
+              "value": [
+                {
+                  "offset": [
+                    0,
+                    0
+                  ],
+                  "isrendered": false,
+                  "symbol": "dog_hed",
+                  "range": 960,
+                  "rotation": 2.355,
+                  "nightvision": false,
+                  "oneways": "owner",
+                  "detectmovement": false,
+                  "angle": 0.69777777777778,
+                  "base": 0,
+                  "peripheral": false
+                },
+                {
+                  "offset": [
+                    0,
+                    0
+                  ],
+                  "isrendered": false,
+                  "symbol": "dog_hed",
+                  "range": 512,
+                  "rotation": 2.355,
+                  "nightvision": true,
+                  "oneways": "owner",
+                  "detectmovement": false,
+                  "angle": 0.69777777777778,
+                  "base": 0,
+                  "peripheral": false
+                },
+                {
+                  "offset": [
+                    0,
+                    0
+                  ],
+                  "isrendered": false,
+                  "symbol": "dog_hed",
+                  "peripheral": true,
+                  "rotation": 2.355,
+                  "nightvision": false,
+                  "oneways": "owner",
+                  "detectmovement": false,
+                  "angle": 0.69777777777778,
+                  "base": 192,
+                  "range": 1536
+                },
+                {
+                  "offset": [
+                    64,
+                    0
+                  ],
+                  "isrendered": false,
+                  "peripheral": true,
+                  "rotation": 1.57,
+                  "nightvision": true,
+                  "oneways": "ignore",
+                  "detectmovement": false,
+                  "angle": 3.14,
+                  "range": 576
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "data/attributes/ninja.lua",
+      "bytes": 32960,
+      "sha256": "6b1a2c09df5aac204e0836346d9b0b8b3a9432a68174b6f8cb21e3ab5bbbf533",
+      "root": "Attributes",
+      "components": [
+        {
+          "componenttype": "targeting",
+          "fields": {
+            "projectiles": {
+              "pointer": "/Attributes/components/1/projectiles",
+              "byte_offset": 557,
+              "value": [
+                {
+                  "onlytracktagged": false,
+                  "maxtargets": 3,
+                  "cantagitems": true,
+                  "areatargetpeg": "",
+                  "defaultaim": 0,
+                  "defaultwallaim": -3.14,
+                  "cantagcollision": false,
+                  "maxdistance": 0,
+                  "speed": 3360,
+                  "areatargeteffect": "target_audible",
+                  "targetmode": 1,
+                  "state": "idle",
+                  "tracked": false,
+                  "throwself": false,
+                  "effecttags": "",
+                  "tags": "missile throw dart",
+                  "cantagswingpoints": false,
+                  "layer": 1,
+                  "aimdistance": 2240,
+                  "alwaysaiming": false,
+                  "nodefaultaim": false,
+                  "consumable": "dart",
+                  "areatargetrequiretags": "",
+                  "mustpeek": false,
+                  "projectile": "projectile_dart",
+                  "arearadius": 0,
+                  "areadefaultradius": 320,
+                  "arearingeffect": "target_sound_ring"
+                },
+                {
+                  "onlytracktagged": false,
+                  "maxtargets": 1,
+                  "cantagitems": false,
+                  "cantagcollision": true,
+                  "defaultaim": 0,
+                  "defaultwallaim": -3.14,
+                  "areatargeteffect": "target_audible",
+                  "maxdistance": 0,
+                  "speed": 2880,
+                  "arearadius": 640,
+                  "targetmode": 2,
+                  "nodefaultaim": false,
+                  "areatargetrequiretags": "",
+                  "throwself": false,
+                  "effecttags": "default",
+                  "tags": "grenade throw",
+                  "cantagswingpoints": false,
+                  "layer": 1,
+                  "aimdistance": 1600,
+                  "alwaysaiming": false,
+                  "state": "thrown",
+                  "consumable": "noisemaker",
+                  "mustpeek": false,
+                  "tracked": true,
+                  "projectile": "projectile_noisemaker",
+                  "areatargetpeg": "guardNoiseAudible.peg",
+                  "areadefaultradius": 320,
+                  "arearingeffect": "target_sound_ring"
+                },
+                {
+                  "onlytracktagged": false,
+                  "maxtargets": 1,
+                  "cantagitems": false,
+                  "cantagcollision": true,
+                  "defaultaim": 0,
+                  "defaultwallaim": -3.14,
+                  "areatargeteffect": "target_audible",
+                  "maxdistance": 0,
+                  "speed": 2880,
+                  "arearadius": 640,
+                  "targetmode": 2,
+                  "nodefaultaim": false,
+                  "areatargetrequiretags": "",
+                  "throwself": false,
+                  "effecttags": "default",
+                  "tags": "grenade throw",
+                  "cantagswingpoints": false,
+                  "layer": 1,
+                  "aimdistance": 1600,
+                  "alwaysaiming": false,
+                  "state": "thrown",
+                  "consumable": "noisemaker_tutorial",
+                  "mustpeek": false,
+                  "tracked": false,
+                  "projectile": "projectile_noisemaker_tute",
+                  "areatargetpeg": "guardNoiseAudible.peg",
+                  "areadefaultradius": 320,
+                  "arearingeffect": "target_sound_ring_diameter"
+                },
+                {
+                  "onlytracktagged": false,
+                  "maxtargets": 1,
+                  "cantagitems": false,
+                  "cantagcollision": true,
+                  "defaultaim": 0,
+                  "defaultwallaim": -3.14,
+                  "areatargeteffect": "target_audible",
+                  "maxdistance": 0,
+                  "speed": 2400,
+                  "arearadius": 256,
+                  "targetmode": 2,
+                  "areatargetrequiretags": "",
+                  "tracked": false,
+                  "throwself": false,
+                  "effecttags": "default",
+                  "tags": "grenade throw",
+                  "cantagswingpoints": false,
+                  "layer": 1,
+                  "aimdistance": 1600,
+                  "alwaysaiming": false,
+                  "state": "thrown",
+                  "consumable": "bodyconsume",
+                  "nodefaultaim": false,
+                  "mustpeek": false,
+                  "projectile": "projectile_bodyconsume",
+                  "areatargetpeg": "",
+                  "areadefaultradius": 320,
+                  "arearingeffect": "target_sound_ring"
+                },
+                {
+                  "onlytracktagged": false,
+                  "maxtargets": 1,
+                  "cantagitems": false,
+                  "cantagcollision": true,
+                  "defaultaim": -1.57,
+                  "areadefaultradius": 320,
+                  "maxdistance": 0,
+                  "nodefaultaim": false,
+                  "speed": 2400,
+                  "arearadius": 320,
+                  "targetmode": 2,
+                  "areatargetrequiretags": "",
+                  "tracked": false,
+                  "throwself": false,
+                  "effecttags": "spike_trap",
+                  "tags": "grenade throw throwdown",
+                  "cantagswingpoints": false,
+                  "layer": 1,
+                  "aimdistance": 1600,
+                  "alwaysaiming": false,
+                  "state": "thrown",
+                  "consumable": "spikemine",
+                  "mustpeek": false,
+                  "areatargetpeg": "guardNoiseAudible.peg",
+                  "projectile": "projectile_spikemine",
+                  "areatargeteffect": "target_audible",
+                  "defaultwallaim": -1.57,
+                  "arearingeffect": "target_sound_ring"
+                },
+                {
+                  "onlytracktagged": false,
+                  "maxtargets": 1,
+                  "cantagitems": false,
+                  "cantagcollision": true,
+                  "defaultaim": -1.57,
+                  "areadefaultradius": 320,
+                  "maxdistance": 0,
+                  "nodefaultaim": false,
+                  "speed": 2400,
+                  "arearadius": 0,
+                  "targetmode": 2,
+                  "areatargetrequiretags": "",
+                  "tracked": false,
+                  "throwself": false,
+                  "effecttags": "spike_trap",
+                  "tags": "grenade throw throwdown",
+                  "cantagswingpoints": false,
+                  "layer": 1,
+                  "aimdistance": 1600,
+                  "alwaysaiming": false,
+                  "state": "thrown",
+                  "consumable": "spikemine_upgrade",
+                  "mustpeek": false,
+                  "areatargetpeg": "guardNoiseAudible.peg",
+                  "projectile": "projectile_spikemine",
+                  "areatargeteffect": "target_audible",
+                  "defaultwallaim": -1.57,
+                  "arearingeffect": "target_sound_ring"
+                },
+                {
+                  "onlytracktagged": false,
+                  "maxtargets": 1,
+                  "cantagitems": false,
+                  "areatargetpeg": "",
+                  "defaultaim": 0,
+                  "arearingeffect": "",
+                  "defaultwallaim": -3.14,
+                  "cantagcollision": true,
+                  "speed": 2400,
+                  "arearadius": 0,
+                  "targetmode": 2,
+                  "areatargeteffect": "",
+                  "maxdistance": 0,
+                  "throwself": false,
+                  "effecttags": "default",
+                  "tags": "grenade throw",
+                  "cantagswingpoints": false,
+                  "layer": 1,
+                  "aimdistance": 1600,
+                  "alwaysaiming": false,
+                  "state": "thrown",
+                  "consumable": "caltrop",
+                  "tracked": false,
+                  "areatargetrequiretags": "",
+                  "projectile": "projectile_caltrop",
+                  "nodefaultaim": false,
+                  "areadefaultradius": 320,
+                  "mustpeek": false
+                },
+                {
+                  "onlytracktagged": false,
+                  "maxtargets": 1,
+                  "cantagitems": false,
+                  "cantagcollision": true,
+                  "defaultaim": 0,
+                  "defaultwallaim": -3.14,
+                  "areatargeteffect": "target_audible",
+                  "maxdistance": 0,
+                  "speed": 2400,
+                  "arearadius": 384,
+                  "targetmode": 2,
+                  "mustpeek": false,
+                  "nodefaultaim": false,
+                  "throwself": false,
+                  "effecttags": "default",
+                  "tags": "grenade throw",
+                  "cantagswingpoints": false,
+                  "layer": 1,
+                  "aimdistance": 1600,
+                  "alwaysaiming": false,
+                  "state": "thrown",
+                  "consumable": "distractlight",
+                  "areatargetrequiretags": "nightvision",
+                  "tracked": true,
+                  "projectile": "projectile_distractlight",
+                  "areatargetpeg": "guardNoiseAudible.peg",
+                  "areadefaultradius": 320,
+                  "arearingeffect": "target_light_ring"
+                },
+                {
+                  "onlytracktagged": false,
+                  "maxtargets": 1,
+                  "cantagitems": false,
+                  "cantagcollision": true,
+                  "defaultaim": 0,
+                  "defaultwallaim": -3.14,
+                  "areatargeteffect": "target_audible",
+                  "maxdistance": 0,
+                  "speed": 2400,
+                  "arearadius": 576,
+                  "targetmode": 2,
+                  "mustpeek": false,
+                  "nodefaultaim": false,
+                  "throwself": false,
+                  "effecttags": "default",
+                  "tags": "grenade throw",
+                  "cantagswingpoints": false,
+                  "layer": 1,
+                  "aimdistance": 1600,
+                  "alwaysaiming": false,
+                  "state": "thrown",
+                  "consumable": "distractlight_upgrade",
+                  "areatargetrequiretags": "nightvision",
+                  "tracked": true,
+                  "projectile": "projectile_distractlight",
+                  "areatargetpeg": "guardNoiseAudible.peg",
+                  "areadefaultradius": 320,
+                  "arearingeffect": "target_light_ring"
+                },
+                {
+                  "onlytracktagged": false,
+                  "maxtargets": 1,
+                  "cantagitems": false,
+                  "cantagcollision": true,
+                  "defaultaim": -1.57,
+                  "areadefaultradius": 320,
+                  "maxdistance": 0,
+                  "nodefaultaim": false,
+                  "speed": 2400,
+                  "arearadius": 384,
+                  "targetmode": 2,
+                  "areatargetrequiretags": "",
+                  "tracked": false,
+                  "throwself": false,
+                  "effecttags": "default",
+                  "tags": "grenade throw throwdown",
+                  "cantagswingpoints": false,
+                  "layer": 1,
+                  "aimdistance": 1600,
+                  "alwaysaiming": false,
+                  "state": "thrown",
+                  "consumable": "smokebomb",
+                  "mustpeek": false,
+                  "areatargetpeg": "guardNoiseAudible.peg",
+                  "projectile": "projectile_smokebomb",
+                  "areatargeteffect": "target_audible",
+                  "defaultwallaim": -1.57,
+                  "arearingeffect": "target_sound_ring"
+                },
+                {
+                  "onlytracktagged": false,
+                  "maxtargets": 1,
+                  "cantagitems": false,
+                  "areatargetpeg": "",
+                  "defaultaim": 0,
+                  "arearingeffect": "",
+                  "defaultwallaim": -3.14,
+                  "cantagcollision": false,
+                  "speed": 5760,
+                  "arearadius": 0,
+                  "targetmode": 1,
+                  "areatargeteffect": "",
+                  "maxdistance": 0,
+                  "state": "idle",
+                  "effecttags": "",
+                  "tags": "grapplehook missile grapple grapple_throw throw",
+                  "cantagswingpoints": true,
+                  "layer": 0,
+                  "aimdistance": 1280,
+                  "alwaysaiming": true,
+                  "nodefaultaim": true,
+                  "consumable": "grapple",
+                  "throwself": false,
+                  "tracked": false,
+                  "projectile": "projectile_grapplinghook",
+                  "areatargetrequiretags": "",
+                  "areadefaultradius": 320,
+                  "mustpeek": true
+                },
+                {
+                  "onlytracktagged": false,
+                  "maxtargets": 1,
+                  "cantagitems": true,
+                  "cantagcollision": false,
+                  "defaultaim": 0,
+                  "arearingeffect": "",
+                  "defaultwallaim": -3.14,
+                  "areatargetpeg": "",
+                  "speed": 3360,
+                  "arearadius": 0,
+                  "targetmode": 1,
+                  "areatargeteffect": "",
+                  "maxdistance": 0,
+                  "state": "idle",
+                  "effecttags": "",
+                  "tags": "missile throw",
+                  "cantagswingpoints": false,
+                  "layer": 1,
+                  "aimdistance": 2240,
+                  "alwaysaiming": false,
+                  "nodefaultaim": false,
+                  "consumable": "terrordart",
+                  "throwself": false,
+                  "tracked": false,
+                  "projectile": "projectile_terrordart",
+                  "areatargetrequiretags": "",
+                  "areadefaultradius": 320,
+                  "mustpeek": false
+                },
+                {
+                  "onlytracktagged": false,
+                  "maxtargets": 1,
+                  "cantagitems": false,
+                  "areatargetpeg": "",
+                  "defaultaim": 0.17444444444444,
+                  "arearingeffect": "",
+                  "areadefaultradius": 320,
+                  "throwself": true,
+                  "speed": 2400,
+                  "arearadius": 0,
+                  "targetmode": 2,
+                  "areatargeteffect": "",
+                  "maxdistance": 0,
+                  "state": "idle",
+                  "effecttags": "default",
+                  "tags": "grenade throw timestop",
+                  "cantagswingpoints": false,
+                  "layer": 1,
+                  "aimdistance": 1600,
+                  "alwaysaiming": false,
+                  "nodefaultaim": false,
+                  "consumable": "timestop",
+                  "tracked": false,
+                  "areatargetrequiretags": "",
+                  "projectile": "",
+                  "cantagcollision": true,
+                  "defaultwallaim": -2.9655555555556,
+                  "mustpeek": false
+                },
+                {
+                  "onlytracktagged": false,
+                  "maxtargets": 1,
+                  "cantagitems": false,
+                  "cantagcollision": true,
+                  "defaultaim": 0,
+                  "defaultwallaim": -3.14,
+                  "areatargeteffect": "target_audible",
+                  "maxdistance": 0,
+                  "speed": 2400,
+                  "arearadius": 0,
+                  "targetmode": 2,
+                  "areatargetrequiretags": "",
+                  "tracked": false,
+                  "throwself": false,
+                  "effecttags": "default",
+                  "tags": "grenade throw",
+                  "cantagswingpoints": false,
+                  "layer": 1,
+                  "aimdistance": 1600,
+                  "alwaysaiming": false,
+                  "state": "thrown",
+                  "consumable": "toxicspores",
+                  "nodefaultaim": false,
+                  "mustpeek": false,
+                  "projectile": "projectile_toxicspores",
+                  "areatargetpeg": "guardNoiseAudible.peg",
+                  "areadefaultradius": 320,
+                  "arearingeffect": "target_sound_ring"
+                },
+                {
+                  "onlytracktagged": false,
+                  "maxtargets": 1,
+                  "cantagitems": true,
+                  "cantagcollision": false,
+                  "defaultaim": 0,
+                  "arearingeffect": "",
+                  "defaultwallaim": -3.14,
+                  "areatargetpeg": "",
+                  "speed": 3360,
+                  "arearadius": 0,
+                  "targetmode": 1,
+                  "areatargeteffect": "",
+                  "maxdistance": 0,
+                  "throwself": false,
+                  "effecttags": "",
+                  "tags": "missile throw",
+                  "cantagswingpoints": false,
+                  "layer": 1,
+                  "aimdistance": 2240,
+                  "alwaysaiming": false,
+                  "state": "thrown",
+                  "consumable": "darknessbugs",
+                  "tracked": false,
+                  "areatargetrequiretags": "",
+                  "projectile": "projectile_darknessbugs",
+                  "nodefaultaim": false,
+                  "areadefaultradius": 320,
+                  "mustpeek": false
+                }
+              ]
+            }
+          }
+        },
+        {
+          "componenttype": "viz",
+          "fields": {
+            "soundgroups": {
+              "pointer": "/Attributes/components/2/soundgroups",
+              "byte_offset": 10860,
+              "value": [
+                "ninja/Attacks",
+                "ninja/Movement",
+                "ninja/HitResponse",
+                "ninja/Props",
+                "ninja/Impact",
+                "ninja/StealthKills",
+                "ninja/NinjaDeath",
+                "ninja/Actions",
+                "ninja_DLC/DLC"
+              ]
+            },
+            "skins": {
+              "pointer": "/Attributes/components/2/skins",
+              "byte_offset": 11041,
+              "value": [
+                {
+                  "lit_sources": [
+                    "ninja_build"
+                  ],
+                  "auto_load": false,
+                  "name": "default",
+                  "unlit_sources": [
+                    "ninja_build_dark"
+                  ]
+                },
+                {
+                  "lit_sources": [
+                    "ninja_build_no_shirt"
+                  ],
+                  "auto_load": false,
+                  "name": "focus",
+                  "unlit_sources": [
+                    "ninja_build_no_shirt_dark"
+                  ]
+                },
+                {
+                  "lit_sources": [
+                    "ninja_build_combat"
+                  ],
+                  "auto_load": false,
+                  "name": "combat",
+                  "unlit_sources": [
+                    "ninja_build_combat_dark"
+                  ]
+                },
+                {
+                  "lit_sources": [
+                    "ninja_build_speed"
+                  ],
+                  "auto_load": false,
+                  "name": "violence",
+                  "unlit_sources": [
+                    "ninja_build_speed_dark"
+                  ]
+                },
+                {
+                  "lit_sources": [
+                    "ninja_build_stealth"
+                  ],
+                  "auto_load": false,
+                  "name": "stealth",
+                  "unlit_sources": [
+                    "ninja_build_stealth_dark"
+                  ]
+                },
+                {
+                  "lit_sources": [
+                    "ninja_build_terror"
+                  ],
+                  "auto_load": false,
+                  "name": "terror",
+                  "unlit_sources": [
+                    "ninja_build_terror_dark"
+                  ]
+                },
+                {
+                  "lit_sources": [
+                    "dosan_se_build"
+                  ],
+                  "auto_load": false,
+                  "name": "dosan",
+                  "unlit_sources": [
+                    "dosan_se_dark_build"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "componenttype": "combat",
+          "fields": {
+            "aimtargetnoiseradius": {
+              "pointer": "/Attributes/components/4/aimtargetnoiseradius",
+              "byte_offset": 12489,
+              "value": 0
+            }
+          }
+        },
+        {
+          "componenttype": "physics",
+          "fields": {
+            "maxsounddistance": {
+              "pointer": "/Attributes/components/6/maxsounddistance",
+              "byte_offset": 13113,
+              "value": 0
+            },
+            "soundfilter": {
+              "pointer": "/Attributes/components/6/soundfilter",
+              "byte_offset": 13181,
+              "value": 0
+            }
+          }
+        },
+        {
+          "componenttype": "sound",
+          "fields": {
+            "loopingsoundupdate": {
+              "pointer": "/Attributes/components/10/loopingsoundupdate",
+              "byte_offset": 19403,
+              "value": 0.16666666666667
+            }
+          }
+        },
+        {
+          "componenttype": "lighting",
+          "fields": {
+            "lightsymbols": {
+              "pointer": "/Attributes/components/12/lightsymbols",
+              "byte_offset": 19624,
+              "value": [
+                "hed"
+              ]
+            },
+            "canbelit": {
+              "pointer": "/Attributes/components/12/canbelit",
+              "byte_offset": 19644,
+              "value": true
+            }
+          }
+        },
+        {
+          "componenttype": "usable",
+          "fields": {
+            "hidingspotswitchdistance": {
+              "pointer": "/Attributes/components/13/hidingspotswitchdistance",
+              "byte_offset": 19721,
+              "value": 768
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "data/attributes/projectile_noisemaker.lua",
+      "bytes": 1656,
+      "sha256": "dd3096cc11b96a523419918b68a05f4a9b4173e06ce68ce9e92ceedc2271905c",
+      "root": "Attributes",
+      "components": [
+        {
+          "componenttype": "physics",
+          "fields": {
+            "maxsounddistance": {
+              "pointer": "/Attributes/components/1/maxsounddistance",
+              "byte_offset": 545,
+              "value": 0
+            },
+            "soundfilter": {
+              "pointer": "/Attributes/components/1/soundfilter",
+              "byte_offset": 623,
+              "value": 0
+            }
+          }
+        },
+        {
+          "componenttype": "combat",
+          "fields": {
+            "aimtargetnoiseradius": {
+              "pointer": "/Attributes/components/3/aimtargetnoiseradius",
+              "byte_offset": 1396,
+              "value": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "data/behaviourgraphs/patroller.lua",
+      "bytes": 11383,
+      "sha256": "1c57d8ba26645ef12bf38b5c74d2cb566a731bcf00d861e1cf00c17c6c122e18",
+      "root": "BehaviourGraph",
+      "default_state": "patrol",
+      "states": [
+        {
+          "name": "patrol",
+          "tags": "patrol pathing",
+          "behaviour": {
+            "params": {
+              "pathfinder": true,
+              "approachdistance": 64
+            },
+            "type": "patrol"
+          },
+          "transitions": [
+            {
+              "dest": "terror",
+              "condition": {
+                "type": "hastag",
+                "source": "aialertleveltag",
+                "tag": "terrified"
+              },
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 94
+              }
+            },
+            {
+              "dest": "attack",
+              "condition": {
+                "val": "hastarget",
+                "type": "bool"
+              },
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 95
+              }
+            },
+            {
+              "dest": "halt",
+              "condition": {
+                "type": "hastag",
+                "source": "state",
+                "tag": "haltpatrol"
+              },
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 97
+              }
+            }
+          ],
+          "events": [],
+          "source": {
+            "pointer": "/BehaviourGraph/states/0/name",
+            "byte_offset": 731,
+            "value": "patrol"
+          }
+        },
+        {
+          "name": "runtopatrol",
+          "tags": "run pathing",
+          "behaviour": {
+            "params": {
+              "pathfinder": true,
+              "approachdistance": 64
+            },
+            "type": "patrol"
+          },
+          "transitions": [
+            {
+              "dest": "terror",
+              "condition": {
+                "type": "hastag",
+                "source": "aialertleveltag",
+                "tag": "terrified"
+              },
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 120
+              }
+            },
+            {
+              "dest": "attack",
+              "condition": {
+                "val": "hastarget",
+                "type": "bool"
+              },
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 121
+              }
+            },
+            {
+              "dest": "halt",
+              "condition": {
+                "type": "hastag",
+                "source": "state",
+                "tag": "haltpatrol"
+              },
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 122
+              }
+            }
+          ],
+          "events": [
+            {
+              "transitions": [
+                {
+                  "dest": "patrol",
+                  "debuginfo": {
+                    "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                    "linenumber": 113
+                  }
+                }
+              ],
+              "event": "onreturntopatrol",
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 109
+              }
+            }
+          ],
+          "source": {
+            "pointer": "/BehaviourGraph/states/1/name",
+            "byte_offset": 994,
+            "value": "runtopatrol"
+          }
+        },
+        {
+          "name": "patrol_wandering",
+          "tags": "patrol pathing wandering",
+          "behaviour": {
+            "params": {
+              "avoidcorpsedistance": 64,
+              "approachdistance": 128,
+              "avoidcorpses": false,
+              "trappedtime": 0.5
+            },
+            "type": "wander"
+          },
+          "transitions": [
+            {
+              "dest": "terror",
+              "condition": {
+                "type": "hastag",
+                "source": "aialertleveltag",
+                "tag": "terrified"
+              },
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 133
+              }
+            },
+            {
+              "dest": "attack",
+              "condition": {
+                "val": "hastarget",
+                "type": "bool"
+              },
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 134
+              }
+            },
+            {
+              "dest": "halt",
+              "condition": {
+                "type": "hastag",
+                "source": "state",
+                "tag": "haltpatrol"
+              },
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 135
+              }
+            }
+          ],
+          "events": [],
+          "source": {
+            "pointer": "/BehaviourGraph/states/2/name",
+            "byte_offset": 2513,
+            "value": "patrol_wandering"
+          }
+        },
+        {
+          "name": "halt",
+          "tags": "haltpatrol",
+          "behaviour": null,
+          "transitions": [
+            {
+              "dest": "patrol",
+              "condition": {
+                "children": [
+                  {
+                    "node": {
+                      "type": "hastag",
+                      "source": "state",
+                      "tag": "haltpatrol"
+                    },
+                    "type": "not"
+                  },
+                  {
+                    "node": {
+                      "type": "hastag",
+                      "source": "state",
+                      "tag": "halt"
+                    },
+                    "type": "not"
+                  }
+                ],
+                "type": "and"
+              },
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 145
+              }
+            }
+          ],
+          "events": [],
+          "source": {
+            "pointer": "/BehaviourGraph/states/3/name",
+            "byte_offset": 2827,
+            "value": "halt"
+          }
+        },
+        {
+          "name": "investigate",
+          "tags": "investigate pathing",
+          "behaviour": {
+            "params": {
+              "usecustomsearchpaths": false,
+              "approachdistance": 64,
+              "pathfinder": true,
+              "customsearchrange": 0
+            },
+            "type": "investigate"
+          },
+          "transitions": [
+            {
+              "dest": "hold",
+              "condition": {
+                "type": "hastag",
+                "source": "spawntags",
+                "tag": "hold"
+              },
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 168
+              }
+            },
+            {
+              "dest": "patrol",
+              "condition": {
+                "node": {
+                  "val": "hasfocus",
+                  "type": "bool"
+                },
+                "type": "not"
+              },
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 169
+              }
+            }
+          ],
+          "events": [
+            {
+              "transitions": [
+                {
+                  "dest": "search",
+                  "debuginfo": {
+                    "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                    "linenumber": 160
+                  }
+                }
+              ],
+              "event": "onreachpoint",
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 156
+              }
+            }
+          ],
+          "source": {
+            "pointer": "/BehaviourGraph/states/4/name",
+            "byte_offset": 3322,
+            "value": "investigate"
+          }
+        },
+        {
+          "name": "hold",
+          "tags": "hold pathing allow_melee allow_shot",
+          "behaviour": null,
+          "transitions": [
+            {
+              "dest": "patrol",
+              "condition": {
+                "node": {
+                  "val": "hasfocus",
+                  "type": "bool"
+                },
+                "type": "not"
+              },
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 180
+              }
+            }
+          ],
+          "events": [],
+          "source": {
+            "pointer": "/BehaviourGraph/states/5/name",
+            "byte_offset": 4217,
+            "value": "hold"
+          }
+        },
+        {
+          "name": "wait",
+          "tags": "wait pathing allow_melee allow_shot",
+          "behaviour": null,
+          "transitions": [
+            {
+              "dest": "patrol",
+              "condition": {
+                "node": {
+                  "val": "hasfocus",
+                  "type": "bool"
+                },
+                "type": "not"
+              },
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 201
+              }
+            }
+          ],
+          "events": [
+            {
+              "transitions": [
+                {
+                  "dest": "investigate",
+                  "debuginfo": {
+                    "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                    "linenumber": 195
+                  }
+                }
+              ],
+              "event": "onsquadinvestigatordied",
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 191
+              }
+            }
+          ],
+          "source": {
+            "pointer": "/BehaviourGraph/states/6/name",
+            "byte_offset": 4884,
+            "value": "wait"
+          }
+        },
+        {
+          "name": "stop",
+          "tags": "stop",
+          "behaviour": null,
+          "transitions": [],
+          "events": [
+            {
+              "transitions": [
+                {
+                  "dest": "patrol",
+                  "debuginfo": {
+                    "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                    "linenumber": 217
+                  }
+                }
+              ],
+              "event": "startPatrol",
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 213
+              }
+            }
+          ],
+          "source": {
+            "pointer": "/BehaviourGraph/states/7/name",
+            "byte_offset": 5463,
+            "value": "stop"
+          }
+        },
+        {
+          "name": "search",
+          "tags": "searching pathing",
+          "behaviour": {
+            "params": {
+              "approachdistance": 0,
+              "searcharearandom": 128,
+              "searcharea": 64,
+              "usecustomsearchpaths": false,
+              "pathfinder": true,
+              "customsearchrange": 0
+            },
+            "type": "search"
+          },
+          "transitions": [
+            {
+              "dest": "attack",
+              "condition": {
+                "val": "canseetarget",
+                "type": "bool"
+              },
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 231
+              }
+            }
+          ],
+          "events": [],
+          "source": {
+            "pointer": "/BehaviourGraph/states/8/name",
+            "byte_offset": 5833,
+            "value": "search"
+          }
+        },
+        {
+          "name": "attack",
+          "tags": "attack allow_melee allow_shot pathing run",
+          "behaviour": {
+            "params": {
+              "approachdistance": 128,
+              "pathfinder": true,
+              "searchtime": 5
+            },
+            "type": "chase"
+          },
+          "transitions": [
+            {
+              "dest": "hold",
+              "condition": {
+                "type": "hastag",
+                "source": "spawntags",
+                "tag": "hold"
+              },
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 253
+              }
+            },
+            {
+              "dest": "investigate",
+              "condition": {
+                "node": {
+                  "val": "canseetarget",
+                  "type": "bool"
+                },
+                "type": "not"
+              },
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 254
+              }
+            }
+          ],
+          "events": [
+            {
+              "transitions": [
+                {
+                  "dest": "investigate",
+                  "condition": {
+                    "node": {
+                      "val": "canseetarget",
+                      "type": "bool"
+                    },
+                    "type": "not"
+                  },
+                  "debuginfo": {
+                    "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                    "linenumber": 246
+                  }
+                }
+              ],
+              "event": "onreachpoint",
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 242
+              }
+            }
+          ],
+          "source": {
+            "pointer": "/BehaviourGraph/states/9/name",
+            "byte_offset": 6207,
+            "value": "attack"
+          }
+        },
+        {
+          "name": "terror",
+          "tags": "terrified pathing allowbackwalking",
+          "behaviour": {
+            "params": {
+              "trappedtime": 0.5,
+              "approachdistance": 128,
+              "avoidcorpses": false,
+              "avoidcorpsedistance": 896
+            },
+            "type": "wander"
+          },
+          "transitions": [],
+          "events": [],
+          "source": {
+            "pointer": "/BehaviourGraph/states/10/name",
+            "byte_offset": 7141,
+            "value": "terror"
+          }
+        },
+        {
+          "name": "follow",
+          "tags": "terrified pathing allowbackwalking",
+          "behaviour": {
+            "params": {
+              "approachdistance": 192,
+              "pathfinder": true,
+              "rundistance": 1024
+            },
+            "type": "follow"
+          },
+          "transitions": [],
+          "events": [
+            {
+              "transitions": [
+                {
+                  "dest": "terror",
+                  "condition": {
+                    "type": "hastag",
+                    "source": "aialertleveltag",
+                    "tag": "terrified"
+                  },
+                  "debuginfo": {
+                    "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                    "linenumber": 276
+                  }
+                },
+                {
+                  "dest": "patrol",
+                  "debuginfo": {
+                    "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                    "linenumber": 277
+                  }
+                }
+              ],
+              "event": "onnofollowtarget",
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 272
+              }
+            }
+          ],
+          "source": {
+            "pointer": "/BehaviourGraph/states/11/name",
+            "byte_offset": 7909,
+            "value": "follow"
+          }
+        }
+      ],
+      "events": [
+        {
+          "transitions": [
+            {
+              "dest": "attack",
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 13
+              }
+            }
+          ],
+          "event": "onnewtarget",
+          "debuginfo": {
+            "filename": "contentsrc/behaviourgraphs/patroller.lua",
+            "linenumber": 9
+          }
+        },
+        {
+          "transitions": [
+            {
+              "dest": "attack",
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 20
+              }
+            }
+          ],
+          "event": "onfoundtarget",
+          "debuginfo": {
+            "filename": "contentsrc/behaviourgraphs/patroller.lua",
+            "linenumber": 16
+          }
+        },
+        {
+          "transitions": [
+            {
+              "dest": "investigate",
+              "condition": {
+                "children": [
+                  {
+                    "type": "hastag",
+                    "source": "aiinterestsourcetag",
+                    "tag": "missing_guard"
+                  },
+                  {
+                    "node": {
+                      "val": "canseetarget",
+                      "type": "bool"
+                    },
+                    "type": "not"
+                  }
+                ],
+                "type": "and"
+              },
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 27
+              }
+            },
+            {
+              "dest": "investigate",
+              "condition": {
+                "children": [
+                  {
+                    "type": "hastag",
+                    "source": "aiinterestroletag",
+                    "tag": "investigate"
+                  },
+                  {
+                    "node": {
+                      "val": "canseetarget",
+                      "type": "bool"
+                    },
+                    "type": "not"
+                  }
+                ],
+                "type": "and"
+              },
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 28
+              }
+            },
+            {
+              "dest": "wait",
+              "condition": {
+                "children": [
+                  {
+                    "type": "hastag",
+                    "source": "aiinterestroletag",
+                    "tag": "sentry"
+                  },
+                  {
+                    "node": {
+                      "val": "canseetarget",
+                      "type": "bool"
+                    },
+                    "type": "not"
+                  }
+                ],
+                "type": "and"
+              },
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 29
+              }
+            }
+          ],
+          "event": "onnewinterest",
+          "debuginfo": {
+            "filename": "contentsrc/behaviourgraphs/patroller.lua",
+            "linenumber": 23
+          }
+        },
+        {
+          "transitions": [
+            {
+              "dest": "investigate",
+              "condition": {
+                "children": [
+                  {
+                    "node": {
+                      "type": "hastag",
+                      "source": "aistatetag",
+                      "tag": "investigate"
+                    },
+                    "type": "not"
+                  },
+                  {
+                    "node": {
+                      "type": "hastag",
+                      "source": "aistatetag",
+                      "tag": "searching"
+                    },
+                    "type": "not"
+                  },
+                  {
+                    "children": [
+                      {
+                        "type": "hastag",
+                        "source": "aiinterestroletag",
+                        "tag": "investigate"
+                      },
+                      {
+                        "type": "hastag",
+                        "source": "aiinterestsourcetag",
+                        "tag": "missing_guard"
+                      }
+                    ],
+                    "type": "or"
+                  },
+                  {
+                    "node": {
+                      "val": "canseetarget",
+                      "type": "bool"
+                    },
+                    "type": "not"
+                  }
+                ],
+                "type": "and"
+              },
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 36
+              }
+            }
+          ],
+          "event": "onextendinterest",
+          "debuginfo": {
+            "filename": "contentsrc/behaviourgraphs/patroller.lua",
+            "linenumber": 32
+          }
+        },
+        {
+          "transitions": [],
+          "event": "onforgottarget",
+          "debuginfo": {
+            "filename": "contentsrc/behaviourgraphs/patroller.lua",
+            "linenumber": 39
+          }
+        },
+        {
+          "transitions": [
+            {
+              "dest": "patrol",
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 50
+              }
+            }
+          ],
+          "event": "ondonesearching",
+          "debuginfo": {
+            "filename": "contentsrc/behaviourgraphs/patroller.lua",
+            "linenumber": 46
+          }
+        },
+        {
+          "transitions": [
+            {
+              "dest": "terror",
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 57
+              }
+            }
+          ],
+          "event": "onterrified",
+          "debuginfo": {
+            "filename": "contentsrc/behaviourgraphs/patroller.lua",
+            "linenumber": 53
+          }
+        },
+        {
+          "transitions": [
+            {
+              "dest": "follow",
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 64
+              }
+            }
+          ],
+          "event": "onfollowtarget",
+          "debuginfo": {
+            "filename": "contentsrc/behaviourgraphs/patroller.lua",
+            "linenumber": 60
+          }
+        },
+        {
+          "transitions": [
+            {
+              "dest": "stop",
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 71
+              }
+            }
+          ],
+          "event": "onhaltpatrol",
+          "debuginfo": {
+            "filename": "contentsrc/behaviourgraphs/patroller.lua",
+            "linenumber": 67
+          }
+        },
+        {
+          "transitions": [
+            {
+              "dest": "runtopatrol",
+              "debuginfo": {
+                "filename": "contentsrc/behaviourgraphs/patroller.lua",
+                "linenumber": 78
+              }
+            }
+          ],
+          "event": "runtopatrol",
+          "debuginfo": {
+            "filename": "contentsrc/behaviourgraphs/patroller.lua",
+            "linenumber": 74
+          }
+        }
+      ]
+    },
+    {
+      "path": "data/behaviourgraphs/guard_dog.lua",
+      "bytes": 321,
+      "sha256": "b53de9fded82089f5c7d896a99bdc0ad1cc519ed6bdc07124af01a45a01a989f",
+      "root": "BehaviourGraph",
+      "default_state": "idle",
+      "states": [
+        {
+          "name": "idle",
+          "tags": "",
+          "behaviour": null,
+          "transitions": [],
+          "events": [],
+          "source": {
+            "pointer": "/BehaviourGraph/states/0/name",
+            "byte_offset": 209,
+            "value": "idle"
+          }
+        }
+      ],
+      "events": []
+    },
+    {
+      "path": "data/stategraphs/ninja.lua",
+      "bytes": 2046670,
+      "sha256": "a69f69b05a6698bf704cce8094d4f85079872ae40a4af487bec46c72ef47d4e3",
+      "root": "StateGraph",
+      "action_type_counts": {
+        "docommonaction": 1590,
+        "setspeed": 449,
+        "ifthenelse": 495,
+        "selectcontext": 287,
+        "hangfromswingpoint": 3,
+        "releasegrapplee": 81,
+        "CounterAction": 408,
+        "attachrope": 20,
+        "StopFX": 41,
+        "setbool": 18,
+        "addtagwatch": 123,
+        "depthaction": 74,
+        "pegeffectaction": 71,
+        "SpawnFX": 133,
+        "playsound": 665,
+        "adddelayedaction": 34,
+        "sendevent": 55,
+        "sendsimevent": 82,
+        "trackedaction": 71,
+        "showlinkfX": 1,
+        "showlinkfx": 1,
+        "conditionblock": 50,
+        "addheartbeat": 20,
+        "addinterestsource": 54,
+        "UpdateFX": 1,
+        "togglebool": 72,
+        "clearcontrolbuffer": 6,
+        "setfloat": 19,
+        "clearalltaggedprojectiles": 6,
+        "createshadow": 2,
+        "setthrust": 1,
+        "symboloverrideaction": 4,
+        "stoptime": 5,
+        "AdjustSimSpeed": 93,
+        "overridepalette": 9,
+        "PushCamera": 17,
+        "PopCamera": 15,
+        "vulnerabilityaction": 11,
+        "playmusic": 8,
+        "PanCamera": 10,
+        "multiplyfow": 29,
+        "healthdelta": 5,
+        "setbonushealth": 2,
+        "sendeventprobe": 4,
+        "decloakaction": 2,
+        "scoreaction": 48,
+        "sendeventtousable": 1,
+        "useaction": 24,
+        "groundwarp": 54,
+        "onewayphase": 3,
+        "spawnAR": 24,
+        "setrumble": 5,
+        "pickup": 4,
+        "inventoryaction": 7,
+        "SpawnGameObject": 15,
+        "acquiretarget": 1,
+        "gotostate": 16,
+        "grabstealthvictim": 7,
+        "investigation": 4,
+        "setgrappleeasusable": 3,
+        "popskin": 13,
+        "pushskin": 13,
+        "throwalltaggedprojectiles": 1,
+        "throwcurrentprojectile": 4,
+        "energyaction": 2,
+        "perchpointdangle": 25,
+        "sensoryaction": 3,
+        "randomaction": 3,
+        "uiupdatelabelaction": 59,
+        "breakaiming": 6,
+        "markinterestsourceinvestigated": 2,
+        "uievent": 1,
+        "equipitem": 17,
+        "purchaseitem": 4,
+        "unlockitem": 2,
+        "healthdrain": 1,
+        "showacquiredunlock": 1,
+        "setonground": 7,
+        "grappleusable": 6,
+        "sendgrappledusable": 10,
+        "switchbridgeside": 2,
+        "jumpoverhang": 2,
+        "stealthkill": 12,
+        "hitgrapplepartner": 5
+      },
+      "sensory_fields": [],
+      "common_actions": [
+        {
+          "name": "run_loud_noise",
+          "debug": {
+            "filename": "contentsrc/stategraphs/global_common/common_actions.lua",
+            "linenumber": 221
+          },
+          "actions": [
+            {
+              "pointer": "/StateGraph/CommonActions/13/actions/0",
+              "byte_offset": 35528,
+              "value": {
+                "radius": 1600,
+                "source": "",
+                "Type": "addinterestsource",
+                "sense": "sound",
+                "maxdistance": 3200,
+                "followowner": false,
+                "forgetlosttarget": true,
+                "priority": 4,
+                "ttl": 0.13333333333333
+              }
+            },
+            {
+              "pointer": "/StateGraph/CommonActions/13/actions/2/ifactions/0",
+              "byte_offset": 36025,
+              "value": {
+                "fx": "sound_ring_run",
+                "radius": 0,
+                "Type": "SpawnFX"
+              }
+            }
+          ]
+        },
+        {
+          "name": "run_normal_noise",
+          "debug": {
+            "filename": "contentsrc/stategraphs/global_common/common_actions.lua",
+            "linenumber": 226
+          },
+          "actions": [
+            {
+              "pointer": "/StateGraph/CommonActions/14/actions/0",
+              "byte_offset": 36655,
+              "value": {
+                "radius": 1088,
+                "source": "",
+                "Type": "addinterestsource",
+                "sense": "sound",
+                "maxdistance": 2176,
+                "followowner": false,
+                "forgetlosttarget": true,
+                "priority": 4,
+                "ttl": 0.13333333333333
+              }
+            },
+            {
+              "pointer": "/StateGraph/CommonActions/14/actions/2/ifactions/0",
+              "byte_offset": 37152,
+              "value": {
+                "fx": "sound_ring_run",
+                "radius": 1088,
+                "Type": "SpawnFX"
+              }
+            }
+          ]
+        },
+        {
+          "name": "walk_normal_noise",
+          "debug": {
+            "filename": "contentsrc/stategraphs/global_common/common_actions.lua",
+            "linenumber": 254
+          },
+          "actions": [
+            {
+              "pointer": "/StateGraph/CommonActions/19/actions/0",
+              "byte_offset": 41964,
+              "value": {
+                "radius": 384,
+                "source": "",
+                "Type": "addinterestsource",
+                "sense": "sound",
+                "maxdistance": 768,
+                "followowner": false,
+                "forgetlosttarget": false,
+                "priority": 4,
+                "ttl": 0.5
+              }
+            },
+            {
+              "pointer": "/StateGraph/CommonActions/19/actions/2/ifactions/0",
+              "byte_offset": 42446,
+              "value": {
+                "fx": "sound_ring_run",
+                "radius": 384,
+                "Type": "SpawnFX"
+              }
+            }
+          ]
+        },
+        {
+          "name": "noisemaker_noise",
+          "debug": {
+            "filename": "contentsrc/stategraphs/global_common/common_actions.lua",
+            "linenumber": 273
+          },
+          "actions": [
+            {
+              "pointer": "/StateGraph/CommonActions/22/actions/0",
+              "byte_offset": 45152,
+              "value": {
+                "radius": 640,
+                "source": "noisemaker",
+                "Type": "addinterestsource",
+                "sense": "sound",
+                "maxdistance": 1280,
+                "followowner": false,
+                "forgetlosttarget": true,
+                "priority": 4,
+                "ttl": 1
+              }
+            },
+            {
+              "pointer": "/StateGraph/CommonActions/22/actions/2/ifactions/0",
+              "byte_offset": 45641,
+              "value": {
+                "fx": "sound_ring_rock",
+                "radius": 704,
+                "Type": "SpawnFX"
+              }
+            }
+          ]
+        },
+        {
+          "name": "prop_noise_bell_0_1",
+          "debug": {
+            "filename": "contentsrc/stategraphs/global_common/common_actions.lua",
+            "linenumber": 399
+          },
+          "actions": [
+            {
+              "pointer": "/StateGraph/CommonActions/46/actions/0",
+              "byte_offset": 68527,
+              "value": {
+                "radius": 3072,
+                "source": "environment",
+                "Type": "addinterestsource",
+                "sense": "sound",
+                "maxdistance": 6144,
+                "followowner": false,
+                "forgetlosttarget": false,
+                "priority": 4,
+                "ttl": 2
+              }
+            },
+            {
+              "pointer": "/StateGraph/CommonActions/46/actions/1/ifactions/0",
+              "byte_offset": 68837,
+              "value": {
+                "fx": "sound_ring_rock",
+                "radius": 3072,
+                "Type": "SpawnFX"
+              }
+            }
+          ]
+        }
+      ],
+      "selected_state_links": [
+        {
+          "name": "look_up_pre",
+          "tags": "lookup idle peeking standing",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/standing.lua",
+            "linenumber": 45
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/1/substates/0/on_enter/0/name",
+              "byte_offset": 767229,
+              "value": "fogVisionPeekUp"
+            },
+            {
+              "pointer": "/StateGraph/States/1/substates/0/at_time/0/action/name",
+              "byte_offset": 767395,
+              "value": "sendVentPeek"
+            },
+            {
+              "pointer": "/StateGraph/States/1/substates/1/on_enter/0/name",
+              "byte_offset": 767685,
+              "value": "fogVisionLookUp"
+            },
+            {
+              "pointer": "/StateGraph/States/1/on_enter/1/name",
+              "byte_offset": 769100,
+              "value": "panCameraUp"
+            }
+          ],
+          "events": []
+        },
+        {
+          "name": "look_up_idle",
+          "tags": "branch idle lookup peeking standing",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/standing.lua",
+            "linenumber": 100
+          },
+          "calls": [],
+          "events": []
+        },
+        {
+          "name": "door_lean_up",
+          "tags": "doorlean doorpeek peeking standing",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/standing.lua",
+            "linenumber": 229
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/7/on_enter/1/name",
+              "byte_offset": 776790,
+              "value": "sendDoorPeek"
+            },
+            {
+              "pointer": "/StateGraph/States/7/on_enter/2/name",
+              "byte_offset": 776935,
+              "value": "panCameraForward"
+            }
+          ],
+          "events": []
+        },
+        {
+          "name": "door_lean_up_idle",
+          "tags": "doorlean branch doorpeek peeking standing idle",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/standing.lua",
+            "linenumber": 274
+          },
+          "calls": [],
+          "events": []
+        },
+        {
+          "name": "edge_stand_peek_pre",
+          "tags": "branch peeking peekdown standing",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/standing.lua",
+            "linenumber": 327
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/10/on_enter/1/name",
+              "byte_offset": 781467,
+              "value": "panCameraForward"
+            }
+          ],
+          "events": []
+        },
+        {
+          "name": "edge_stand_peek_idle",
+          "tags": "branch idle peeking peekdown standing",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/standing.lua",
+            "linenumber": 349
+          },
+          "calls": [],
+          "events": []
+        },
+        {
+          "name": "hide_bg",
+          "tags": "hiding hiding_bg",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/hiding.lua",
+            "linenumber": 60
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/28/substates/2/at_time/0/action/name",
+              "byte_offset": 805955,
+              "value": "doHidingEffectsBG"
+            },
+            {
+              "pointer": "/StateGraph/States/28/substates/2/at_time/2/action/name",
+              "byte_offset": 806367,
+              "value": "clearControlBuffers"
+            },
+            {
+              "pointer": "/StateGraph/States/28/substates/3/at_time/0/action/name",
+              "byte_offset": 807656,
+              "value": "clearControlBuffers"
+            },
+            {
+              "pointer": "/StateGraph/States/28/substates/4/at_time/1/action/name",
+              "byte_offset": 809140,
+              "value": "doHidingEffectsBG"
+            },
+            {
+              "pointer": "/StateGraph/States/28/on_enter/7/name",
+              "byte_offset": 811254,
+              "value": "startHidingActions"
+            }
+          ],
+          "events": []
+        },
+        {
+          "name": "hide_bg_idle",
+          "tags": "branch hiding hiding_bg lookup",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/hiding.lua",
+            "linenumber": 190
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/29/on_new_enter/0/name",
+              "byte_offset": 813077,
+              "value": "startHidingPalette"
+            }
+          ],
+          "events": []
+        },
+        {
+          "name": "hide_fg",
+          "tags": "hiding hiding_fg canhidekill using",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/hiding.lua",
+            "linenumber": 384
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/31/at_time/1/action/name",
+              "byte_offset": 820758,
+              "value": "doHidingEffectsFG"
+            },
+            {
+              "pointer": "/StateGraph/States/31/on_enter/5/name",
+              "byte_offset": 821907,
+              "value": "startHidingActions"
+            }
+          ],
+          "events": []
+        },
+        {
+          "name": "hide_fg_idle",
+          "tags": "hiding hiding_fg branch canhidekill lookup",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/hiding.lua",
+            "linenumber": 421
+          },
+          "calls": [],
+          "events": []
+        },
+        {
+          "name": "hide_fg_look_pre",
+          "tags": "branch hiding hiding_fg peeking canhidekill lookup",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/hiding.lua",
+            "linenumber": 642
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/38/on_enter/0/name",
+              "byte_offset": 843561,
+              "value": "panCameraForward"
+            }
+          ],
+          "events": []
+        },
+        {
+          "name": "hide_fg_look_idle",
+          "tags": "branch hiding hiding_fg peeking canhidekill lookup",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/hiding.lua",
+            "linenumber": 667
+          },
+          "calls": [],
+          "events": []
+        },
+        {
+          "name": "hide_fg_look_pst",
+          "tags": "branch hiding hiding_fg canhidekill lookup",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/hiding.lua",
+            "linenumber": 687
+          },
+          "calls": [],
+          "events": []
+        },
+        {
+          "name": "hide_bg_look_pre",
+          "tags": "branch hiding hiding_bg peeking canhidekill lookup",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/hiding.lua",
+            "linenumber": 706
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/41/on_enter/0/name",
+              "byte_offset": 846909,
+              "value": "panCameraForward"
+            },
+            {
+              "pointer": "/StateGraph/States/41/on_enter/1/name",
+              "byte_offset": 847056,
+              "value": "startHidingPalette"
+            }
+          ],
+          "events": []
+        },
+        {
+          "name": "hide_bg_look_idle",
+          "tags": "branch hiding hiding_bg peeking canhidekill lookup",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/hiding.lua",
+            "linenumber": 731
+          },
+          "calls": [],
+          "events": []
+        },
+        {
+          "name": "hide_bg_look_pst",
+          "tags": "branch hiding hiding_bg canhidekill lookup",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/hiding.lua",
+            "linenumber": 751
+          },
+          "calls": [],
+          "events": []
+        },
+        {
+          "name": "hide_grapplespot_look_bk",
+          "tags": "hiding hiding_bg grapple grapplehiding facingback usebehind lookout lookup",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/hiding.lua",
+            "linenumber": 771
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/44/on_enter/0/name",
+              "byte_offset": 850634,
+              "value": "fogVisionLookBackSameState"
+            }
+          ],
+          "events": []
+        },
+        {
+          "name": "hide_grapplespot_look_bk_pst",
+          "tags": "branch hiding hiding_bg grapple grapplehiding lookup",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/hiding.lua",
+            "linenumber": 814
+          },
+          "calls": [],
+          "events": []
+        },
+        {
+          "name": "hide_box_idle",
+          "tags": "idle hidebox hiding branch stayonledge canboxkill",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/hiding.lua",
+            "linenumber": 897
+          },
+          "calls": [],
+          "events": []
+        },
+        {
+          "name": "hide_box_switch",
+          "tags": "hidebox hiding turning stayonledge standing stayonledge canboxkill",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/hiding.lua",
+            "linenumber": 1040
+          },
+          "calls": [],
+          "events": []
+        },
+        {
+          "name": "hide_box_walk_pst",
+          "tags": "hidebox hiding stopping stayonledge standing stayonledge branch canboxkill",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/hiding.lua",
+            "linenumber": 1080
+          },
+          "calls": [],
+          "events": []
+        },
+        {
+          "name": "box_kill_hide",
+          "tags": "hidebox hiding branch stayonledge grapple donthavebox noGetBoxBack",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/hiding.lua",
+            "linenumber": 1141
+          },
+          "calls": [],
+          "events": []
+        },
+        {
+          "name": "drag_lean",
+          "tags": "grapple dragging peeking usebehind lookout",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/dragging.lua",
+            "linenumber": 390
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/66/substates/0/at_time/0/action/name",
+              "byte_offset": 891199,
+              "value": "sendVentPeek"
+            },
+            {
+              "pointer": "/StateGraph/States/66/substates/1/on_enter/0/name",
+              "byte_offset": 892053,
+              "value": "sendDoorPeek"
+            },
+            {
+              "pointer": "/StateGraph/States/66/on_enter/2/name",
+              "byte_offset": 893064,
+              "value": "panCameraForward"
+            },
+            {
+              "pointer": "/StateGraph/States/66/on_enter/3/name",
+              "byte_offset": 893213,
+              "value": "fogVisionLookOut"
+            }
+          ],
+          "events": []
+        },
+        {
+          "name": "edge_peek_pre",
+          "tags": "branch crouching peeking peekdown halfheight",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/sneaking.lua",
+            "linenumber": 95
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/94/substates/0/at_time/0/action/name",
+              "byte_offset": 941768,
+              "value": "sendVentPeek"
+            },
+            {
+              "pointer": "/StateGraph/States/94/substates/1/at_time/0/action/name",
+              "byte_offset": 942614,
+              "value": "sendVentPeek"
+            },
+            {
+              "pointer": "/StateGraph/States/94/on_enter/1/name",
+              "byte_offset": 944152,
+              "value": "panCameraDown"
+            },
+            {
+              "pointer": "/StateGraph/States/94/on_enter/2/name",
+              "byte_offset": 944298,
+              "value": "fogVisionPeekDown"
+            }
+          ],
+          "events": []
+        },
+        {
+          "name": "edge_peek_idle",
+          "tags": "branch idle crouching peeking peekdown halfheight",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/sneaking.lua",
+            "linenumber": 151
+          },
+          "calls": [],
+          "events": []
+        },
+        {
+          "name": "wall_top_peek_pre",
+          "tags": "branch canattachtowall wallclimbing wall_peek peeking peekup halfheight cangrabkill",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/onwall.lua",
+            "linenumber": 436
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/145/substates/0/on_enter/0/name",
+              "byte_offset": 1045517,
+              "value": "fogVisionPeekUp"
+            },
+            {
+              "pointer": "/StateGraph/States/145/substates/0/at_time/0/action/name",
+              "byte_offset": 1045682,
+              "value": "sendVentPeek"
+            },
+            {
+              "pointer": "/StateGraph/States/145/on_enter/1/name",
+              "byte_offset": 1046665,
+              "value": "panCameraUpRight"
+            }
+          ],
+          "events": []
+        },
+        {
+          "name": "wall_top_peek_idle",
+          "tags": "branch idle canattachtowall wallclimbing wall_peek peeking peekup halfheight cangrabkill",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/onwall.lua",
+            "linenumber": 476
+          },
+          "calls": [],
+          "events": []
+        },
+        {
+          "name": "wall_bottom_peek_pre",
+          "tags": "branch canattachtowall wallclimbing wall_peek peeking peekunder lookdown candropkill can_vault",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/onwall.lua",
+            "linenumber": 541
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/148/on_enter/1/name",
+              "byte_offset": 1050357,
+              "value": "panCameraForwardDown"
+            },
+            {
+              "pointer": "/StateGraph/States/148/on_enter/2/name",
+              "byte_offset": 1050508,
+              "value": "startLookDownActions"
+            }
+          ],
+          "events": []
+        },
+        {
+          "name": "wall_bottom_peek_idle",
+          "tags": "branch idle canattachtowall wallclimbing wall_peek peeking peekunder lookdown can_vault candropkill",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/onwall.lua",
+            "linenumber": 564
+          },
+          "calls": [],
+          "events": []
+        },
+        {
+          "name": "wall_look_out_pre",
+          "tags": "branch canattachtowall wallclimbing peeking lookout candropkill",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/onwall.lua",
+            "linenumber": 603
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/151/on_enter/1/name",
+              "byte_offset": 1053615,
+              "value": "panCameraBack"
+            },
+            {
+              "pointer": "/StateGraph/States/151/on_enter/2/name",
+              "byte_offset": 1053759,
+              "value": "startLookOutActions"
+            },
+            {
+              "pointer": "/StateGraph/States/151/on_enter/3/name",
+              "byte_offset": 1053909,
+              "value": "fogVisionLookOut"
+            }
+          ],
+          "events": []
+        },
+        {
+          "name": "wall_look_out_idle",
+          "tags": "branch idle canattachtowall wallclimbing peeking lookout candropkill",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/onwall.lua",
+            "linenumber": 627
+          },
+          "calls": [],
+          "events": []
+        },
+        {
+          "name": "perch_peek_frd_pre",
+          "tags": "onpole peeking canuse",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/onperch.lua",
+            "linenumber": 107
+          },
+          "calls": [],
+          "events": []
+        },
+        {
+          "name": "perch_peek_frd_idle",
+          "tags": "idle onpole branch peeking canuse",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/onperch.lua",
+            "linenumber": 131
+          },
+          "calls": [],
+          "events": []
+        },
+        {
+          "name": "perch_peek_dwn_pre",
+          "tags": "onpole peeking lookdown canpouncekill canuse",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/onperch.lua",
+            "linenumber": 172
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/180/on_enter/0/name",
+              "byte_offset": 1098959,
+              "value": "startLookDownActions"
+            },
+            {
+              "pointer": "/StateGraph/States/180/on_enter/1/name",
+              "byte_offset": 1099111,
+              "value": "fogVisionLookDown"
+            }
+          ],
+          "events": []
+        },
+        {
+          "name": "perch_peek_dwn_idle",
+          "tags": "idle onpole branch peeking lookdown canpouncekill canuse",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/onperch.lua",
+            "linenumber": 202
+          },
+          "calls": [],
+          "events": []
+        },
+        {
+          "name": "perch_peek_up_pre",
+          "tags": "onpole peeking lookup canuse",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/onperch.lua",
+            "linenumber": 243
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/183/on_enter/0/name",
+              "byte_offset": 1102689,
+              "value": "panCameraUp"
+            },
+            {
+              "pointer": "/StateGraph/States/183/on_enter/1/name",
+              "byte_offset": 1102832,
+              "value": "fogVisionLookUpForward"
+            }
+          ],
+          "events": []
+        },
+        {
+          "name": "perch_peek_up_idle",
+          "tags": "idle onpole branch peeking lookup canuse",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/onperch.lua",
+            "linenumber": 273
+          },
+          "calls": [],
+          "events": []
+        },
+        {
+          "name": "steal_wall",
+          "tags": "nowarp canattachtowall wallclimbing halfheight lookout peeking",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/stealing.lua",
+            "linenumber": 78
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/203/on_exit/0/name",
+              "byte_offset": 1138379,
+              "value": "endStealActions"
+            },
+            {
+              "pointer": "/StateGraph/States/203/at_time/2/action/name",
+              "byte_offset": 1139468,
+              "value": "startStealInputPrompts"
+            },
+            {
+              "pointer": "/StateGraph/States/203/at_time/3/action/name",
+              "byte_offset": 1139643,
+              "value": "clearControlBuffers"
+            },
+            {
+              "pointer": "/StateGraph/States/203/at_time/4/action/ifactions/0/name",
+              "byte_offset": 1139860,
+              "value": "stealFail"
+            },
+            {
+              "pointer": "/StateGraph/States/203/on_enter/1/name",
+              "byte_offset": 1140583,
+              "value": "pushStealCam"
+            },
+            {
+              "pointer": "/StateGraph/States/203/on_enter/2/name",
+              "byte_offset": 1140727,
+              "value": "startStealActions"
+            },
+            {
+              "pointer": "/StateGraph/States/203/on_enter/3/name",
+              "byte_offset": 1140876,
+              "value": "fogVisionLookOut"
+            },
+            {
+              "pointer": "/StateGraph/States/203/transitions/0/transitions/0/conditionactions/0/ifactions/0/name",
+              "byte_offset": 1141409,
+              "value": "stealSuccess"
+            },
+            {
+              "pointer": "/StateGraph/States/203/transitions/0/transitions/0/conditionactions/0/elseactions/0/name",
+              "byte_offset": 1141569,
+              "value": "stealFail"
+            }
+          ],
+          "events": []
+        },
+        {
+          "name": "crouch_vent_lean_pre",
+          "tags": "crouching ventpeek no_move peeking",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/vents.lua",
+            "linenumber": 12
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/256/at_time/0/action/name",
+              "byte_offset": 1252064,
+              "value": "sendVentPeek"
+            },
+            {
+              "pointer": "/StateGraph/States/256/on_enter/1/ifactions/0/name",
+              "byte_offset": 1252411,
+              "value": "panCameraForward"
+            },
+            {
+              "pointer": "/StateGraph/States/256/on_enter/1/elseactions/0/name",
+              "byte_offset": 1252571,
+              "value": "panCameraForwardDown"
+            }
+          ],
+          "events": []
+        },
+        {
+          "name": "crouch_vent_lean_idle",
+          "tags": "crouching ventpeek branch no_move peeking",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/sharedstates/vents.lua",
+            "linenumber": 51
+          },
+          "calls": [],
+          "events": []
+        },
+        {
+          "name": "projectile_hiding_atk",
+          "tags": "hiding attacking lookup lookout lookdown",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/ninja/projectile_attacks.lua",
+            "linenumber": 1240
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/318/substates/0/at_time/0/action/name",
+              "byte_offset": 1425686,
+              "value": "throwProjectile"
+            },
+            {
+              "pointer": "/StateGraph/States/318/substates/0/at_time/2/action/name",
+              "byte_offset": 1426116,
+              "value": "clearControlBuffers"
+            },
+            {
+              "pointer": "/StateGraph/States/318/substates/1/at_time/0/action/name",
+              "byte_offset": 1426678,
+              "value": "throwProjectile"
+            },
+            {
+              "pointer": "/StateGraph/States/318/substates/1/at_time/2/action/name",
+              "byte_offset": 1427076,
+              "value": "clearControlBuffers"
+            },
+            {
+              "pointer": "/StateGraph/States/318/substates/2/at_time/0/action/name",
+              "byte_offset": 1427430,
+              "value": "throwProjectile"
+            },
+            {
+              "pointer": "/StateGraph/States/318/substates/2/at_time/1/action/name",
+              "byte_offset": 1427617,
+              "value": "projectileThrowSound"
+            },
+            {
+              "pointer": "/StateGraph/States/318/substates/2/at_time/2/action/name",
+              "byte_offset": 1427793,
+              "value": "clearControlBuffers"
+            },
+            {
+              "pointer": "/StateGraph/States/318/substates/3/at_time/0/action/name",
+              "byte_offset": 1428109,
+              "value": "throwProjectile"
+            },
+            {
+              "pointer": "/StateGraph/States/318/substates/3/at_time/1/action/name",
+              "byte_offset": 1428282,
+              "value": "projectileThrowSound"
+            },
+            {
+              "pointer": "/StateGraph/States/318/substates/3/at_time/2/action/name",
+              "byte_offset": 1428458,
+              "value": "clearControlBuffers"
+            },
+            {
+              "pointer": "/StateGraph/States/318/on_enter/0/name",
+              "byte_offset": 1429572,
+              "value": "allowfacingswitch"
+            },
+            {
+              "pointer": "/StateGraph/States/318/on_enter/1/name",
+              "byte_offset": 1429726,
+              "value": "checkTagTargetFacing"
+            }
+          ],
+          "events": []
+        },
+        {
+          "name": "hide_closet_throw",
+          "tags": "hiding hiding_bg attacking grapple lookup lookout lookdown",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/ninja/projectile_attacks.lua",
+            "linenumber": 1349
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/319/substates/0/at_time/0/action/name",
+              "byte_offset": 1430785,
+              "value": "throwProjectile"
+            },
+            {
+              "pointer": "/StateGraph/States/319/substates/0/at_time/2/action/name",
+              "byte_offset": 1431187,
+              "value": "clearControlBuffers"
+            },
+            {
+              "pointer": "/StateGraph/States/319/substates/1/at_time/0/action/name",
+              "byte_offset": 1431703,
+              "value": "throwProjectile"
+            },
+            {
+              "pointer": "/StateGraph/States/319/substates/1/at_time/1/action/name",
+              "byte_offset": 1431876,
+              "value": "projectileThrowSound"
+            },
+            {
+              "pointer": "/StateGraph/States/319/substates/1/at_time/2/action/name",
+              "byte_offset": 1432054,
+              "value": "clearControlBuffers"
+            },
+            {
+              "pointer": "/StateGraph/States/319/substates/2/at_time/0/action/name",
+              "byte_offset": 1432540,
+              "value": "throwProjectile"
+            },
+            {
+              "pointer": "/StateGraph/States/319/substates/2/at_time/2/action/name",
+              "byte_offset": 1432942,
+              "value": "clearControlBuffers"
+            },
+            {
+              "pointer": "/StateGraph/States/319/substates/3/at_time/0/action/name",
+              "byte_offset": 1433185,
+              "value": "throwProjectile"
+            },
+            {
+              "pointer": "/StateGraph/States/319/substates/3/at_time/1/action/name",
+              "byte_offset": 1433358,
+              "value": "projectileThrowSound"
+            },
+            {
+              "pointer": "/StateGraph/States/319/substates/3/at_time/2/action/name",
+              "byte_offset": 1433536,
+              "value": "clearControlBuffers"
+            }
+          ],
+          "events": []
+        },
+        {
+          "name": "hide_dumpster_throw",
+          "tags": "hiding hiding_bg attacking grapple lookup lookout lookdown",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/ninja/projectile_attacks.lua",
+            "linenumber": 1427
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/320/substates/0/at_time/0/action/name",
+              "byte_offset": 1435840,
+              "value": "throwProjectile"
+            },
+            {
+              "pointer": "/StateGraph/States/320/substates/0/at_time/2/action/name",
+              "byte_offset": 1436270,
+              "value": "clearControlBuffers"
+            },
+            {
+              "pointer": "/StateGraph/States/320/substates/1/at_time/0/action/name",
+              "byte_offset": 1436788,
+              "value": "throwProjectile"
+            },
+            {
+              "pointer": "/StateGraph/States/320/substates/1/at_time/1/action/name",
+              "byte_offset": 1436975,
+              "value": "projectileThrowSound"
+            },
+            {
+              "pointer": "/StateGraph/States/320/substates/1/at_time/2/action/name",
+              "byte_offset": 1437167,
+              "value": "clearControlBuffers"
+            },
+            {
+              "pointer": "/StateGraph/States/320/substates/2/at_time/0/action/name",
+              "byte_offset": 1437767,
+              "value": "throwProjectile"
+            },
+            {
+              "pointer": "/StateGraph/States/320/substates/2/at_time/2/action/name",
+              "byte_offset": 1438197,
+              "value": "clearControlBuffers"
+            },
+            {
+              "pointer": "/StateGraph/States/320/substates/3/at_time/0/action/name",
+              "byte_offset": 1438753,
+              "value": "throwProjectile"
+            },
+            {
+              "pointer": "/StateGraph/States/320/substates/3/at_time/2/action/name",
+              "byte_offset": 1439183,
+              "value": "clearControlBuffers"
+            },
+            {
+              "pointer": "/StateGraph/States/320/substates/4/at_time/0/action/name",
+              "byte_offset": 1439428,
+              "value": "throwProjectile"
+            },
+            {
+              "pointer": "/StateGraph/States/320/substates/4/at_time/1/action/name",
+              "byte_offset": 1439615,
+              "value": "projectileThrowSound"
+            },
+            {
+              "pointer": "/StateGraph/States/320/substates/4/at_time/2/action/name",
+              "byte_offset": 1439807,
+              "value": "clearControlBuffers"
+            }
+          ],
+          "events": []
+        },
+        {
+          "name": "hide_bg_throw_pre",
+          "tags": "idle projectile_attack standing stayonledge slowaim hiding hiding_bg",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/ninja/projectile_aiming.lua",
+            "linenumber": 419
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/337/on_exit/0/name",
+              "byte_offset": 1472738,
+              "value": "stopSlowAimEffects"
+            },
+            {
+              "pointer": "/StateGraph/States/337/at_time/0/action/name",
+              "byte_offset": 1473306,
+              "value": "startSlowAimEffects"
+            },
+            {
+              "pointer": "/StateGraph/States/337/on_enter/0/name",
+              "byte_offset": 1473499,
+              "value": "allowfacingswitch"
+            },
+            {
+              "pointer": "/StateGraph/States/337/on_enter/1/name",
+              "byte_offset": 1473651,
+              "value": "startHypersenseActions"
+            }
+          ],
+          "events": []
+        },
+        {
+          "name": "hide_bg_throw_pst",
+          "tags": "idle projectile_attack standing stayonledge hiding hiding_bg canhidekill",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/ninja/projectile_aiming.lua",
+            "linenumber": 475
+          },
+          "calls": [],
+          "events": []
+        },
+        {
+          "name": "hide_fg_throw_pre",
+          "tags": "idle projectile_attack stayonledge slowaim hiding hiding_fg",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/ninja/projectile_aiming.lua",
+            "linenumber": 498
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/339/on_exit/0/name",
+              "byte_offset": 1476513,
+              "value": "stopSlowAimEffects"
+            },
+            {
+              "pointer": "/StateGraph/States/339/at_time/0/action/name",
+              "byte_offset": 1477072,
+              "value": "startSlowAimEffects"
+            },
+            {
+              "pointer": "/StateGraph/States/339/on_enter/0/name",
+              "byte_offset": 1477265,
+              "value": "allowfacingswitch"
+            },
+            {
+              "pointer": "/StateGraph/States/339/on_enter/1/name",
+              "byte_offset": 1477417,
+              "value": "startHypersenseActions"
+            }
+          ],
+          "events": []
+        },
+        {
+          "name": "hide_fg_throw_pst",
+          "tags": "idle projectile_attack stayonledge hiding hiding_fg canhidekill",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/ninja/projectile_aiming.lua",
+            "linenumber": 554
+          },
+          "calls": [],
+          "events": []
+        },
+        {
+          "name": "hide_closet_throw_pre",
+          "tags": "idle projectile_attack standing stayonledge slowaim hiding hiding_bg grapple lookout",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/ninja/projectile_aiming.lua",
+            "linenumber": 578
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/341/on_exit/0/name",
+              "byte_offset": 1480270,
+              "value": "stopSlowAimEffects"
+            },
+            {
+              "pointer": "/StateGraph/States/341/at_time/0/action/name",
+              "byte_offset": 1480862,
+              "value": "startSlowAimEffects"
+            },
+            {
+              "pointer": "/StateGraph/States/341/on_enter/0/name",
+              "byte_offset": 1481055,
+              "value": "startHypersenseActions"
+            }
+          ],
+          "events": []
+        },
+        {
+          "name": "hide_closet_throw_pst",
+          "tags": "idle projectile_attack standing stayonledge hiding hiding_bg grapple canhidekill",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/ninja/projectile_aiming.lua",
+            "linenumber": 629
+          },
+          "calls": [],
+          "events": []
+        },
+        {
+          "name": "hide_dumpster_throw_pre",
+          "tags": "idle projectile_attack standing stayonledge slowaim hiding hiding_bg grapple lookout",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/ninja/projectile_aiming.lua",
+            "linenumber": 653
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/343/on_exit/0/name",
+              "byte_offset": 1483509,
+              "value": "stopSlowAimEffects"
+            },
+            {
+              "pointer": "/StateGraph/States/343/at_time/0/action/name",
+              "byte_offset": 1484105,
+              "value": "startSlowAimEffects"
+            },
+            {
+              "pointer": "/StateGraph/States/343/on_enter/0/name",
+              "byte_offset": 1484298,
+              "value": "startHypersenseActions"
+            }
+          ],
+          "events": []
+        },
+        {
+          "name": "hide_dumpster_throw_pst",
+          "tags": "idle projectile_attack standing stayonledge hiding hiding_bg grapple canhidekill",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/ninja/projectile_aiming.lua",
+            "linenumber": 704
+          },
+          "calls": [],
+          "events": []
+        },
+        {
+          "name": "farsight_hide_pre",
+          "tags": "hiding farsight",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/ninja/ninja_farsight.lua",
+            "linenumber": 466
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/373/substates/0/at_time/0/action/name",
+              "byte_offset": 1535017,
+              "value": "startFarsightFX"
+            },
+            {
+              "pointer": "/StateGraph/States/373/substates/0/at_time/1/action/name",
+              "byte_offset": 1535198,
+              "value": "doFarsight"
+            },
+            {
+              "pointer": "/StateGraph/States/373/substates/1/at_time/0/action/name",
+              "byte_offset": 1535442,
+              "value": "startFarsightFX"
+            },
+            {
+              "pointer": "/StateGraph/States/373/substates/1/at_time/1/action/name",
+              "byte_offset": 1535610,
+              "value": "doFarsight"
+            },
+            {
+              "pointer": "/StateGraph/States/373/on_enter/0/name",
+              "byte_offset": 1536328,
+              "value": "allowfacingswitch"
+            }
+          ],
+          "events": []
+        },
+        {
+          "name": "farsight_hide_loop",
+          "tags": "hiding farsight farsight_ctrl",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/ninja/ninja_farsight.lua",
+            "linenumber": 513
+          },
+          "calls": [],
+          "events": []
+        },
+        {
+          "name": "farsight_hide_pst",
+          "tags": "hiding branch",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/ninja/ninja_farsight.lua",
+            "linenumber": 545
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/375/substates/0/at_time/0/action/name",
+              "byte_offset": 1538577,
+              "value": "doHidingEffectsBG"
+            }
+          ],
+          "events": []
+        },
+        {
+          "name": "farsight_grapple_hide_pre",
+          "tags": "hiding hiding_bg farsight grapple",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/ninja/ninja_farsight.lua",
+            "linenumber": 581
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/376/at_time/0/action/name",
+              "byte_offset": 1540629,
+              "value": "startFarsightFX"
+            },
+            {
+              "pointer": "/StateGraph/States/376/at_time/1/action/name",
+              "byte_offset": 1540797,
+              "value": "doFarsight"
+            }
+          ],
+          "events": []
+        },
+        {
+          "name": "farsight_grapple_hide_loop",
+          "tags": "hiding hiding_bg farsight grapple farsight_ctrl",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/ninja/ninja_farsight.lua",
+            "linenumber": 622
+          },
+          "calls": [],
+          "events": []
+        },
+        {
+          "name": "farsight_grapple_hide_pst",
+          "tags": "hiding branch grapple",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/ninja/ninja_farsight.lua",
+            "linenumber": 658
+          },
+          "calls": [],
+          "events": []
+        },
+        {
+          "name": "time_stop_travel",
+          "tags": "timestop invincible hiding invisible noaim canattachtowall canattachtoceiling jumping",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/ninja/ninja_timestop.lua",
+            "linenumber": 101
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/381/on_new_enter/0/name",
+              "byte_offset": 1548105,
+              "value": "startTimestopTravelFX"
+            },
+            {
+              "pointer": "/StateGraph/States/381/on_new_enter/1/name",
+              "byte_offset": 1548258,
+              "value": "throwProjectile"
+            }
+          ],
+          "events": []
+        },
+        {
+          "name": "box_kill_pre",
+          "tags": "attacking grapple push cantbepushed stealthkill darken_effect slowmo hiding hidebox stayonledge",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/ninja/stealth_kills_ground.lua",
+            "linenumber": 1057
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/403/on_exit/1/name",
+              "byte_offset": 1639954,
+              "value": "updateButtonMaps"
+            },
+            {
+              "pointer": "/StateGraph/States/403/events/0/transitions/0/actions/0/name",
+              "byte_offset": 1641170,
+              "value": "activeStealthKillFail"
+            },
+            {
+              "pointer": "/StateGraph/States/403/at_time/2/action/name",
+              "byte_offset": 1642839,
+              "value": "startInputPromptsHoriz"
+            },
+            {
+              "pointer": "/StateGraph/States/403/at_time/3/action/name",
+              "byte_offset": 1643021,
+              "value": "hunterKillAutoSucceed"
+            },
+            {
+              "pointer": "/StateGraph/States/403/at_time/4/action/ifactions/0/name",
+              "byte_offset": 1643247,
+              "value": "activeStealthKillStart"
+            },
+            {
+              "pointer": "/StateGraph/States/403/at_time/5/action/name",
+              "byte_offset": 1643659,
+              "value": "clearControlBuffers"
+            },
+            {
+              "pointer": "/StateGraph/States/403/on_enter/1/name",
+              "byte_offset": 1643987,
+              "value": "pushKillLungeCam"
+            },
+            {
+              "pointer": "/StateGraph/States/403/on_enter/3/name",
+              "byte_offset": 1644218,
+              "value": "startStealthKillActions"
+            },
+            {
+              "pointer": "/StateGraph/States/403/transitions/1/actions/0/name",
+              "byte_offset": 1644617,
+              "value": "activeStealthKillSuccess"
+            },
+            {
+              "pointer": "/StateGraph/States/403/transitions/1/actions/1/name",
+              "byte_offset": 1644780,
+              "value": "activeStealthKillStart"
+            },
+            {
+              "pointer": "/StateGraph/States/403/transitions/2/actions/0/name",
+              "byte_offset": 1645634,
+              "value": "activeStealthKillStart"
+            },
+            {
+              "pointer": "/StateGraph/States/403/transitions/2/transitions/0/actions/0/name",
+              "byte_offset": 1645857,
+              "value": "activeStealthKillSuccess"
+            },
+            {
+              "pointer": "/StateGraph/States/403/transitions/2/transitions/1/actions/0/name",
+              "byte_offset": 1647127,
+              "value": "activeStealthKillFail"
+            }
+          ],
+          "events": [
+            {
+              "event": "grapple",
+              "destinations": [
+                "box_kill_slow"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "box_kill_fast",
+          "tags": "grapple cantbepushed stayonledge hiding hidebox donthavebox",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/ninja/stealth_kills_ground.lua",
+            "linenumber": 1180
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/404/on_exit/1/name",
+              "byte_offset": 1648856,
+              "value": "boxStealthKillSuccess"
+            },
+            {
+              "pointer": "/StateGraph/States/404/on_exit/2/ifactions/1/name",
+              "byte_offset": 1649219,
+              "value": "stealthKillVarietyActions"
+            },
+            {
+              "pointer": "/StateGraph/States/404/at_time/0/action/name",
+              "byte_offset": 1650016,
+              "value": "guardStealthKillActions"
+            },
+            {
+              "pointer": "/StateGraph/States/404/at_time/6/action/Actions/0/name",
+              "byte_offset": 1651406,
+              "value": "playStealthDeathVoice"
+            },
+            {
+              "pointer": "/StateGraph/States/404/at_time/7/action/name",
+              "byte_offset": 1651615,
+              "value": "clearControlBuffers"
+            },
+            {
+              "pointer": "/StateGraph/States/404/on_enter/1/name",
+              "byte_offset": 1652038,
+              "value": "doStealthKillSuccessPresentationActions"
+            },
+            {
+              "pointer": "/StateGraph/States/404/on_enter/2/Actions/0/name",
+              "byte_offset": 1652256,
+              "value": "turnOffLight"
+            }
+          ],
+          "events": []
+        },
+        {
+          "name": "stealthkill_dumpster_pre",
+          "tags": "attacking hiding grapple push cantbepushed darken_effect slowmo using",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/ninja/stealth_kills_hiding.lua",
+            "linenumber": 8
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/429/on_exit/1/name",
+              "byte_offset": 1803657,
+              "value": "updateButtonMaps"
+            },
+            {
+              "pointer": "/StateGraph/States/429/events/0/transitions/0/actions/0/name",
+              "byte_offset": 1804855,
+              "value": "activeStealthKillFail"
+            },
+            {
+              "pointer": "/StateGraph/States/429/at_time/2/action/name",
+              "byte_offset": 1806488,
+              "value": "startInputPromptsHoriz"
+            },
+            {
+              "pointer": "/StateGraph/States/429/at_time/3/action/name",
+              "byte_offset": 1806668,
+              "value": "hunterKillAutoSucceed"
+            },
+            {
+              "pointer": "/StateGraph/States/429/at_time/4/action/ifactions/0/elements/0/actions/0/name",
+              "byte_offset": 1807140,
+              "value": "doStealthKillLargeStandingFailActions"
+            },
+            {
+              "pointer": "/StateGraph/States/429/at_time/4/action/ifactions/0/elements/0/actions/1/name",
+              "byte_offset": 1807314,
+              "value": "activeStealthKillFail"
+            },
+            {
+              "pointer": "/StateGraph/States/429/at_time/4/action/ifactions/0/elements/1/actions/0/name",
+              "byte_offset": 1807486,
+              "value": "activeStealthKillStart"
+            },
+            {
+              "pointer": "/StateGraph/States/429/at_time/5/action/name",
+              "byte_offset": 1807926,
+              "value": "clearControlBuffers"
+            },
+            {
+              "pointer": "/StateGraph/States/429/on_enter/2/name",
+              "byte_offset": 1808625,
+              "value": "pushKillLungeCam"
+            },
+            {
+              "pointer": "/StateGraph/States/429/on_enter/5/name",
+              "byte_offset": 1808951,
+              "value": "resetdepth"
+            },
+            {
+              "pointer": "/StateGraph/States/429/on_enter/6/name",
+              "byte_offset": 1809098,
+              "value": "startStealthKillActions"
+            },
+            {
+              "pointer": "/StateGraph/States/429/transitions/1/actions/0/name",
+              "byte_offset": 1809506,
+              "value": "activeStealthKillSuccess"
+            },
+            {
+              "pointer": "/StateGraph/States/429/transitions/1/actions/1/name",
+              "byte_offset": 1809668,
+              "value": "activeStealthKillStart"
+            },
+            {
+              "pointer": "/StateGraph/States/429/transitions/2/transitions/0/actions/0/name",
+              "byte_offset": 1810824,
+              "value": "activeStealthKillSuccess"
+            },
+            {
+              "pointer": "/StateGraph/States/429/transitions/2/transitions/0/actions/1/name",
+              "byte_offset": 1810986,
+              "value": "activeStealthKillStart"
+            },
+            {
+              "pointer": "/StateGraph/States/429/transitions/2/transitions/1/actions/0/name",
+              "byte_offset": 1812210,
+              "value": "activeStealthKillFail"
+            },
+            {
+              "pointer": "/StateGraph/States/429/transitions/2/transitions/1/transitions/0/actions/0/name",
+              "byte_offset": 1812520,
+              "value": "doStealthKillLargeStandingFailActions"
+            },
+            {
+              "pointer": "/StateGraph/States/429/transitions/2/transitions/1/transitions/1/actions/0/name",
+              "byte_offset": 1812880,
+              "value": "activeStealthKillStart"
+            }
+          ],
+          "events": [
+            {
+              "event": "grapple",
+              "destinations": [
+                "stealthkill_dumpster_slow"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "stealthkill_closet_right_pre",
+          "tags": "attacking hiding grapple push cantbepushed darken_effect slowmo closet closetkill using",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/ninja/stealth_kills_hiding.lua",
+            "linenumber": 438
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/432/on_exit/1/name",
+              "byte_offset": 1828455,
+              "value": "updateButtonMaps"
+            },
+            {
+              "pointer": "/StateGraph/States/432/events/0/transitions/0/actions/0/name",
+              "byte_offset": 1829679,
+              "value": "activeStealthKillFail"
+            },
+            {
+              "pointer": "/StateGraph/States/432/at_time/2/action/name",
+              "byte_offset": 1831319,
+              "value": "startInputPromptsHoriz"
+            },
+            {
+              "pointer": "/StateGraph/States/432/at_time/3/action/name",
+              "byte_offset": 1831500,
+              "value": "hunterKillAutoSucceed"
+            },
+            {
+              "pointer": "/StateGraph/States/432/at_time/4/action/ifactions/0/elements/0/actions/0/name",
+              "byte_offset": 1831973,
+              "value": "doStealthKillLargeStandingFailActions"
+            },
+            {
+              "pointer": "/StateGraph/States/432/at_time/4/action/ifactions/0/elements/0/actions/1/name",
+              "byte_offset": 1832148,
+              "value": "activeStealthKillFail"
+            },
+            {
+              "pointer": "/StateGraph/States/432/at_time/4/action/ifactions/0/elements/1/actions/0/name",
+              "byte_offset": 1832321,
+              "value": "activeStealthKillStart"
+            },
+            {
+              "pointer": "/StateGraph/States/432/at_time/5/action/name",
+              "byte_offset": 1832763,
+              "value": "clearControlBuffers"
+            },
+            {
+              "pointer": "/StateGraph/States/432/at_time/6/action/name",
+              "byte_offset": 1832941,
+              "value": "closetStealthKillCancelActions"
+            },
+            {
+              "pointer": "/StateGraph/States/432/on_enter/1/name",
+              "byte_offset": 1833316,
+              "value": "pushKillLungeCam"
+            },
+            {
+              "pointer": "/StateGraph/States/432/on_enter/2/name",
+              "byte_offset": 1833470,
+              "value": "startStealthKillActions"
+            },
+            {
+              "pointer": "/StateGraph/States/432/on_enter/4/name",
+              "byte_offset": 1833832,
+              "value": "startClosetStealthKillActions"
+            },
+            {
+              "pointer": "/StateGraph/States/432/transitions/1/actions/0/name",
+              "byte_offset": 1834293,
+              "value": "activeStealthKillSuccess"
+            },
+            {
+              "pointer": "/StateGraph/States/432/transitions/1/actions/1/name",
+              "byte_offset": 1834455,
+              "value": "activeStealthKillStart"
+            },
+            {
+              "pointer": "/StateGraph/States/432/transitions/2/transitions/0/actions/0/name",
+              "byte_offset": 1835615,
+              "value": "activeStealthKillSuccess"
+            },
+            {
+              "pointer": "/StateGraph/States/432/transitions/2/transitions/0/actions/1/name",
+              "byte_offset": 1835777,
+              "value": "activeStealthKillStart"
+            },
+            {
+              "pointer": "/StateGraph/States/432/transitions/2/transitions/1/actions/0/name",
+              "byte_offset": 1837005,
+              "value": "activeStealthKillFail"
+            },
+            {
+              "pointer": "/StateGraph/States/432/transitions/2/transitions/1/transitions/0/actions/0/name",
+              "byte_offset": 1837315,
+              "value": "doStealthKillLargeStandingFailActions"
+            },
+            {
+              "pointer": "/StateGraph/States/432/transitions/2/transitions/1/transitions/1/actions/0/name",
+              "byte_offset": 1837679,
+              "value": "activeStealthKillStart"
+            }
+          ],
+          "events": [
+            {
+              "event": "grapple",
+              "destinations": [
+                "stealthkill_closet_right_slow"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "stealthkill_closet_left_pre",
+          "tags": "attacking grapple hiding push cantbepushed darken_effect slowmo closet closetkill using lookout",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/ninja/stealth_kills_hiding.lua",
+            "linenumber": 884
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/435/on_exit/1/name",
+              "byte_offset": 1854909,
+              "value": "updateButtonMaps"
+            },
+            {
+              "pointer": "/StateGraph/States/435/events/0/transitions/0/actions/0/name",
+              "byte_offset": 1856144,
+              "value": "activeStealthKillFail"
+            },
+            {
+              "pointer": "/StateGraph/States/435/at_time/2/action/name",
+              "byte_offset": 1857784,
+              "value": "startClosetStealthKillActions"
+            },
+            {
+              "pointer": "/StateGraph/States/435/at_time/3/action/name",
+              "byte_offset": 1857972,
+              "value": "startInputPromptsHoriz"
+            },
+            {
+              "pointer": "/StateGraph/States/435/at_time/4/action/name",
+              "byte_offset": 1858153,
+              "value": "hunterKillAutoSucceed"
+            },
+            {
+              "pointer": "/StateGraph/States/435/at_time/5/action/ifactions/0/elements/0/actions/0/name",
+              "byte_offset": 1858626,
+              "value": "doStealthKillLargeStandingFailActions"
+            },
+            {
+              "pointer": "/StateGraph/States/435/at_time/5/action/ifactions/0/elements/0/actions/1/name",
+              "byte_offset": 1858801,
+              "value": "activeStealthKillFail"
+            },
+            {
+              "pointer": "/StateGraph/States/435/at_time/5/action/ifactions/0/elements/1/actions/0/name",
+              "byte_offset": 1858974,
+              "value": "activeStealthKillStart"
+            },
+            {
+              "pointer": "/StateGraph/States/435/at_time/6/action/name",
+              "byte_offset": 1859416,
+              "value": "clearControlBuffers"
+            },
+            {
+              "pointer": "/StateGraph/States/435/at_time/7/action/name",
+              "byte_offset": 1859607,
+              "value": "closetStealthKillCancelActions"
+            },
+            {
+              "pointer": "/StateGraph/States/435/on_enter/2/name",
+              "byte_offset": 1860020,
+              "value": "pushKillLungeCam"
+            },
+            {
+              "pointer": "/StateGraph/States/435/on_enter/3/name",
+              "byte_offset": 1860174,
+              "value": "startStealthKillActions"
+            },
+            {
+              "pointer": "/StateGraph/States/435/transitions/1/actions/0/name",
+              "byte_offset": 1860829,
+              "value": "activeStealthKillSuccess"
+            },
+            {
+              "pointer": "/StateGraph/States/435/transitions/1/actions/1/name",
+              "byte_offset": 1860991,
+              "value": "activeStealthKillStart"
+            },
+            {
+              "pointer": "/StateGraph/States/435/transitions/2/transitions/0/actions/0/name",
+              "byte_offset": 1862150,
+              "value": "activeStealthKillSuccess"
+            },
+            {
+              "pointer": "/StateGraph/States/435/transitions/2/transitions/0/actions/1/name",
+              "byte_offset": 1862313,
+              "value": "activeStealthKillStart"
+            },
+            {
+              "pointer": "/StateGraph/States/435/transitions/2/transitions/1/actions/0/name",
+              "byte_offset": 1863544,
+              "value": "activeStealthKillFail"
+            },
+            {
+              "pointer": "/StateGraph/States/435/transitions/2/transitions/1/transitions/0/actions/0/name",
+              "byte_offset": 1863855,
+              "value": "doStealthKillLargeStandingFailActions"
+            },
+            {
+              "pointer": "/StateGraph/States/435/transitions/2/transitions/1/transitions/1/actions/0/name",
+              "byte_offset": 1864220,
+              "value": "activeStealthKillStart"
+            }
+          ],
+          "events": [
+            {
+              "event": "grapple",
+              "destinations": [
+                "stealthkill_closet_left_slow"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "stealthkill_hide_grab",
+          "tags": "attacking grapple push cantbepushed darken_effect slowmo hiding",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/ninja/stealth_kills_hiding.lua",
+            "linenumber": 1356
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/438/substates/0/at_time/0/action/name",
+              "byte_offset": 1881083,
+              "value": "clearControlBuffers"
+            },
+            {
+              "pointer": "/StateGraph/States/438/substates/1/at_time/0/action/name",
+              "byte_offset": 1881644,
+              "value": "clearControlBuffers"
+            },
+            {
+              "pointer": "/StateGraph/States/438/substates/2/at_time/0/action/name",
+              "byte_offset": 1882389,
+              "value": "clearControlBuffers"
+            },
+            {
+              "pointer": "/StateGraph/States/438/substates/3/at_time/0/action/name",
+              "byte_offset": 1882848,
+              "value": "clearControlBuffers"
+            },
+            {
+              "pointer": "/StateGraph/States/438/on_exit/1/name",
+              "byte_offset": 1883420,
+              "value": "updateButtonMaps"
+            },
+            {
+              "pointer": "/StateGraph/States/438/events/0/transitions/0/actions/0/name",
+              "byte_offset": 1884893,
+              "value": "activeStealthKillFail"
+            },
+            {
+              "pointer": "/StateGraph/States/438/at_time/2/action/name",
+              "byte_offset": 1886717,
+              "value": "startInputPromptsHoriz"
+            },
+            {
+              "pointer": "/StateGraph/States/438/at_time/3/action/name",
+              "byte_offset": 1886899,
+              "value": "hunterKillAutoSucceed"
+            },
+            {
+              "pointer": "/StateGraph/States/438/at_time/4/action/ifactions/0/elements/0/actions/0/name",
+              "byte_offset": 1887373,
+              "value": "doStealthKillLargeStandingFailActions"
+            },
+            {
+              "pointer": "/StateGraph/States/438/at_time/4/action/ifactions/0/elements/0/actions/1/name",
+              "byte_offset": 1887549,
+              "value": "activeStealthKillFail"
+            },
+            {
+              "pointer": "/StateGraph/States/438/at_time/4/action/ifactions/0/elements/1/actions/0/name",
+              "byte_offset": 1887723,
+              "value": "activeStealthKillStart"
+            },
+            {
+              "pointer": "/StateGraph/States/438/on_enter/1/name",
+              "byte_offset": 1888334,
+              "value": "pushKillLungeCam"
+            },
+            {
+              "pointer": "/StateGraph/States/438/on_enter/3/name",
+              "byte_offset": 1888565,
+              "value": "startStealthKillActions"
+            },
+            {
+              "pointer": "/StateGraph/States/438/transitions/1/actions/0/name",
+              "byte_offset": 1888976,
+              "value": "activeStealthKillSuccess"
+            },
+            {
+              "pointer": "/StateGraph/States/438/transitions/1/actions/1/name",
+              "byte_offset": 1889139,
+              "value": "activeStealthKillStart"
+            },
+            {
+              "pointer": "/StateGraph/States/438/transitions/2/transitions/0/actions/0/name",
+              "byte_offset": 1890552,
+              "value": "activeStealthKillSuccess"
+            },
+            {
+              "pointer": "/StateGraph/States/438/transitions/2/transitions/0/actions/1/name",
+              "byte_offset": 1890715,
+              "value": "activeStealthKillStart"
+            },
+            {
+              "pointer": "/StateGraph/States/438/transitions/2/transitions/1/actions/0/name",
+              "byte_offset": 1892197,
+              "value": "activeStealthKillFail"
+            },
+            {
+              "pointer": "/StateGraph/States/438/transitions/2/transitions/1/transitions/0/actions/0/name",
+              "byte_offset": 1892508,
+              "value": "doStealthKillLargeStandingFailActions"
+            },
+            {
+              "pointer": "/StateGraph/States/438/transitions/2/transitions/1/transitions/1/actions/0/name",
+              "byte_offset": 1892861,
+              "value": "activeStealthKillStart"
+            }
+          ],
+          "events": [
+            {
+              "event": "grapple",
+              "destinations": [
+                "hidden_kill_slow"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "stealthkill_vent_horiz_grab",
+          "tags": "attacking crouching grapplelunging grapple push cantbepushed stealthkill ventpeek peeking ignoreventplatforms stayonledge",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/ninja/stealth_kills_vent.lua",
+            "linenumber": 6
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/442/substates/1/at_time/0/action/name",
+              "byte_offset": 1912686,
+              "value": "clearControlBuffers"
+            },
+            {
+              "pointer": "/StateGraph/States/442/substates/2/at_time/0/action/name",
+              "byte_offset": 1913028,
+              "value": "clearControlBuffers"
+            },
+            {
+              "pointer": "/StateGraph/States/442/on_exit/1/name",
+              "byte_offset": 1913404,
+              "value": "updateButtonMaps"
+            },
+            {
+              "pointer": "/StateGraph/States/442/events/0/transitions/0/actions/1/name",
+              "byte_offset": 1914811,
+              "value": "activeStealthKillFail"
+            },
+            {
+              "pointer": "/StateGraph/States/442/at_time/2/action/name",
+              "byte_offset": 1916428,
+              "value": "startInputPromptsHoriz"
+            },
+            {
+              "pointer": "/StateGraph/States/442/at_time/3/action/name",
+              "byte_offset": 1916620,
+              "value": "hunterKillAutoSucceed"
+            },
+            {
+              "pointer": "/StateGraph/States/442/at_time/4/action/ifactions/0/elements/0/actions/0/name",
+              "byte_offset": 1916943,
+              "value": "doStealthKillLargeVentFailActions"
+            },
+            {
+              "pointer": "/StateGraph/States/442/at_time/4/action/ifactions/0/elements/0/actions/1/name",
+              "byte_offset": 1917111,
+              "value": "activeStealthKillFail"
+            },
+            {
+              "pointer": "/StateGraph/States/442/at_time/4/action/ifactions/0/elements/1/actions/1/name",
+              "byte_offset": 1917450,
+              "value": "activeStealthKillStart"
+            },
+            {
+              "pointer": "/StateGraph/States/442/on_enter/2/name",
+              "byte_offset": 1918239,
+              "value": "startStealthKillActions"
+            },
+            {
+              "pointer": "/StateGraph/States/442/on_enter/3/name",
+              "byte_offset": 1918397,
+              "value": "pushKillLungeCam"
+            },
+            {
+              "pointer": "/StateGraph/States/442/transitions/1/actions/0/name",
+              "byte_offset": 1919134,
+              "value": "activeStealthKillSuccess"
+            },
+            {
+              "pointer": "/StateGraph/States/442/transitions/1/actions/1/name",
+              "byte_offset": 1919294,
+              "value": "activeStealthKillStart"
+            },
+            {
+              "pointer": "/StateGraph/States/442/transitions/2/transitions/0/actions/0/name",
+              "byte_offset": 1920712,
+              "value": "activeStealthKillSuccess"
+            },
+            {
+              "pointer": "/StateGraph/States/442/transitions/2/transitions/0/actions/1/name",
+              "byte_offset": 1920872,
+              "value": "activeStealthKillStart"
+            },
+            {
+              "pointer": "/StateGraph/States/442/transitions/2/transitions/1/actions/0/name",
+              "byte_offset": 1922356,
+              "value": "activeStealthKillFail"
+            },
+            {
+              "pointer": "/StateGraph/States/442/transitions/2/transitions/1/transitions/0/actions/0/name",
+              "byte_offset": 1922664,
+              "value": "doStealthKillLargeVentFailActions"
+            },
+            {
+              "pointer": "/StateGraph/States/442/transitions/2/transitions/1/transitions/1/actions/1/name",
+              "byte_offset": 1923188,
+              "value": "activeStealthKillStart"
+            }
+          ],
+          "events": [
+            {
+              "event": "grapple",
+              "destinations": [
+                "stealthkill_vent_horiz_slow"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "stealthkill_vent_above_grab",
+          "tags": "attacking grapplelunging grapple push cantbepushed stealthkill peeking",
+          "debug": {
+            "filename": "contentsrc/stategraphs/ninja/ninja/stealth_kills_vent.lua",
+            "linenumber": 505
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/446/substates/0/at_time/2/action/name",
+              "byte_offset": 1952765,
+              "value": "startInputPromptsVert"
+            },
+            {
+              "pointer": "/StateGraph/States/446/substates/0/at_time/3/action/name",
+              "byte_offset": 1952943,
+              "value": "hunterKillAutoSucceed"
+            },
+            {
+              "pointer": "/StateGraph/States/446/substates/0/at_time/5/action/ifactions/0/name",
+              "byte_offset": 1953370,
+              "value": "activeStealthKillStart"
+            },
+            {
+              "pointer": "/StateGraph/States/446/substates/0/at_time/6/action/name",
+              "byte_offset": 1953776,
+              "value": "clearControlBuffers"
+            },
+            {
+              "pointer": "/StateGraph/States/446/substates/1/at_time/2/action/name",
+              "byte_offset": 1955621,
+              "value": "startInputPromptsVert"
+            },
+            {
+              "pointer": "/StateGraph/States/446/substates/1/at_time/3/action/name",
+              "byte_offset": 1955812,
+              "value": "hunterKillAutoSucceed"
+            },
+            {
+              "pointer": "/StateGraph/States/446/substates/1/at_time/5/action/ifactions/0/name",
+              "byte_offset": 1956227,
+              "value": "activeStealthKillStart"
+            },
+            {
+              "pointer": "/StateGraph/States/446/substates/1/at_time/6/action/name",
+              "byte_offset": 1956633,
+              "value": "clearControlBuffers"
+            },
+            {
+              "pointer": "/StateGraph/States/446/substates/2/at_time/2/action/name",
+              "byte_offset": 1958453,
+              "value": "startInputPromptsVert"
+            },
+            {
+              "pointer": "/StateGraph/States/446/substates/2/at_time/3/action/name",
+              "byte_offset": 1958644,
+              "value": "hunterKillAutoSucceed"
+            },
+            {
+              "pointer": "/StateGraph/States/446/substates/2/at_time/5/action/ifactions/0/name",
+              "byte_offset": 1959058,
+              "value": "activeStealthKillStart"
+            },
+            {
+              "pointer": "/StateGraph/States/446/substates/2/at_time/6/action/name",
+              "byte_offset": 1959451,
+              "value": "clearControlBuffers"
+            },
+            {
+              "pointer": "/StateGraph/States/446/substates/3/at_time/2/action/name",
+              "byte_offset": 1961077,
+              "value": "startInputPromptsVert"
+            },
+            {
+              "pointer": "/StateGraph/States/446/substates/3/at_time/3/action/name",
+              "byte_offset": 1961268,
+              "value": "hunterKillAutoSucceed"
+            },
+            {
+              "pointer": "/StateGraph/States/446/substates/3/at_time/5/action/ifactions/0/name",
+              "byte_offset": 1961682,
+              "value": "activeStealthKillStart"
+            },
+            {
+              "pointer": "/StateGraph/States/446/substates/3/at_time/6/action/name",
+              "byte_offset": 1962075,
+              "value": "clearControlBuffers"
+            },
+            {
+              "pointer": "/StateGraph/States/446/on_exit/2/ifactions/0/name",
+              "byte_offset": 1962935,
+              "value": "startStealthkillOnCeilingActions"
+            },
+            {
+              "pointer": "/StateGraph/States/446/events/0/transitions/0/actions/0/name",
+              "byte_offset": 1964140,
+              "value": "activeStealthKillFail"
+            },
+            {
+              "pointer": "/StateGraph/States/446/at_time/0/action/name",
+              "byte_offset": 1964606,
+              "value": "pushKillLungeCam"
+            },
+            {
+              "pointer": "/StateGraph/States/446/on_enter/2/name",
+              "byte_offset": 1965394,
+              "value": "startStealthKillActions"
+            },
+            {
+              "pointer": "/StateGraph/States/446/on_enter/3/name",
+              "byte_offset": 1965553,
+              "value": "randomDirectionActionVert"
+            },
+            {
+              "pointer": "/StateGraph/States/446/on_enter/4/name",
+              "byte_offset": 1965714,
+              "value": "revealStealthKillFogOfWar"
+            },
+            {
+              "pointer": "/StateGraph/States/446/transitions/1/actions/0/name",
+              "byte_offset": 1966121,
+              "value": "activeStealthKillSuccess"
+            },
+            {
+              "pointer": "/StateGraph/States/446/transitions/1/actions/1/name",
+              "byte_offset": 1966281,
+              "value": "activeStealthKillStart"
+            },
+            {
+              "pointer": "/StateGraph/States/446/transitions/2/actions/0/name",
+              "byte_offset": 1967135,
+              "value": "activeStealthKillStart"
+            },
+            {
+              "pointer": "/StateGraph/States/446/transitions/2/transitions/0/actions/0/name",
+              "byte_offset": 1967355,
+              "value": "activeStealthKillSuccess"
+            },
+            {
+              "pointer": "/StateGraph/States/446/transitions/2/transitions/1/actions/1/name",
+              "byte_offset": 1968619,
+              "value": "activeStealthKillFail"
+            },
+            {
+              "pointer": "/StateGraph/States/446/transitions/3/actions/0/name",
+              "byte_offset": 1969306,
+              "value": "activeStealthKillFail"
+            }
+          ],
+          "events": [
+            {
+              "event": "grapple",
+              "destinations": [
+                "stealthkill_vent_above_slow"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "data/stategraphs/projectile_noisemaker.lua",
+      "bytes": 93911,
+      "sha256": "eec2e9b6d47f82f550fad81beae15dd7c3ed0248da18c036f5b0d7a93fdab018",
+      "root": "StateGraph",
+      "action_type_counts": {
+        "docommonaction": 4,
+        "CounterAction": 10,
+        "ifthenelse": 46,
+        "selectcontext": 1,
+        "cleartrackedproj": 1,
+        "setspeed": 6,
+        "StopFX": 7,
+        "setbool": 2,
+        "addtagwatch": 1,
+        "depthaction": 1,
+        "pegeffectaction": 6,
+        "SpawnFX": 50,
+        "playsound": 80,
+        "adddelayedaction": 1,
+        "sendevent": 22,
+        "sendsimevent": 3,
+        "trackedaction": 1,
+        "showlinkfX": 1,
+        "showlinkfx": 1,
+        "conditionblock": 14,
+        "addheartbeat": 20,
+        "addinterestsource": 52,
+        "UpdateFX": 1,
+        "Retire": 3
+      },
+      "sensory_fields": [],
+      "common_actions": [
+        {
+          "name": "run_loud_noise",
+          "debug": {
+            "filename": "contentsrc/stategraphs/global_common/common_actions.lua",
+            "linenumber": 221
+          },
+          "actions": [
+            {
+              "pointer": "/StateGraph/CommonActions/13/actions/0",
+              "byte_offset": 12001,
+              "value": {
+                "radius": 1600,
+                "source": "",
+                "Type": "addinterestsource",
+                "sense": "sound",
+                "maxdistance": 3200,
+                "followowner": false,
+                "forgetlosttarget": true,
+                "priority": 4,
+                "ttl": 0.13333333333333
+              }
+            },
+            {
+              "pointer": "/StateGraph/CommonActions/13/actions/2/ifactions/0",
+              "byte_offset": 12498,
+              "value": {
+                "fx": "sound_ring_run",
+                "radius": 0,
+                "Type": "SpawnFX"
+              }
+            }
+          ]
+        },
+        {
+          "name": "run_normal_noise",
+          "debug": {
+            "filename": "contentsrc/stategraphs/global_common/common_actions.lua",
+            "linenumber": 226
+          },
+          "actions": [
+            {
+              "pointer": "/StateGraph/CommonActions/14/actions/0",
+              "byte_offset": 13128,
+              "value": {
+                "radius": 1088,
+                "source": "",
+                "Type": "addinterestsource",
+                "sense": "sound",
+                "maxdistance": 2176,
+                "followowner": false,
+                "forgetlosttarget": true,
+                "priority": 4,
+                "ttl": 0.13333333333333
+              }
+            },
+            {
+              "pointer": "/StateGraph/CommonActions/14/actions/2/ifactions/0",
+              "byte_offset": 13625,
+              "value": {
+                "fx": "sound_ring_run",
+                "radius": 1088,
+                "Type": "SpawnFX"
+              }
+            }
+          ]
+        },
+        {
+          "name": "walk_normal_noise",
+          "debug": {
+            "filename": "contentsrc/stategraphs/global_common/common_actions.lua",
+            "linenumber": 254
+          },
+          "actions": [
+            {
+              "pointer": "/StateGraph/CommonActions/19/actions/0",
+              "byte_offset": 18437,
+              "value": {
+                "radius": 384,
+                "source": "",
+                "Type": "addinterestsource",
+                "sense": "sound",
+                "maxdistance": 768,
+                "followowner": false,
+                "forgetlosttarget": false,
+                "priority": 4,
+                "ttl": 0.5
+              }
+            },
+            {
+              "pointer": "/StateGraph/CommonActions/19/actions/2/ifactions/0",
+              "byte_offset": 18919,
+              "value": {
+                "fx": "sound_ring_run",
+                "radius": 384,
+                "Type": "SpawnFX"
+              }
+            }
+          ]
+        },
+        {
+          "name": "noisemaker_noise",
+          "debug": {
+            "filename": "contentsrc/stategraphs/global_common/common_actions.lua",
+            "linenumber": 273
+          },
+          "actions": [
+            {
+              "pointer": "/StateGraph/CommonActions/22/actions/0",
+              "byte_offset": 21625,
+              "value": {
+                "radius": 640,
+                "source": "noisemaker",
+                "Type": "addinterestsource",
+                "sense": "sound",
+                "maxdistance": 1280,
+                "followowner": false,
+                "forgetlosttarget": true,
+                "priority": 4,
+                "ttl": 1
+              }
+            },
+            {
+              "pointer": "/StateGraph/CommonActions/22/actions/2/ifactions/0",
+              "byte_offset": 22114,
+              "value": {
+                "fx": "sound_ring_rock",
+                "radius": 704,
+                "Type": "SpawnFX"
+              }
+            }
+          ]
+        },
+        {
+          "name": "prop_noise_bell_0_1",
+          "debug": {
+            "filename": "contentsrc/stategraphs/global_common/common_actions.lua",
+            "linenumber": 399
+          },
+          "actions": [
+            {
+              "pointer": "/StateGraph/CommonActions/46/actions/0",
+              "byte_offset": 45000,
+              "value": {
+                "radius": 3072,
+                "source": "environment",
+                "Type": "addinterestsource",
+                "sense": "sound",
+                "maxdistance": 6144,
+                "followowner": false,
+                "forgetlosttarget": false,
+                "priority": 4,
+                "ttl": 2
+              }
+            },
+            {
+              "pointer": "/StateGraph/CommonActions/46/actions/1/ifactions/0",
+              "byte_offset": 45310,
+              "value": {
+                "fx": "sound_ring_rock",
+                "radius": 3072,
+                "Type": "SpawnFX"
+              }
+            }
+          ]
+        }
+      ],
+      "selected_state_links": [
+        {
+          "name": "idle",
+          "tags": "canattachtowall canattachtoceiling projectile",
+          "debug": {
+            "filename": "contentsrc/stategraphs/props/projectile_noisemaker_sg.lua",
+            "linenumber": 58
+          },
+          "calls": [],
+          "events": []
+        },
+        {
+          "name": "thrown",
+          "tags": "canattachtowall canattachtoceiling projectile facetospeed",
+          "debug": {
+            "filename": "contentsrc/stategraphs/props/projectile_noisemaker_sg.lua",
+            "linenumber": 68
+          },
+          "calls": [],
+          "events": [
+            {
+              "event": "remoteactivate",
+              "destinations": [
+                "pop"
+              ]
+            },
+            {
+              "event": "onhitother",
+              "destinations": [
+                "land"
+              ]
+            },
+            {
+              "event": "onwasblocked",
+              "destinations": [
+                "land"
+              ]
+            },
+            {
+              "event": "onland",
+              "destinations": [
+                "land"
+              ]
+            },
+            {
+              "event": "onattachtowall",
+              "destinations": [
+                "land"
+              ]
+            },
+            {
+              "event": "onattachtoceiling",
+              "destinations": [
+                "land"
+              ]
+            },
+            {
+              "event": "bouncewall",
+              "destinations": [
+                "land"
+              ]
+            },
+            {
+              "event": "bounceceiling",
+              "destinations": [
+                "land"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "land",
+          "tags": "canattachtowall canattachtoceiling",
+          "debug": {
+            "filename": "contentsrc/stategraphs/props/projectile_noisemaker_sg.lua",
+            "linenumber": 155
+          },
+          "calls": [],
+          "events": [
+            {
+              "event": "remoteactivate",
+              "destinations": [
+                "pop"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "pop",
+          "tags": "",
+          "debug": {
+            "filename": "contentsrc/stategraphs/props/projectile_noisemaker_sg.lua",
+            "linenumber": 178
+          },
+          "calls": [
+            {
+              "pointer": "/StateGraph/States/3/on_enter/0/name",
+              "byte_offset": 92651,
+              "value": "noisemaker_noise"
+            },
+            {
+              "pointer": "/StateGraph/States/3/on_enter/1/name",
+              "byte_offset": 92803,
+              "value": "despawnRemoteButtonIcon"
+            }
+          ],
+          "events": []
+        },
+        {
+          "name": "expire",
+          "tags": "invincible",
+          "debug": {
+            "filename": "contentsrc/stategraphs/props/projectile_noisemaker_sg.lua",
+            "linenumber": 202
+          },
+          "calls": [],
+          "events": []
+        }
+      ]
+    },
+    {
+      "path": "data/stategraphs/hiding_spot.lua",
+      "bytes": 102430,
+      "sha256": "dd02e14dea63a161074e0a6260e486c4c0c45e04eb7e90812f5506c943312b86",
+      "root": "StateGraph",
+      "action_type_counts": {
+        "docommonaction": 9,
+        "ifthenelse": 59,
+        "overridepalette": 1,
+        "depthaction": 4,
+        "changepositioning": 1,
+        "CounterAction": 14,
+        "addinterestsource": 53,
+        "pegeffectaction": 12,
+        "setspeed": 6,
+        "StopFX": 5,
+        "setbool": 2,
+        "addtagwatch": 1,
+        "SpawnFX": 42,
+        "playsound": 85,
+        "adddelayedaction": 4,
+        "sendevent": 23,
+        "sendsimevent": 1,
+        "trackedaction": 1,
+        "showlinkfX": 1,
+        "showlinkfx": 1,
+        "conditionblock": 14,
+        "addheartbeat": 20,
+        "UpdateFX": 1,
+        "setrumble": 3,
+        "spawnAR": 1,
+        "Retire": 2
+      },
+      "sensory_fields": [],
+      "common_actions": [
+        {
+          "name": "run_loud_noise",
+          "debug": {
+            "filename": "contentsrc/stategraphs/global_common/common_actions.lua",
+            "linenumber": 221
+          },
+          "actions": [
+            {
+              "pointer": "/StateGraph/CommonActions/13/actions/0",
+              "byte_offset": 13859,
+              "value": {
+                "radius": 1600,
+                "source": "",
+                "Type": "addinterestsource",
+                "sense": "sound",
+                "maxdistance": 3200,
+                "followowner": false,
+                "forgetlosttarget": true,
+                "priority": 4,
+                "ttl": 0.13333333333333
+              }
+            },
+            {
+              "pointer": "/StateGraph/CommonActions/13/actions/2/ifactions/0",
+              "byte_offset": 14356,
+              "value": {
+                "fx": "sound_ring_run",
+                "radius": 0,
+                "Type": "SpawnFX"
+              }
+            }
+          ]
+        },
+        {
+          "name": "run_normal_noise",
+          "debug": {
+            "filename": "contentsrc/stategraphs/global_common/common_actions.lua",
+            "linenumber": 226
+          },
+          "actions": [
+            {
+              "pointer": "/StateGraph/CommonActions/14/actions/0",
+              "byte_offset": 14986,
+              "value": {
+                "radius": 1088,
+                "source": "",
+                "Type": "addinterestsource",
+                "sense": "sound",
+                "maxdistance": 2176,
+                "followowner": false,
+                "forgetlosttarget": true,
+                "priority": 4,
+                "ttl": 0.13333333333333
+              }
+            },
+            {
+              "pointer": "/StateGraph/CommonActions/14/actions/2/ifactions/0",
+              "byte_offset": 15483,
+              "value": {
+                "fx": "sound_ring_run",
+                "radius": 1088,
+                "Type": "SpawnFX"
+              }
+            }
+          ]
+        },
+        {
+          "name": "walk_normal_noise",
+          "debug": {
+            "filename": "contentsrc/stategraphs/global_common/common_actions.lua",
+            "linenumber": 254
+          },
+          "actions": [
+            {
+              "pointer": "/StateGraph/CommonActions/19/actions/0",
+              "byte_offset": 20295,
+              "value": {
+                "radius": 384,
+                "source": "",
+                "Type": "addinterestsource",
+                "sense": "sound",
+                "maxdistance": 768,
+                "followowner": false,
+                "forgetlosttarget": false,
+                "priority": 4,
+                "ttl": 0.5
+              }
+            },
+            {
+              "pointer": "/StateGraph/CommonActions/19/actions/2/ifactions/0",
+              "byte_offset": 20777,
+              "value": {
+                "fx": "sound_ring_run",
+                "radius": 384,
+                "Type": "SpawnFX"
+              }
+            }
+          ]
+        },
+        {
+          "name": "noisemaker_noise",
+          "debug": {
+            "filename": "contentsrc/stategraphs/global_common/common_actions.lua",
+            "linenumber": 273
+          },
+          "actions": [
+            {
+              "pointer": "/StateGraph/CommonActions/22/actions/0",
+              "byte_offset": 23483,
+              "value": {
+                "radius": 640,
+                "source": "noisemaker",
+                "Type": "addinterestsource",
+                "sense": "sound",
+                "maxdistance": 1280,
+                "followowner": false,
+                "forgetlosttarget": true,
+                "priority": 4,
+                "ttl": 1
+              }
+            },
+            {
+              "pointer": "/StateGraph/CommonActions/22/actions/2/ifactions/0",
+              "byte_offset": 23972,
+              "value": {
+                "fx": "sound_ring_rock",
+                "radius": 704,
+                "Type": "SpawnFX"
+              }
+            }
+          ]
+        },
+        {
+          "name": "prop_noise_bell_0_1",
+          "debug": {
+            "filename": "contentsrc/stategraphs/global_common/common_actions.lua",
+            "linenumber": 399
+          },
+          "actions": [
+            {
+              "pointer": "/StateGraph/CommonActions/46/actions/0",
+              "byte_offset": 46858,
+              "value": {
+                "radius": 3072,
+                "source": "environment",
+                "Type": "addinterestsource",
+                "sense": "sound",
+                "maxdistance": 6144,
+                "followowner": false,
+                "forgetlosttarget": false,
+                "priority": 4,
+                "ttl": 2
+              }
+            },
+            {
+              "pointer": "/StateGraph/CommonActions/46/actions/1/ifactions/0",
+              "byte_offset": 47168,
+              "value": {
+                "fx": "sound_ring_rock",
+                "radius": 3072,
+                "Type": "SpawnFX"
+              }
+            }
+          ]
+        }
+      ],
+      "selected_state_links": []
+    }
+  ],
+  "limitations": [
+    "Selected configuration defaults can be overridden by levels or runtime state.",
+    "Distances and angles retain source units; these are not Godot tuning values.",
+    "Native calls verify relationships, not complete algorithms or runtime reachability.",
+    "No game artwork, audio, or full source files are copied into the project."
+  ],
+  "native": {
+    "method": "Apple nm and xcrun llvm-objdump; no game execution",
+    "functions": [
+      {
+        "symbol": "__ZN2AI15SearchBehaviour20GenerateSearchPointsERK12cVariantBank",
+        "address": "0xba766",
+        "end_exclusive": "0xbae68",
+        "disassembly_sha256": "32deeb5c6119544d7d09bd0bfbf2cafabc8285e0d08d3e82ff65cd87df81805b",
+        "calls": [
+          {
+            "address": "0x1cb0b8",
+            "symbol": "cHashedString::Set(unsigned int)"
+          },
+          {
+            "address": "0x1ed640",
+            "symbol": "cVariantBank::GetValue(cHashedString) const"
+          },
+          {
+            "address": "0x1cb0b8",
+            "symbol": "cHashedString::Set(unsigned int)"
+          },
+          {
+            "address": "0x1ed640",
+            "symbol": "cVariantBank::GetValue(cHashedString) const"
+          },
+          {
+            "address": "0x1cb0b8",
+            "symbol": "cHashedString::Set(unsigned int)"
+          },
+          {
+            "address": "0x1ed640",
+            "symbol": "cVariantBank::GetValue(cHashedString) const"
+          },
+          {
+            "address": "0x121fea",
+            "symbol": "Sim::cPhysicsComponent::GetPosition() const"
+          },
+          {
+            "address": "0xc8b88",
+            "symbol": "AI::cPathfindingBehaviour::GetClosestValidSeg(Vect2, float) const"
+          },
+          {
+            "address": "0x125392",
+            "symbol": "Sim::cPhysicsComponent::GetWorld() const"
+          },
+          {
+            "address": "0x11f790",
+            "symbol": "Physics::cPhysicsWorld::GetSegment(Physics::sSegID) const"
+          },
+          {
+            "address": "0x1227c0",
+            "symbol": "Sim::cPhysicsComponent::IsFacingRight() const"
+          },
+          {
+            "address": "0x124bec",
+            "symbol": "Sim::cPhysicsComponent::IsOnWall() const"
+          },
+          {
+            "address": "0x122864",
+            "symbol": "Sim::cPhysicsComponent::GetDistanceToTopOfWall() const"
+          },
+          {
+            "address": "0x1227c0",
+            "symbol": "Sim::cPhysicsComponent::IsFacingRight() const"
+          },
+          {
+            "address": "0x122b00",
+            "symbol": "Sim::cPhysicsComponent::GetDistToEndOfPlatform(float&, bool, bool, bool) const"
+          },
+          {
+            "address": "0x125392",
+            "symbol": "Sim::cPhysicsComponent::GetWorld() const"
+          },
+          {
+            "address": "0x11f53a",
+            "symbol": "Physics::cPhysicsWorld::GetCollision(Vect2 const&, Vect2 const&, Physics::sCollisionQuery&, int, unsigned int) const"
+          },
+          {
+            "address": "0x124bec",
+            "symbol": "Sim::cPhysicsComponent::IsOnWall() const"
+          },
+          {
+            "address": "0x12292c",
+            "symbol": "Sim::cPhysicsComponent::GetDistanceToBottomOfWall() const"
+          },
+          {
+            "address": "0x1227c0",
+            "symbol": "Sim::cPhysicsComponent::IsFacingRight() const"
+          },
+          {
+            "address": "0x122b00",
+            "symbol": "Sim::cPhysicsComponent::GetDistToEndOfPlatform(float&, bool, bool, bool) const"
+          },
+          {
+            "address": "0x125392",
+            "symbol": "Sim::cPhysicsComponent::GetWorld() const"
+          },
+          {
+            "address": "0x11f53a",
+            "symbol": "Physics::cPhysicsWorld::GetCollision(Vect2 const&, Vect2 const&, Physics::sCollisionQuery&, int, unsigned int) const"
+          },
+          {
+            "address": "0x125392",
+            "symbol": "Sim::cPhysicsComponent::GetWorld() const"
+          },
+          {
+            "address": "0x120ae6",
+            "symbol": "Physics::cPhysicsWorld::ProjectToCollision(Vect2&, Physics::sSegID&, Vect2) const"
+          },
+          {
+            "address": "0x125392",
+            "symbol": "Sim::cPhysicsComponent::GetWorld() const"
+          },
+          {
+            "address": "0x120ae6",
+            "symbol": "Physics::cPhysicsWorld::ProjectToCollision(Vect2&, Physics::sSegID&, Vect2) const"
+          },
+          {
+            "address": "0xbd524",
+            "symbol": "std::vector<AI::Waypoint, std::allocator<AI::Waypoint>>::push_back(AI::Waypoint const&)"
+          },
+          {
+            "address": "0xbd524",
+            "symbol": "std::vector<AI::Waypoint, std::allocator<AI::Waypoint>>::push_back(AI::Waypoint const&)"
+          },
+          {
+            "address": "0x373808",
+            "symbol": "dyld_stub_binder+0x373808"
+          }
+        ]
+      },
+      {
+        "symbol": "__ZNK2AI11cVisionCone18TargetIsDetectableEPKN3Sim9cGameItemEb",
+        "address": "0x2f61dc",
+        "end_exclusive": "0x2f6264",
+        "disassembly_sha256": "4f6353cfccb3418f81fb1faa3f068ff3f75e8229a3e5cb1b71e5b5ba05bfad61",
+        "calls": [
+          {
+            "address": "0xed4f8",
+            "symbol": "Sim::cGameItem::GetAttributes() const"
+          },
+          {
+            "address": "0x1cb0b8",
+            "symbol": "cHashedString::Set(unsigned int)"
+          },
+          {
+            "address": "0x2f87ec",
+            "symbol": "Sim::LightingComponent::GetLitState() const"
+          },
+          {
+            "address": "0x2f87ec",
+            "symbol": "Sim::LightingComponent::GetLitState() const"
+          }
+        ]
+      },
+      {
+        "symbol": "__ZNK2AI13cSensoryModel12CanHearSoundERK5Vect2ff",
+        "address": "0x342e42",
+        "end_exclusive": "0x342f3c",
+        "disassembly_sha256": "eda1e96848f89f5ed90304bb5c3ce86a8ffa512bc0e6e35e9b9d11cb44d020a3",
+        "calls": [
+          {
+            "address": "0x3737ea",
+            "symbol": "dyld_stub_binder+0x3737ea"
+          },
+          {
+            "address": "0x19c5de",
+            "symbol": "AppOptions::GetOptions()"
+          },
+          {
+            "address": "0x3737f0",
+            "symbol": "dyld_stub_binder+0x3737f0"
+          },
+          {
+            "address": "0x125d38",
+            "symbol": "Sim::cPhysicsComponent::GetHeightPosition() const"
+          },
+          {
+            "address": "0x342f64",
+            "symbol": "AI::cSensoryModel::HasLineOfSightToSound(Vect2 const&) const"
+          },
+          {
+            "address": "0x343036",
+            "symbol": "AI::cSensoryModel::HasPathToSound(Vect2 const&, float) const"
+          },
+          {
+            "address": "0x3737e4",
+            "symbol": "dyld_stub_binder+0x3737e4"
+          },
+          {
+            "address": "0x373808",
+            "symbol": "dyld_stub_binder+0x373808"
+          }
+        ]
+      },
+      {
+        "symbol": "__ZNK2AI13cSensoryModel21HasLineOfSightToSoundERK5Vect2",
+        "address": "0x342f64",
+        "end_exclusive": "0x343036",
+        "disassembly_sha256": "a0d4202097ccb8c7f859303334ac1d6e26dac8f1628e42932be38d807064718a",
+        "calls": [
+          {
+            "address": "0x1cb0b8",
+            "symbol": "cHashedString::Set(unsigned int)"
+          },
+          {
+            "address": "0x29890",
+            "symbol": "std::_Rb_tree<cHashedString, std::pair<cHashedString const, Sim::cSimComponent*>, std::_Select1st<std::pair<cHashedString const, Sim::cSimComponent*>>, std::less<cHashedString>, std::allocator<std::pair<cHashedString const, Sim::cSimComponent*>>>::find(cHashedString const&) const"
+          },
+          {
+            "address": "0x121fea",
+            "symbol": "Sim::cPhysicsComponent::GetPosition() const"
+          },
+          {
+            "address": "0x11f53a",
+            "symbol": "Physics::cPhysicsWorld::GetCollision(Vect2 const&, Vect2 const&, Physics::sCollisionQuery&, int, unsigned int) const"
+          },
+          {
+            "address": "0x373808",
+            "symbol": "dyld_stub_binder+0x373808"
+          }
+        ]
+      },
+      {
+        "symbol": "__ZNK2AI13cSensoryModel14HasPathToSoundERK5Vect2f",
+        "address": "0x343036",
+        "end_exclusive": "0x34313a",
+        "disassembly_sha256": "0a1a07ffb9061985926881e721a89849249bd68c1522560fcfc9ccdc7d3f427d",
+        "calls": [
+          {
+            "address": "0x1cb0b8",
+            "symbol": "cHashedString::Set(unsigned int)"
+          },
+          {
+            "address": "0x69a60",
+            "symbol": "std::_Rb_tree<cHashedString, std::pair<cHashedString const, Sim::cSimComponent*>, std::_Select1st<std::pair<cHashedString const, Sim::cSimComponent*>>, std::less<cHashedString>, std::allocator<std::pair<cHashedString const, Sim::cSimComponent*>>>::find(cHashedString const&)"
+          },
+          {
+            "address": "0x121fea",
+            "symbol": "Sim::cPhysicsComponent::GetPosition() const"
+          },
+          {
+            "address": "0x1cb0b8",
+            "symbol": "cHashedString::Set(unsigned int)"
+          },
+          {
+            "address": "0x69a60",
+            "symbol": "std::_Rb_tree<cHashedString, std::pair<cHashedString const, Sim::cSimComponent*>, std::_Select1st<std::pair<cHashedString const, Sim::cSimComponent*>>, std::less<cHashedString>, std::allocator<std::pair<cHashedString const, Sim::cSimComponent*>>>::find(cHashedString const&)"
+          },
+          {
+            "address": "0x346734",
+            "symbol": "AI::cSoundPathfinder::HasPath(Vect2, Vect2, float, unsigned int, Physics::cPhysicsWorld*, float*, bool)"
+          },
+          {
+            "address": "0x373808",
+            "symbol": "dyld_stub_binder+0x373808"
+          }
+        ]
+      }
+    ]
+  },
+  "rea": {
+    "evidence_id": "ev_e29afbe18f804aa6ff752ad842abea78c2c5a4471da1fc8925c8bd8b58773b8d",
+    "subject": {
+      "name": "ninja.app",
+      "digest": {
+        "sha256": "76e716bbcfa85f35e864727f7bcf40e7001ecc9d50db7da480bc05bfc54be6da"
+      },
+      "local_path": "/Users/mattpuleri/Library/Application Support/Steam/steamapps/common/mark_of_the_ninja/ninja.app",
+      "format": "directory",
+      "architecture": null
+    },
+    "provider": {
+      "id": "rea-artifact-graph",
+      "name": "REA safe artifact graph provider",
+      "version": "1"
+    },
+    "operation": "inspect_artifact",
+    "confidence": "observed",
+    "authority": "shipped-artifact",
+    "limitations": [
+      "Inspection derives bounded static hypotheses and next probes; it does not execute the artifact or claim format-specific semantics."
+    ],
+    "report_sha256": "054543f7cb1c49b3ee09cdb127386809cf7d802a8f3aa872cd6a5dc5e3c7715c",
+    "coverage": {
+      "status": "complete-within-substeps",
+      "substeps_completed": 1,
+      "observations_retained": 1,
+      "observations_omitted": 0,
+      "hypotheses_retained": 0,
+      "hypotheses_omitted": 0,
+      "unexplored_branches_retained": 2,
+      "unexplored_branches_omitted": 0,
+      "next_probes_retained": 2,
+      "next_probes_omitted": 0
+    }
+  }
+}

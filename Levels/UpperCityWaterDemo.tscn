@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/upper_city/water_demo.gd" id="1"]
+[ext_resource type="PackedScene" path="res://Assets/UpperCityKit/B_assembly.glb" id="2"]
+
+[sub_resource type="Curve3D" id="RiverCurve"]
+bake_interval = 0.3
+_data = {
+"points": PackedVector3Array(0.6666666666666666, -0.0, -1.0, -0.6666666666666666, 0.0, 1.0, 3, 3.8, -29, 1.0, -0.0, -2.0, -1.0, 0.0, 2.0, -1, 3.8, -23, -0.16666666666666666, -0.0, -1.8333333333333333, 0.16666666666666666, 0.0, 1.8333333333333333, -3, 3.8, -17, -0.8333333333333334, -0.0, -1.6666666666666667, 0.8333333333333334, 0.0, 1.6666666666666667, 0, 3.8, -12, -0.0, -0.0, -1.6666666666666667, 0.0, 0.0, 1.6666666666666667, 2, 3.8, -7, 0.3333333333333333, -0.0, -1.5, -0.3333333333333333, 0.0, 1.5, 0, 3.8, -2, -0.0, -0.0, -0.6666666666666666, 0.0, 0.0, 0.6666666666666666, 0, 3.8, 2),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+
+[sub_resource type="Environment" id="Environment"]
+background_mode = 1
+background_color = Color(0.045, 0.07, 0.12, 1)
+ambient_light_source = 3
+ambient_light_color = Color(0.45, 0.56, 0.7, 1)
+ambient_light_energy = 0.65
+reflected_light_source = 2
+tonemap_mode = 2
+
+[node name="UpperCityWaterDemo" type="Node3D"]
+script = ExtResource("1")
+
+[node name="MillAndCanal" parent="." instance=ExtResource("2")]
+
+[node name="RiverPath" type="Path3D" parent="."]
+curve = SubResource("RiverCurve")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+position = Vector3(30, 28, 28)
+current = true
+fov = 48.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment")
+
+[node name="Moonlight" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-50, -35, 0)
+light_color = Color(0.65, 0.76, 1, 1)
+light_energy = 1.4
+shadow_enabled = true
+
+[node name="MillLight" type="OmniLight3D" parent="."]
+position = Vector3(-4, 5, 5)
+light_color = Color(1, 0.6, 0.3, 1)
+light_energy = 4.0
+omni_range = 18.0

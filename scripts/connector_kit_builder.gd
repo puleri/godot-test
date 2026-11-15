@@ -1,5 +1,7 @@
 @tool
 extends RefCounted
+
+const MOVEMENT = preload("res://scripts/movement_tuning.gd")
 ## Source builder for the saved connector scenes; no construction runs during play.
 
 const CONNECTOR = preload("res://scripts/level_connector.gd")
@@ -73,7 +75,7 @@ func build_demo() -> Node3D:
 	var player := PLAYER.instantiate() as CharacterBody3D
 	player.name = "Player"
 	player.set_script(PLAYTEST_CONTROLLER)
-	player.set("max_walk_speed", 5.0)
+	player.set("max_walk_speed", MOVEMENT.ROOK_MOVE_SPEED)
 	player.floor_snap_length = 0.35
 	level.add_child(player)
 	var hud := CanvasLayer.new()

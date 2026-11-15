@@ -1,0 +1,45 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/component_building_inspection.gd" id="1_hx8nv"]
+[ext_resource type="PackedScene" path="res://Modules/Buildings/ComponentBuilding.tscn" id="2_xgcji"]
+
+[sub_resource type="Environment" id="Environment_umn17"]
+background_mode = 1
+background_color = Color(0.2, 0.24313726, 0.28235295, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.81960785, 0.84705883, 0.8745098, 1)
+ambient_light_energy = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vm5i5"]
+albedo_color = Color(0.25490198, 0.30588236, 0.34509805, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_s6cfv"]
+size = Vector2(90, 80)
+
+[node name="ComponentBuildingInspection" type="Node3D" unique_id=112767588]
+script = ExtResource("1_hx8nv")
+
+[node name="Building" type="Node3D" parent="." unique_id=1704006867 instance=ExtResource("2_xgcji")]
+metadata/purpose = "Native component fit study; 12 pieces; open top for seam inspection"
+metadata/source = "ComponentLibrary/foundation.blend"
+metadata/materials = "Authored colors and procedural grain baked from Blender; matte PBR adaptation of Toon BSDF"
+metadata/geometry_changes = "None. Library scale retained; translation and quarter-turn rotations only."
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=384265451]
+environment = SubResource("Environment_umn17")
+
+[node name="InspectionLight" type="DirectionalLight3D" parent="." unique_id=672411215]
+transform = Transform3D(0.8660254, 0.37157243, -0.33456528, 0, 0.66913056, 0.74314487, 0.5, -0.64358234, 0.57948405, 0, 0, 0)
+light_energy = 1.05
+shadow_enabled = true
+
+[node name="InspectionGround" type="MeshInstance3D" parent="." unique_id=148925384]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+material_override = SubResource("StandardMaterial3D_vm5i5")
+mesh = SubResource("PlaneMesh_s6cfv")
+
+[node name="InspectionCamera" type="Camera3D" parent="." unique_id=477379058]
+transform = Transform3D(0.7525767, -0.22338264, 0.61945826, 0, 0.9407046, 0.33922714, -0.6585046, -0.25529444, 0.7079523, 42, 29, 48)
+current = true
+fov = 48.0
+far = 250.0

@@ -15,6 +15,7 @@ extends "res://scripts/stealth_guard.gd"
 @export var suspicion_cap := 0.35
 @export var suspicion_per_second := 0.25
 @export var uncertain_investigation_delay := 0.8
+@export_range(0.05, 1.0, 0.05) var alerted_detection_multiplier := 0.3
 var recognition_strength := 0.0
 var uncertain_visible := false
 var uncertain_reason := "DIM FIGURE"
@@ -26,6 +27,7 @@ var investigation_reason := "LAST SIGHTING"
 var _sensor: StealthExposureSensor
 var _uncertain_elapsed := 0.0
 var _uncertain_suspicion := false
+var _alerted_detection := false
 
 
 func _ready() -> void:
@@ -103,11 +105,18 @@ func _clear_sight(eye: Vector3, point: Vector3) -> bool:
 
 
 func _update_awareness(delta: float) -> void:
+	# Preserve the alert through SEARCH -> SUSPICIOUS and the return journey.
+	# A fresh patrol (including a lab reset) restores normal recognition time.
+	if guard_state in [GuardState.SEARCH, GuardState.CHASE]:
+		_alerted_detection = true
+	elif guard_state == GuardState.PATROL:
+		_alerted_detection = false
 	if player_visible:
 		_uncertain_elapsed = 0.0
 		_uncertain_suspicion = false
 		_lost_sight_elapsed = 0.0
-		awareness = minf(1, awareness + delta * recognition_strength / maxf(seconds_to_detect, 0.01))
+		var detection_time := seconds_to_detect * (clampf(alerted_detection_multiplier, 0.05, 1.0) if _alerted_detection else 1.0)
+		awareness = minf(1, awareness + delta * recognition_strength / maxf(detection_time, 0.01))
 		if awareness >= 1:
 			_change_state(GuardState.CHASE)
 		elif guard_state != GuardState.CHASE:
@@ -171,6 +180,10 @@ func _start_investigation(at: Vector3, reason: String) -> void:
 
 
 func _change_state(next: GuardState) -> void:
+	if next in [GuardState.SEARCH, GuardState.CHASE]:
+		_alerted_detection = true
+	elif next == GuardState.PATROL:
+		_alerted_detection = false
 	if next == GuardState.SEARCH and guard_state != next:
 		investigation_target = last_suspected_position if _uncertain_suspicion and guard_state != GuardState.CHASE else last_seen_position
 		investigation_reason = uncertain_reason if _uncertain_suspicion and guard_state != GuardState.CHASE else "LAST SIGHTING"

@@ -1,0 +1,28 @@
+{
+  "source": "Hub_City_Terrain_Study.blend",
+  "output": "Hub_City_Foliage_Study.blend",
+  "worn_terrain_vertices": 13054,
+  "planted": {
+    "ground": 3768,
+    "shrub": 78,
+    "tree": 13
+  },
+  "cells": 113,
+  "road_wear_attribute": "road_wear",
+  "color_attribute": "RoadWearColor",
+  "wear_blend_m": 2.5,
+  "runtime_assets": [
+    "Apple tree 01",
+    "Cypress tree 01",
+    "Fern clump",
+    "Flowering shrub",
+    "Linden tree 02",
+    "Meadow clump",
+    "Oak tree 01",
+    "Rose shrub",
+    "Short clump",
+    "Wild shrub",
+    "Wildflower clump"
+  ],
+  "scope": "Civic approach and upper gate pilot. Authored wear, not persistent footstep simulation."
+}

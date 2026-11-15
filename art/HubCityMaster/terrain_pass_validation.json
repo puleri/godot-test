@@ -1,0 +1,29 @@
+{
+  "workspaces": [
+    "Animation",
+    "City Overview",
+    "Compositing",
+    "Detail Editing",
+    "Geometry Nodes",
+    "Modeling",
+    "Rendering",
+    "Scripting",
+    "Sculpting",
+    "Shading",
+    "Texture Paint",
+    "UV Editing"
+  ],
+  "units": "metres",
+  "scale_normalized": true,
+  "water_levels_preserved": true,
+  "connected_hubs": 12,
+  "maximum_stair_riser_m": 0.16666666666666666,
+  "minimum_stair_tread_m": 0.2916667938233531,
+  "spine_surface_samples": 2259,
+  "missing_floor_samples": 0,
+  "blocked_headroom_samples": 0,
+  "blocked_examples": [],
+  "missing_examples": [],
+  "geometry_errors": [],
+  "limits": "Geometry sampling validates a 1.3 m wide corridor and standing headroom; no Godot character-controller, collision or navigation test has been run."
+}

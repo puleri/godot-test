@@ -1,0 +1,125 @@
+{
+	"description": "12 native library pieces, no added building geometry",
+	"pieces": [
+		{
+			"component": "plain_stone_corner_wall",
+			"name": "GroundFloor/FrontRightCorner",
+			"position": [
+				12.3614311218262,
+				0.0,
+				6.22725296020508
+			],
+			"yaw": 0.0
+		},
+		{
+			"component": "plain_stone_corner_wall",
+			"name": "GroundFloor/BackRightCorner",
+			"position": [
+				12.4079685211182,
+				0.0,
+				-6.18071556091309
+			],
+			"yaw": 1.5707963267949
+		},
+		{
+			"component": "plain_stone_corner_wall",
+			"name": "GroundFloor/BackLeftCorner",
+			"position": [
+				-12.3614311218262,
+				0.0,
+				-6.22725296020508
+			],
+			"yaw": 3.14159265358979
+		},
+		{
+			"component": "plain_stone_corner_wall",
+			"name": "GroundFloor/FrontLeftCorner",
+			"position": [
+				-12.4079685211182,
+				0.0,
+				6.18071556091309
+			],
+			"yaw": -1.5707963267949
+		},
+		{
+			"component": "door_stone_wall",
+			"name": "GroundFloor/FrontDoor",
+			"position": [
+				0.0,
+				0.0,
+				11.9772529602051
+			],
+			"yaw": 0.0
+		},
+		{
+			"component": "windowed_stone_wall",
+			"name": "GroundFloor/BackWindow",
+			"position": [
+				0.0,
+				0.0,
+				-11.9772529602051
+			],
+			"yaw": 3.14159265358979
+		},
+		{
+			"component": "second_story_corner",
+			"name": "UpperFloor/FrontRightCorner",
+			"position": [
+				12.4607305526733,
+				6.60163497924805,
+				6.48913097381592
+			],
+			"yaw": 0.0
+		},
+		{
+			"component": "second_story_corner",
+			"name": "UpperFloor/BackRightCorner",
+			"position": [
+				12.6456384658813,
+				6.60163497924805,
+				-6.30422258377075
+			],
+			"yaw": 1.5707963267949
+		},
+		{
+			"component": "second_story_corner",
+			"name": "UpperFloor/BackLeftCorner",
+			"position": [
+				-12.4607305526733,
+				6.60163497924805,
+				-6.48913097381592
+			],
+			"yaw": 3.14159265358979
+		},
+		{
+			"component": "second_story_corner",
+			"name": "UpperFloor/FrontLeftCorner",
+			"position": [
+				-12.6456384658813,
+				6.60163497924805,
+				6.30422258377075
+			],
+			"yaw": -1.5707963267949
+		},
+		{
+			"component": "second_story_window",
+			"name": "UpperFloor/FrontWindow",
+			"position": [
+				0.0,
+				6.60163497924805,
+				12.069130897522
+			],
+			"yaw": 0.0
+		},
+		{
+			"component": "second_story_plain",
+			"name": "UpperFloor/BackWall",
+			"position": [
+				0.0,
+				6.60163497924805,
+				-12.069130897522
+			],
+			"yaw": 3.14159265358979
+		}
+	]
+}

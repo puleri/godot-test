@@ -1,0 +1,10 @@
+VERSION 1
+
+e0713ab1-d3ed-5251-8cc8-30d280a15761:01 Buildings:01 Buildings
+a6af54d2-dfd5-58b4-84ed-87e9ea9586a7:02 Roofs and Openings:02 Roofs and Openings
+b9c07bfc-092b-5754-ac97-e7229de3871e:03 Streets and Terraces:03 Streets and Terraces
+3381b678-09a7-5544-ab1f-304e8b958559:04 Bridges and Canals:04 Bridges and Canals
+e9632e59-be69-5bd5-89bd-82cadfd467da:05 Gatehouse and Tower:05 Gatehouse and Tower
+6bbf35e2-3b2c-5db7-981a-fd93a5c1a2fe:06 Market and Landmarks:06 Market and Landmarks
+fdc79010-61ba-5b8c-b7e4-ac6edd1ee773:07 Props and Dressing:07 Props and Dressing
+9d1ff62d-394c-587a-babb-441d18716c11:08 Character Bases:08 Character Bases

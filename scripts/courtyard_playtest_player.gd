@@ -34,13 +34,13 @@ func frame_camera() -> void:
 	overview.size = float(generated.get_meta("camera_size", 36.0))
 
 
-func _unhandled_key_input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if not event.is_pressed() or event.is_echo():
 		return
-	if event.physical_keycode == KEY_R:
+	if event.is_action_pressed("restart"):
 		global_position = _spawn
 		velocity = Vector3.ZERO
-	elif event.physical_keycode == KEY_TAB:
+	elif event.is_action_pressed("toggle_vision"):
 		_close_camera = not _close_camera
 		if _close_camera:
 			overview.size = 16
@@ -57,12 +57,8 @@ func _physics_process(delta: float) -> void:
 
 func handle_phase_1_movement(delta: float) -> Vector3:
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	var right := overview.global_basis.x
-	var forward := -overview.global_basis.z
-	right.y = 0
-	forward.y = 0
-	var direction := (right.normalized() * input.x - forward.normalized() * input.y).limit_length()
-	_update_ground_plane_velocity(direction * max_walk_speed, direction, delta)
+	var direction := CONTROLLER_INPUT.camera_relative_direction(input, overview.global_basis)
+	_update_ground_plane_velocity(direction * _get_current_max_walk_speed(), direction, delta)
 	return direction
 
 

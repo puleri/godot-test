@@ -64,4 +64,4 @@ component transforms, two-sided wall/glass materials and gable trim overlap.
 
 The full editable assembly is also included as **Stone warehouse** in the main
 component library under **04 Buildings**, with an embedded thumbnail and source
-record. Both library copies contain 53 assets. Library rebuilds retain the warehouse.
+record. Both library copies contain 56 assets. Library rebuilds retain the warehouse.

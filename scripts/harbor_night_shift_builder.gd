@@ -1,4 +1,6 @@
 extends RefCounted
+
+const MOVEMENT = preload("res://scripts/movement_tuning.gd")
 ## Builds saved, editable scenes from the existing harbor art and connector kit.
 
 const KIT = preload("res://scripts/connector_kit_builder.gd")
@@ -319,7 +321,7 @@ func _routes_and_guards(level: Node3D) -> void:
 		guard.player_path = NodePath("../../Player")
 		guard.route_path = NodePath("../../Routes/" + data[1])
 		guard.walk_speed = 1.25
-		guard.run_speed = 3.4
+		guard.run_speed = MOVEMENT.HOUND_PURSUIT_SPEED
 		guard.acceleration = 7.0
 		guard.braking = 9.0
 		guard.seconds_to_detect = 1.25
@@ -350,7 +352,7 @@ func _player(level: Node3D) -> void:
 	player.position = Vector3(0, 0.49, 17)
 	player.side_plane_z = 17.0
 	player.overview_camera_path = NodePath("../LevelCamera")
-	player.max_walk_speed = 4.2
+	player.max_walk_speed = MOVEMENT.ROOK_MOVE_SPEED
 	player.jump_velocity = 6.5
 	player.collision_layer = 4
 	player.collision_mask = 1

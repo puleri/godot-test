@@ -1,0 +1,830 @@
+{
+  "count": 40,
+  "categories": {
+    "33 Fortified Hillside": 8,
+    "34 River and Waterfall": 16,
+    "35 Garden Structures": 10,
+    "36 Wisteria and Gardens": 6
+  },
+  "components": [
+    {
+      "name": "Broad sloping terrain",
+      "kit": "33 Fortified Hillside",
+      "dimensions_m": [
+        8.0,
+        8.0,
+        3.4
+      ],
+      "vertices": 113,
+      "faces": 97,
+      "gallery_position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Broad sloping terrain"
+    },
+    {
+      "name": "Convex hillside",
+      "kit": "33 Fortified Hillside",
+      "dimensions_m": [
+        8.0,
+        8.0,
+        3.4985
+      ],
+      "vertices": 113,
+      "faces": 97,
+      "gallery_position": [
+        7.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Convex hillside"
+    },
+    {
+      "name": "Concave hillside",
+      "kit": "33 Fortified Hillside",
+      "dimensions_m": [
+        8.0,
+        8.0,
+        3.4
+      ],
+      "vertices": 113,
+      "faces": 97,
+      "gallery_position": [
+        14.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Concave hillside"
+    },
+    {
+      "name": "Terrace slope transition",
+      "kit": "33 Fortified Hillside",
+      "dimensions_m": [
+        8.0,
+        8.0,
+        3.5371
+      ],
+      "vertices": 113,
+      "faces": 97,
+      "gallery_position": [
+        21.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Terrace slope transition"
+    },
+    {
+      "name": "Sloped defensive wall",
+      "kit": "33 Fortified Hillside",
+      "dimensions_m": [
+        4.0,
+        1.0,
+        6.1062
+      ],
+      "vertices": 72,
+      "faces": 54,
+      "gallery_position": [
+        28.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Sloped defensive wall"
+    },
+    {
+      "name": "Stepped defensive foundation",
+      "kit": "33 Fortified Hillside",
+      "dimensions_m": [
+        4.0,
+        0.95,
+        1.6
+      ],
+      "vertices": 32,
+      "faces": 24,
+      "gallery_position": [
+        35.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Stepped defensive foundation"
+    },
+    {
+      "name": "Angled tower connector",
+      "kit": "33 Fortified Hillside",
+      "dimensions_m": [
+        1.7985,
+        1.7785,
+        4.0
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        42.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Angled tower connector"
+    },
+    {
+      "name": "Switchback stair landing",
+      "kit": "33 Fortified Hillside",
+      "dimensions_m": [
+        6.0,
+        4.0,
+        1.4
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        49.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Switchback stair landing"
+    },
+    {
+      "name": "Gentle curved canal wall",
+      "kit": "34 River and Waterfall",
+      "dimensions_m": [
+        3.4411,
+        7.2832,
+        3.0
+      ],
+      "vertices": 68,
+      "faces": 66,
+      "gallery_position": [
+        0.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Gentle curved canal wall"
+    },
+    {
+      "name": "Tight curved canal wall",
+      "kit": "34 River and Waterfall",
+      "dimensions_m": [
+        4.3,
+        4.3,
+        3.0
+      ],
+      "vertices": 68,
+      "faces": 66,
+      "gallery_position": [
+        7.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Tight curved canal wall"
+    },
+    {
+      "name": "Gentle curved canal coping",
+      "kit": "34 River and Waterfall",
+      "dimensions_m": [
+        3.6545,
+        7.3716,
+        0.18
+      ],
+      "vertices": 68,
+      "faces": 66,
+      "gallery_position": [
+        14.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Gentle curved canal coping"
+    },
+    {
+      "name": "Tight curved canal coping",
+      "kit": "34 River and Waterfall",
+      "dimensions_m": [
+        4.425,
+        4.425,
+        0.18
+      ],
+      "vertices": 68,
+      "faces": 66,
+      "gallery_position": [
+        21.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Tight curved canal coping"
+    },
+    {
+      "name": "Canal width transition",
+      "kit": "34 River and Waterfall",
+      "dimensions_m": [
+        6.6,
+        4.0,
+        3.4
+      ],
+      "vertices": 24,
+      "faces": 18,
+      "gallery_position": [
+        28.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Canal width transition"
+    },
+    {
+      "name": "River confluence bank",
+      "kit": "34 River and Waterfall",
+      "dimensions_m": [
+        4.0,
+        3.5,
+        1.35
+      ],
+      "vertices": 60,
+      "faces": 70,
+      "gallery_position": [
+        35.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "River confluence bank"
+    },
+    {
+      "name": "Natural rocky bank",
+      "kit": "34 River and Waterfall",
+      "dimensions_m": [
+        4.9,
+        1.5868,
+        0.8
+      ],
+      "vertices": 182,
+      "faces": 224,
+      "gallery_position": [
+        42.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Natural rocky bank"
+    },
+    {
+      "name": "Shallow planted bank",
+      "kit": "34 River and Waterfall",
+      "dimensions_m": [
+        4.9,
+        1.5868,
+        1.1502
+      ],
+      "vertices": 278,
+      "faces": 296,
+      "gallery_position": [
+        49.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Shallow planted bank"
+    },
+    {
+      "name": "Natural to masonry bank",
+      "kit": "34 River and Waterfall",
+      "dimensions_m": [
+        4.9,
+        1.5868,
+        1.35
+      ],
+      "vertices": 190,
+      "faces": 230,
+      "gallery_position": [
+        0.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Natural to masonry bank"
+    },
+    {
+      "name": "Riverbed channel",
+      "kit": "34 River and Waterfall",
+      "dimensions_m": [
+        6.8,
+        8.0,
+        2.0
+      ],
+      "vertices": 24,
+      "faces": 18,
+      "gallery_position": [
+        7.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Riverbed channel"
+    },
+    {
+      "name": "Mountain river mouth",
+      "kit": "34 River and Waterfall",
+      "dimensions_m": [
+        7.8546,
+        5.2624,
+        8.9402
+      ],
+      "vertices": 306,
+      "faces": 376,
+      "gallery_position": [
+        14.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Mountain river mouth"
+    },
+    {
+      "name": "Waterfall lip",
+      "kit": "34 River and Waterfall",
+      "dimensions_m": [
+        4.0,
+        1.075,
+        0.37
+      ],
+      "vertices": 72,
+      "faces": 54,
+      "gallery_position": [
+        21.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Waterfall lip"
+    },
+    {
+      "name": "Waterfall side cliff",
+      "kit": "34 River and Waterfall",
+      "dimensions_m": [
+        2.0911,
+        1.7549,
+        5.1
+      ],
+      "vertices": 92,
+      "faces": 112,
+      "gallery_position": [
+        28.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Waterfall side cliff"
+    },
+    {
+      "name": "Plunge pool rock surround",
+      "kit": "34 River and Waterfall",
+      "dimensions_m": [
+        5.2,
+        5.1,
+        1.4
+      ],
+      "vertices": 224,
+      "faces": 258,
+      "gallery_position": [
+        35.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Plunge pool rock surround"
+    },
+    {
+      "name": "Cascade rock shelf",
+      "kit": "34 River and Waterfall",
+      "dimensions_m": [
+        4.25,
+        2.2,
+        0.6
+      ],
+      "vertices": 164,
+      "faces": 198,
+      "gallery_position": [
+        42.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Cascade rock shelf"
+    },
+    {
+      "name": "Angled bridge abutment",
+      "kit": "34 River and Waterfall",
+      "dimensions_m": [
+        3.2,
+        2.4,
+        3.0
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        49.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Angled bridge abutment"
+    },
+    {
+      "name": "Octagonal gazebo floor",
+      "kit": "35 Garden Structures",
+      "dimensions_m": [
+        6.3,
+        6.3,
+        0.3
+      ],
+      "vertices": 16,
+      "faces": 10,
+      "gallery_position": [
+        0.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Octagonal gazebo floor"
+    },
+    {
+      "name": "Gazebo post",
+      "kit": "35 Garden Structures",
+      "dimensions_m": [
+        0.8104,
+        0.35,
+        3.2
+      ],
+      "vertices": 24,
+      "faces": 18,
+      "gallery_position": [
+        7.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Gazebo post"
+    },
+    {
+      "name": "Gazebo roof wedge",
+      "kit": "35 Garden Structures",
+      "dimensions_m": [
+        3.4537,
+        2.4642,
+        1.9037
+      ],
+      "vertices": 14,
+      "faces": 11,
+      "gallery_position": [
+        14.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Gazebo roof wedge"
+    },
+    {
+      "name": "Gazebo roof cap",
+      "kit": "35 Garden Structures",
+      "dimensions_m": [
+        0.6,
+        0.6,
+        0.75
+      ],
+      "vertices": 32,
+      "faces": 20,
+      "gallery_position": [
+        21.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Gazebo roof cap"
+    },
+    {
+      "name": "Gazebo railing bay",
+      "kit": "35 Garden Structures",
+      "dimensions_m": [
+        2.14,
+        0.34,
+        1.075
+      ],
+      "vertices": 208,
+      "faces": 132,
+      "gallery_position": [
+        28.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Gazebo railing bay"
+    },
+    {
+      "name": "Open pavilion arcade",
+      "kit": "35 Garden Structures",
+      "dimensions_m": [
+        4.0,
+        0.43,
+        3.2
+      ],
+      "vertices": 240,
+      "faces": 180,
+      "gallery_position": [
+        35.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Open pavilion arcade"
+    },
+    {
+      "name": "Open pavilion corner",
+      "kit": "35 Garden Structures",
+      "dimensions_m": [
+        0.65,
+        0.65,
+        3.11
+      ],
+      "vertices": 24,
+      "faces": 18,
+      "gallery_position": [
+        42.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Open pavilion corner"
+    },
+    {
+      "name": "Pavilion entablature beam",
+      "kit": "35 Garden Structures",
+      "dimensions_m": [
+        4.0,
+        0.6,
+        0.55
+      ],
+      "vertices": 32,
+      "faces": 24,
+      "gallery_position": [
+        49.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Pavilion entablature beam"
+    },
+    {
+      "name": "Finished pavilion ceiling",
+      "kit": "35 Garden Structures",
+      "dimensions_m": [
+        4.0,
+        3.0,
+        0.32
+      ],
+      "vertices": 48,
+      "faces": 36,
+      "gallery_position": [
+        0.0,
+        119.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Finished pavilion ceiling"
+    },
+    {
+      "name": "Pergola corner junction",
+      "kit": "35 Garden Structures",
+      "dimensions_m": [
+        2.2,
+        2.2,
+        3.15
+      ],
+      "vertices": 40,
+      "faces": 30,
+      "gallery_position": [
+        7.0,
+        119.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Pergola corner junction"
+    },
+    {
+      "name": "Wisteria twisting trunk",
+      "kit": "36 Wisteria and Gardens",
+      "dimensions_m": [
+        0.3091,
+        0.3089,
+        3.3855
+      ],
+      "vertices": 176,
+      "faces": 132,
+      "gallery_position": [
+        0.0,
+        168.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Wisteria twisting trunk"
+    },
+    {
+      "name": "Wisteria trained horizontal vine",
+      "kit": "36 Wisteria and Gardens",
+      "dimensions_m": [
+        3.3761,
+        0.2815,
+        0.2391
+      ],
+      "vertices": 176,
+      "faces": 132,
+      "gallery_position": [
+        7.0,
+        168.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Wisteria trained horizontal vine"
+    },
+    {
+      "name": "Wisteria foliage canopy",
+      "kit": "36 Wisteria and Gardens",
+      "dimensions_m": [
+        3.648,
+        1.8768,
+        0.5602
+      ],
+      "vertices": 414,
+      "faces": 504,
+      "gallery_position": [
+        14.0,
+        168.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Wisteria foliage canopy"
+    },
+    {
+      "name": "Wisteria short flower cluster",
+      "kit": "36 Wisteria and Gardens",
+      "dimensions_m": [
+        0.3918,
+        0.3475,
+        0.705
+      ],
+      "vertices": 332,
+      "faces": 411,
+      "gallery_position": [
+        21.0,
+        168.0,
+        0.0
+      ],
+      "notes": "Origin at hanging attachment; flowers extend downward.",
+      "collection": "Wisteria short flower cluster"
+    },
+    {
+      "name": "Wisteria long flower cluster",
+      "kit": "36 Wisteria and Gardens",
+      "dimensions_m": [
+        0.3918,
+        0.3475,
+        1.155
+      ],
+      "vertices": 332,
+      "faces": 411,
+      "gallery_position": [
+        28.0,
+        168.0,
+        0.0
+      ],
+      "notes": "Origin at hanging attachment; flowers extend downward.",
+      "collection": "Wisteria long flower cluster"
+    },
+    {
+      "name": "Slender cypress",
+      "kit": "36 Wisteria and Gardens",
+      "dimensions_m": [
+        0.9593,
+        0.8991,
+        4.55
+      ],
+      "vertices": 206,
+      "faces": 235,
+      "gallery_position": [
+        35.0,
+        168.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Slender cypress"
+    }
+  ],
+  "reused_components": [
+    "Complete gate arch surround",
+    "Gate overhead masonry",
+    "Hinged gate left",
+    "Hinged gate right",
+    "Fort wall block bay",
+    "Capped battlement bay",
+    "Wall top walkway",
+    "Tower masonry base",
+    "Tower lookout transition",
+    "Complete lookout frame",
+    "Complete watchtower hip roof",
+    "Detailed retaining bay",
+    "Rock ledge",
+    "Rock slope transition",
+    "Hillside pine 1",
+    "Rounded shrub",
+    "Hedge straight",
+    "Hedge corner",
+    "Planted flower box",
+    "Stone stairs full story",
+    "Stone stairs short",
+    "Stone bridge arch bay",
+    "Stone bridge deck",
+    "Bridge parapet straight",
+    "Bridge middle pier",
+    "Wall lantern",
+    "Table",
+    "Chair",
+    "Bench",
+    "Villa low hip roof",
+    "Villa pergola bay",
+    "Villa garden balustrade",
+    "Villa garden gatepost",
+    "Villa iron garden gate",
+    "Villa terrace steps",
+    "Villa pale wall",
+    "Villa arched window wall",
+    "Villa arched window",
+    "Villa arched door wall",
+    "Villa arched door",
+    "Spillway crest",
+    "Mill sluice gate",
+    "Mill sluice lifting frame"
+  ],
+  "assemblies": [
+    {
+      "name": "A Fortified hillside entrance",
+      "objects": 74,
+      "mesh_objects": 74
+    },
+    {
+      "name": "B Winding canal waterfall and mill",
+      "objects": 140,
+      "mesh_objects": 139
+    },
+    {
+      "name": "C Wisteria gazebo and open pavilion",
+      "objects": 136,
+      "mesh_objects": 136
+    }
+  ],
+  "river_points_blender": [
+    [
+      3,
+      29,
+      3.8
+    ],
+    [
+      -1,
+      23,
+      3.8
+    ],
+    [
+      -3,
+      17,
+      3.8
+    ],
+    [
+      0,
+      12,
+      3.8
+    ],
+    [
+      2,
+      7,
+      3.8
+    ],
+    [
+      0,
+      2,
+      3.8
+    ],
+    [
+      0,
+      -2,
+      3.8
+    ]
+  ]
+}

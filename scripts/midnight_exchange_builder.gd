@@ -88,7 +88,7 @@ func build_exchange() -> Node3D:
 	player.position = Vector3(0, 0.49, 14)
 	player.side_plane_z = 14.0
 	player.overview_camera_path = NodePath("../LevelCamera")
-	player.max_walk_speed = 4.2
+	player.max_walk_speed = MOVEMENT.ROOK_MOVE_SPEED
 	level.get_node("LevelCamera").size = 9.4
 	var stations = kit.group(level, "Stations")
 	_station(stations, "Manifest", "COPY MANIFEST", Vector3(-12, 0, 0), 1.8)
@@ -208,7 +208,7 @@ func _exchange_guards(level: Node3D) -> void:
 		guard.route_path = NodePath("../../Routes/" + spec[0])
 		guard.route_mode = 0
 		guard.walk_speed = 1.4 if i == 1 else 1.65
-		guard.run_speed = 3.55 if i == 1 else 3.15
+		guard.run_speed = MOVEMENT.HOUND_PURSUIT_SPEED if i == 1 else 3.15
 		guard.locomotion_uses_run = i != 1
 		guard.acceleration = 8.0
 		guard.braking = 10.0

@@ -1,0 +1,12 @@
+VERSION 1
+
+c0bb6829-f141-5373-97df-1e7dac20c89a:17 Canal Warehouse:17 Canal Warehouse
+2b64ab8a-fde9-5356-90fb-ed01cd686553:18 Merchant Shophouse:18 Merchant Shophouse
+99abf13c-9b21-57d3-8950-826dd88dd752:19 Courtyard Tenement:19 Courtyard Tenement
+978e9668-29f2-522c-817f-0d1b3fa389dd:20 Hillside Villa:20 Hillside Villa
+2a0cc5de-6515-513e-99a5-fcda2f4b3e7e:21 Clock Hall:21 Clock Hall
+33ba3a2d-6631-59ac-8b5d-07c31870eba7:22 Canal Bathhouse:22 Canal Bathhouse
+e9b0226e-44ff-5312-ad30-ccb0242a73ea:23 Great Waterwheel Mill:23 Great Waterwheel Mill
+1b79365c-41b4-5b72-9139-cce170bac8ea:24 Canal and Waterfront:24 Canal and Waterfront
+1881ff79-088c-51f0-936e-a5b34e5aa1c2:25 Borough Identity and Distance:25 Borough Identity and Distance
+7521c0ac-af92-5a07-a0e3-32fd159cae59:26 Assemblies:26 Assemblies

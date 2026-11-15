@@ -80,6 +80,16 @@ The new controller changes what evidence can move a guard between them.
 | Audible footsteps, landing, or bell | Investigate the sound event's location without identifying Rook |
 | Search expires | Navigate back to the patrol |
 
+Guards already searching or pursuing retain heightened recognition through
+the subsequent suspicious state and their return journey. Confirmed visual
+evidence builds awareness using **30% of the normal detection time**, controlled
+by `LayeredStealthGuard.alerted_detection_multiplier`. A 1.5-second patrol delay
+becomes 0.45 seconds at full recognition strength; partial exposure and residual
+awareness still affect the actual time. Existing pursuit remains pursuit on a
+renewed sighting. Reaching normal patrol, or resetting the lab bay, clears this
+heightened response. Hearing alone never starts pursuit, and shadow and cover
+still prevent recognition under the same sensing rules.
+
 Shadow/dim evidence is capped at **35% awareness**. It cannot independently
 start a chase. If existing awareness is above that cap, weak evidence lets it
 fall toward the cap rather than instantly clearing it. After **0.8 seconds**
@@ -285,7 +295,7 @@ godot --headless --path . --fixed-fps 60 --script tests/test_midnight_exchange.g
 godot --headless --path . --fixed-fps 60 --script tests/test_stealth_guard.gd
 ```
 
-The focused awareness suite has 37 checks, and the saved-scene integration suite
+The focused awareness suite has 47 checks, and the saved-scene integration suite
 has 11. They verify physics occlusion, both body samples, deep-shadow protection,
 partial cover, elapsed-time accumulation, lamp separation, shared lamps, real
 storm pulses, hearing attenuation, quiet input, landing events,

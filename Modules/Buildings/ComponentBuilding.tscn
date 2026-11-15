@@ -1,0 +1,66 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://Mesh/ComponentBuilding/plain_stone_corner_wall.glb" id="1_rcnlk"]
+[ext_resource type="PackedScene" path="res://Mesh/ComponentBuilding/door_stone_wall.glb" id="2_mcjg7"]
+[ext_resource type="PackedScene" path="res://Mesh/ComponentBuilding/windowed_stone_wall.glb" id="3_6kiuf"]
+[ext_resource type="PackedScene" path="res://Mesh/ComponentBuilding/second_story_corner.glb" id="4_6wjv3"]
+[ext_resource type="PackedScene" path="res://Mesh/ComponentBuilding/second_story_window.glb" id="5_67xje"]
+[ext_resource type="PackedScene" path="res://Mesh/ComponentBuilding/second_story_plain.glb" id="6_arrye"]
+
+[node name="ComponentBuilding" type="Node3D" unique_id=1704006867]
+metadata/purpose = "Native component fit study; 12 pieces; open top for seam inspection"
+metadata/source = "ComponentLibrary/foundation.blend"
+metadata/materials = "Authored colors and procedural grain baked from Blender; matte PBR adaptation of Toon BSDF"
+metadata/geometry_changes = "None. Library scale retained; translation and quarter-turn rotations only."
+
+[node name="GroundFloor" type="Node3D" parent="." unique_id=440330121]
+
+[node name="FrontRightCorner" type="Node3D" parent="GroundFloor" unique_id=1181445517 instance=ExtResource("1_rcnlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.361431, 0, 6.227253)
+metadata/library_component = "plain_stone_corner_wall"
+
+[node name="BackRightCorner" type="Node3D" parent="GroundFloor" unique_id=1315536561 instance=ExtResource("1_rcnlk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.4079685, 0, -6.1807156)
+metadata/library_component = "plain_stone_corner_wall"
+
+[node name="BackLeftCorner" type="Node3D" parent="GroundFloor" unique_id=1656721200 instance=ExtResource("1_rcnlk")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -12.361431, 0, -6.227253)
+metadata/library_component = "plain_stone_corner_wall"
+
+[node name="FrontLeftCorner" type="Node3D" parent="GroundFloor" unique_id=789636533 instance=ExtResource("1_rcnlk")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12.4079685, 0, 6.1807156)
+metadata/library_component = "plain_stone_corner_wall"
+
+[node name="FrontDoor" type="Node3D" parent="GroundFloor" unique_id=2117779801 instance=ExtResource("2_mcjg7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.977253)
+metadata/library_component = "door_stone_wall"
+
+[node name="BackWindow" type="Node3D" parent="GroundFloor" unique_id=488490421 instance=ExtResource("3_6kiuf")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -11.977253)
+metadata/library_component = "windowed_stone_wall"
+
+[node name="UpperFloor" type="Node3D" parent="." unique_id=907278726]
+
+[node name="FrontRightCorner" type="Node3D" parent="UpperFloor" unique_id=1945003249 instance=ExtResource("4_6wjv3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.460731, 6.601635, 6.489131)
+metadata/library_component = "second_story_corner"
+
+[node name="BackRightCorner" type="Node3D" parent="UpperFloor" unique_id=2075377996 instance=ExtResource("4_6wjv3")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.645638, 6.601635, -6.3042226)
+metadata/library_component = "second_story_corner"
+
+[node name="BackLeftCorner" type="Node3D" parent="UpperFloor" unique_id=454444695 instance=ExtResource("4_6wjv3")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -12.460731, 6.601635, -6.489131)
+metadata/library_component = "second_story_corner"
+
+[node name="FrontLeftCorner" type="Node3D" parent="UpperFloor" unique_id=1474003160 instance=ExtResource("4_6wjv3")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12.645638, 6.601635, 6.3042226)
+metadata/library_component = "second_story_corner"
+
+[node name="FrontWindow" type="Node3D" parent="UpperFloor" unique_id=1186345294 instance=ExtResource("5_67xje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.601635, 12.069131)
+metadata/library_component = "second_story_window"
+
+[node name="BackWall" type="Node3D" parent="UpperFloor" unique_id=527151115 instance=ExtResource("6_arrye")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 6.601635, -12.069131)
+metadata/library_component = "second_story_plain"

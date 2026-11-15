@@ -86,6 +86,15 @@ godot --path . --audio-driver Dummy --script tests/test_toon_lighting.gd
 
 ## Reference sources
 
+### Mark of the Ninja
+
+The November 3, 2026 inspection is documented in
+[mark-of-the-ninja-study.md](mark-of-the-ninja-study.md), with retained source
+identities and selected native call evidence. It covers sound stimuli and
+visualization, obstacle-aware hearing, investigator/sentry roles, area search,
+layered vision profiles, remote noisemakers and hiding/peeking states. These are
+research findings and proposed extensions to Rook's current stealth systems.
+
 ### Sly Cooper: A Thief in Godot
 
 Local project: `/Users/mattpuleri/Desktop/games/Sly-Cooper--A-Thief-in-Godot`.

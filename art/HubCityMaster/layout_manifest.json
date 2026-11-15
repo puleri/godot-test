@@ -1,0 +1,6025 @@
+{
+  "footprint_m": [
+    400,
+    400
+  ],
+  "lagoon_water_z": 2,
+  "upper_river_water_z": 7,
+  "upper_city_ground_z": 26,
+  "islands": [
+    {
+      "name": "West artisans",
+      "center": [
+        -65,
+        -55
+      ],
+      "radii": [
+        27,
+        20
+      ]
+    },
+    {
+      "name": "Merchant island",
+      "center": [
+        -5,
+        -35
+      ],
+      "radii": [
+        32,
+        24
+      ]
+    },
+    {
+      "name": "Bathhouse island",
+      "center": [
+        58,
+        -70
+      ],
+      "radii": [
+        30,
+        26
+      ]
+    },
+    {
+      "name": "South homes",
+      "center": [
+        4,
+        -115
+      ],
+      "radii": [
+        24,
+        18
+      ]
+    },
+    {
+      "name": "Fisher island",
+      "center": [
+        -70,
+        -115
+      ],
+      "radii": [
+        21,
+        15
+      ]
+    }
+  ],
+  "hubs": {
+    "Civic": [
+      -105,
+      55,
+      10
+    ],
+    "North": [
+      -95,
+      150,
+      12
+    ],
+    "Apartments": [
+      -145,
+      -35,
+      6
+    ],
+    "Artisans": [
+      -65,
+      -55,
+      4
+    ],
+    "Market": [
+      -5,
+      -35,
+      4
+    ],
+    "Bathhouse": [
+      58,
+      -70,
+      4
+    ],
+    "South": [
+      4,
+      -115,
+      4
+    ],
+    "Fisher": [
+      -70,
+      -115,
+      4
+    ],
+    "Docks": [
+      150,
+      -45,
+      4
+    ],
+    "Upper gate": [
+      70,
+      95,
+      26
+    ],
+    "Gardens": [
+      112,
+      110,
+      26
+    ],
+    "Mill": [
+      -38,
+      44,
+      4
+    ]
+  },
+  "routes": [
+    {
+      "name": "West borough avenue",
+      "from": "Apartments",
+      "to": "Civic",
+      "length_m": 112.2,
+      "max_grade": 0.2,
+      "water_piers": 0
+    },
+    {
+      "name": "Old north road",
+      "from": "Civic",
+      "to": "North",
+      "length_m": 97.7,
+      "max_grade": 0.042,
+      "water_piers": 0
+    },
+    {
+      "name": "Artisan crossing",
+      "from": "Apartments",
+      "to": "Artisans",
+      "length_m": 83.4,
+      "max_grade": 0.115,
+      "water_piers": 2
+    },
+    {
+      "name": "Market crossing",
+      "from": "Artisans",
+      "to": "Market",
+      "length_m": 63.3,
+      "max_grade": 0.094,
+      "water_piers": 1
+    },
+    {
+      "name": "Bathhouse crossing",
+      "from": "Market",
+      "to": "Bathhouse",
+      "length_m": 72.2,
+      "max_grade": 0.08,
+      "water_piers": 1
+    },
+    {
+      "name": "East docks crossing",
+      "from": "Bathhouse",
+      "to": "Docks",
+      "length_m": 95.8,
+      "max_grade": 0.181,
+      "water_piers": 5
+    },
+    {
+      "name": "South island bridge",
+      "from": "Market",
+      "to": "South",
+      "length_m": 80.7,
+      "max_grade": 0.115,
+      "water_piers": 3
+    },
+    {
+      "name": "Fisher bridge",
+      "from": "Artisans",
+      "to": "Fisher",
+      "length_m": 60.2,
+      "max_grade": 0.142,
+      "water_piers": 3
+    },
+    {
+      "name": "Lagoon south crossing",
+      "from": "Fisher",
+      "to": "South",
+      "length_m": 74.0,
+      "max_grade": 0.111,
+      "water_piers": 3
+    },
+    {
+      "name": "Civic to mill lane",
+      "from": "Civic",
+      "to": "Mill",
+      "length_m": 78.0,
+      "max_grade": 0.455,
+      "water_piers": 0
+    },
+    {
+      "name": "Mill entrance stairs",
+      "from": "Mill",
+      "to": "Mill",
+      "length_m": 12.3,
+      "max_grade": 0.215,
+      "water_piers": 0
+    },
+    {
+      "name": "North river bridge and hill ascent",
+      "from": "Civic",
+      "to": "Upper gate",
+      "length_m": 300.4,
+      "max_grade": 0.16,
+      "water_piers": 1
+    },
+    {
+      "name": "Upper garden promenade",
+      "from": "Upper gate",
+      "to": "Gardens",
+      "length_m": 57.0,
+      "max_grade": 0,
+      "water_piers": 0
+    },
+    {
+      "name": "Eastern hillside descent",
+      "from": "Gardens",
+      "to": "Docks",
+      "length_m": 252.2,
+      "max_grade": 0.2,
+      "water_piers": 0
+    },
+    {
+      "name": "West artisans cross street",
+      "from": "West artisans",
+      "to": "West artisans",
+      "length_m": 37.8,
+      "max_grade": 0,
+      "water_piers": 0
+    },
+    {
+      "name": "West artisans side lane",
+      "from": "West artisans",
+      "to": "West artisans",
+      "length_m": 28.0,
+      "max_grade": 0,
+      "water_piers": 0
+    },
+    {
+      "name": "Merchant island cross street",
+      "from": "Merchant island",
+      "to": "Merchant island",
+      "length_m": 44.8,
+      "max_grade": 0,
+      "water_piers": 0
+    },
+    {
+      "name": "Merchant island side lane",
+      "from": "Merchant island",
+      "to": "Merchant island",
+      "length_m": 33.6,
+      "max_grade": 0,
+      "water_piers": 0
+    },
+    {
+      "name": "Bathhouse island cross street",
+      "from": "Bathhouse island",
+      "to": "Bathhouse island",
+      "length_m": 42.0,
+      "max_grade": 0,
+      "water_piers": 0
+    },
+    {
+      "name": "Bathhouse island side lane",
+      "from": "Bathhouse island",
+      "to": "Bathhouse island",
+      "length_m": 36.4,
+      "max_grade": 0,
+      "water_piers": 0
+    },
+    {
+      "name": "South homes cross street",
+      "from": "South homes",
+      "to": "South homes",
+      "length_m": 33.6,
+      "max_grade": 0,
+      "water_piers": 0
+    },
+    {
+      "name": "South homes side lane",
+      "from": "South homes",
+      "to": "South homes",
+      "length_m": 25.2,
+      "max_grade": 0,
+      "water_piers": 0
+    },
+    {
+      "name": "Fisher island cross street",
+      "from": "Fisher island",
+      "to": "Fisher island",
+      "length_m": 29.4,
+      "max_grade": 0,
+      "water_piers": 0
+    },
+    {
+      "name": "Fisher island side lane",
+      "from": "Fisher island",
+      "to": "Fisher island",
+      "length_m": 21.0,
+      "max_grade": 0,
+      "water_piers": 0
+    }
+  ],
+  "building_mass_count": 378,
+  "building_masses": [
+    {
+      "position": [
+        -180.06,
+        -150.2,
+        4
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        -170.44,
+        -150.34,
+        4
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        -162.54,
+        -149.94,
+        4
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        -143.54,
+        -150.15,
+        4
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        -135.34,
+        -150.22,
+        4
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -126.42,
+        -149.8,
+        4
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        -116.75,
+        -150.45,
+        4
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        -108.48,
+        -150.26,
+        4
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        -99.0,
+        -150.17,
+        4
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        -90.24,
+        -149.65,
+        4
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -81.43,
+        -149.83,
+        4
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        -72.25,
+        -149.83,
+        4
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        -62.8,
+        -150.09,
+        4
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        80.49,
+        -150.38,
+        4.0
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        99.11,
+        -149.89,
+        4.0
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        107.61,
+        -149.94,
+        4.0
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        116.97,
+        -149.76,
+        4
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        125.46,
+        -149.95,
+        4
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        135.5,
+        -149.63,
+        4
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        144.57,
+        -150.39,
+        4
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        153.35,
+        -149.85,
+        4
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        161.38,
+        -150.4,
+        4
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        170.78,
+        -149.61,
+        4
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        179.41,
+        -150.4,
+        4
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        -179.84,
+        -138.88,
+        4
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        -171.53,
+        -138.61,
+        4
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -161.41,
+        -138.51,
+        4
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -152.8,
+        -139.43,
+        4
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        -134.88,
+        -138.55,
+        4
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        -116.86,
+        -138.79,
+        4
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        -99.18,
+        -138.51,
+        4
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        -89.67,
+        -139.5,
+        4
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        -81.14,
+        -139.17,
+        4
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        99.22,
+        -138.66,
+        4.0
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        108.22,
+        -138.77,
+        4.0
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        116.55,
+        -138.93,
+        4
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        125.34,
+        -139.54,
+        4
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        135.13,
+        -139.24,
+        4
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        161.3,
+        -138.76,
+        4
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        179.83,
+        -139.01,
+        4
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -180.47,
+        -127.89,
+        4
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -170.57,
+        -127.57,
+        4
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        -162.42,
+        -127.81,
+        4
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -152.37,
+        -127.55,
+        4
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        -143.3,
+        -128.03,
+        4
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        -134.98,
+        -128.27,
+        4
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        -125.49,
+        -127.51,
+        4
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        -116.65,
+        -128.39,
+        4
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        -107.47,
+        -127.96,
+        4
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -90.41,
+        -127.86,
+        4
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        -80.46,
+        -128.08,
+        4
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        116.9,
+        -127.96,
+        4
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        134.8,
+        -128.57,
+        4
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        144.06,
+        -127.71,
+        4
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        161.87,
+        -127.42,
+        4
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        170.71,
+        -128.13,
+        4
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        180.66,
+        -128.33,
+        4
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        -179.39,
+        -116.51,
+        4
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        -170.86,
+        -116.45,
+        4
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        -162.44,
+        -116.73,
+        4
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        -152.77,
+        -116.46,
+        4
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        -143.33,
+        -116.75,
+        4
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        -134.3,
+        -117.58,
+        4
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        -126.23,
+        -117.17,
+        4
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -116.57,
+        -116.97,
+        4
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        -107.46,
+        -117.18,
+        4
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        -98.51,
+        -117.49,
+        4
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        126.32,
+        -117.22,
+        4
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        134.8,
+        -117.35,
+        4
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        143.87,
+        -117.44,
+        4
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        153.67,
+        -116.44,
+        4
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        161.95,
+        -117.25,
+        4
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        171.37,
+        -116.97,
+        4
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        180.41,
+        -116.42,
+        4
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        -180.03,
+        -106.54,
+        4
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        -171.1,
+        -105.66,
+        4
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        -161.87,
+        -106.17,
+        4
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        -152.61,
+        -105.59,
+        4
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -143.54,
+        -105.64,
+        4
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        -134.35,
+        -105.85,
+        4
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        -125.82,
+        -105.62,
+        4
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -117.53,
+        -105.93,
+        4
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        -107.85,
+        -105.73,
+        4
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        134.84,
+        -105.58,
+        4
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        143.89,
+        -106.53,
+        4
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        152.86,
+        -105.76,
+        4
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        161.34,
+        -105.79,
+        4
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        170.49,
+        -105.93,
+        4
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        179.42,
+        -106.17,
+        4
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        -180.01,
+        -94.44,
+        4
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        -170.48,
+        -95.41,
+        4
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        -161.74,
+        -94.96,
+        4
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        -153.6,
+        -95.14,
+        4
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        -144.32,
+        -95.49,
+        4
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        -135.17,
+        -95.05,
+        4
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -126.36,
+        -94.43,
+        4
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        -116.59,
+        -94.97,
+        4
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        135.11,
+        -95.11,
+        4
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        144.65,
+        -95.22,
+        4
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        153.42,
+        -94.93,
+        4
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        162.36,
+        -94.56,
+        4
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        171.15,
+        -94.79,
+        4
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        179.68,
+        -94.5,
+        4
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        -170.32,
+        -84.06,
+        4
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        -161.48,
+        -83.51,
+        4
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        -153.33,
+        -83.68,
+        4
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -143.77,
+        -84.46,
+        4
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        -135.45,
+        -84.48,
+        4
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        -125.87,
+        -83.94,
+        4
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        -116.55,
+        -84.27,
+        4
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        170.73,
+        -84.21,
+        4
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        180.26,
+        -84.35,
+        4
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        171.64,
+        -73.09,
+        4
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        179.68,
+        -73.36,
+        4
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -171.55,
+        -62.17,
+        6
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        -134.42,
+        -62.36,
+        6
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        -125.41,
+        -62.03,
+        6
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        171.21,
+        -62.1,
+        4
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        180.57,
+        -61.46,
+        4
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        -171.22,
+        -51.41,
+        6
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        -126.69,
+        -51.1,
+        6
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        171.08,
+        -50.94,
+        4
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        179.47,
+        -50.68,
+        4
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -170.34,
+        -39.7,
+        6
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        -152.35,
+        -39.51,
+        6
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        179.39,
+        -40.28,
+        4
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        -170.42,
+        -29.28,
+        6
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        135.27,
+        -28.86,
+        4
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        171.47,
+        -28.69,
+        4
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        180.7,
+        -29.52,
+        4
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        -170.55,
+        -18.13,
+        6
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        -125.69,
+        -17.79,
+        6
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        125.82,
+        -17.96,
+        4
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        135.59,
+        -17.75,
+        4
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        180.49,
+        -17.69,
+        4
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        -134.42,
+        -7.36,
+        6
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        -126.41,
+        -7.56,
+        6
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        -108.48,
+        -6.82,
+        4
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        -99.05,
+        -6.61,
+        4
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        116.3,
+        -7.25,
+        4
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        125.44,
+        -6.61,
+        4
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        134.74,
+        -6.95,
+        4
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        144.02,
+        -7.05,
+        4
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        152.95,
+        -6.59,
+        4
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        -171.44,
+        3.86,
+        6
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        -134.63,
+        4.26,
+        6
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        -126.13,
+        4.6,
+        6
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        -107.57,
+        4.41,
+        4
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        -99.54,
+        3.93,
+        4
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        -90.41,
+        4.19,
+        4
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        -81.43,
+        3.53,
+        4
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        107.93,
+        3.61,
+        4.0
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        117.23,
+        4.25,
+        4
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        152.7,
+        4.12,
+        4
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        180.68,
+        3.95,
+        4
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        -108.0,
+        14.86,
+        4
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -99.25,
+        15.01,
+        4
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        -90.45,
+        15.12,
+        4
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        -81.08,
+        15.48,
+        4
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        -72.14,
+        15.1,
+        4
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        -62.48,
+        14.87,
+        4
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        80.55,
+        15.12,
+        4.0
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        90.31,
+        15.48,
+        4.0
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        99.28,
+        15.28,
+        4.0
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        117.25,
+        14.66,
+        4
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        125.62,
+        15.39,
+        4
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        152.32,
+        14.47,
+        4
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        179.95,
+        14.65,
+        4
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        -54.38,
+        25.84,
+        4.0
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        53.66,
+        25.98,
+        4.0
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        62.89,
+        26.15,
+        4.01
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -117.23,
+        36.55,
+        10
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -107.78,
+        37.43,
+        10
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -89.41,
+        36.91,
+        10
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        -80.81,
+        37.43,
+        10
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        -72.08,
+        36.4,
+        10
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        -53.77,
+        37.57,
+        4.0
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        -9.06,
+        37.48,
+        4.0
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        0.14,
+        37.4,
+        4.0
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        9.12,
+        37.2,
+        4.0
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        17.54,
+        37.03,
+        4.0
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        27.53,
+        37.43,
+        4.0
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        -135.37,
+        47.82,
+        10
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        8.82,
+        47.96,
+        4.0
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        17.43,
+        48.15,
+        4.0
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        -180.69,
+        58.5,
+        10
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        -170.85,
+        58.64,
+        10
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -152.79,
+        59.46,
+        10
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        -144.53,
+        58.7,
+        10
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        -135.5,
+        59.51,
+        10
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        9.63,
+        58.93,
+        4.0
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        17.77,
+        58.99,
+        4.0
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -179.39,
+        70.06,
+        10
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        -170.94,
+        69.4,
+        10
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        -161.51,
+        69.78,
+        10
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -143.75,
+        70.24,
+        10
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        -134.83,
+        70.22,
+        10
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        -44.64,
+        69.89,
+        4.0
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        -27.09,
+        70.59,
+        9
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        -0.63,
+        69.68,
+        9
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        18.48,
+        70.06,
+        4.0
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        -180.46,
+        80.9,
+        10
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        -170.8,
+        81.4,
+        10
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        -161.56,
+        80.82,
+        10
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -152.42,
+        81.12,
+        10
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        -143.31,
+        81.33,
+        10
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        -134.52,
+        81.31,
+        10
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        -89.3,
+        80.63,
+        10
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        -162.44,
+        92.16,
+        10
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        -152.97,
+        92.39,
+        10
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        -144.55,
+        92.39,
+        10
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        -134.33,
+        91.77,
+        10
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        -125.35,
+        91.75,
+        10
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        -117.33,
+        91.51,
+        10
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        -90.57,
+        91.53,
+        10
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        -71.64,
+        92.11,
+        10
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        -179.91,
+        102.63,
+        10
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        -170.36,
+        102.96,
+        10
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        -162.7,
+        103.14,
+        10
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -152.53,
+        102.47,
+        10
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        -144.56,
+        103.06,
+        10
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        -134.43,
+        103.21,
+        10
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        -99.02,
+        103.03,
+        10
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        -90.29,
+        102.45,
+        10
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        -80.58,
+        103.5,
+        10
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        -72.08,
+        102.44,
+        10
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        -53.4,
+        103.08,
+        4
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -35.47,
+        102.95,
+        4
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        18.65,
+        102.76,
+        4
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        26.88,
+        103.2,
+        4
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        179.93,
+        103.53,
+        26
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        -54.45,
+        114.59,
+        4
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        -45.3,
+        113.71,
+        4
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        -27.57,
+        114.27,
+        9
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        -0.65,
+        114.26,
+        9
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        17.73,
+        114.48,
+        4
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        26.41,
+        113.51,
+        4
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        179.77,
+        114.41,
+        26
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        -54.66,
+        124.67,
+        4
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        -45.61,
+        125.35,
+        4
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        -27.24,
+        125.0,
+        9
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        0.37,
+        125.23,
+        9
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        26.74,
+        125.37,
+        4
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        180.19,
+        124.59,
+        26
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -54.23,
+        135.67,
+        4
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        -45.08,
+        136.04,
+        4
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        9.34,
+        135.73,
+        4
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        26.7,
+        135.7,
+        4
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        170.54,
+        136.44,
+        26
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        179.88,
+        136.16,
+        26
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        -180.39,
+        146.83,
+        11.97
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        -171.29,
+        147.4,
+        11.98
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        -161.32,
+        147.11,
+        11.98
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        -153.4,
+        147.33,
+        11.98
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        -135.33,
+        146.9,
+        11.97
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        -126.04,
+        147.05,
+        11.98
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        -117.58,
+        147.07,
+        11.98
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        -108.19,
+        146.56,
+        11.97
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        -80.86,
+        147.04,
+        11.98
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        -71.71,
+        147.21,
+        11.98
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        -53.77,
+        146.82,
+        4
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        -8.39,
+        146.93,
+        9
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        8.81,
+        146.89,
+        4
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        18.68,
+        147.28,
+        4
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        27.64,
+        146.64,
+        4
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        180.1,
+        147.53,
+        26
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        -179.79,
+        157.51,
+        12
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        -170.33,
+        157.58,
+        12
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        -162.29,
+        157.69,
+        12
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        -152.65,
+        158.07,
+        12
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        -135.17,
+        157.87,
+        12
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        -126.41,
+        157.95,
+        12
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        -117.48,
+        158.27,
+        12
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        -108.36,
+        158.2,
+        12
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -99.21,
+        157.54,
+        12
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        -81.65,
+        157.51,
+        12
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        -72.46,
+        157.5,
+        12
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        -54.0,
+        157.91,
+        4
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        0.37,
+        158.35,
+        4
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        8.46,
+        158.23,
+        4
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        18.03,
+        157.73,
+        4
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        27.01,
+        157.84,
+        4
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        125.62,
+        158.41,
+        26
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        135.13,
+        158.36,
+        26
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        143.58,
+        158.16,
+        26
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        153.58,
+        158.31,
+        26
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        162.01,
+        158.29,
+        26
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        180.05,
+        157.42,
+        26
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        -170.48,
+        169.33,
+        12
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -162.27,
+        168.65,
+        12
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        -153.09,
+        168.95,
+        12
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        -144.43,
+        169.54,
+        12
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        -125.57,
+        168.67,
+        12
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -117.44,
+        169.6,
+        12
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        -108.4,
+        169.06,
+        12
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        -99.22,
+        169.0,
+        12
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -90.11,
+        168.53,
+        12
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        -81.0,
+        169.39,
+        12
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        -71.72,
+        169.38,
+        12
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        -44.81,
+        168.44,
+        9
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -18.04,
+        169.34,
+        9
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        8.9,
+        168.99,
+        4
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        18.49,
+        169.11,
+        4
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        26.68,
+        168.67,
+        4
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        116.53,
+        168.58,
+        26
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        126.07,
+        169.42,
+        26
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        135.33,
+        168.6,
+        26
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        144.22,
+        168.69,
+        26
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        152.95,
+        168.84,
+        26
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        162.19,
+        168.44,
+        26
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        171.28,
+        169.35,
+        26
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        180.54,
+        169.19,
+        26
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        -179.59,
+        180.45,
+        12
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        -171.49,
+        180.2,
+        12
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        -162.0,
+        180.04,
+        12
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        -153.25,
+        179.69,
+        12
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        -143.61,
+        180.14,
+        12
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        -134.31,
+        179.82,
+        12
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        -126.35,
+        179.96,
+        12
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        -116.71,
+        180.0,
+        12
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        -108.24,
+        180.18,
+        12
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        -99.22,
+        180.59,
+        12
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        -80.99,
+        179.6,
+        12
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        -72.45,
+        180.35,
+        12
+      ],
+      "prototype": "MASS prototype 7"
+    },
+    {
+      "position": [
+        -9.41,
+        179.55,
+        4
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        0.42,
+        179.97,
+        4
+      ],
+      "prototype": "MASS prototype 6"
+    },
+    {
+      "position": [
+        8.62,
+        180.22,
+        4
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        26.34,
+        179.51,
+        4
+      ],
+      "prototype": "MASS prototype 1"
+    },
+    {
+      "position": [
+        116.5,
+        179.63,
+        26
+      ],
+      "prototype": "MASS prototype 5"
+    },
+    {
+      "position": [
+        125.49,
+        179.95,
+        26
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        134.62,
+        179.87,
+        26
+      ],
+      "prototype": "MASS prototype 3"
+    },
+    {
+      "position": [
+        153.34,
+        179.61,
+        26
+      ],
+      "prototype": "MASS prototype 0"
+    },
+    {
+      "position": [
+        162.58,
+        179.45,
+        26
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        170.74,
+        180.17,
+        26
+      ],
+      "prototype": "MASS prototype 2"
+    },
+    {
+      "position": [
+        179.96,
+        179.79,
+        26
+      ],
+      "prototype": "MASS prototype 4"
+    },
+    {
+      "position": [
+        -82.4,
+        -62.2,
+        4
+      ],
+      "prototype": "MASS prototype 5",
+      "district": "West artisans"
+    },
+    {
+      "position": [
+        -76.6,
+        -62.2,
+        4
+      ],
+      "prototype": "MASS prototype 4",
+      "district": "West artisans"
+    },
+    {
+      "position": [
+        -70.8,
+        -62.2,
+        4
+      ],
+      "prototype": "MASS prototype 0",
+      "district": "West artisans"
+    },
+    {
+      "position": [
+        -70.8,
+        -47.8,
+        4
+      ],
+      "prototype": "MASS prototype 7",
+      "district": "West artisans"
+    },
+    {
+      "position": [
+        -59.2,
+        -69.4,
+        4
+      ],
+      "prototype": "MASS prototype 4",
+      "district": "West artisans"
+    },
+    {
+      "position": [
+        -59.2,
+        -62.2,
+        4
+      ],
+      "prototype": "MASS prototype 5",
+      "district": "West artisans"
+    },
+    {
+      "position": [
+        -59.2,
+        -40.6,
+        4
+      ],
+      "prototype": "MASS prototype 0",
+      "district": "West artisans"
+    },
+    {
+      "position": [
+        -53.4,
+        -69.4,
+        4
+      ],
+      "prototype": "MASS prototype 0",
+      "district": "West artisans"
+    },
+    {
+      "position": [
+        -53.4,
+        -62.2,
+        4
+      ],
+      "prototype": "MASS prototype 7",
+      "district": "West artisans"
+    },
+    {
+      "position": [
+        -53.4,
+        -40.6,
+        4
+      ],
+      "prototype": "MASS prototype 7",
+      "district": "West artisans"
+    },
+    {
+      "position": [
+        -47.6,
+        -62.2,
+        4
+      ],
+      "prototype": "MASS prototype 6",
+      "district": "West artisans"
+    },
+    {
+      "position": [
+        -28.2,
+        -27.8,
+        4
+      ],
+      "prototype": "MASS prototype 7",
+      "district": "Merchant island"
+    },
+    {
+      "position": [
+        0.8,
+        -27.8,
+        4
+      ],
+      "prototype": "MASS prototype 5",
+      "district": "Merchant island"
+    },
+    {
+      "position": [
+        0.8,
+        -20.6,
+        4
+      ],
+      "prototype": "MASS prototype 4",
+      "district": "Merchant island"
+    },
+    {
+      "position": [
+        6.6,
+        -49.4,
+        4
+      ],
+      "prototype": "MASS prototype 5",
+      "district": "Merchant island"
+    },
+    {
+      "position": [
+        18.2,
+        -27.8,
+        4
+      ],
+      "prototype": "MASS prototype 4",
+      "district": "Merchant island"
+    },
+    {
+      "position": [
+        40.6,
+        -84.4,
+        4
+      ],
+      "prototype": "MASS prototype 2",
+      "district": "Bathhouse island"
+    },
+    {
+      "position": [
+        40.6,
+        -77.2,
+        4
+      ],
+      "prototype": "MASS prototype 0",
+      "district": "Bathhouse island"
+    },
+    {
+      "position": [
+        46.4,
+        -84.4,
+        4
+      ],
+      "prototype": "MASS prototype 5",
+      "district": "Bathhouse island"
+    },
+    {
+      "position": [
+        46.4,
+        -77.2,
+        4
+      ],
+      "prototype": "MASS prototype 7",
+      "district": "Bathhouse island"
+    },
+    {
+      "position": [
+        46.4,
+        -55.6,
+        4
+      ],
+      "prototype": "MASS prototype 2",
+      "district": "Bathhouse island"
+    },
+    {
+      "position": [
+        52.2,
+        -84.4,
+        4
+      ],
+      "prototype": "MASS prototype 1",
+      "district": "Bathhouse island"
+    },
+    {
+      "position": [
+        52.2,
+        -77.2,
+        4
+      ],
+      "prototype": "MASS prototype 5",
+      "district": "Bathhouse island"
+    },
+    {
+      "position": [
+        52.2,
+        -55.6,
+        4
+      ],
+      "prototype": "MASS prototype 2",
+      "district": "Bathhouse island"
+    },
+    {
+      "position": [
+        63.8,
+        -55.6,
+        4
+      ],
+      "prototype": "MASS prototype 2",
+      "district": "Bathhouse island"
+    },
+    {
+      "position": [
+        69.6,
+        -55.6,
+        4
+      ],
+      "prototype": "MASS prototype 4",
+      "district": "Bathhouse island"
+    },
+    {
+      "position": [
+        -13.4,
+        -107.8,
+        4
+      ],
+      "prototype": "MASS prototype 3",
+      "district": "South homes"
+    },
+    {
+      "position": [
+        -7.6,
+        -122.2,
+        4
+      ],
+      "prototype": "MASS prototype 7",
+      "district": "South homes"
+    },
+    {
+      "position": [
+        -7.6,
+        -107.8,
+        4
+      ],
+      "prototype": "MASS prototype 6",
+      "district": "South homes"
+    },
+    {
+      "position": [
+        -1.8,
+        -122.2,
+        4
+      ],
+      "prototype": "MASS prototype 4",
+      "district": "South homes"
+    },
+    {
+      "position": [
+        9.8,
+        -129.4,
+        4
+      ],
+      "prototype": "MASS prototype 5",
+      "district": "South homes"
+    },
+    {
+      "position": [
+        9.8,
+        -122.2,
+        4
+      ],
+      "prototype": "MASS prototype 7",
+      "district": "South homes"
+    },
+    {
+      "position": [
+        9.8,
+        -107.8,
+        4
+      ],
+      "prototype": "MASS prototype 1",
+      "district": "South homes"
+    },
+    {
+      "position": [
+        15.6,
+        -122.2,
+        4
+      ],
+      "prototype": "MASS prototype 5",
+      "district": "South homes"
+    },
+    {
+      "position": [
+        15.6,
+        -107.8,
+        4
+      ],
+      "prototype": "MASS prototype 2",
+      "district": "South homes"
+    },
+    {
+      "position": [
+        -81.6,
+        -122.2,
+        4
+      ],
+      "prototype": "MASS prototype 2",
+      "district": "Fisher island"
+    },
+    {
+      "position": [
+        -81.6,
+        -107.8,
+        4
+      ],
+      "prototype": "MASS prototype 5",
+      "district": "Fisher island"
+    },
+    {
+      "position": [
+        -75.8,
+        -122.2,
+        4
+      ],
+      "prototype": "MASS prototype 1",
+      "district": "Fisher island"
+    },
+    {
+      "position": [
+        -75.8,
+        -107.8,
+        4
+      ],
+      "prototype": "MASS prototype 3",
+      "district": "Fisher island"
+    },
+    {
+      "position": [
+        -64.2,
+        -122.2,
+        4
+      ],
+      "prototype": "MASS prototype 4",
+      "district": "Fisher island"
+    },
+    {
+      "position": [
+        -64.2,
+        -107.8,
+        4
+      ],
+      "prototype": "MASS prototype 3",
+      "district": "Fisher island"
+    },
+    {
+      "position": [
+        -58.4,
+        -122.2,
+        4
+      ],
+      "prototype": "MASS prototype 5",
+      "district": "Fisher island"
+    },
+    {
+      "position": [
+        -58.4,
+        -107.8,
+        4
+      ],
+      "prototype": "MASS prototype 1",
+      "district": "Fisher island"
+    }
+  ],
+  "component_placements": [
+    {
+      "asset": "E Clock Hall complete",
+      "position": [
+        -105,
+        69,
+        10
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "F Canal Bathhouse complete",
+      "position": [
+        68,
+        -77,
+        4
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "G Great Waterwheel Mill complete",
+      "position": [
+        -27.19266590253174,
+        53,
+        2
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "E Courtyard apartment complex",
+      "position": [
+        -150,
+        -15,
+        6
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "E Courtyard apartment complex",
+      "position": [
+        -150,
+        -60,
+        6
+      ],
+      "yaw": 3.141592653589793
+    },
+    {
+      "asset": "C Wisteria gazebo and open pavilion",
+      "position": [
+        116,
+        126,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "D Hillside villa complete",
+      "position": [
+        87,
+        118,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "D Hillside villa complete",
+      "position": [
+        145,
+        133,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "D Hillside villa complete",
+      "position": [
+        142,
+        86,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "A Warehouse complete",
+      "position": [
+        152,
+        -75,
+        4
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "A Warehouse complete",
+      "position": [
+        152,
+        -53,
+        4
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "A Warehouse complete",
+      "position": [
+        152,
+        -25,
+        4
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "A Cream peaked bookshop",
+      "position": [
+        -20,
+        -26,
+        4
+      ],
+      "yaw": 3.141592653589793
+    },
+    {
+      "asset": "A Cream peaked bookshop",
+      "position": [
+        -20,
+        -44,
+        4
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "B Rose stepped tailor",
+      "position": [
+        -15,
+        -26,
+        4
+      ],
+      "yaw": 3.141592653589793
+    },
+    {
+      "asset": "B Rose stepped tailor",
+      "position": [
+        -15,
+        -44,
+        4
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "C Sage arched cafe",
+      "position": [
+        -10,
+        -26,
+        4
+      ],
+      "yaw": 3.141592653589793
+    },
+    {
+      "asset": "C Sage arched cafe",
+      "position": [
+        -10,
+        -44,
+        4
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "D Ochre oriel restaurant",
+      "position": [
+        -5,
+        -26,
+        4
+      ],
+      "yaw": 3.141592653589793
+    },
+    {
+      "asset": "D Ochre oriel restaurant",
+      "position": [
+        -5,
+        -44,
+        4
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "F Corner restaurant apartments",
+      "position": [
+        11,
+        -26,
+        4
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Complete gate arch surround",
+      "position": [
+        70,
+        95,
+        26
+      ],
+      "yaw": -1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        70,
+        67,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        70,
+        67,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        70,
+        71,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        70,
+        71,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        70,
+        75,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        70,
+        75,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        70,
+        79,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        70,
+        79,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        70,
+        83,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        70,
+        83,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        70,
+        87,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        70,
+        87,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        70,
+        101,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        70,
+        101,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        70,
+        105,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        70,
+        105,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        70,
+        109,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        70,
+        109,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        70,
+        113,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        70,
+        113,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        70,
+        117,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        70,
+        117,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        70,
+        121,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        70,
+        121,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        70,
+        125,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        70,
+        125,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        70,
+        129,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        70,
+        129,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        70,
+        133,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        70,
+        133,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        70,
+        137,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        70,
+        137,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        70,
+        141,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        70,
+        141,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        70,
+        145,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        70,
+        145,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        70,
+        149,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        70,
+        149,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        74,
+        65,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        74,
+        65,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        74,
+        150,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        74,
+        150,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        78,
+        65,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        78,
+        65,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        78,
+        150,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        78,
+        150,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        82,
+        65,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        82,
+        65,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        82,
+        150,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        82,
+        150,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        86,
+        65,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        86,
+        65,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        86,
+        150,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        86,
+        150,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        90,
+        65,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        90,
+        65,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        90,
+        150,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        90,
+        150,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        94,
+        65,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        94,
+        65,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        94,
+        150,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        94,
+        150,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        98,
+        65,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        98,
+        65,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        98,
+        150,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        98,
+        150,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        102,
+        65,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        102,
+        65,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        102,
+        150,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        102,
+        150,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        106,
+        65,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        106,
+        65,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        106,
+        150,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        106,
+        150,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        110,
+        65,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        110,
+        65,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        110,
+        150,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        110,
+        150,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        114,
+        65,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        114,
+        65,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        114,
+        150,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        114,
+        150,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        118,
+        65,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        118,
+        65,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        118,
+        150,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        118,
+        150,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        122,
+        65,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        122,
+        65,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        122,
+        150,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        122,
+        150,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        126,
+        65,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        126,
+        65,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        126,
+        150,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        126,
+        150,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        130,
+        65,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        130,
+        65,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        130,
+        150,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        130,
+        150,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        134,
+        65,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        134,
+        65,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        134,
+        150,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        134,
+        150,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        138,
+        65,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        138,
+        65,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        138,
+        150,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        138,
+        150,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        142,
+        65,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        142,
+        65,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        142,
+        150,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        142,
+        150,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        146,
+        65,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        146,
+        65,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        146,
+        150,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        146,
+        150,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        150,
+        65,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        150,
+        65,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        150,
+        150,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        150,
+        150,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        154,
+        65,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        154,
+        65,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        154,
+        150,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        154,
+        150,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        158,
+        69,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        158,
+        69,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        158,
+        73,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        158,
+        73,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        158,
+        77,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        158,
+        77,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        158,
+        81,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        158,
+        81,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        158,
+        85,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        158,
+        85,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        158,
+        89,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        158,
+        89,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        158,
+        93,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        158,
+        93,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        158,
+        97,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        158,
+        97,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        158,
+        101,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        158,
+        101,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        158,
+        105,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        158,
+        105,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        158,
+        109,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        158,
+        109,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        158,
+        113,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        158,
+        113,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        158,
+        117,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        158,
+        117,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        158,
+        121,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        158,
+        121,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        158,
+        125,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        158,
+        125,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        158,
+        129,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        158,
+        129,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        158,
+        133,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        158,
+        133,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        158,
+        137,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        158,
+        137,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        158,
+        141,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        158,
+        141,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        158,
+        145,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        158,
+        145,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Fort wall block bay",
+      "position": [
+        158,
+        149,
+        26
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Capped battlement bay",
+      "position": [
+        158,
+        149,
+        32
+      ],
+      "yaw": 1.5707963267948966
+    },
+    {
+      "asset": "Tower masonry base",
+      "position": [
+        70,
+        85,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Tower masonry base",
+      "position": [
+        70,
+        85,
+        29
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Tower masonry base",
+      "position": [
+        70,
+        85,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Tower lookout transition",
+      "position": [
+        70,
+        85,
+        35
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Complete lookout frame",
+      "position": [
+        70,
+        85,
+        35.3
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Complete watchtower hip roof",
+      "position": [
+        70,
+        85,
+        38.3
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Tower masonry base",
+      "position": [
+        70,
+        106,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Tower masonry base",
+      "position": [
+        70,
+        106,
+        29
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Tower masonry base",
+      "position": [
+        70,
+        106,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Tower lookout transition",
+      "position": [
+        70,
+        106,
+        35
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Complete lookout frame",
+      "position": [
+        70,
+        106,
+        35.3
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Complete watchtower hip roof",
+      "position": [
+        70,
+        106,
+        38.3
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Tower masonry base",
+      "position": [
+        158,
+        65,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Tower masonry base",
+      "position": [
+        158,
+        65,
+        29
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Tower masonry base",
+      "position": [
+        158,
+        65,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Tower lookout transition",
+      "position": [
+        158,
+        65,
+        35
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Complete lookout frame",
+      "position": [
+        158,
+        65,
+        35.3
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Complete watchtower hip roof",
+      "position": [
+        158,
+        65,
+        38.3
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Tower masonry base",
+      "position": [
+        158,
+        150,
+        26
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Tower masonry base",
+      "position": [
+        158,
+        150,
+        29
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Tower masonry base",
+      "position": [
+        158,
+        150,
+        32
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Tower lookout transition",
+      "position": [
+        158,
+        150,
+        35
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Complete lookout frame",
+      "position": [
+        158,
+        150,
+        35.3
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Complete watchtower hip roof",
+      "position": [
+        158,
+        150,
+        38.3
+      ],
+      "yaw": 0
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -27.092603458102445,
+        196.66572196994997,
+        9
+      ],
+      "yaw": 2.6945041427935337
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -103.71922492694586,
+        175.3390659820571,
+        12
+      ],
+      "yaw": 2.6894682303900224
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -60.181773227725415,
+        186.9018417393752,
+        4
+      ],
+      "yaw": 5.076009814970104
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -61.374450483414904,
+        170.68391635083847,
+        4
+      ],
+      "yaw": 1.4453262126175916
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        27.69836812245663,
+        193.29530637507705,
+        4
+      ],
+      "yaw": 3.9545743379197673
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        0.4184904599033814,
+        169.18587426122295,
+        4
+      ],
+      "yaw": 5.206585022612689
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -45.6740167273409,
+        179.68237582616445,
+        9
+      ],
+      "yaw": 2.641025818255783
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -82.22943440174882,
+        183.52264934632345,
+        12
+      ],
+      "yaw": 3.9849045946630173
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -121.43455958606359,
+        176.78861469257936,
+        12
+      ],
+      "yaw": 4.258934590153546
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        95.17098269584943,
+        174.0132643367957,
+        24.01251714305039
+      ],
+      "yaw": 0.4837954169335426
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        108.43864889852034,
+        174.1051161742044,
+        25.975187112417032
+      ],
+      "yaw": 0.8614737283633391
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        24.728848534038463,
+        172.59604261099608,
+        4
+      ],
+      "yaw": 5.41517718654151
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        179.74084431451877,
+        165.4730661981795,
+        26
+      ],
+      "yaw": 0.720224393577582
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        135.69288516448069,
+        153.18770471856192,
+        26
+      ],
+      "yaw": 3.794427948007591
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        0.12668416176299502,
+        185.00243505412772,
+        4
+      ],
+      "yaw": 3.974870622422649
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        31.961014315242494,
+        196.49903303801497,
+        4.039009439693075
+      ],
+      "yaw": 4.627650451063245
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        127.77837440270031,
+        174.6691950198567,
+        26
+      ],
+      "yaw": 6.276071683429648
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -129.19301446230259,
+        156.67850621320946,
+        12
+      ],
+      "yaw": 3.5248334343081495
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        179.16405459589265,
+        154.3859033297409,
+        26
+      ],
+      "yaw": 1.6023665668900524
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        15.00966729652663,
+        207.75046747920877,
+        4
+      ],
+      "yaw": 4.318888245344562
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -55.30025330167524,
+        193.15786394457916,
+        9
+      ],
+      "yaw": 4.485696579011539
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -6.433363972410149,
+        155.10135888316412,
+        9
+      ],
+      "yaw": 3.378573267173322
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -89.45097908429875,
+        174.2372534300576,
+        12
+      ],
+      "yaw": 2.23257593166812
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        70.24263178528815,
+        211.21457540595878,
+        15.100084383919219
+      ],
+      "yaw": 5.9422755180815905
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -79.68073900221313,
+        211.2610542230014,
+        12
+      ],
+      "yaw": 1.350083112519605
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        143.58854245744095,
+        176.52834807167955,
+        26
+      ],
+      "yaw": 2.6341334760120683
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        39.3870098266263,
+        186.8721639855885,
+        4.837612969271162
+      ],
+      "yaw": 3.9477565085176174
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -45.96177147302609,
+        173.39448223112893,
+        9
+      ],
+      "yaw": 5.367970621433916
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -133.37977647614304,
+        174.870557883022,
+        12
+      ],
+      "yaw": 1.580038623320336
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -118.4645147947544,
+        170.90335814821898,
+        12
+      ],
+      "yaw": 3.2441818389725254
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        68.85274630211507,
+        158.19294580942554,
+        14.526887615681117
+      ],
+      "yaw": 4.7433594082211625
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        35.599121449507294,
+        169.87680940612134,
+        4.308213637344237
+      ],
+      "yaw": 2.979089230301195
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -137.09470838976648,
+        158.74224683369118,
+        12
+      ],
+      "yaw": 2.182488355643663
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -125.07594013450824,
+        201.3810096327822,
+        12
+      ],
+      "yaw": 5.1644873816356975
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        19.28461179568953,
+        195.06552680365252,
+        4
+      ],
+      "yaw": 0.9954923180972366
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        107.97335543236198,
+        193.90264400752648,
+        25.95835893529618
+      ],
+      "yaw": 2.756418970342851
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        147.00669312884793,
+        206.77279826385674,
+        26
+      ],
+      "yaw": 5.961175943694784
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -23.029543235887814,
+        211.99232125682292,
+        4
+      ],
+      "yaw": 3.3113900903991667
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        189.9161467908874,
+        205.55273162232172,
+        26
+      ],
+      "yaw": 0.7251082077755283
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -1.0915037288850158,
+        165.53085760753052,
+        4
+      ],
+      "yaw": 0.8163932786241456
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        91.8000748579376,
+        189.8946350129998,
+        23.102189269562718
+      ],
+      "yaw": 3.826134145108816
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        94.00317553991067,
+        177.33871261300192,
+        23.71283828013858
+      ],
+      "yaw": 0.06595677057864525
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        128.58465677444298,
+        193.25355254582627,
+        26
+      ],
+      "yaw": 1.6858443504053435
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -66.98628997078877,
+        184.88750189828474,
+        12
+      ],
+      "yaw": 0.40103165456264706
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -6.243660299801206,
+        177.76216883367917,
+        4
+      ],
+      "yaw": 1.007325035209625
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        23.56370721383402,
+        164.25567876563736,
+        4
+      ],
+      "yaw": 0.3991724862709549
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -50.771132608347585,
+        181.16960479038022,
+        9
+      ],
+      "yaw": 5.883052621981437
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -74.24231399521022,
+        175.75599250899404,
+        12
+      ],
+      "yaw": 0.7451433401220543
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        91.05425834264781,
+        152.71446867758604,
+        22.882829507066557
+      ],
+      "yaw": 0.9249882690522324
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -16.512811175606913,
+        154.5037234379037,
+        9
+      ],
+      "yaw": 2.6583549754127476
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -114.64421242962861,
+        185.54108505976635,
+        12
+      ],
+      "yaw": 2.6807642522638706
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -93.85879962033336,
+        206.81788319647922,
+        12
+      ],
+      "yaw": 6.2458800128630525
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        48.006703735014526,
+        194.6934289973449,
+        6.841991545127241
+      ],
+      "yaw": 6.129648605288889
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        188.02055424797442,
+        183.8820611382087,
+        26
+      ],
+      "yaw": 0.04278614418044475
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        81.44559003748799,
+        198.70626282579266,
+        19.592452077668806
+      ],
+      "yaw": 5.706298078477848
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        119.55975690992676,
+        201.63726817870577,
+        26
+      ],
+      "yaw": 4.777080597247447
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -148.39598839498038,
+        184.0833775826007,
+        12
+      ],
+      "yaw": 2.9926553678981485
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -146.09162892779995,
+        184.93026105535648,
+        12
+      ],
+      "yaw": 5.184971739977817
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        42.745302197201426,
+        192.15799112341347,
+        5.497267209660391
+      ],
+      "yaw": 1.4615446305410138
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -124.19944789204938,
+        209.10611449298793,
+        12
+      ],
+      "yaw": 1.7778986887850154
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -53.122323929929195,
+        200.20782112958221,
+        9
+      ],
+      "yaw": 1.1220098102752565
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -111.62302862959888,
+        153.40880837531967,
+        12
+      ],
+      "yaw": 1.800009687341252
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -133.02558845465396,
+        196.3554262268013,
+        12
+      ],
+      "yaw": 3.1076183472966203
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -127.88171717677989,
+        190.37143059151413,
+        12
+      ],
+      "yaw": 5.116152729977473
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -2.1943089443253996,
+        175.9157533830794,
+        4
+      ],
+      "yaw": 5.813863790559658
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        25.856527177277798,
+        173.68083566894273,
+        4
+      ],
+      "yaw": 0.3611509078591917
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -160.8475993658969,
+        207.14980232908647,
+        12
+      ],
+      "yaw": 6.252770341590709
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -140.74810153389572,
+        164.9108563276167,
+        12
+      ],
+      "yaw": 3.468884340001124
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        94.58222339500469,
+        187.6771660168879,
+        23.863592551267246
+      ],
+      "yaw": 2.3049944717563267
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        167.40491237229884,
+        186.205129231816,
+        26
+      ],
+      "yaw": 4.814998022889978
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        128.39429025528324,
+        162.12487540230416,
+        26
+      ],
+      "yaw": 0.8298417568388297
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        187.54772893346927,
+        180.91631171408756,
+        26
+      ],
+      "yaw": 1.168080814750053
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        25.754785480468314,
+        170.9982298554385,
+        4
+      ],
+      "yaw": 4.059669149785646
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        154.6236458532228,
+        158.24392816077128,
+        26
+      ],
+      "yaw": 4.663079120409528
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        72.3625941260164,
+        193.076973364093,
+        15.97343676344782
+      ],
+      "yaw": 1.6764779441489353
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        171.2066225888912,
+        181.08909507250476,
+        26
+      ],
+      "yaw": 5.611565380118581
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -73.08396692302534,
+        206.63813699641173,
+        12
+      ],
+      "yaw": 4.201829113144898
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        39.33841373949696,
+        159.83208919577797,
+        4.829327047747578
+      ],
+      "yaw": 2.0956828880262086
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -52.04044929019858,
+        183.21043814588822,
+        9
+      ],
+      "yaw": 4.576632270500378
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -164.6807432729957,
+        177.28979610795807,
+        12
+      ],
+      "yaw": 5.264195786493506
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        -140.80753271905428,
+        173.5290464228254,
+        12
+      ],
+      "yaw": 4.128234874481636
+    },
+    {
+      "asset": "Hillside pine 1",
+      "position": [
+        126.78536099057078,
+        157.24805825546775,
+        26
+      ],
+      "yaw": 3.7967193887370927
+    }
+  ],
+  "terrain_vertices": 160801,
+  "notes": "Concept-scale layout, not a gameplay-validated level. All placed components are independent editable mesh objects, organized beneath assembly parent empties.",
+  "component_representation": "independent editable meshes"
+}

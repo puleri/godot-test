@@ -1,0 +1,3695 @@
+{
+  "module_standard": {
+    "wall_bay_m": 4,
+    "story_height_m": 3,
+    "half_bay_m": 2,
+    "up": "Z",
+    "facade": "-Y",
+    "pivot": "base center unless connector noted"
+  },
+  "count": 204,
+  "categories": {
+    "01 Buildings": 27,
+    "02 Roofs and Openings": 32,
+    "03 Streets and Terraces": 30,
+    "04 Bridges and Canals": 31,
+    "05 Gatehouse and Tower": 17,
+    "06 Market and Landmarks": 21,
+    "07 Props and Dressing": 34,
+    "08 Character Bases": 12
+  },
+  "components": [
+    {
+      "name": "Stone wall plain",
+      "kit": "01 Buildings",
+      "dimensions_m": [
+        4.0,
+        0.355,
+        3.0
+      ],
+      "vertices": 104,
+      "faces": 78,
+      "gallery_position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "notes": "4 m bay \u00d7 3 m story; facade -Y; opening inserts separate.",
+      "collection": "Stone wall plain"
+    },
+    {
+      "name": "Stone wall window",
+      "kit": "01 Buildings",
+      "dimensions_m": [
+        4.0,
+        0.355,
+        3.0
+      ],
+      "vertices": 80,
+      "faces": 60,
+      "gallery_position": [
+        7.0,
+        0.0,
+        0.0
+      ],
+      "notes": "4 m bay \u00d7 3 m story; facade -Y; opening inserts separate.",
+      "collection": "Stone wall window"
+    },
+    {
+      "name": "Stone wall door",
+      "kit": "01 Buildings",
+      "dimensions_m": [
+        4.0,
+        0.355,
+        3.0
+      ],
+      "vertices": 72,
+      "faces": 54,
+      "gallery_position": [
+        14.0,
+        0.0,
+        0.0
+      ],
+      "notes": "4 m bay \u00d7 3 m story; facade -Y; opening inserts separate.",
+      "collection": "Stone wall door"
+    },
+    {
+      "name": "Stone corner outer",
+      "kit": "01 Buildings",
+      "dimensions_m": [
+        0.65,
+        0.65,
+        3.0
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        21.0,
+        0.0,
+        0.0
+      ],
+      "notes": "0.5 m return corner; straight panels terminate at corner ends.",
+      "collection": "Stone corner outer"
+    },
+    {
+      "name": "Stone corner inner",
+      "kit": "01 Buildings",
+      "dimensions_m": [
+        0.65,
+        0.65,
+        3.0
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        28.0,
+        0.0,
+        0.0
+      ],
+      "notes": "0.5 m return corner; straight panels terminate at corner ends.",
+      "collection": "Stone corner inner"
+    },
+    {
+      "name": "Stone half wall",
+      "kit": "01 Buildings",
+      "dimensions_m": [
+        2.0,
+        0.355,
+        3.0
+      ],
+      "vertices": 56,
+      "faces": 42,
+      "gallery_position": [
+        35.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Stone half wall"
+    },
+    {
+      "name": "Timber wall plain",
+      "kit": "01 Buildings",
+      "dimensions_m": [
+        4.0,
+        0.425,
+        3.0
+      ],
+      "vertices": 40,
+      "faces": 30,
+      "gallery_position": [
+        42.0,
+        0.0,
+        0.0
+      ],
+      "notes": "4 m bay \u00d7 3 m story; facade -Y; opening inserts separate.",
+      "collection": "Timber wall plain"
+    },
+    {
+      "name": "Timber wall window",
+      "kit": "01 Buildings",
+      "dimensions_m": [
+        4.0,
+        0.36,
+        3.0
+      ],
+      "vertices": 48,
+      "faces": 36,
+      "gallery_position": [
+        49.0,
+        0.0,
+        0.0
+      ],
+      "notes": "4 m bay \u00d7 3 m story; facade -Y; opening inserts separate.",
+      "collection": "Timber wall window"
+    },
+    {
+      "name": "Timber wall door",
+      "kit": "01 Buildings",
+      "dimensions_m": [
+        4.0,
+        0.36,
+        3.0
+      ],
+      "vertices": 40,
+      "faces": 30,
+      "gallery_position": [
+        0.0,
+        7.0,
+        0.0
+      ],
+      "notes": "4 m bay \u00d7 3 m story; facade -Y; opening inserts separate.",
+      "collection": "Timber wall door"
+    },
+    {
+      "name": "Timber corner outer",
+      "kit": "01 Buildings",
+      "dimensions_m": [
+        0.65,
+        0.705,
+        3.0
+      ],
+      "vertices": 24,
+      "faces": 18,
+      "gallery_position": [
+        7.0,
+        7.0,
+        0.0
+      ],
+      "notes": "0.5 m return corner; straight panels terminate at corner ends.",
+      "collection": "Timber corner outer"
+    },
+    {
+      "name": "Timber corner inner",
+      "kit": "01 Buildings",
+      "dimensions_m": [
+        0.65,
+        0.705,
+        3.0
+      ],
+      "vertices": 24,
+      "faces": 18,
+      "gallery_position": [
+        14.0,
+        7.0,
+        0.0
+      ],
+      "notes": "0.5 m return corner; straight panels terminate at corner ends.",
+      "collection": "Timber corner inner"
+    },
+    {
+      "name": "Timber half wall",
+      "kit": "01 Buildings",
+      "dimensions_m": [
+        2.0,
+        0.425,
+        3.0
+      ],
+      "vertices": 40,
+      "faces": 30,
+      "gallery_position": [
+        21.0,
+        7.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Timber half wall"
+    },
+    {
+      "name": "Vertical post",
+      "kit": "01 Buildings",
+      "dimensions_m": [
+        0.22,
+        0.22,
+        3.0
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        28.0,
+        7.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Vertical post"
+    },
+    {
+      "name": "Horizontal beam",
+      "kit": "01 Buildings",
+      "dimensions_m": [
+        4.0,
+        0.22,
+        0.22
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        35.0,
+        7.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Horizontal beam"
+    },
+    {
+      "name": "Diagonal brace",
+      "kit": "01 Buildings",
+      "dimensions_m": [
+        2.1249,
+        0.16,
+        2.6
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        42.0,
+        7.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Diagonal brace"
+    },
+    {
+      "name": "Interior floor",
+      "kit": "01 Buildings",
+      "dimensions_m": [
+        4.0,
+        4.0,
+        0.36
+      ],
+      "vertices": 144,
+      "faces": 108,
+      "gallery_position": [
+        49.0,
+        7.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Interior floor"
+    },
+    {
+      "name": "Exposed floor underside",
+      "kit": "01 Buildings",
+      "dimensions_m": [
+        4.0,
+        4.0,
+        0.53
+      ],
+      "vertices": 152,
+      "faces": 114,
+      "gallery_position": [
+        0.0,
+        14.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Exposed floor underside"
+    },
+    {
+      "name": "Projecting upper floor bay",
+      "kit": "01 Buildings",
+      "dimensions_m": [
+        4.0,
+        1.125,
+        0.465
+      ],
+      "vertices": 152,
+      "faces": 114,
+      "gallery_position": [
+        7.0,
+        14.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Projecting upper floor bay"
+    },
+    {
+      "name": "Projecting corner floor",
+      "kit": "01 Buildings",
+      "dimensions_m": [
+        2.0,
+        2.125,
+        0.465
+      ],
+      "vertices": 88,
+      "faces": 66,
+      "gallery_position": [
+        14.0,
+        14.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Projecting corner floor"
+    },
+    {
+      "name": "Overhang bracket 0.6",
+      "kit": "01 Buildings",
+      "dimensions_m": [
+        0.14,
+        0.7195,
+        0.7195
+      ],
+      "vertices": 24,
+      "faces": 18,
+      "gallery_position": [
+        21.0,
+        14.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Overhang bracket 0.6"
+    },
+    {
+      "name": "Overhang bracket 1.3",
+      "kit": "01 Buildings",
+      "dimensions_m": [
+        0.14,
+        1.4195,
+        1.4195
+      ],
+      "vertices": 24,
+      "faces": 18,
+      "gallery_position": [
+        28.0,
+        14.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Overhang bracket 1.3"
+    },
+    {
+      "name": "Foundation straight",
+      "kit": "01 Buildings",
+      "dimensions_m": [
+        4.0,
+        0.6,
+        0.6
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        35.0,
+        14.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Foundation straight"
+    },
+    {
+      "name": "Foundation corner",
+      "kit": "01 Buildings",
+      "dimensions_m": [
+        1.0,
+        1.0,
+        0.6
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        42.0,
+        14.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Foundation corner"
+    },
+    {
+      "name": "Foundation stepped",
+      "kit": "01 Buildings",
+      "dimensions_m": [
+        4.0,
+        1.2,
+        0.6
+      ],
+      "vertices": 24,
+      "faces": 18,
+      "gallery_position": [
+        49.0,
+        14.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Foundation stepped"
+    },
+    {
+      "name": "Base course",
+      "kit": "01 Buildings",
+      "dimensions_m": [
+        4.0,
+        0.42,
+        0.25
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        0.0,
+        21.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Base course"
+    },
+    {
+      "name": "Wall cap",
+      "kit": "01 Buildings",
+      "dimensions_m": [
+        4.0,
+        0.45,
+        0.15
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        7.0,
+        21.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Wall cap"
+    },
+    {
+      "name": "Projecting stone",
+      "kit": "01 Buildings",
+      "dimensions_m": [
+        0.4,
+        0.3,
+        0.22
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        14.0,
+        21.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Projecting stone"
+    },
+    {
+      "name": "Slate roof panel",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        3.992,
+        2.096,
+        1.734
+      ],
+      "vertices": 336,
+      "faces": 252,
+      "gallery_position": [
+        0.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Slate roof panel"
+    },
+    {
+      "name": "Slate roof dormer opening",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        3.992,
+        2.096,
+        1.734
+      ],
+      "vertices": 264,
+      "faces": 198,
+      "gallery_position": [
+        7.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Slate roof dormer opening"
+    },
+    {
+      "name": "Gable roof end",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        4.0,
+        0.2,
+        1.5
+      ],
+      "vertices": 6,
+      "faces": 5,
+      "gallery_position": [
+        14.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Gable roof end"
+    },
+    {
+      "name": "Hip roof end",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        4.0,
+        2.0,
+        1.5
+      ],
+      "vertices": 3,
+      "faces": 1,
+      "gallery_position": [
+        21.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Hip roof end"
+    },
+    {
+      "name": "Roof valley junction",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        2.2935,
+        2.2935,
+        1.659
+      ],
+      "vertices": 12,
+      "faces": 7,
+      "gallery_position": [
+        28.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Roof valley junction"
+    },
+    {
+      "name": "Roof ridge",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        4.0,
+        0.17,
+        0.17
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        35.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Roof ridge"
+    },
+    {
+      "name": "Roof eave",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        4.0,
+        0.17,
+        0.17
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        42.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Roof eave"
+    },
+    {
+      "name": "Roof verge",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        0.17,
+        2.102,
+        1.636
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        49.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Roof verge"
+    },
+    {
+      "name": "Roof ridge end cap",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        0.26,
+        0.26,
+        0.3
+      ],
+      "vertices": 16,
+      "faces": 10,
+      "gallery_position": [
+        0.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Roof ridge end cap"
+    },
+    {
+      "name": "Gable timber window",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        4.09,
+        0.325,
+        1.62
+      ],
+      "vertices": 30,
+      "faces": 23,
+      "gallery_position": [
+        7.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Gable timber window"
+    },
+    {
+      "name": "Window dormer",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        1.6,
+        1.3,
+        1.65
+      ],
+      "vertices": 28,
+      "faces": 19,
+      "gallery_position": [
+        14.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Window dormer"
+    },
+    {
+      "name": "Chimney stack 1",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        0.65,
+        0.65,
+        1.0
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        21.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Chimney stack 1"
+    },
+    {
+      "name": "Chimney stack 2",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        0.65,
+        0.65,
+        2.0
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        28.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Chimney stack 2"
+    },
+    {
+      "name": "Chimney cap",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        0.86,
+        0.86,
+        0.2
+      ],
+      "vertices": 16,
+      "faces": 16,
+      "gallery_position": [
+        35.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Chimney cap"
+    },
+    {
+      "name": "Square window insert",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        1.28,
+        0.18,
+        1.43
+      ],
+      "vertices": 56,
+      "faces": 42,
+      "gallery_position": [
+        42.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Square window insert"
+    },
+    {
+      "name": "Tall window insert",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        1.28,
+        0.18,
+        2.0
+      ],
+      "vertices": 56,
+      "faces": 42,
+      "gallery_position": [
+        49.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Tall window insert"
+    },
+    {
+      "name": "Shutters closed",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        1.18,
+        0.12,
+        1.3
+      ],
+      "vertices": 80,
+      "faces": 60,
+      "gallery_position": [
+        0.0,
+        70.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Shutters closed"
+    },
+    {
+      "name": "Shutters open",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        2.46,
+        0.12,
+        1.3
+      ],
+      "vertices": 80,
+      "faces": 60,
+      "gallery_position": [
+        7.0,
+        70.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Shutters open"
+    },
+    {
+      "name": "Window sill",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        1.5,
+        0.4,
+        0.16
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        14.0,
+        70.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Window sill"
+    },
+    {
+      "name": "Window flower box",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        1.4,
+        0.38,
+        0.33
+      ],
+      "vertices": 40,
+      "faces": 30,
+      "gallery_position": [
+        21.0,
+        70.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Window flower box"
+    },
+    {
+      "name": "House door",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        1.148,
+        0.228,
+        2.26
+      ],
+      "vertices": 100,
+      "faces": 96,
+      "gallery_position": [
+        28.0,
+        70.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "House door"
+    },
+    {
+      "name": "Reinforced door",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        1.148,
+        0.228,
+        2.26
+      ],
+      "vertices": 100,
+      "faces": 96,
+      "gallery_position": [
+        35.0,
+        70.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Reinforced door"
+    },
+    {
+      "name": "Double shop door",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        2.388,
+        0.228,
+        2.26
+      ],
+      "vertices": 184,
+      "faces": 180,
+      "gallery_position": [
+        42.0,
+        70.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Double shop door"
+    },
+    {
+      "name": "Timber door surround",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        1.52,
+        0.24,
+        2.49
+      ],
+      "vertices": 24,
+      "faces": 18,
+      "gallery_position": [
+        49.0,
+        70.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Timber door surround"
+    },
+    {
+      "name": "Stone arched doorway",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        1.8,
+        0.35,
+        2.65
+      ],
+      "vertices": 112,
+      "faces": 84,
+      "gallery_position": [
+        0.0,
+        77.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Stone arched doorway"
+    },
+    {
+      "name": "Entrance single step",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        1.6,
+        0.45,
+        0.2
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        7.0,
+        77.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Entrance single step"
+    },
+    {
+      "name": "Entrance short steps",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        1.8,
+        1.2,
+        0.6
+      ],
+      "vertices": 24,
+      "faces": 18,
+      "gallery_position": [
+        14.0,
+        77.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Entrance short steps"
+    },
+    {
+      "name": "Open service window",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        4.0,
+        1.025,
+        3.0
+      ],
+      "vertices": 88,
+      "faces": 66,
+      "gallery_position": [
+        21.0,
+        77.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Open service window"
+    },
+    {
+      "name": "Shop display counter",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        2.15,
+        0.85,
+        1.1
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        28.0,
+        77.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Shop display counter"
+    },
+    {
+      "name": "Straight shop awning",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        4.0,
+        1.8125,
+        0.52
+      ],
+      "vertices": 112,
+      "faces": 64,
+      "gallery_position": [
+        35.0,
+        77.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Straight shop awning"
+    },
+    {
+      "name": "Awning end piece",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        1.8,
+        0.03,
+        0.28
+      ],
+      "vertices": 6,
+      "faces": 5,
+      "gallery_position": [
+        42.0,
+        77.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Awning end piece"
+    },
+    {
+      "name": "Awning timber supports",
+      "kit": "02 Roofs and Openings",
+      "dimensions_m": [
+        4.0,
+        0.12,
+        2.56
+      ],
+      "vertices": 24,
+      "faces": 18,
+      "gallery_position": [
+        49.0,
+        77.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Awning timber supports"
+    },
+    {
+      "name": "Cobblestone square",
+      "kit": "03 Streets and Terraces",
+      "dimensions_m": [
+        3.98,
+        3.98,
+        0.12
+      ],
+      "vertices": 640,
+      "faces": 480,
+      "gallery_position": [
+        0.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Cobblestone square"
+    },
+    {
+      "name": "Cobblestone edge",
+      "kit": "03 Streets and Terraces",
+      "dimensions_m": [
+        3.98,
+        0.78,
+        0.12
+      ],
+      "vertices": 128,
+      "faces": 96,
+      "gallery_position": [
+        7.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Cobblestone edge"
+    },
+    {
+      "name": "Cobblestone corner",
+      "kit": "03 Streets and Terraces",
+      "dimensions_m": [
+        0.98,
+        0.78,
+        0.12
+      ],
+      "vertices": 32,
+      "faces": 24,
+      "gallery_position": [
+        14.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Cobblestone corner"
+    },
+    {
+      "name": "Street slope",
+      "kit": "03 Streets and Terraces",
+      "dimensions_m": [
+        4.0,
+        4.0,
+        1.0
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        21.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Street slope"
+    },
+    {
+      "name": "Slope landing transition",
+      "kit": "03 Streets and Terraces",
+      "dimensions_m": [
+        2.0,
+        4.0,
+        0.35
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        28.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Slope landing transition"
+    },
+    {
+      "name": "Curb straight",
+      "kit": "03 Streets and Terraces",
+      "dimensions_m": [
+        4.0,
+        0.24,
+        0.24
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        35.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Curb straight"
+    },
+    {
+      "name": "Curb corner",
+      "kit": "03 Streets and Terraces",
+      "dimensions_m": [
+        1.0,
+        1.0,
+        0.24
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        42.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Curb corner"
+    },
+    {
+      "name": "Curb end",
+      "kit": "03 Streets and Terraces",
+      "dimensions_m": [
+        0.3,
+        0.24,
+        0.24
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        49.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Curb end"
+    },
+    {
+      "name": "Retaining wall straight",
+      "kit": "03 Streets and Terraces",
+      "dimensions_m": [
+        4.0,
+        0.6,
+        3.0
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        0.0,
+        119.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Retaining wall straight"
+    },
+    {
+      "name": "Retaining wall outer corner",
+      "kit": "03 Streets and Terraces",
+      "dimensions_m": [
+        1.0,
+        1.6,
+        3.0
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        7.0,
+        119.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Retaining wall outer corner"
+    },
+    {
+      "name": "Retaining wall inner corner",
+      "kit": "03 Streets and Terraces",
+      "dimensions_m": [
+        1.0,
+        1.6,
+        3.0
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        14.0,
+        119.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Retaining wall inner corner"
+    },
+    {
+      "name": "Retaining cap straight",
+      "kit": "03 Streets and Terraces",
+      "dimensions_m": [
+        4.0,
+        0.75,
+        0.18
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        21.0,
+        119.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Retaining cap straight"
+    },
+    {
+      "name": "Retaining cap corner",
+      "kit": "03 Streets and Terraces",
+      "dimensions_m": [
+        1.0,
+        0.75,
+        0.18
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        28.0,
+        119.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Retaining cap corner"
+    },
+    {
+      "name": "Retaining cap end",
+      "kit": "03 Streets and Terraces",
+      "dimensions_m": [
+        0.65,
+        0.75,
+        0.18
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        35.0,
+        119.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Retaining cap end"
+    },
+    {
+      "name": "Arched passage",
+      "kit": "03 Streets and Terraces",
+      "dimensions_m": [
+        3.0,
+        0.7,
+        3.5
+      ],
+      "vertices": 112,
+      "faces": 84,
+      "gallery_position": [
+        42.0,
+        119.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Arched passage"
+    },
+    {
+      "name": "Arched closed recess",
+      "kit": "03 Streets and Terraces",
+      "dimensions_m": [
+        3.0,
+        0.76,
+        3.5
+      ],
+      "vertices": 120,
+      "faces": 90,
+      "gallery_position": [
+        49.0,
+        119.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Arched closed recess"
+    },
+    {
+      "name": "Stone stairs short",
+      "kit": "03 Streets and Terraces",
+      "dimensions_m": [
+        2.0,
+        2.4,
+        1.5
+      ],
+      "vertices": 48,
+      "faces": 36,
+      "gallery_position": [
+        0.0,
+        126.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Stone stairs short"
+    },
+    {
+      "name": "Stone stairs full story",
+      "kit": "03 Streets and Terraces",
+      "dimensions_m": [
+        2.0,
+        4.8,
+        3.0
+      ],
+      "vertices": 96,
+      "faces": 72,
+      "gallery_position": [
+        7.0,
+        126.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Stone stairs full story"
+    },
+    {
+      "name": "Landing square",
+      "kit": "03 Streets and Terraces",
+      "dimensions_m": [
+        2.0,
+        2.0,
+        0.3
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        14.0,
+        126.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Landing square"
+    },
+    {
+      "name": "Landing rectangular",
+      "kit": "03 Streets and Terraces",
+      "dimensions_m": [
+        4.0,
+        2.0,
+        0.3
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        21.0,
+        126.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Landing rectangular"
+    },
+    {
+      "name": "Stair sidewall",
+      "kit": "03 Streets and Terraces",
+      "dimensions_m": [
+        2.4,
+        0.3,
+        2.4
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        28.0,
+        126.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Stair sidewall"
+    },
+    {
+      "name": "Stair end post",
+      "kit": "03 Streets and Terraces",
+      "dimensions_m": [
+        0.5,
+        0.5,
+        1.39
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        35.0,
+        126.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Stair end post"
+    },
+    {
+      "name": "Stone parapet straight",
+      "kit": "03 Streets and Terraces",
+      "dimensions_m": [
+        4.0,
+        0.38,
+        1.02
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        42.0,
+        126.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Stone parapet straight"
+    },
+    {
+      "name": "Stone parapet corner",
+      "kit": "03 Streets and Terraces",
+      "dimensions_m": [
+        1.0,
+        1.34,
+        1.02
+      ],
+      "vertices": 24,
+      "faces": 18,
+      "gallery_position": [
+        49.0,
+        126.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Stone parapet corner"
+    },
+    {
+      "name": "Stone parapet end",
+      "kit": "03 Streets and Terraces",
+      "dimensions_m": [
+        0.38,
+        0.38,
+        1.04
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        0.0,
+        133.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Stone parapet end"
+    },
+    {
+      "name": "Timber railing bay",
+      "kit": "03 Streets and Terraces",
+      "dimensions_m": [
+        4.0,
+        0.14,
+        1.1
+      ],
+      "vertices": 40,
+      "faces": 30,
+      "gallery_position": [
+        7.0,
+        133.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Timber railing bay"
+    },
+    {
+      "name": "Timber railing corner post",
+      "kit": "03 Streets and Terraces",
+      "dimensions_m": [
+        0.28,
+        0.28,
+        1.26
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        14.0,
+        133.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Timber railing corner post"
+    },
+    {
+      "name": "Timber railing end post",
+      "kit": "03 Streets and Terraces",
+      "dimensions_m": [
+        0.18,
+        0.18,
+        1.2
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        21.0,
+        133.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Timber railing end post"
+    },
+    {
+      "name": "Gutter channel",
+      "kit": "03 Streets and Terraces",
+      "dimensions_m": [
+        4.0,
+        0.37,
+        0.2
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        28.0,
+        133.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Gutter channel"
+    },
+    {
+      "name": "Drain grate",
+      "kit": "03 Streets and Terraces",
+      "dimensions_m": [
+        0.58,
+        0.6,
+        0.08
+      ],
+      "vertices": 56,
+      "faces": 42,
+      "gallery_position": [
+        35.0,
+        133.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Drain grate"
+    },
+    {
+      "name": "Stone bridge arch bay",
+      "kit": "04 Bridges and Canals",
+      "dimensions_m": [
+        6.0,
+        3.0,
+        3.5
+      ],
+      "vertices": 220,
+      "faces": 166,
+      "gallery_position": [
+        0.0,
+        168.0,
+        0.0
+      ],
+      "notes": "4 m clear span; 6 m total bay; 3 m width; flat deck seat at 3.5 m.",
+      "collection": "Stone bridge arch bay"
+    },
+    {
+      "name": "Stone bridge deck",
+      "kit": "04 Bridges and Canals",
+      "dimensions_m": [
+        6.0,
+        3.0,
+        0.3
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        7.0,
+        168.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Stone bridge deck"
+    },
+    {
+      "name": "Bridge approach",
+      "kit": "04 Bridges and Canals",
+      "dimensions_m": [
+        4.0,
+        3.0,
+        1.0
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        14.0,
+        168.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Bridge approach"
+    },
+    {
+      "name": "Bridge middle pier",
+      "kit": "04 Bridges and Canals",
+      "dimensions_m": [
+        1.3,
+        4.15,
+        3.0
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        21.0,
+        168.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Bridge middle pier"
+    },
+    {
+      "name": "Bridge abutment",
+      "kit": "04 Bridges and Canals",
+      "dimensions_m": [
+        1.5,
+        3.4,
+        3.0
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        28.0,
+        168.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Bridge abutment"
+    },
+    {
+      "name": "Bridge parapet straight",
+      "kit": "04 Bridges and Canals",
+      "dimensions_m": [
+        6.0,
+        0.38,
+        1.02
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        35.0,
+        168.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Bridge parapet straight"
+    },
+    {
+      "name": "Bridge parapet slope",
+      "kit": "04 Bridges and Canals",
+      "dimensions_m": [
+        4.0,
+        0.28,
+        2.4
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        42.0,
+        168.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Bridge parapet slope"
+    },
+    {
+      "name": "Bridge end post",
+      "kit": "04 Bridges and Canals",
+      "dimensions_m": [
+        0.68,
+        0.68,
+        1.36
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        49.0,
+        168.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Bridge end post"
+    },
+    {
+      "name": "Timber walkway straight",
+      "kit": "04 Bridges and Canals",
+      "dimensions_m": [
+        4.0,
+        2.0,
+        0.36
+      ],
+      "vertices": 144,
+      "faces": 108,
+      "gallery_position": [
+        0.0,
+        175.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Timber walkway straight"
+    },
+    {
+      "name": "Timber walkway corner",
+      "kit": "04 Bridges and Canals",
+      "dimensions_m": [
+        2.0,
+        2.0,
+        0.36
+      ],
+      "vertices": 80,
+      "faces": 60,
+      "gallery_position": [
+        7.0,
+        175.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Timber walkway corner"
+    },
+    {
+      "name": "Timber walkway junction",
+      "kit": "04 Bridges and Canals",
+      "dimensions_m": [
+        4.0,
+        4.0,
+        0.36
+      ],
+      "vertices": 144,
+      "faces": 108,
+      "gallery_position": [
+        14.0,
+        175.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Timber walkway junction"
+    },
+    {
+      "name": "Walkway post",
+      "kit": "04 Bridges and Canals",
+      "dimensions_m": [
+        0.25,
+        0.25,
+        3.0
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        21.0,
+        175.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Walkway post"
+    },
+    {
+      "name": "Walkway crossbeam",
+      "kit": "04 Bridges and Canals",
+      "dimensions_m": [
+        3.0,
+        0.25,
+        0.24
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        28.0,
+        175.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Walkway crossbeam"
+    },
+    {
+      "name": "Walkway diagonal support",
+      "kit": "04 Bridges and Canals",
+      "dimensions_m": [
+        0.22,
+        2.1556,
+        2.1556
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        35.0,
+        175.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Walkway diagonal support"
+    },
+    {
+      "name": "Covered bridge frame",
+      "kit": "04 Bridges and Canals",
+      "dimensions_m": [
+        3.0,
+        0.22,
+        2.91
+      ],
+      "vertices": 40,
+      "faces": 30,
+      "gallery_position": [
+        42.0,
+        175.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Covered bridge frame"
+    },
+    {
+      "name": "Covered bridge end frame",
+      "kit": "04 Bridges and Canals",
+      "dimensions_m": [
+        3.0,
+        0.3,
+        2.95
+      ],
+      "vertices": 120,
+      "faces": 90,
+      "gallery_position": [
+        49.0,
+        175.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Covered bridge end frame"
+    },
+    {
+      "name": "Covered bridge roof",
+      "kit": "04 Bridges and Canals",
+      "dimensions_m": [
+        3.992,
+        1.7938,
+        1.337
+      ],
+      "vertices": 336,
+      "faces": 252,
+      "gallery_position": [
+        0.0,
+        182.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Covered bridge roof"
+    },
+    {
+      "name": "Canal wall straight",
+      "kit": "04 Bridges and Canals",
+      "dimensions_m": [
+        4.0,
+        0.6,
+        3.0
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        7.0,
+        182.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Canal wall straight"
+    },
+    {
+      "name": "Canal wall corner",
+      "kit": "04 Bridges and Canals",
+      "dimensions_m": [
+        1.0,
+        1.6,
+        3.0
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        14.0,
+        182.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Canal wall corner"
+    },
+    {
+      "name": "Canal outlet",
+      "kit": "04 Bridges and Canals",
+      "dimensions_m": [
+        2.0,
+        0.8,
+        2.05
+      ],
+      "vertices": 112,
+      "faces": 84,
+      "gallery_position": [
+        21.0,
+        182.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Canal outlet"
+    },
+    {
+      "name": "Canal coping straight",
+      "kit": "04 Bridges and Canals",
+      "dimensions_m": [
+        4.0,
+        0.8,
+        0.2
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        28.0,
+        182.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Canal coping straight"
+    },
+    {
+      "name": "Canal coping corner",
+      "kit": "04 Bridges and Canals",
+      "dimensions_m": [
+        1.0,
+        1.6,
+        0.2
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        35.0,
+        182.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Canal coping corner"
+    },
+    {
+      "name": "Dock platform straight",
+      "kit": "04 Bridges and Canals",
+      "dimensions_m": [
+        4.0,
+        2.0,
+        0.36
+      ],
+      "vertices": 144,
+      "faces": 108,
+      "gallery_position": [
+        42.0,
+        182.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Dock platform straight"
+    },
+    {
+      "name": "Dock platform corner",
+      "kit": "04 Bridges and Canals",
+      "dimensions_m": [
+        2.0,
+        2.0,
+        0.36
+      ],
+      "vertices": 80,
+      "faces": 60,
+      "gallery_position": [
+        49.0,
+        182.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Dock platform corner"
+    },
+    {
+      "name": "Dock platform end",
+      "kit": "04 Bridges and Canals",
+      "dimensions_m": [
+        2.0,
+        2.09,
+        0.495
+      ],
+      "vertices": 88,
+      "faces": 66,
+      "gallery_position": [
+        0.0,
+        189.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Dock platform end"
+    },
+    {
+      "name": "Dock ladder",
+      "kit": "04 Bridges and Canals",
+      "dimensions_m": [
+        0.8,
+        0.13,
+        3.0
+      ],
+      "vertices": 88,
+      "faces": 66,
+      "gallery_position": [
+        7.0,
+        189.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Dock ladder"
+    },
+    {
+      "name": "Mooring post",
+      "kit": "04 Bridges and Canals",
+      "dimensions_m": [
+        0.46,
+        0.46,
+        0.86
+      ],
+      "vertices": 48,
+      "faces": 28,
+      "gallery_position": [
+        14.0,
+        189.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Mooring post"
+    },
+    {
+      "name": "Mooring ring",
+      "kit": "04 Bridges and Canals",
+      "dimensions_m": [
+        0.44,
+        0.44,
+        0.06
+      ],
+      "vertices": 64,
+      "faces": 64,
+      "gallery_position": [
+        21.0,
+        189.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Mooring ring"
+    },
+    {
+      "name": "Cliff mass",
+      "kit": "04 Bridges and Canals",
+      "dimensions_m": [
+        5.7029,
+        3.8997,
+        6.0
+      ],
+      "vertices": 23,
+      "faces": 28,
+      "gallery_position": [
+        28.0,
+        189.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Cliff mass"
+    },
+    {
+      "name": "Rock outcrop",
+      "kit": "04 Bridges and Canals",
+      "dimensions_m": [
+        2.8515,
+        1.9499,
+        3.0
+      ],
+      "vertices": 23,
+      "faces": 28,
+      "gallery_position": [
+        35.0,
+        189.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Rock outcrop"
+    },
+    {
+      "name": "Rock filler",
+      "kit": "04 Bridges and Canals",
+      "dimensions_m": [
+        0.9505,
+        0.7799,
+        0.8
+      ],
+      "vertices": 23,
+      "faces": 28,
+      "gallery_position": [
+        42.0,
+        189.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Rock filler"
+    },
+    {
+      "name": "Fortification wall bay",
+      "kit": "05 Gatehouse and Tower",
+      "dimensions_m": [
+        4.0,
+        1.0,
+        4.0
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        0.0,
+        224.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Fortification wall bay"
+    },
+    {
+      "name": "Fortification corner",
+      "kit": "05 Gatehouse and Tower",
+      "dimensions_m": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        7.0,
+        224.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Fortification corner"
+    },
+    {
+      "name": "Battlement repeat",
+      "kit": "05 Gatehouse and Tower",
+      "dimensions_m": [
+        4.0,
+        0.7,
+        1.3
+      ],
+      "vertices": 40,
+      "faces": 30,
+      "gallery_position": [
+        14.0,
+        224.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Battlement repeat"
+    },
+    {
+      "name": "Battlement end",
+      "kit": "05 Gatehouse and Tower",
+      "dimensions_m": [
+        0.7,
+        0.7,
+        1.3
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        21.0,
+        224.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Battlement end"
+    },
+    {
+      "name": "Gate stone arch",
+      "kit": "05 Gatehouse and Tower",
+      "dimensions_m": [
+        5.3,
+        1.0,
+        5.65
+      ],
+      "vertices": 112,
+      "faces": 84,
+      "gallery_position": [
+        28.0,
+        224.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Gate stone arch"
+    },
+    {
+      "name": "Gate door left",
+      "kit": "05 Gatehouse and Tower",
+      "dimensions_m": [
+        1.95,
+        0.35,
+        4.0
+      ],
+      "vertices": 40,
+      "faces": 30,
+      "gallery_position": [
+        35.0,
+        224.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Gate door left"
+    },
+    {
+      "name": "Gate door right",
+      "kit": "05 Gatehouse and Tower",
+      "dimensions_m": [
+        1.95,
+        0.35,
+        4.0
+      ],
+      "vertices": 40,
+      "faces": 30,
+      "gallery_position": [
+        42.0,
+        224.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Gate door right"
+    },
+    {
+      "name": "Portcullis",
+      "kit": "05 Gatehouse and Tower",
+      "dimensions_m": [
+        4.0,
+        0.155,
+        4.045
+      ],
+      "vertices": 112,
+      "faces": 84,
+      "gallery_position": [
+        49.0,
+        224.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Portcullis"
+    },
+    {
+      "name": "Tower wall plain",
+      "kit": "05 Gatehouse and Tower",
+      "dimensions_m": [
+        4.0,
+        0.355,
+        3.0
+      ],
+      "vertices": 104,
+      "faces": 78,
+      "gallery_position": [
+        0.0,
+        231.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Tower wall plain"
+    },
+    {
+      "name": "Tower wall window",
+      "kit": "05 Gatehouse and Tower",
+      "dimensions_m": [
+        4.0,
+        0.355,
+        3.0
+      ],
+      "vertices": 80,
+      "faces": 60,
+      "gallery_position": [
+        7.0,
+        231.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Tower wall window"
+    },
+    {
+      "name": "Tower corner",
+      "kit": "05 Gatehouse and Tower",
+      "dimensions_m": [
+        0.65,
+        0.65,
+        3.0
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        14.0,
+        231.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Tower corner"
+    },
+    {
+      "name": "Tower platform",
+      "kit": "05 Gatehouse and Tower",
+      "dimensions_m": [
+        4.0,
+        4.0,
+        0.36
+      ],
+      "vertices": 144,
+      "faces": 108,
+      "gallery_position": [
+        21.0,
+        231.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Tower platform"
+    },
+    {
+      "name": "Tower projecting support",
+      "kit": "05 Gatehouse and Tower",
+      "dimensions_m": [
+        0.3,
+        1.2121,
+        1.2121
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        28.0,
+        231.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Tower projecting support"
+    },
+    {
+      "name": "Watchtower observation bay",
+      "kit": "05 Gatehouse and Tower",
+      "dimensions_m": [
+        4.25,
+        0.25,
+        3.0
+      ],
+      "vertices": 64,
+      "faces": 48,
+      "gallery_position": [
+        35.0,
+        231.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Watchtower observation bay"
+    },
+    {
+      "name": "Tower roof half",
+      "kit": "05 Gatehouse and Tower",
+      "dimensions_m": [
+        4.792,
+        2.5024,
+        2.2314
+      ],
+      "vertices": 336,
+      "faces": 252,
+      "gallery_position": [
+        42.0,
+        231.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Tower roof half"
+    },
+    {
+      "name": "Banner wall bracket",
+      "kit": "05 Gatehouse and Tower",
+      "dimensions_m": [
+        0.12,
+        0.84,
+        0.7
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        49.0,
+        231.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Banner wall bracket"
+    },
+    {
+      "name": "Banner pole",
+      "kit": "05 Gatehouse and Tower",
+      "dimensions_m": [
+        0.09,
+        0.09,
+        3.0
+      ],
+      "vertices": 24,
+      "faces": 14,
+      "gallery_position": [
+        0.0,
+        238.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Banner pole"
+    },
+    {
+      "name": "Fountain basin quarter",
+      "kit": "06 Market and Landmarks",
+      "dimensions_m": [
+        1.8,
+        1.8,
+        0.5
+      ],
+      "vertices": 36,
+      "faces": 34,
+      "gallery_position": [
+        0.0,
+        280.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Fountain basin quarter"
+    },
+    {
+      "name": "Fountain pedestal",
+      "kit": "06 Market and Landmarks",
+      "dimensions_m": [
+        1.3,
+        1.3,
+        1.5
+      ],
+      "vertices": 48,
+      "faces": 28,
+      "gallery_position": [
+        7.0,
+        280.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Fountain pedestal"
+    },
+    {
+      "name": "Fountain lower tier",
+      "kit": "06 Market and Landmarks",
+      "dimensions_m": [
+        1.8,
+        1.8,
+        0.37
+      ],
+      "vertices": 96,
+      "faces": 82,
+      "gallery_position": [
+        14.0,
+        280.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Fountain lower tier"
+    },
+    {
+      "name": "Fountain upper tier spout",
+      "kit": "06 Market and Landmarks",
+      "dimensions_m": [
+        0.9,
+        0.9,
+        1.15
+      ],
+      "vertices": 80,
+      "faces": 46,
+      "gallery_position": [
+        21.0,
+        280.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Fountain upper tier spout"
+    },
+    {
+      "name": "Inn grand doorway",
+      "kit": "06 Market and Landmarks",
+      "dimensions_m": [
+        3.1,
+        0.4,
+        3.35
+      ],
+      "vertices": 112,
+      "faces": 84,
+      "gallery_position": [
+        28.0,
+        280.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Inn grand doorway"
+    },
+    {
+      "name": "Inn porch",
+      "kit": "06 Market and Landmarks",
+      "dimensions_m": [
+        4.3,
+        2.3,
+        3.32
+      ],
+      "vertices": 168,
+      "faces": 126,
+      "gallery_position": [
+        35.0,
+        280.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Inn porch"
+    },
+    {
+      "name": "Hanging sign bracket",
+      "kit": "06 Market and Landmarks",
+      "dimensions_m": [
+        0.12,
+        1.04,
+        0.6
+      ],
+      "vertices": 24,
+      "faces": 18,
+      "gallery_position": [
+        42.0,
+        280.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Hanging sign bracket"
+    },
+    {
+      "name": "Inn signboard",
+      "kit": "06 Market and Landmarks",
+      "dimensions_m": [
+        0.8,
+        0.38,
+        0.8
+      ],
+      "vertices": 72,
+      "faces": 70,
+      "gallery_position": [
+        49.0,
+        280.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Inn signboard"
+    },
+    {
+      "name": "Market stall frame",
+      "kit": "06 Market and Landmarks",
+      "dimensions_m": [
+        3.2,
+        2.12,
+        2.66
+      ],
+      "vertices": 40,
+      "faces": 30,
+      "gallery_position": [
+        0.0,
+        287.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Market stall frame"
+    },
+    {
+      "name": "Market stall end frame",
+      "kit": "06 Market and Landmarks",
+      "dimensions_m": [
+        2.12,
+        0.12,
+        2.46
+      ],
+      "vertices": 24,
+      "faces": 18,
+      "gallery_position": [
+        7.0,
+        287.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Market stall end frame"
+    },
+    {
+      "name": "Market canopy plain",
+      "kit": "06 Market and Landmarks",
+      "dimensions_m": [
+        3.0,
+        2.0125,
+        0.52
+      ],
+      "vertices": 112,
+      "faces": 64,
+      "gallery_position": [
+        14.0,
+        287.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Market canopy plain"
+    },
+    {
+      "name": "Market canopy striped",
+      "kit": "06 Market and Landmarks",
+      "dimensions_m": [
+        3.0,
+        2.0125,
+        0.52
+      ],
+      "vertices": 112,
+      "faces": 64,
+      "gallery_position": [
+        21.0,
+        287.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Market canopy striped"
+    },
+    {
+      "name": "Market counter straight",
+      "kit": "06 Market and Landmarks",
+      "dimensions_m": [
+        3.0,
+        0.8,
+        1.0
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        28.0,
+        287.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Market counter straight"
+    },
+    {
+      "name": "Market counter corner",
+      "kit": "06 Market and Landmarks",
+      "dimensions_m": [
+        1.0,
+        1.6,
+        1.0
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        35.0,
+        287.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Market counter corner"
+    },
+    {
+      "name": "Produce tray",
+      "kit": "06 Market and Landmarks",
+      "dimensions_m": [
+        0.8,
+        0.8,
+        0.28
+      ],
+      "vertices": 160,
+      "faces": 120,
+      "gallery_position": [
+        42.0,
+        287.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Produce tray"
+    },
+    {
+      "name": "Woven basket",
+      "kit": "06 Market and Landmarks",
+      "dimensions_m": [
+        0.74,
+        0.74,
+        0.455
+      ],
+      "vertices": 800,
+      "faces": 768,
+      "gallery_position": [
+        49.0,
+        287.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Woven basket"
+    },
+    {
+      "name": "Shallow display crate",
+      "kit": "06 Market and Landmarks",
+      "dimensions_m": [
+        1.0,
+        1.0,
+        0.35
+      ],
+      "vertices": 160,
+      "faces": 120,
+      "gallery_position": [
+        0.0,
+        294.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Shallow display crate"
+    },
+    {
+      "name": "Shop sign rectangular",
+      "kit": "06 Market and Landmarks",
+      "dimensions_m": [
+        0.9,
+        0.08,
+        0.6
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        7.0,
+        294.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Shop sign rectangular"
+    },
+    {
+      "name": "Shop sign round",
+      "kit": "06 Market and Landmarks",
+      "dimensions_m": [
+        0.8,
+        0.08,
+        0.8
+      ],
+      "vertices": 24,
+      "faces": 14,
+      "gallery_position": [
+        14.0,
+        294.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Shop sign round"
+    },
+    {
+      "name": "Shop sign shield",
+      "kit": "06 Market and Landmarks",
+      "dimensions_m": [
+        0.8,
+        0.08,
+        0.8
+      ],
+      "vertices": 10,
+      "faces": 7,
+      "gallery_position": [
+        21.0,
+        294.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Shop sign shield"
+    },
+    {
+      "name": "Public noticeboard",
+      "kit": "06 Market and Landmarks",
+      "dimensions_m": [
+        1.6,
+        0.155,
+        2.05
+      ],
+      "vertices": 48,
+      "faces": 36,
+      "gallery_position": [
+        28.0,
+        294.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Public noticeboard"
+    },
+    {
+      "name": "Hanging lantern",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        0.46,
+        0.46,
+        0.81
+      ],
+      "vertices": 112,
+      "faces": 96,
+      "gallery_position": [
+        0.0,
+        336.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Hanging lantern"
+    },
+    {
+      "name": "Wall lantern",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        0.46,
+        0.755,
+        0.81
+      ],
+      "vertices": 128,
+      "faces": 108,
+      "gallery_position": [
+        7.0,
+        336.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Wall lantern"
+    },
+    {
+      "name": "Handheld lantern",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        0.46,
+        0.46,
+        0.81
+      ],
+      "vertices": 112,
+      "faces": 96,
+      "gallery_position": [
+        14.0,
+        336.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Handheld lantern"
+    },
+    {
+      "name": "Lantern mounting bracket",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        0.1,
+        0.43,
+        0.5
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        21.0,
+        336.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Lantern mounting bracket"
+    },
+    {
+      "name": "Barrel closed",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        0.8999,
+        0.8999,
+        1.0825
+      ],
+      "vertices": 264,
+      "faces": 172,
+      "gallery_position": [
+        28.0,
+        336.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Barrel closed"
+    },
+    {
+      "name": "Barrel open",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        0.8999,
+        0.8999,
+        1.08
+      ],
+      "vertices": 240,
+      "faces": 158,
+      "gallery_position": [
+        35.0,
+        336.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Barrel open"
+    },
+    {
+      "name": "Large crate",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.05
+      ],
+      "vertices": 160,
+      "faces": 120,
+      "gallery_position": [
+        42.0,
+        336.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Large crate"
+    },
+    {
+      "name": "Small crate",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        0.55,
+        0.55,
+        0.5505
+      ],
+      "vertices": 160,
+      "faces": 120,
+      "gallery_position": [
+        49.0,
+        336.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Small crate"
+    },
+    {
+      "name": "Storage sack",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        0.6,
+        0.4755,
+        0.84
+      ],
+      "vertices": 68,
+      "faces": 70,
+      "gallery_position": [
+        0.0,
+        343.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Storage sack"
+    },
+    {
+      "name": "Bench",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        1.5,
+        0.4,
+        0.55
+      ],
+      "vertices": 40,
+      "faces": 30,
+      "gallery_position": [
+        7.0,
+        343.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Bench"
+    },
+    {
+      "name": "Stool",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        0.45,
+        0.45,
+        0.55
+      ],
+      "vertices": 40,
+      "faces": 30,
+      "gallery_position": [
+        14.0,
+        343.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Stool"
+    },
+    {
+      "name": "Table",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        1.5,
+        0.8,
+        0.85
+      ],
+      "vertices": 40,
+      "faces": 30,
+      "gallery_position": [
+        21.0,
+        343.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Table"
+    },
+    {
+      "name": "Chair",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        0.45,
+        0.45,
+        1.105
+      ],
+      "vertices": 72,
+      "faces": 54,
+      "gallery_position": [
+        28.0,
+        343.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Chair"
+    },
+    {
+      "name": "Bottle",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        0.18,
+        0.18,
+        0.45
+      ],
+      "vertices": 72,
+      "faces": 42,
+      "gallery_position": [
+        35.0,
+        343.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Bottle"
+    },
+    {
+      "name": "Pottery jug",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        0.74,
+        0.64,
+        0.485
+      ],
+      "vertices": 200,
+      "faces": 200,
+      "gallery_position": [
+        42.0,
+        343.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Pottery jug"
+    },
+    {
+      "name": "Bread loaf",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        0.6,
+        0.2663,
+        0.24
+      ],
+      "vertices": 52,
+      "faces": 60,
+      "gallery_position": [
+        49.0,
+        343.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Bread loaf"
+    },
+    {
+      "name": "Produce cluster",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        0.48,
+        0.33,
+        0.2
+      ],
+      "vertices": 156,
+      "faces": 192,
+      "gallery_position": [
+        0.0,
+        350.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Produce cluster"
+    },
+    {
+      "name": "Handcart",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        1.8,
+        2.7527,
+        1.18
+      ],
+      "vertices": 216,
+      "faces": 194,
+      "gallery_position": [
+        7.0,
+        350.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Handcart"
+    },
+    {
+      "name": "Bucket",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        0.52,
+        0.52,
+        0.43
+      ],
+      "vertices": 136,
+      "faces": 136,
+      "gallery_position": [
+        14.0,
+        350.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Bucket"
+    },
+    {
+      "name": "Rope coil",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        0.68,
+        0.68,
+        0.235
+      ],
+      "vertices": 480,
+      "faces": 480,
+      "gallery_position": [
+        21.0,
+        350.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Rope coil"
+    },
+    {
+      "name": "Hanging banner",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        0.8,
+        0.035,
+        2.0
+      ],
+      "vertices": 10,
+      "faces": 7,
+      "gallery_position": [
+        28.0,
+        350.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Hanging banner"
+    },
+    {
+      "name": "Bunting strand",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        4.0,
+        0.02,
+        0.3575
+      ],
+      "vertices": 38,
+      "faces": 31,
+      "gallery_position": [
+        35.0,
+        350.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Bunting strand"
+    },
+    {
+      "name": "Rolled cloth",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        0.3,
+        0.3,
+        1.0
+      ],
+      "vertices": 24,
+      "faces": 14,
+      "gallery_position": [
+        42.0,
+        350.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Rolled cloth"
+    },
+    {
+      "name": "Flower box planting",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        1.32,
+        0.32,
+        0.36
+      ],
+      "vertices": 130,
+      "faces": 160,
+      "gallery_position": [
+        49.0,
+        350.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Flower box planting"
+    },
+    {
+      "name": "Potted plant",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        0.8766,
+        0.6716,
+        0.93
+      ],
+      "vertices": 374,
+      "faces": 402,
+      "gallery_position": [
+        0.0,
+        357.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Potted plant"
+    },
+    {
+      "name": "Ivy strip",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        0.4814,
+        0.06,
+        2.34
+      ],
+      "vertices": 210,
+      "faces": 270,
+      "gallery_position": [
+        7.0,
+        357.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Ivy strip"
+    },
+    {
+      "name": "Ivy corner cluster",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        0.6006,
+        0.5382,
+        1.52
+      ],
+      "vertices": 168,
+      "faces": 216,
+      "gallery_position": [
+        14.0,
+        357.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Ivy corner cluster"
+    },
+    {
+      "name": "Loose stones",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        0.7871,
+        0.2664,
+        0.16
+      ],
+      "vertices": 92,
+      "faces": 112,
+      "gallery_position": [
+        21.0,
+        357.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Loose stones"
+    },
+    {
+      "name": "Rubble cluster",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        1.3869,
+        1.3384,
+        0.3
+      ],
+      "vertices": 207,
+      "faces": 252,
+      "gallery_position": [
+        28.0,
+        357.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Rubble cluster"
+    },
+    {
+      "name": "Scattered boards",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        0.801,
+        1.0,
+        0.12
+      ],
+      "vertices": 24,
+      "faces": 18,
+      "gallery_position": [
+        35.0,
+        357.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Scattered boards"
+    },
+    {
+      "name": "Door hinge",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        0.275,
+        0.07,
+        0.3
+      ],
+      "vertices": 32,
+      "faces": 20,
+      "gallery_position": [
+        42.0,
+        357.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Door hinge"
+    },
+    {
+      "name": "Door handle",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        0.24,
+        0.24,
+        0.04
+      ],
+      "vertices": 64,
+      "faces": 64,
+      "gallery_position": [
+        49.0,
+        357.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Door handle"
+    },
+    {
+      "name": "Metal strap",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        0.8,
+        0.12,
+        0.08
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        0.0,
+        364.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Metal strap"
+    },
+    {
+      "name": "Iron angle bracket",
+      "kit": "07 Props and Dressing",
+      "dimensions_m": [
+        0.12,
+        0.32,
+        0.3
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        7.0,
+        364.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Iron angle bracket"
+    },
+    {
+      "name": "Guard base",
+      "kit": "08 Character Bases",
+      "dimensions_m": [
+        0.97,
+        0.6,
+        1.94
+      ],
+      "vertices": 470,
+      "faces": 480,
+      "gallery_position": [
+        0.0,
+        392.0,
+        0.0
+      ],
+      "notes": "Unrigged editable stylized character base; separate gear assets below.",
+      "collection": "Guard base"
+    },
+    {
+      "name": "Townsperson 1",
+      "kit": "08 Character Bases",
+      "dimensions_m": [
+        0.97,
+        0.6,
+        1.9
+      ],
+      "vertices": 380,
+      "faces": 394,
+      "gallery_position": [
+        7.0,
+        392.0,
+        0.0
+      ],
+      "notes": "Unrigged editable base for sculpting, retopology and rigging.",
+      "collection": "Townsperson 1"
+    },
+    {
+      "name": "Townsperson 2",
+      "kit": "08 Character Bases",
+      "dimensions_m": [
+        0.97,
+        0.6,
+        1.9
+      ],
+      "vertices": 380,
+      "faces": 394,
+      "gallery_position": [
+        14.0,
+        392.0,
+        0.0
+      ],
+      "notes": "Unrigged editable base for sculpting, retopology and rigging.",
+      "collection": "Townsperson 2"
+    },
+    {
+      "name": "Townsperson 3",
+      "kit": "08 Character Bases",
+      "dimensions_m": [
+        0.97,
+        0.6,
+        1.9
+      ],
+      "vertices": 380,
+      "faces": 394,
+      "gallery_position": [
+        21.0,
+        392.0,
+        0.0
+      ],
+      "notes": "Unrigged editable base for sculpting, retopology and rigging.",
+      "collection": "Townsperson 3"
+    },
+    {
+      "name": "Merchant base",
+      "kit": "08 Character Bases",
+      "dimensions_m": [
+        0.97,
+        0.6,
+        1.9
+      ],
+      "vertices": 388,
+      "faces": 400,
+      "gallery_position": [
+        28.0,
+        392.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Merchant base"
+    },
+    {
+      "name": "Innkeeper base",
+      "kit": "08 Character Bases",
+      "dimensions_m": [
+        0.97,
+        0.6,
+        1.9
+      ],
+      "vertices": 388,
+      "faces": 400,
+      "gallery_position": [
+        35.0,
+        392.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Innkeeper base"
+    },
+    {
+      "name": "Guard helmet",
+      "kit": "08 Character Bases",
+      "dimensions_m": [
+        0.46,
+        0.46,
+        0.26
+      ],
+      "vertices": 116,
+      "faces": 124,
+      "gallery_position": [
+        42.0,
+        392.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Guard helmet"
+    },
+    {
+      "name": "Guard equipment belt",
+      "kit": "08 Character Bases",
+      "dimensions_m": [
+        0.615,
+        0.59,
+        0.26
+      ],
+      "vertices": 80,
+      "faces": 76,
+      "gallery_position": [
+        49.0,
+        392.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Guard equipment belt"
+    },
+    {
+      "name": "Town tunic",
+      "kit": "08 Character Bases",
+      "dimensions_m": [
+        0.64,
+        0.64,
+        0.7
+      ],
+      "vertices": 68,
+      "faces": 70,
+      "gallery_position": [
+        0.0,
+        399.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Town tunic"
+    },
+    {
+      "name": "Town apron",
+      "kit": "08 Character Bases",
+      "dimensions_m": [
+        0.43,
+        0.035,
+        0.7
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        7.0,
+        399.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Town apron"
+    },
+    {
+      "name": "Hair short",
+      "kit": "08 Character Bases",
+      "dimensions_m": [
+        0.32,
+        0.2853,
+        0.24
+      ],
+      "vertices": 52,
+      "faces": 60,
+      "gallery_position": [
+        14.0,
+        399.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Hair short"
+    },
+    {
+      "name": "Hair bun",
+      "kit": "08 Character Bases",
+      "dimensions_m": [
+        0.32,
+        0.3787,
+        0.24
+      ],
+      "vertices": 104,
+      "faces": 120,
+      "gallery_position": [
+        21.0,
+        399.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Hair bun"
+    }
+  ]
+}

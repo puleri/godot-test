@@ -9,7 +9,7 @@ height = 0.47758788
 
 [node name="Player" type="CharacterBody3D" unique_id=557277699]
 script = ExtResource("2_0m2aq")
-max_walk_speed = 2.0
+max_walk_speed = 4.2
 ground_deceleration = 100.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1351764398]

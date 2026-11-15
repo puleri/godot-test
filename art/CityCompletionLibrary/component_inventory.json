@@ -1,0 +1,1615 @@
+{
+  "new_components": 48,
+  "building_assemblies": 32,
+  "components": [
+    {
+      "name": "Fishing boat",
+      "kit": "Boats",
+      "dimensions_m": [
+        2.09,
+        5.2741,
+        1.254
+      ],
+      "vertices": 680,
+      "faces": 651,
+      "gallery_position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Fishing boat",
+      "triangles": 1300
+    },
+    {
+      "name": "Furled sail launch",
+      "kit": "Boats",
+      "dimensions_m": [
+        2.09,
+        5.6591,
+        5.75
+      ],
+      "vertices": 196,
+      "faces": 147,
+      "gallery_position": [
+        22.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Furled sail launch",
+      "triangles": 312
+    },
+    {
+      "name": "Lagoon sailing boat",
+      "kit": "Boats",
+      "dimensions_m": [
+        2.09,
+        5.6591,
+        5.75
+      ],
+      "vertices": 192,
+      "faces": 144,
+      "gallery_position": [
+        44.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Lagoon sailing boat",
+      "triangles": 303
+    },
+    {
+      "name": "Fishing net bundle",
+      "kit": "Boats",
+      "dimensions_m": [
+        2.015,
+        2.015,
+        0.095
+      ],
+      "vertices": 144,
+      "faces": 108,
+      "gallery_position": [
+        66.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Fishing net bundle",
+      "triangles": 216
+    },
+    {
+      "name": "Oar pair",
+      "kit": "Boats",
+      "dimensions_m": [
+        0.62,
+        2.6,
+        0.055
+      ],
+      "vertices": 32,
+      "faces": 24,
+      "gallery_position": [
+        88.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Oar pair",
+      "triangles": 48
+    },
+    {
+      "name": "Rope boat fender",
+      "kit": "Boats",
+      "dimensions_m": [
+        0.3424,
+        0.3424,
+        0.6
+      ],
+      "vertices": 34,
+      "faces": 40,
+      "gallery_position": [
+        110.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Rope boat fender",
+      "triangles": 64
+    },
+    {
+      "name": "Net drying frame",
+      "kit": "Boats",
+      "dimensions_m": [
+        2.1,
+        0.1,
+        2.35
+      ],
+      "vertices": 64,
+      "faces": 48,
+      "gallery_position": [
+        132.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Net drying frame",
+      "triangles": 96
+    },
+    {
+      "name": "Timber boat cradle",
+      "kit": "Boats",
+      "dimensions_m": [
+        2.4,
+        2.25,
+        0.2983
+      ],
+      "vertices": 48,
+      "faces": 36,
+      "gallery_position": [
+        154.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Timber boat cradle",
+      "triangles": 72
+    },
+    {
+      "name": "Arch support 6m",
+      "kit": "Bridges",
+      "dimensions_m": [
+        6.0,
+        1.0,
+        3.0
+      ],
+      "vertices": 144,
+      "faces": 108,
+      "gallery_position": [
+        0.0,
+        24.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Arch support 6m",
+      "triangles": 216
+    },
+    {
+      "name": "Long span arch 10m",
+      "kit": "Bridges",
+      "dimensions_m": [
+        10.0,
+        1.1,
+        5.0
+      ],
+      "vertices": 144,
+      "faces": 108,
+      "gallery_position": [
+        22.0,
+        24.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Long span arch 10m",
+      "triangles": 216
+    },
+    {
+      "name": "Cutwater pier",
+      "kit": "Bridges",
+      "dimensions_m": [
+        1.6,
+        3.0,
+        4.0
+      ],
+      "vertices": 10,
+      "faces": 7,
+      "gallery_position": [
+        44.0,
+        24.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Cutwater pier",
+      "triangles": 16
+    },
+    {
+      "name": "Angled bridge deck connector",
+      "kit": "Bridges",
+      "dimensions_m": [
+        4.8,
+        4.0,
+        0.3
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        66.0,
+        24.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Angled bridge deck connector",
+      "triangles": 12
+    },
+    {
+      "name": "Curved parapet connector",
+      "kit": "Bridges",
+      "dimensions_m": [
+        0.8528,
+        1.6629,
+        1.0
+      ],
+      "vertices": 56,
+      "faces": 42,
+      "gallery_position": [
+        88.0,
+        24.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Curved parapet connector",
+      "triangles": 84
+    },
+    {
+      "name": "Bridge pier footing",
+      "kit": "Bridges",
+      "dimensions_m": [
+        2.4,
+        2.4,
+        0.8
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        110.0,
+        24.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Bridge pier footing",
+      "triangles": 24
+    },
+    {
+      "name": "Tall reinforced wall 6m",
+      "kit": "Retaining",
+      "dimensions_m": [
+        4.0,
+        1.23,
+        6.575
+      ],
+      "vertices": 56,
+      "faces": 42,
+      "gallery_position": [
+        132.0,
+        24.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Tall reinforced wall 6m",
+      "triangles": 84
+    },
+    {
+      "name": "Sloping retaining return",
+      "kit": "Retaining",
+      "dimensions_m": [
+        4.4249,
+        1.23,
+        6.5249
+      ],
+      "vertices": 48,
+      "faces": 36,
+      "gallery_position": [
+        154.0,
+        24.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Sloping retaining return",
+      "triangles": 72
+    },
+    {
+      "name": "Wall to rock junction",
+      "kit": "Retaining",
+      "dimensions_m": [
+        4.1404,
+        2.0415,
+        3.575
+      ],
+      "vertices": 52,
+      "faces": 50,
+      "gallery_position": [
+        0.0,
+        48.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Wall to rock junction",
+      "triangles": 80
+    },
+    {
+      "name": "Retaining drainage outlet",
+      "kit": "Retaining",
+      "dimensions_m": [
+        0.8,
+        0.7608,
+        0.4
+      ],
+      "vertices": 40,
+      "faces": 40,
+      "gallery_position": [
+        22.0,
+        48.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Retaining drainage outlet",
+      "triangles": 80
+    },
+    {
+      "name": "Stair buttress 4m",
+      "kit": "Retaining",
+      "dimensions_m": [
+        0.7,
+        1.3,
+        4.0
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        44.0,
+        48.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Stair buttress 4m",
+      "triangles": 12
+    },
+    {
+      "name": "Retaining terrace corner",
+      "kit": "Retaining",
+      "dimensions_m": [
+        4.0,
+        4.03,
+        4.575
+      ],
+      "vertices": 56,
+      "faces": 42,
+      "gallery_position": [
+        66.0,
+        48.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Retaining terrace corner",
+      "triangles": 84
+    },
+    {
+      "name": "Shore boulder broad",
+      "kit": "Shore",
+      "dimensions_m": [
+        5.3979,
+        3.4026,
+        2.0
+      ],
+      "vertices": 12,
+      "faces": 20,
+      "gallery_position": [
+        88.0,
+        48.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Shore boulder broad",
+      "triangles": 20
+    },
+    {
+      "name": "Shore boulder tall",
+      "kit": "Shore",
+      "dimensions_m": [
+        2.3997,
+        2.5519,
+        3.5
+      ],
+      "vertices": 12,
+      "faces": 20,
+      "gallery_position": [
+        110.0,
+        48.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Shore boulder tall",
+      "triangles": 20
+    },
+    {
+      "name": "Shore rock shelf",
+      "kit": "Shore",
+      "dimensions_m": [
+        4.5167,
+        3.4026,
+        0.8
+      ],
+      "vertices": 12,
+      "faces": 20,
+      "gallery_position": [
+        132.0,
+        48.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Shore rock shelf",
+      "triangles": 20
+    },
+    {
+      "name": "Concave inlet rocks",
+      "kit": "Shore",
+      "dimensions_m": [
+        8.4589,
+        4.7013,
+        1.8
+      ],
+      "vertices": 84,
+      "faces": 140,
+      "gallery_position": [
+        154.0,
+        48.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Concave inlet rocks",
+      "triangles": 140
+    },
+    {
+      "name": "Headland rock cluster",
+      "kit": "Shore",
+      "dimensions_m": [
+        6.6859,
+        5.1038,
+        2.8
+      ],
+      "vertices": 24,
+      "faces": 40,
+      "gallery_position": [
+        0.0,
+        72.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Headland rock cluster",
+      "triangles": 40
+    },
+    {
+      "name": "Wet waterline rock",
+      "kit": "Shore",
+      "dimensions_m": [
+        3.293,
+        2.5519,
+        0.8
+      ],
+      "vertices": 12,
+      "faces": 20,
+      "gallery_position": [
+        22.0,
+        72.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Wet waterline rock",
+      "triangles": 20
+    },
+    {
+      "name": "Building quay foundation",
+      "kit": "Quays",
+      "dimensions_m": [
+        4.2,
+        3.2,
+        3.1
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        44.0,
+        72.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Building quay foundation",
+      "triangles": 24
+    },
+    {
+      "name": "Quay height transition",
+      "kit": "Quays",
+      "dimensions_m": [
+        4.2304,
+        1.23,
+        3.5608
+      ],
+      "vertices": 40,
+      "faces": 30,
+      "gallery_position": [
+        66.0,
+        72.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Quay height transition",
+      "triangles": 60
+    },
+    {
+      "name": "Dock quay connector",
+      "kit": "Quays",
+      "dimensions_m": [
+        2.0,
+        3.0,
+        1.59
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        88.0,
+        72.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Dock quay connector",
+      "triangles": 24
+    },
+    {
+      "name": "Recessed mooring bay",
+      "kit": "Quays",
+      "dimensions_m": [
+        4.5,
+        2.25,
+        2.0
+      ],
+      "vertices": 24,
+      "faces": 18,
+      "gallery_position": [
+        110.0,
+        72.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Recessed mooring bay",
+      "triangles": 36
+    },
+    {
+      "name": "Quay corner bollard plinth",
+      "kit": "Quays",
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.03
+      ],
+      "vertices": 40,
+      "faces": 26,
+      "gallery_position": [
+        132.0,
+        72.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Quay corner bollard plinth",
+      "triangles": 68
+    },
+    {
+      "name": "Waterline masonry face 4m",
+      "kit": "Quays",
+      "dimensions_m": [
+        4.0,
+        0.53,
+        3.0
+      ],
+      "vertices": 48,
+      "faces": 36,
+      "gallery_position": [
+        154.0,
+        72.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Waterline masonry face 4m",
+      "triangles": 72
+    },
+    {
+      "name": "Curved hedgerow boundary",
+      "kit": "Farmland",
+      "dimensions_m": [
+        4.1406,
+        4.1699,
+        1.4
+      ],
+      "vertices": 184,
+      "faces": 224,
+      "gallery_position": [
+        0.0,
+        96.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Curved hedgerow boundary",
+      "triangles": 336
+    },
+    {
+      "name": "Wheat strip 8m",
+      "kit": "Farmland",
+      "dimensions_m": [
+        4.0,
+        8.0,
+        1.0
+      ],
+      "vertices": 1448,
+      "faces": 1566,
+      "gallery_position": [
+        22.0,
+        96.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Wheat strip 8m",
+      "triangles": 2364
+    },
+    {
+      "name": "Vegetable strip 8m",
+      "kit": "Farmland",
+      "dimensions_m": [
+        4.0,
+        8.025,
+        0.43
+      ],
+      "vertices": 936,
+      "faces": 1182,
+      "gallery_position": [
+        44.0,
+        96.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Vegetable strip 8m",
+      "triangles": 1596
+    },
+    {
+      "name": "Ploughed furrow strip",
+      "kit": "Farmland",
+      "dimensions_m": [
+        4.0,
+        8.0,
+        0.16
+      ],
+      "vertices": 40,
+      "faces": 30,
+      "gallery_position": [
+        66.0,
+        96.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Ploughed furrow strip",
+      "triangles": 60
+    },
+    {
+      "name": "Irrigation ditch 4m",
+      "kit": "Farmland",
+      "dimensions_m": [
+        4.0,
+        1.4,
+        0.45
+      ],
+      "vertices": 8,
+      "faces": 3,
+      "gallery_position": [
+        88.0,
+        96.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Irrigation ditch 4m",
+      "triangles": 6
+    },
+    {
+      "name": "Field ditch crossing",
+      "kit": "Farmland",
+      "dimensions_m": [
+        2.0,
+        2.0,
+        1.05
+      ],
+      "vertices": 24,
+      "faces": 18,
+      "gallery_position": [
+        110.0,
+        96.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Field ditch crossing",
+      "triangles": 36
+    },
+    {
+      "name": "Covered haystack",
+      "kit": "Farmland",
+      "dimensions_m": [
+        2.8532,
+        2.2825,
+        2.0
+      ],
+      "vertices": 42,
+      "faces": 46,
+      "gallery_position": [
+        132.0,
+        96.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Covered haystack",
+      "triangles": 76
+    },
+    {
+      "name": "Orchard ground patch",
+      "kit": "Farmland",
+      "dimensions_m": [
+        4.0,
+        4.0,
+        0.1
+      ],
+      "vertices": 64,
+      "faces": 78,
+      "gallery_position": [
+        154.0,
+        96.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Orchard ground patch",
+      "triangles": 108
+    },
+    {
+      "name": "Field boundary stone stile",
+      "kit": "Farmland",
+      "dimensions_m": [
+        4.0,
+        1.7,
+        0.9
+      ],
+      "vertices": 32,
+      "faces": 24,
+      "gallery_position": [
+        0.0,
+        120.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Field boundary stone stile",
+      "triangles": 48
+    },
+    {
+      "name": "Compost and tool rack",
+      "kit": "Farmland",
+      "dimensions_m": [
+        1.5,
+        1.62,
+        1.8
+      ],
+      "vertices": 32,
+      "faces": 24,
+      "gallery_position": [
+        22.0,
+        120.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Compost and tool rack",
+      "triangles": 48
+    },
+    {
+      "name": "Workshop open canopy",
+      "kit": "Architecture",
+      "dimensions_m": [
+        4.4,
+        3.4,
+        2.9
+      ],
+      "vertices": 40,
+      "faces": 30,
+      "gallery_position": [
+        44.0,
+        120.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Workshop open canopy",
+      "triangles": 60
+    },
+    {
+      "name": "Service rear stoop",
+      "kit": "Architecture",
+      "dimensions_m": [
+        1.5,
+        2.125,
+        0.9
+      ],
+      "vertices": 32,
+      "faces": 24,
+      "gallery_position": [
+        66.0,
+        120.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Service rear stoop",
+      "triangles": 48
+    },
+    {
+      "name": "Restaurant terrace railing",
+      "kit": "Architecture",
+      "dimensions_m": [
+        4.0,
+        0.1,
+        0.9
+      ],
+      "vertices": 72,
+      "faces": 54,
+      "gallery_position": [
+        88.0,
+        120.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Restaurant terrace railing",
+      "triangles": 108
+    },
+    {
+      "name": "Boathouse slip frame",
+      "kit": "Architecture",
+      "dimensions_m": [
+        3.85,
+        1.0,
+        2.95
+      ],
+      "vertices": 24,
+      "faces": 18,
+      "gallery_position": [
+        110.0,
+        120.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Boathouse slip frame",
+      "triangles": 36
+    },
+    {
+      "name": "Attached lean-to roof",
+      "kit": "Architecture",
+      "dimensions_m": [
+        3.0,
+        2.4918,
+        0.6247
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        132.0,
+        120.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Attached lean-to roof",
+      "triangles": 12
+    },
+    {
+      "name": "Roof gutter and downpipe",
+      "kit": "Architecture",
+      "dimensions_m": [
+        4.0,
+        0.08,
+        3.04
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        154.0,
+        120.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Roof gutter and downpipe",
+      "triangles": 24
+    },
+    {
+      "name": "Merchant variant 01",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        4.3,
+        7.675,
+        11.66
+      ],
+      "vertices": 5210,
+      "faces": 4746,
+      "gallery_position": [
+        0.0,
+        144.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Merchant variant 01",
+      "triangles": 8132
+    },
+    {
+      "name": "Merchant variant 02",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        4.3,
+        7.675,
+        11.72
+      ],
+      "vertices": 5566,
+      "faces": 5004,
+      "gallery_position": [
+        22.0,
+        144.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Merchant variant 02",
+      "triangles": 8684
+    },
+    {
+      "name": "Merchant variant 03",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        4.3,
+        8.2042,
+        11.66
+      ],
+      "vertices": 6926,
+      "faces": 5838,
+      "gallery_position": [
+        44.0,
+        144.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Merchant variant 03",
+      "triangles": 10408
+    },
+    {
+      "name": "Merchant variant 04",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        4.3,
+        8.2042,
+        11.66
+      ],
+      "vertices": 4510,
+      "faces": 3249,
+      "gallery_position": [
+        66.0,
+        144.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Merchant variant 04",
+      "triangles": 6488
+    },
+    {
+      "name": "Apartment variant 01",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        12.3,
+        12.43,
+        12.86
+      ],
+      "vertices": 13846,
+      "faces": 10376,
+      "gallery_position": [
+        88.0,
+        144.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Apartment variant 01",
+      "triangles": 20766
+    },
+    {
+      "name": "Apartment variant 02",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        16.75,
+        15.375,
+        11.06
+      ],
+      "vertices": 25839,
+      "faces": 21223,
+      "gallery_position": [
+        110.0,
+        144.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Apartment variant 02",
+      "triangles": 40305
+    },
+    {
+      "name": "Apartment variant 03",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        12.3,
+        13.9,
+        12.86
+      ],
+      "vertices": 13960,
+      "faces": 10456,
+      "gallery_position": [
+        132.0,
+        144.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Apartment variant 03",
+      "triangles": 20928
+    },
+    {
+      "name": "Apartment variant 04",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        16.75,
+        15.375,
+        11.06
+      ],
+      "vertices": 25953,
+      "faces": 21303,
+      "gallery_position": [
+        154.0,
+        144.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Apartment variant 04",
+      "triangles": 40467
+    },
+    {
+      "name": "Warehouse variant 01",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        12.39,
+        8.58,
+        5.5967
+      ],
+      "vertices": 13434,
+      "faces": 10107,
+      "gallery_position": [
+        0.0,
+        168.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Warehouse variant 01",
+      "triangles": 20280
+    },
+    {
+      "name": "Warehouse variant 02",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        12.39,
+        8.58,
+        5.5967
+      ],
+      "vertices": 13762,
+      "faces": 10353,
+      "gallery_position": [
+        22.0,
+        168.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Warehouse variant 02",
+      "triangles": 20772
+    },
+    {
+      "name": "Warehouse variant 03",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        12.39,
+        8.58,
+        6.36
+      ],
+      "vertices": 13778,
+      "faces": 10365,
+      "gallery_position": [
+        44.0,
+        168.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Warehouse variant 03",
+      "triangles": 20796
+    },
+    {
+      "name": "Warehouse variant 04",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        12.39,
+        8.58,
+        6.36
+      ],
+      "vertices": 14106,
+      "faces": 10611,
+      "gallery_position": [
+        66.0,
+        168.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Warehouse variant 04",
+      "triangles": 21288
+    },
+    {
+      "name": "Villa variant 01",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        12.0,
+        13.35,
+        5.435
+      ],
+      "vertices": 3142,
+      "faces": 2333,
+      "gallery_position": [
+        88.0,
+        168.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Villa variant 01",
+      "triangles": 4888
+    },
+    {
+      "name": "Villa variant 02",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        12.0,
+        13.35,
+        5.435
+      ],
+      "vertices": 3246,
+      "faces": 2411,
+      "gallery_position": [
+        110.0,
+        168.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Villa variant 02",
+      "triangles": 5044
+    },
+    {
+      "name": "Villa variant 03",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        12.75,
+        13.35,
+        5.435
+      ],
+      "vertices": 3246,
+      "faces": 2411,
+      "gallery_position": [
+        132.0,
+        168.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Villa variant 03",
+      "triangles": 5044
+    },
+    {
+      "name": "Villa variant 04",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        12.75,
+        13.35,
+        5.435
+      ],
+      "vertices": 3350,
+      "faces": 2489,
+      "gallery_position": [
+        154.0,
+        168.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Villa variant 04",
+      "triangles": 5200
+    },
+    {
+      "name": "Farm variant 01",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        12.62,
+        8.77,
+        6.21
+      ],
+      "vertices": 2060,
+      "faces": 1550,
+      "gallery_position": [
+        0.0,
+        192.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Farm variant 01",
+      "triangles": 3092
+    },
+    {
+      "name": "Farm variant 02",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        12.62,
+        8.77,
+        9.21
+      ],
+      "vertices": 3212,
+      "faces": 2414,
+      "gallery_position": [
+        22.0,
+        192.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Farm variant 02",
+      "triangles": 4820
+    },
+    {
+      "name": "Farm variant 03",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        10.7766,
+        12.395,
+        7.91
+      ],
+      "vertices": 1578,
+      "faces": 1202,
+      "gallery_position": [
+        44.0,
+        192.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Farm variant 03",
+      "triangles": 2384
+    },
+    {
+      "name": "Farm variant 04",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        4.77,
+        4.62,
+        6.07
+      ],
+      "vertices": 672,
+      "faces": 506,
+      "gallery_position": [
+        66.0,
+        192.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Farm variant 04",
+      "triangles": 1008
+    },
+    {
+      "name": "Artisan variant 01",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        4.75,
+        6.513,
+        7.6
+      ],
+      "vertices": 2876,
+      "faces": 2212,
+      "gallery_position": [
+        88.0,
+        192.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Artisan variant 01",
+      "triangles": 4380
+    },
+    {
+      "name": "Artisan variant 02",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        6.375,
+        9.585,
+        7.6
+      ],
+      "vertices": 3444,
+      "faces": 2586,
+      "gallery_position": [
+        110.0,
+        192.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Artisan variant 02",
+      "triangles": 5192
+    },
+    {
+      "name": "Artisan variant 03",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        4.75,
+        6.513,
+        7.6
+      ],
+      "vertices": 2876,
+      "faces": 2212,
+      "gallery_position": [
+        132.0,
+        192.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Artisan variant 03",
+      "triangles": 4380
+    },
+    {
+      "name": "Artisan variant 04",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        6.375,
+        9.585,
+        10.6
+      ],
+      "vertices": 4924,
+      "faces": 3644,
+      "gallery_position": [
+        154.0,
+        192.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Artisan variant 04",
+      "triangles": 7372
+    },
+    {
+      "name": "Inn variant 01",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        6.75,
+        11.425,
+        10.607
+      ],
+      "vertices": 4244,
+      "faces": 3238,
+      "gallery_position": [
+        0.0,
+        216.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Inn variant 01",
+      "triangles": 6432
+    },
+    {
+      "name": "Inn variant 02",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        6.75,
+        11.425,
+        10.607
+      ],
+      "vertices": 4740,
+      "faces": 3418,
+      "gallery_position": [
+        22.0,
+        216.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Inn variant 02",
+      "triangles": 6792
+    },
+    {
+      "name": "Inn variant 03",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        8.75,
+        11.425,
+        10.607
+      ],
+      "vertices": 4244,
+      "faces": 3238,
+      "gallery_position": [
+        44.0,
+        216.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Inn variant 03",
+      "triangles": 6432
+    },
+    {
+      "name": "Inn variant 04",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        8.75,
+        11.425,
+        10.607
+      ],
+      "vertices": 4740,
+      "faces": 3418,
+      "gallery_position": [
+        66.0,
+        216.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Inn variant 04",
+      "triangles": 6792
+    },
+    {
+      "name": "Boathouse variant 01",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        4.75,
+        6.725,
+        4.6
+      ],
+      "vertices": 1800,
+      "faces": 1384,
+      "gallery_position": [
+        88.0,
+        216.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Boathouse variant 01",
+      "triangles": 2744
+    },
+    {
+      "name": "Boathouse variant 02",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        6.425,
+        9.225,
+        4.684
+      ],
+      "vertices": 2008,
+      "faces": 1540,
+      "gallery_position": [
+        110.0,
+        216.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Boathouse variant 02",
+      "triangles": 3056
+    },
+    {
+      "name": "Boathouse variant 03",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        6.75,
+        8.2325,
+        4.684
+      ],
+      "vertices": 2088,
+      "faces": 1600,
+      "gallery_position": [
+        132.0,
+        216.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Boathouse variant 03",
+      "triangles": 3176
+    },
+    {
+      "name": "Boathouse variant 04",
+      "kit": "Building assemblies",
+      "dimensions_m": [
+        7.425,
+        9.2325,
+        4.684
+      ],
+      "vertices": 2152,
+      "faces": 1648,
+      "gallery_position": [
+        154.0,
+        216.0,
+        0.0
+      ],
+      "notes": "Complete editable mesh assembly; reuses original windowed modules and materials.",
+      "collection": "Boathouse variant 04",
+      "triangles": 3272
+    }
+  ],
+  "reused_sources": {
+    "HubTownLibrary": [
+      "Timber wall plain",
+      "Timber wall window",
+      "Timber wall door",
+      "Square window insert",
+      "House door",
+      "Slate roof panel",
+      "Gable timber window",
+      "Chimney stack 1",
+      "Wall lantern",
+      "Hanging sign bracket",
+      "Shop sign rectangular",
+      "Table",
+      "Chair",
+      "Barrel closed",
+      "Storage sack",
+      "Rope coil",
+      "Dock ladder",
+      "Mooring ring",
+      "Market stall frame",
+      "Market canopy striped",
+      "Market counter straight",
+      "Produce tray",
+      "Large crate",
+      "Stone stairs short",
+      "Dock platform straight"
+    ],
+    "CityBoroughLibrary": [
+      "A Warehouse complete",
+      "B Merchant shophouse complete",
+      "C Courtyard tenement complete",
+      "D Hillside villa complete",
+      "Small cargo boat",
+      "Rowboat",
+      "Dock bollard",
+      "Gangplank",
+      "Warehouse hoist frame",
+      "Warehouse loading platform",
+      "Warehouse covered gallery",
+      "Villa pergola bay",
+      "Villa garden balustrade",
+      "Tenement gallery floor",
+      "Tenement gallery railing",
+      "Tenement chimney short",
+      "Laundry line",
+      "Laundry hanging sheet"
+    ],
+    "ResidentialStreetLibrary": [
+      "A Cream peaked bookshop",
+      "B Rose stepped tailor",
+      "C Sage arched cafe",
+      "D Ochre oriel restaurant",
+      "E Courtyard apartment complex",
+      "F Corner restaurant apartments",
+      "Apartment paired window wall",
+      "Apartment gallery door wall",
+      "Restaurant window frontage",
+      "Recessed restaurant entrance",
+      "Curved striped awning",
+      "Restaurant menu board",
+      "Peaked gable",
+      "Bell stepped gable",
+      "Scroll gable"
+    ],
+    "RuralLibrary": [
+      "A Low farmhouse",
+      "B Tall farmhouse",
+      "C Timber barn",
+      "D Farm shed",
+      "Fence bay 4m",
+      "Farm gate 4m",
+      "Farm well",
+      "Farm cart",
+      "Vegetable bed 4m",
+      "Wheat bed 4m",
+      "Orchard fruit tree"
+    ],
+    "UpperCityLibrary": [
+      "Natural to masonry bank",
+      "Natural rocky bank",
+      "Shallow planted bank"
+    ],
+    "HubTownExpansion": [
+      "Detailed retaining bay",
+      "Retaining buttress",
+      "Water access steps"
+    ]
+  }
+}

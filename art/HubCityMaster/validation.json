@@ -1,0 +1,12 @@
+{
+  "single_scene": true,
+  "terrain_vertices": 160801,
+  "building_masses": 378,
+  "embedded_component_instances": 292,
+  "major_hubs_connected": 12,
+  "major_hubs_total": 12,
+  "camera_count": 6,
+  "external_libraries": 0,
+  "errors": [],
+  "limits": "Graph connectivity is a layout check, not a collision, headroom or gameplay traversal certification."
+}

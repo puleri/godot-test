@@ -1,2 +1,4 @@
 # Normalize EOL for all files that Git considers text files.
 * text=auto eol=lf
+art/HubCityGameExport/hub_city.glb filter=lfs diff=lfs merge=lfs -text
+Assets/HubCity/HubCityGeometry.scn filter=lfs diff=lfs merge=lfs -text

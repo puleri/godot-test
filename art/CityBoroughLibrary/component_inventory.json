@@ -1,0 +1,2601 @@
+{
+  "count": 141,
+  "categories": {
+    "17 Canal Warehouse": 15,
+    "18 Merchant Shophouse": 14,
+    "19 Courtyard Tenement": 19,
+    "20 Hillside Villa": 16,
+    "21 Clock Hall": 17,
+    "22 Canal Bathhouse": 14,
+    "23 Great Waterwheel Mill": 21,
+    "24 Canal and Waterfront": 16,
+    "25 Borough Identity and Distance": 9
+  },
+  "components": [
+    {
+      "name": "Warehouse brick wall",
+      "kit": "17 Canal Warehouse",
+      "dimensions_m": [
+        4.0,
+        0.345,
+        3.0
+      ],
+      "vertices": 824,
+      "faces": 618,
+      "gallery_position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Warehouse brick wall"
+    },
+    {
+      "name": "Warehouse loading arch",
+      "kit": "17 Canal Warehouse",
+      "dimensions_m": [
+        4.0,
+        0.53,
+        4.0
+      ],
+      "vertices": 240,
+      "faces": 180,
+      "gallery_position": [
+        7.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Warehouse loading arch"
+    },
+    {
+      "name": "Warehouse double loading doors",
+      "kit": "17 Canal Warehouse",
+      "dimensions_m": [
+        2.388,
+        0.228,
+        2.26
+      ],
+      "vertices": 184,
+      "faces": 180,
+      "gallery_position": [
+        14.0,
+        0.0,
+        0.0
+      ],
+      "notes": "2.4 m wide \u00d7 2.26 m high, fits within the loading arch; upper arch remains glazed/open.",
+      "collection": "Warehouse double loading doors"
+    },
+    {
+      "name": "Warehouse industrial window wall",
+      "kit": "17 Canal Warehouse",
+      "dimensions_m": [
+        4.0,
+        0.43,
+        3.0
+      ],
+      "vertices": 248,
+      "faces": 186,
+      "gallery_position": [
+        21.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Warehouse industrial window wall"
+    },
+    {
+      "name": "Warehouse industrial window",
+      "kit": "17 Canal Warehouse",
+      "dimensions_m": [
+        1.515,
+        0.1025,
+        2.21
+      ],
+      "vertices": 70,
+      "faces": 47,
+      "gallery_position": [
+        28.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Warehouse industrial window"
+    },
+    {
+      "name": "Warehouse shallow roof half",
+      "kit": "17 Canal Warehouse",
+      "dimensions_m": [
+        3.992,
+        3.0566,
+        1.4263
+      ],
+      "vertices": 400,
+      "faces": 300,
+      "gallery_position": [
+        35.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Warehouse shallow roof half"
+    },
+    {
+      "name": "Warehouse roof gable end",
+      "kit": "17 Canal Warehouse",
+      "dimensions_m": [
+        6.0,
+        0.3,
+        1.2
+      ],
+      "vertices": 6,
+      "faces": 5,
+      "gallery_position": [
+        42.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Warehouse roof gable end"
+    },
+    {
+      "name": "Warehouse skylight",
+      "kit": "17 Canal Warehouse",
+      "dimensions_m": [
+        1.5,
+        1.0,
+        0.315
+      ],
+      "vertices": 24,
+      "faces": 18,
+      "gallery_position": [
+        49.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Warehouse skylight"
+    },
+    {
+      "name": "Warehouse loading platform",
+      "kit": "17 Canal Warehouse",
+      "dimensions_m": [
+        4.0,
+        2.0,
+        0.36
+      ],
+      "vertices": 144,
+      "faces": 108,
+      "gallery_position": [
+        0.0,
+        7.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Warehouse loading platform"
+    },
+    {
+      "name": "Warehouse hoist frame",
+      "kit": "17 Canal Warehouse",
+      "dimensions_m": [
+        0.2,
+        2.1,
+        3.0
+      ],
+      "vertices": 24,
+      "faces": 18,
+      "gallery_position": [
+        7.0,
+        7.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Warehouse hoist frame"
+    },
+    {
+      "name": "Hoist pulley",
+      "kit": "17 Canal Warehouse",
+      "dimensions_m": [
+        0.5,
+        0.1,
+        0.5
+      ],
+      "vertices": 96,
+      "faces": 88,
+      "gallery_position": [
+        14.0,
+        7.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Hoist pulley"
+    },
+    {
+      "name": "Cargo hook",
+      "kit": "17 Canal Warehouse",
+      "dimensions_m": [
+        0.3433,
+        0.045,
+        0.5187
+      ],
+      "vertices": 104,
+      "faces": 78,
+      "gallery_position": [
+        21.0,
+        7.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Cargo hook"
+    },
+    {
+      "name": "Warehouse covered gallery",
+      "kit": "17 Canal Warehouse",
+      "dimensions_m": [
+        4.2,
+        2.2,
+        3.3
+      ],
+      "vertices": 168,
+      "faces": 126,
+      "gallery_position": [
+        28.0,
+        7.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Warehouse covered gallery"
+    },
+    {
+      "name": "Warehouse ridge cap",
+      "kit": "17 Canal Warehouse",
+      "dimensions_m": [
+        4.0,
+        0.18,
+        0.12
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        35.0,
+        7.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Warehouse ridge cap"
+    },
+    {
+      "name": "Warehouse corner quoin",
+      "kit": "17 Canal Warehouse",
+      "dimensions_m": [
+        0.4,
+        0.4,
+        2.98
+      ],
+      "vertices": 80,
+      "faces": 60,
+      "gallery_position": [
+        42.0,
+        7.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Warehouse corner quoin"
+    },
+    {
+      "name": "Merchant facade Sage",
+      "kit": "18 Merchant Shophouse",
+      "dimensions_m": [
+        3.0,
+        0.535,
+        3.0
+      ],
+      "vertices": 48,
+      "faces": 36,
+      "gallery_position": [
+        0.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Merchant facade Sage"
+    },
+    {
+      "name": "Merchant facade Ochre",
+      "kit": "18 Merchant Shophouse",
+      "dimensions_m": [
+        3.0,
+        0.535,
+        3.0
+      ],
+      "vertices": 48,
+      "faces": 36,
+      "gallery_position": [
+        7.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Merchant facade Ochre"
+    },
+    {
+      "name": "Merchant facade DustyRed",
+      "kit": "18 Merchant Shophouse",
+      "dimensions_m": [
+        3.0,
+        0.535,
+        3.0
+      ],
+      "vertices": 48,
+      "faces": 36,
+      "gallery_position": [
+        14.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Merchant facade DustyRed"
+    },
+    {
+      "name": "Merchant stepped gable",
+      "kit": "18 Merchant Shophouse",
+      "dimensions_m": [
+        3.06,
+        0.4,
+        1.82
+      ],
+      "vertices": 112,
+      "faces": 84,
+      "gallery_position": [
+        21.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Merchant stepped gable"
+    },
+    {
+      "name": "Merchant gable cap",
+      "kit": "18 Merchant Shophouse",
+      "dimensions_m": [
+        0.5,
+        0.4,
+        0.12
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        28.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Merchant gable cap"
+    },
+    {
+      "name": "Merchant shop arcade",
+      "kit": "18 Merchant Shophouse",
+      "dimensions_m": [
+        3.0,
+        0.48,
+        3.0
+      ],
+      "vertices": 240,
+      "faces": 180,
+      "gallery_position": [
+        35.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Merchant shop arcade"
+    },
+    {
+      "name": "Merchant tall window",
+      "kit": "18 Merchant Shophouse",
+      "dimensions_m": [
+        1.33,
+        0.115,
+        1.85
+      ],
+      "vertices": 56,
+      "faces": 42,
+      "gallery_position": [
+        42.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Merchant tall window"
+    },
+    {
+      "name": "Merchant projecting bay",
+      "kit": "18 Merchant Shophouse",
+      "dimensions_m": [
+        1.7,
+        0.75,
+        2.025
+      ],
+      "vertices": 48,
+      "faces": 36,
+      "gallery_position": [
+        49.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Merchant projecting bay"
+    },
+    {
+      "name": "Merchant recessed entry",
+      "kit": "18 Merchant Shophouse",
+      "dimensions_m": [
+        1.55,
+        0.81,
+        2.4
+      ],
+      "vertices": 116,
+      "faces": 108,
+      "gallery_position": [
+        0.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Merchant recessed entry"
+    },
+    {
+      "name": "Merchant party wall",
+      "kit": "18 Merchant Shophouse",
+      "dimensions_m": [
+        4.0,
+        0.3,
+        3.0
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        7.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Merchant party wall"
+    },
+    {
+      "name": "Merchant narrow roof half",
+      "kit": "18 Merchant Shophouse",
+      "dimensions_m": [
+        3.992,
+        1.611,
+        1.8553
+      ],
+      "vertices": 400,
+      "faces": 300,
+      "gallery_position": [
+        14.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Merchant narrow roof half"
+    },
+    {
+      "name": "Merchant floor bay",
+      "kit": "18 Merchant Shophouse",
+      "dimensions_m": [
+        3.0,
+        4.0,
+        0.36
+      ],
+      "vertices": 112,
+      "faces": 84,
+      "gallery_position": [
+        21.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Merchant floor bay"
+    },
+    {
+      "name": "Merchant arcade column",
+      "kit": "18 Merchant Shophouse",
+      "dimensions_m": [
+        0.56,
+        0.56,
+        3.0
+      ],
+      "vertices": 56,
+      "faces": 34,
+      "gallery_position": [
+        28.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Merchant arcade column"
+    },
+    {
+      "name": "Merchant front door",
+      "kit": "18 Merchant Shophouse",
+      "dimensions_m": [
+        1.148,
+        0.228,
+        2.26
+      ],
+      "vertices": 100,
+      "faces": 96,
+      "gallery_position": [
+        35.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Merchant front door"
+    },
+    {
+      "name": "Tenement gallery wall",
+      "kit": "19 Courtyard Tenement",
+      "dimensions_m": [
+        4.0,
+        0.535,
+        3.0
+      ],
+      "vertices": 48,
+      "faces": 36,
+      "gallery_position": [
+        0.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Tenement gallery wall"
+    },
+    {
+      "name": "Tenement passage arch",
+      "kit": "19 Courtyard Tenement",
+      "dimensions_m": [
+        4.0,
+        0.48,
+        3.0
+      ],
+      "vertices": 240,
+      "faces": 180,
+      "gallery_position": [
+        7.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Tenement passage arch"
+    },
+    {
+      "name": "Tenement plain wall",
+      "kit": "19 Courtyard Tenement",
+      "dimensions_m": [
+        4.0,
+        0.3,
+        3.0
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        14.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Tenement plain wall"
+    },
+    {
+      "name": "Tenement gallery floor",
+      "kit": "19 Courtyard Tenement",
+      "dimensions_m": [
+        4.0,
+        1.5,
+        0.36
+      ],
+      "vertices": 144,
+      "faces": 108,
+      "gallery_position": [
+        21.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Tenement gallery floor"
+    },
+    {
+      "name": "Tenement gallery post",
+      "kit": "19 Courtyard Tenement",
+      "dimensions_m": [
+        0.16,
+        0.16,
+        3.0
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        28.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Tenement gallery post"
+    },
+    {
+      "name": "Tenement gallery railing",
+      "kit": "19 Courtyard Tenement",
+      "dimensions_m": [
+        4.0,
+        0.14,
+        1.1
+      ],
+      "vertices": 40,
+      "faces": 30,
+      "gallery_position": [
+        35.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Tenement gallery railing"
+    },
+    {
+      "name": "Tenement gallery corner",
+      "kit": "19 Courtyard Tenement",
+      "dimensions_m": [
+        1.5,
+        1.5,
+        3.12
+      ],
+      "vertices": 72,
+      "faces": 54,
+      "gallery_position": [
+        42.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Tenement gallery corner"
+    },
+    {
+      "name": "Tenement timber stairs",
+      "kit": "19 Courtyard Tenement",
+      "dimensions_m": [
+        1.5,
+        4.8848,
+        3.1357
+      ],
+      "vertices": 112,
+      "faces": 84,
+      "gallery_position": [
+        49.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Tenement timber stairs"
+    },
+    {
+      "name": "Tenement stair landing",
+      "kit": "19 Courtyard Tenement",
+      "dimensions_m": [
+        2.0,
+        2.0,
+        0.36
+      ],
+      "vertices": 80,
+      "faces": 60,
+      "gallery_position": [
+        0.0,
+        119.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Tenement stair landing"
+    },
+    {
+      "name": "Terracotta roof half",
+      "kit": "19 Courtyard Tenement",
+      "dimensions_m": [
+        3.992,
+        2.09,
+        1.7165
+      ],
+      "vertices": 400,
+      "faces": 300,
+      "gallery_position": [
+        7.0,
+        119.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Terracotta roof half"
+    },
+    {
+      "name": "Terracotta hip roof",
+      "kit": "19 Courtyard Tenement",
+      "dimensions_m": [
+        4.0738,
+        4.0725,
+        1.5657
+      ],
+      "vertices": 126,
+      "faces": 95,
+      "gallery_position": [
+        14.0,
+        119.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Terracotta hip roof"
+    },
+    {
+      "name": "Terracotta valley",
+      "kit": "19 Courtyard Tenement",
+      "dimensions_m": [
+        4.1869,
+        2.1869,
+        1.659
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        21.0,
+        119.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Terracotta valley"
+    },
+    {
+      "name": "Terracotta ridge",
+      "kit": "19 Courtyard Tenement",
+      "dimensions_m": [
+        3.99,
+        0.24,
+        0.24
+      ],
+      "vertices": 160,
+      "faces": 100,
+      "gallery_position": [
+        28.0,
+        119.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Terracotta ridge"
+    },
+    {
+      "name": "Tenement chimney short",
+      "kit": "19 Courtyard Tenement",
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.5
+      ],
+      "vertices": 96,
+      "faces": 72,
+      "gallery_position": [
+        35.0,
+        119.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Tenement chimney short"
+    },
+    {
+      "name": "Tenement chimney tall",
+      "kit": "19 Courtyard Tenement",
+      "dimensions_m": [
+        1.0,
+        1.0,
+        2.5
+      ],
+      "vertices": 96,
+      "faces": 72,
+      "gallery_position": [
+        42.0,
+        119.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Tenement chimney tall"
+    },
+    {
+      "name": "Exposed brick repair patch",
+      "kit": "19 Courtyard Tenement",
+      "dimensions_m": [
+        0.95,
+        0.05,
+        0.41
+      ],
+      "vertices": 80,
+      "faces": 60,
+      "gallery_position": [
+        49.0,
+        119.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Exposed brick repair patch"
+    },
+    {
+      "name": "Laundry line",
+      "kit": "19 Courtyard Tenement",
+      "dimensions_m": [
+        4.0,
+        0.015,
+        0.015
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        0.0,
+        126.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Laundry line"
+    },
+    {
+      "name": "Laundry hanging sheet",
+      "kit": "19 Courtyard Tenement",
+      "dimensions_m": [
+        1.2,
+        0.11,
+        1.4
+      ],
+      "vertices": 5,
+      "faces": 1,
+      "gallery_position": [
+        7.0,
+        126.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Laundry hanging sheet"
+    },
+    {
+      "name": "Laundry hanging shirt",
+      "kit": "19 Courtyard Tenement",
+      "dimensions_m": [
+        1.24,
+        0.025,
+        0.8
+      ],
+      "vertices": 20,
+      "faces": 12,
+      "gallery_position": [
+        14.0,
+        126.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Laundry hanging shirt"
+    },
+    {
+      "name": "Villa pale wall",
+      "kit": "20 Hillside Villa",
+      "dimensions_m": [
+        4.0,
+        0.35,
+        3.0
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        0.0,
+        168.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Villa pale wall"
+    },
+    {
+      "name": "Villa arched window wall",
+      "kit": "20 Hillside Villa",
+      "dimensions_m": [
+        4.0,
+        0.43,
+        3.0
+      ],
+      "vertices": 248,
+      "faces": 186,
+      "gallery_position": [
+        7.0,
+        168.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Villa arched window wall"
+    },
+    {
+      "name": "Villa arched window",
+      "kit": "20 Hillside Villa",
+      "dimensions_m": [
+        1.515,
+        0.1025,
+        2.06
+      ],
+      "vertices": 70,
+      "faces": 47,
+      "gallery_position": [
+        14.0,
+        168.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Villa arched window"
+    },
+    {
+      "name": "Villa arched door wall",
+      "kit": "20 Hillside Villa",
+      "dimensions_m": [
+        4.0,
+        0.43,
+        3.0
+      ],
+      "vertices": 240,
+      "faces": 180,
+      "gallery_position": [
+        21.0,
+        168.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Villa arched door wall"
+    },
+    {
+      "name": "Villa arched door",
+      "kit": "20 Hillside Villa",
+      "dimensions_m": [
+        1.515,
+        0.1025,
+        2.66
+      ],
+      "vertices": 70,
+      "faces": 47,
+      "gallery_position": [
+        28.0,
+        168.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Villa arched door"
+    },
+    {
+      "name": "Villa loggia arch",
+      "kit": "20 Hillside Villa",
+      "dimensions_m": [
+        4.0,
+        0.38,
+        3.0
+      ],
+      "vertices": 240,
+      "faces": 180,
+      "gallery_position": [
+        35.0,
+        168.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Villa loggia arch"
+    },
+    {
+      "name": "Villa loggia column",
+      "kit": "20 Hillside Villa",
+      "dimensions_m": [
+        0.56,
+        0.56,
+        3.0
+      ],
+      "vertices": 56,
+      "faces": 34,
+      "gallery_position": [
+        42.0,
+        168.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Villa loggia column"
+    },
+    {
+      "name": "Villa loggia corner",
+      "kit": "20 Hillside Villa",
+      "dimensions_m": [
+        0.7,
+        0.7,
+        3.0
+      ],
+      "vertices": 64,
+      "faces": 40,
+      "gallery_position": [
+        49.0,
+        168.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Villa loggia corner"
+    },
+    {
+      "name": "Villa low hip roof",
+      "kit": "20 Hillside Villa",
+      "dimensions_m": [
+        8.6656,
+        6.6655,
+        1.6681
+      ],
+      "vertices": 126,
+      "faces": 95,
+      "gallery_position": [
+        0.0,
+        175.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Villa low hip roof"
+    },
+    {
+      "name": "Villa garden balustrade",
+      "kit": "20 Hillside Villa",
+      "dimensions_m": [
+        4.0,
+        0.34,
+        1.075
+      ],
+      "vertices": 368,
+      "faces": 232,
+      "gallery_position": [
+        7.0,
+        175.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Villa garden balustrade"
+    },
+    {
+      "name": "Villa terrace steps",
+      "kit": "20 Hillside Villa",
+      "dimensions_m": [
+        3.0,
+        1.6,
+        0.8
+      ],
+      "vertices": 32,
+      "faces": 24,
+      "gallery_position": [
+        14.0,
+        175.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Villa terrace steps"
+    },
+    {
+      "name": "Villa garden wall",
+      "kit": "20 Hillside Villa",
+      "dimensions_m": [
+        4.0,
+        0.25,
+        1.3
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        21.0,
+        175.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Villa garden wall"
+    },
+    {
+      "name": "Villa garden gatepost",
+      "kit": "20 Hillside Villa",
+      "dimensions_m": [
+        0.46,
+        0.45,
+        2.41
+      ],
+      "vertices": 60,
+      "faces": 66,
+      "gallery_position": [
+        28.0,
+        175.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Villa garden gatepost"
+    },
+    {
+      "name": "Villa iron garden gate",
+      "kit": "20 Hillside Villa",
+      "dimensions_m": [
+        2.0,
+        0.06,
+        1.8
+      ],
+      "vertices": 96,
+      "faces": 72,
+      "gallery_position": [
+        35.0,
+        175.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Villa iron garden gate"
+    },
+    {
+      "name": "Villa pergola bay",
+      "kit": "20 Hillside Villa",
+      "dimensions_m": [
+        3.5,
+        3.5,
+        3.01
+      ],
+      "vertices": 104,
+      "faces": 78,
+      "gallery_position": [
+        42.0,
+        175.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Villa pergola bay"
+    },
+    {
+      "name": "Villa cornice",
+      "kit": "20 Hillside Villa",
+      "dimensions_m": [
+        4.0,
+        0.6,
+        0.25
+      ],
+      "vertices": 24,
+      "faces": 18,
+      "gallery_position": [
+        49.0,
+        175.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Villa cornice"
+    },
+    {
+      "name": "Clock Hall entrance arcade",
+      "kit": "21 Clock Hall",
+      "dimensions_m": [
+        4.0,
+        0.53,
+        4.0
+      ],
+      "vertices": 240,
+      "faces": 180,
+      "gallery_position": [
+        0.0,
+        224.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Clock Hall entrance arcade"
+    },
+    {
+      "name": "Clock Hall grand window wall",
+      "kit": "21 Clock Hall",
+      "dimensions_m": [
+        4.0,
+        0.48,
+        3.0
+      ],
+      "vertices": 248,
+      "faces": 186,
+      "gallery_position": [
+        7.0,
+        224.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Clock Hall grand window wall"
+    },
+    {
+      "name": "Clock Hall grand window",
+      "kit": "21 Clock Hall",
+      "dimensions_m": [
+        1.615,
+        0.1025,
+        2.26
+      ],
+      "vertices": 70,
+      "faces": 47,
+      "gallery_position": [
+        14.0,
+        224.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Clock Hall grand window"
+    },
+    {
+      "name": "Clock Hall ornate gable",
+      "kit": "21 Clock Hall",
+      "dimensions_m": [
+        4.06,
+        0.43,
+        1.82
+      ],
+      "vertices": 152,
+      "faces": 114,
+      "gallery_position": [
+        21.0,
+        224.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Clock Hall ornate gable"
+    },
+    {
+      "name": "Clock tower base wall",
+      "kit": "21 Clock Hall",
+      "dimensions_m": [
+        3.0,
+        0.395,
+        4.0
+      ],
+      "vertices": 840,
+      "faces": 630,
+      "gallery_position": [
+        28.0,
+        224.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Clock tower base wall"
+    },
+    {
+      "name": "Clock tower shaft wall",
+      "kit": "21 Clock Hall",
+      "dimensions_m": [
+        3.0,
+        0.395,
+        3.0
+      ],
+      "vertices": 632,
+      "faces": 474,
+      "gallery_position": [
+        35.0,
+        224.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Clock tower shaft wall"
+    },
+    {
+      "name": "Clock face surround",
+      "kit": "21 Clock Hall",
+      "dimensions_m": [
+        2.48,
+        0.18,
+        2.48
+      ],
+      "vertices": 96,
+      "faces": 96,
+      "gallery_position": [
+        42.0,
+        224.0,
+        0.0
+      ],
+      "notes": "Origin at clock center; front -Y.",
+      "collection": "Clock face surround"
+    },
+    {
+      "name": "Clock illuminated dial",
+      "kit": "21 Clock Hall",
+      "dimensions_m": [
+        2.16,
+        0.19,
+        2.16
+      ],
+      "vertices": 288,
+      "faces": 234,
+      "gallery_position": [
+        49.0,
+        224.0,
+        0.0
+      ],
+      "notes": "Origin at clock center; front -Y.",
+      "collection": "Clock illuminated dial"
+    },
+    {
+      "name": "Clock minute hand",
+      "kit": "21 Clock Hall",
+      "dimensions_m": [
+        0.16,
+        0.08,
+        0.97
+      ],
+      "vertices": 34,
+      "faces": 21,
+      "gallery_position": [
+        0.0,
+        231.0,
+        0.0
+      ],
+      "notes": "Pivot at dial center; rotate around Y.",
+      "collection": "Clock minute hand"
+    },
+    {
+      "name": "Clock hour hand",
+      "kit": "21 Clock Hall",
+      "dimensions_m": [
+        0.16,
+        0.08,
+        0.7
+      ],
+      "vertices": 34,
+      "faces": 21,
+      "gallery_position": [
+        7.0,
+        231.0,
+        0.0
+      ],
+      "notes": "Pivot at dial center; rotate around Y.",
+      "collection": "Clock hour hand"
+    },
+    {
+      "name": "Clock belfry opening",
+      "kit": "21 Clock Hall",
+      "dimensions_m": [
+        3.0,
+        0.38,
+        2.0
+      ],
+      "vertices": 240,
+      "faces": 180,
+      "gallery_position": [
+        14.0,
+        231.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Clock belfry opening"
+    },
+    {
+      "name": "Clock spire base",
+      "kit": "21 Clock Hall",
+      "dimensions_m": [
+        3.6,
+        3.6,
+        0.36
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        21.0,
+        231.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Clock spire base"
+    },
+    {
+      "name": "Clock copper spire",
+      "kit": "21 Clock Hall",
+      "dimensions_m": [
+        4.2,
+        4.2,
+        5.0
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        28.0,
+        231.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Clock copper spire"
+    },
+    {
+      "name": "Clock spire finial",
+      "kit": "21 Clock Hall",
+      "dimensions_m": [
+        0.24,
+        0.2283,
+        1.0
+      ],
+      "vertices": 76,
+      "faces": 74,
+      "gallery_position": [
+        35.0,
+        231.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Clock spire finial"
+    },
+    {
+      "name": "Clock Hall entrance stairs",
+      "kit": "21 Clock Hall",
+      "dimensions_m": [
+        4.0,
+        1.2,
+        0.45
+      ],
+      "vertices": 24,
+      "faces": 18,
+      "gallery_position": [
+        42.0,
+        231.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Clock Hall entrance stairs"
+    },
+    {
+      "name": "Clock Hall copper roof half",
+      "kit": "21 Clock Hall",
+      "dimensions_m": [
+        3.992,
+        4.0671,
+        2.224
+      ],
+      "vertices": 400,
+      "faces": 300,
+      "gallery_position": [
+        49.0,
+        231.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Clock Hall copper roof half"
+    },
+    {
+      "name": "Clock Hall side gable",
+      "kit": "21 Clock Hall",
+      "dimensions_m": [
+        8.0,
+        0.4,
+        2.0
+      ],
+      "vertices": 6,
+      "faces": 5,
+      "gallery_position": [
+        0.0,
+        238.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Clock Hall side gable"
+    },
+    {
+      "name": "Bathhouse octagonal window bay",
+      "kit": "22 Canal Bathhouse",
+      "dimensions_m": [
+        4.0,
+        0.43,
+        3.0
+      ],
+      "vertices": 248,
+      "faces": 186,
+      "gallery_position": [
+        0.0,
+        280.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Bathhouse octagonal window bay"
+    },
+    {
+      "name": "Bathhouse entrance bay",
+      "kit": "22 Canal Bathhouse",
+      "dimensions_m": [
+        4.0,
+        0.43,
+        3.0
+      ],
+      "vertices": 240,
+      "faces": 180,
+      "gallery_position": [
+        7.0,
+        280.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Bathhouse entrance bay"
+    },
+    {
+      "name": "Bathhouse arched glazing",
+      "kit": "22 Canal Bathhouse",
+      "dimensions_m": [
+        1.815,
+        0.1025,
+        2.26
+      ],
+      "vertices": 70,
+      "faces": 47,
+      "gallery_position": [
+        14.0,
+        280.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Bathhouse arched glazing"
+    },
+    {
+      "name": "Bathhouse corner pier",
+      "kit": "22 Canal Bathhouse",
+      "dimensions_m": [
+        0.56,
+        0.56,
+        3.0
+      ],
+      "vertices": 56,
+      "faces": 34,
+      "gallery_position": [
+        21.0,
+        280.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Bathhouse corner pier"
+    },
+    {
+      "name": "Bathhouse curved cornice",
+      "kit": "22 Canal Bathhouse",
+      "dimensions_m": [
+        10.9,
+        10.9,
+        0.25
+      ],
+      "vertices": 32,
+      "faces": 32,
+      "gallery_position": [
+        28.0,
+        280.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Bathhouse curved cornice"
+    },
+    {
+      "name": "Bathhouse dome drum",
+      "kit": "22 Canal Bathhouse",
+      "dimensions_m": [
+        10.3,
+        10.3,
+        0.7
+      ],
+      "vertices": 128,
+      "faces": 128,
+      "gallery_position": [
+        35.0,
+        280.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Bathhouse dome drum"
+    },
+    {
+      "name": "Bathhouse copper dome segment",
+      "kit": "22 Canal Bathhouse",
+      "dimensions_m": [
+        4.6383,
+        3.6017,
+        3.0059
+      ],
+      "vertices": 218,
+      "faces": 184,
+      "gallery_position": [
+        42.0,
+        280.0,
+        0.0
+      ],
+      "notes": "One 45 degree segment. Repeat eight times about Z; radius 5 m.",
+      "collection": "Bathhouse copper dome segment"
+    },
+    {
+      "name": "Bathhouse lantern base",
+      "kit": "22 Canal Bathhouse",
+      "dimensions_m": [
+        1.6,
+        1.6,
+        0.2
+      ],
+      "vertices": 32,
+      "faces": 32,
+      "gallery_position": [
+        49.0,
+        280.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Bathhouse lantern base"
+    },
+    {
+      "name": "Bathhouse roof lantern",
+      "kit": "22 Canal Bathhouse",
+      "dimensions_m": [
+        1.7,
+        1.7,
+        1.3
+      ],
+      "vertices": 80,
+      "faces": 58,
+      "gallery_position": [
+        0.0,
+        287.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Bathhouse roof lantern"
+    },
+    {
+      "name": "Bathhouse roof vent",
+      "kit": "22 Canal Bathhouse",
+      "dimensions_m": [
+        0.46,
+        0.46,
+        0.6
+      ],
+      "vertices": 40,
+      "faces": 24,
+      "gallery_position": [
+        7.0,
+        287.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Bathhouse roof vent"
+    },
+    {
+      "name": "Bathhouse terrace segment",
+      "kit": "22 Canal Bathhouse",
+      "dimensions_m": [
+        4.0,
+        3.0,
+        0.3
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        14.0,
+        287.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Bathhouse terrace segment"
+    },
+    {
+      "name": "Bathhouse broad entrance stair",
+      "kit": "22 Canal Bathhouse",
+      "dimensions_m": [
+        4.0,
+        2.0,
+        1.0
+      ],
+      "vertices": 40,
+      "faces": 30,
+      "gallery_position": [
+        21.0,
+        287.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Bathhouse broad entrance stair"
+    },
+    {
+      "name": "Bathhouse curved balustrade",
+      "kit": "22 Canal Bathhouse",
+      "dimensions_m": [
+        4.0,
+        0.34,
+        1.075
+      ],
+      "vertices": 368,
+      "faces": 232,
+      "gallery_position": [
+        28.0,
+        287.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Bathhouse curved balustrade"
+    },
+    {
+      "name": "Bathhouse octagonal floor",
+      "kit": "22 Canal Bathhouse",
+      "dimensions_m": [
+        10.46,
+        10.46,
+        0.24
+      ],
+      "vertices": 16,
+      "faces": 10,
+      "gallery_position": [
+        35.0,
+        287.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Bathhouse octagonal floor"
+    },
+    {
+      "name": "Mill stone wall",
+      "kit": "23 Great Waterwheel Mill",
+      "dimensions_m": [
+        4.0,
+        0.395,
+        3.0
+      ],
+      "vertices": 824,
+      "faces": 618,
+      "gallery_position": [
+        0.0,
+        336.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Mill stone wall"
+    },
+    {
+      "name": "Mill timber upper wall",
+      "kit": "23 Great Waterwheel Mill",
+      "dimensions_m": [
+        4.0,
+        0.36,
+        3.0
+      ],
+      "vertices": 48,
+      "faces": 36,
+      "gallery_position": [
+        7.0,
+        336.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Mill timber upper wall"
+    },
+    {
+      "name": "Mill window insert",
+      "kit": "23 Great Waterwheel Mill",
+      "dimensions_m": [
+        1.28,
+        0.18,
+        1.43
+      ],
+      "vertices": 56,
+      "faces": 42,
+      "gallery_position": [
+        14.0,
+        336.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Mill window insert"
+    },
+    {
+      "name": "Mill door bay",
+      "kit": "23 Great Waterwheel Mill",
+      "dimensions_m": [
+        4.0,
+        0.355,
+        3.0
+      ],
+      "vertices": 72,
+      "faces": 54,
+      "gallery_position": [
+        21.0,
+        336.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Mill door bay"
+    },
+    {
+      "name": "Mill wheel side opening",
+      "kit": "23 Great Waterwheel Mill",
+      "dimensions_m": [
+        4.0,
+        0.48,
+        3.0
+      ],
+      "vertices": 248,
+      "faces": 186,
+      "gallery_position": [
+        28.0,
+        336.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Mill wheel side opening"
+    },
+    {
+      "name": "Mill axle support",
+      "kit": "23 Great Waterwheel Mill",
+      "dimensions_m": [
+        0.65,
+        0.65,
+        1.325
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        35.0,
+        336.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Mill axle support"
+    },
+    {
+      "name": "Waterwheel hub",
+      "kit": "23 Great Waterwheel Mill",
+      "dimensions_m": [
+        0.64,
+        1.3,
+        0.64
+      ],
+      "vertices": 24,
+      "faces": 14,
+      "gallery_position": [
+        42.0,
+        336.0,
+        0.0
+      ],
+      "notes": "Rotational origin at wheel center, axle along Y.",
+      "collection": "Waterwheel hub"
+    },
+    {
+      "name": "Waterwheel spoke",
+      "kit": "23 Great Waterwheel Mill",
+      "dimensions_m": [
+        2.1,
+        0.16,
+        0.16
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        49.0,
+        336.0,
+        0.0
+      ],
+      "notes": "Spoke points along +X; rotate around Y.",
+      "collection": "Waterwheel spoke"
+    },
+    {
+      "name": "Waterwheel rim segment",
+      "kit": "23 Great Waterwheel Mill",
+      "dimensions_m": [
+        0.5514,
+        0.15,
+        1.25
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        0.0,
+        343.0,
+        0.0
+      ],
+      "notes": "30-degree segment in XZ plane; repeat 12 times around Y.",
+      "collection": "Waterwheel rim segment"
+    },
+    {
+      "name": "Waterwheel paddle",
+      "kit": "23 Great Waterwheel Mill",
+      "dimensions_m": [
+        0.3,
+        1.15,
+        0.12
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        7.0,
+        343.0,
+        0.0
+      ],
+      "notes": "Origin centered on paddle; place at radius 2.4 m.",
+      "collection": "Waterwheel paddle"
+    },
+    {
+      "name": "Mill drive shaft",
+      "kit": "23 Great Waterwheel Mill",
+      "dimensions_m": [
+        0.2,
+        3.0,
+        0.2
+      ],
+      "vertices": 24,
+      "faces": 14,
+      "gallery_position": [
+        14.0,
+        343.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Mill drive shaft"
+    },
+    {
+      "name": "Mill water race",
+      "kit": "23 Great Waterwheel Mill",
+      "dimensions_m": [
+        2.25,
+        6.0,
+        1.1
+      ],
+      "vertices": 24,
+      "faces": 18,
+      "gallery_position": [
+        21.0,
+        343.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Mill water race"
+    },
+    {
+      "name": "Mill sluice gate",
+      "kit": "23 Great Waterwheel Mill",
+      "dimensions_m": [
+        1.6,
+        0.15,
+        2.645
+      ],
+      "vertices": 56,
+      "faces": 42,
+      "gallery_position": [
+        28.0,
+        343.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Mill sluice gate"
+    },
+    {
+      "name": "Mill sluice lifting frame",
+      "kit": "23 Great Waterwheel Mill",
+      "dimensions_m": [
+        2.2,
+        0.32,
+        2.78
+      ],
+      "vertices": 88,
+      "faces": 82,
+      "gallery_position": [
+        35.0,
+        343.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Mill sluice lifting frame"
+    },
+    {
+      "name": "Mill discharge chute",
+      "kit": "23 Great Waterwheel Mill",
+      "dimensions_m": [
+        6.0223,
+        1.85,
+        1.1742
+      ],
+      "vertices": 24,
+      "faces": 18,
+      "gallery_position": [
+        42.0,
+        343.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Mill discharge chute"
+    },
+    {
+      "name": "Mill workshop roof half",
+      "kit": "23 Great Waterwheel Mill",
+      "dimensions_m": [
+        3.992,
+        3.0671,
+        1.724
+      ],
+      "vertices": 400,
+      "faces": 300,
+      "gallery_position": [
+        49.0,
+        343.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Mill workshop roof half"
+    },
+    {
+      "name": "Mill workshop gable",
+      "kit": "23 Great Waterwheel Mill",
+      "dimensions_m": [
+        6.0,
+        0.25,
+        1.5
+      ],
+      "vertices": 6,
+      "faces": 5,
+      "gallery_position": [
+        0.0,
+        350.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Mill workshop gable"
+    },
+    {
+      "name": "Mill chimney base",
+      "kit": "23 Great Waterwheel Mill",
+      "dimensions_m": [
+        1.3,
+        1.3,
+        1.0
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        7.0,
+        350.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Mill chimney base"
+    },
+    {
+      "name": "Mill chimney shaft",
+      "kit": "23 Great Waterwheel Mill",
+      "dimensions_m": [
+        1.0,
+        1.0,
+        3.0
+      ],
+      "vertices": 96,
+      "faces": 72,
+      "gallery_position": [
+        14.0,
+        350.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Mill chimney shaft"
+    },
+    {
+      "name": "Mill chimney cap",
+      "kit": "23 Great Waterwheel Mill",
+      "dimensions_m": [
+        1.6,
+        1.6,
+        0.24
+      ],
+      "vertices": 16,
+      "faces": 16,
+      "gallery_position": [
+        21.0,
+        350.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Mill chimney cap"
+    },
+    {
+      "name": "Mill covered passage",
+      "kit": "23 Great Waterwheel Mill",
+      "dimensions_m": [
+        4.3,
+        2.3,
+        3.32
+      ],
+      "vertices": 184,
+      "faces": 138,
+      "gallery_position": [
+        28.0,
+        350.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Mill covered passage"
+    },
+    {
+      "name": "Lock chamber wall",
+      "kit": "24 Canal and Waterfront",
+      "dimensions_m": [
+        6.0,
+        0.695,
+        4.0
+      ],
+      "vertices": 1608,
+      "faces": 1206,
+      "gallery_position": [
+        0.0,
+        392.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Lock chamber wall"
+    },
+    {
+      "name": "Lock gate left",
+      "kit": "24 Canal and Waterfront",
+      "dimensions_m": [
+        4.0,
+        0.45,
+        3.29
+      ],
+      "vertices": 168,
+      "faces": 118,
+      "gallery_position": [
+        7.0,
+        392.0,
+        0.0
+      ],
+      "notes": "Hinge at origin; rotate around Z. Base at chamber sill.",
+      "collection": "Lock gate left"
+    },
+    {
+      "name": "Lock gate right",
+      "kit": "24 Canal and Waterfront",
+      "dimensions_m": [
+        4.0,
+        0.45,
+        3.29
+      ],
+      "vertices": 168,
+      "faces": 118,
+      "gallery_position": [
+        14.0,
+        392.0,
+        0.0
+      ],
+      "notes": "Hinge at origin; rotate around Z. Base at chamber sill.",
+      "collection": "Lock gate right"
+    },
+    {
+      "name": "Lock gate winding mechanism",
+      "kit": "24 Canal and Waterfront",
+      "dimensions_m": [
+        0.7,
+        0.65,
+        1.5
+      ],
+      "vertices": 80,
+      "faces": 76,
+      "gallery_position": [
+        21.0,
+        392.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Lock gate winding mechanism"
+    },
+    {
+      "name": "Spillway crest",
+      "kit": "24 Canal and Waterfront",
+      "dimensions_m": [
+        4.0,
+        0.7,
+        0.4
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        28.0,
+        392.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Spillway crest"
+    },
+    {
+      "name": "Water level transition bed",
+      "kit": "24 Canal and Waterfront",
+      "dimensions_m": [
+        4.0,
+        4.0,
+        1.5
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        35.0,
+        392.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Water level transition bed"
+    },
+    {
+      "name": "Small cargo boat",
+      "kit": "24 Canal and Waterfront",
+      "dimensions_m": [
+        2.46,
+        6.0392,
+        0.81
+      ],
+      "vertices": 152,
+      "faces": 124,
+      "gallery_position": [
+        42.0,
+        392.0,
+        0.0
+      ],
+      "notes": "Hollow hull; waterline approximately local Z=.35 m.",
+      "collection": "Small cargo boat"
+    },
+    {
+      "name": "Rowboat",
+      "kit": "24 Canal and Waterfront",
+      "dimensions_m": [
+        1.66,
+        4.0386,
+        0.81
+      ],
+      "vertices": 152,
+      "faces": 124,
+      "gallery_position": [
+        49.0,
+        392.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Rowboat"
+    },
+    {
+      "name": "Gangplank",
+      "kit": "24 Canal and Waterfront",
+      "dimensions_m": [
+        1.0,
+        3.0,
+        0.36
+      ],
+      "vertices": 48,
+      "faces": 36,
+      "gallery_position": [
+        0.0,
+        399.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Gangplank"
+    },
+    {
+      "name": "Mooring rope",
+      "kit": "24 Canal and Waterfront",
+      "dimensions_m": [
+        0.1847,
+        3.0037,
+        0.025
+      ],
+      "vertices": 120,
+      "faces": 90,
+      "gallery_position": [
+        7.0,
+        399.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Mooring rope"
+    },
+    {
+      "name": "Cargo bundles",
+      "kit": "24 Canal and Waterfront",
+      "dimensions_m": [
+        1.48,
+        0.72,
+        0.5
+      ],
+      "vertices": 180,
+      "faces": 198,
+      "gallery_position": [
+        14.0,
+        399.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Cargo bundles"
+    },
+    {
+      "name": "Dock crane base",
+      "kit": "24 Canal and Waterfront",
+      "dimensions_m": [
+        1.4,
+        1.4,
+        4.4
+      ],
+      "vertices": 24,
+      "faces": 16,
+      "gallery_position": [
+        21.0,
+        399.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Dock crane base"
+    },
+    {
+      "name": "Dock crane boom",
+      "kit": "24 Canal and Waterfront",
+      "dimensions_m": [
+        3.1086,
+        0.22,
+        2.9633
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        28.0,
+        399.0,
+        0.0
+      ],
+      "notes": "Mount at mast top; pivot about Z at base.",
+      "collection": "Dock crane boom"
+    },
+    {
+      "name": "Dock crane winding drum",
+      "kit": "24 Canal and Waterfront",
+      "dimensions_m": [
+        0.6,
+        0.7,
+        0.6
+      ],
+      "vertices": 24,
+      "faces": 14,
+      "gallery_position": [
+        35.0,
+        399.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Dock crane winding drum"
+    },
+    {
+      "name": "Hoist hanging cable",
+      "kit": "24 Canal and Waterfront",
+      "dimensions_m": [
+        0.025,
+        0.025,
+        2.2
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        42.0,
+        399.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Hoist hanging cable"
+    },
+    {
+      "name": "Dock bollard",
+      "kit": "24 Canal and Waterfront",
+      "dimensions_m": [
+        0.65,
+        0.32,
+        0.73
+      ],
+      "vertices": 32,
+      "faces": 20,
+      "gallery_position": [
+        49.0,
+        399.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Dock bollard"
+    },
+    {
+      "name": "Warehouse sign",
+      "kit": "25 Borough Identity and Distance",
+      "dimensions_m": [
+        1.0,
+        0.135,
+        0.8
+      ],
+      "vertices": 72,
+      "faces": 70,
+      "gallery_position": [
+        0.0,
+        448.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Warehouse sign"
+    },
+    {
+      "name": "Merchant sign",
+      "kit": "25 Borough Identity and Distance",
+      "dimensions_m": [
+        1.0,
+        0.135,
+        0.8
+      ],
+      "vertices": 72,
+      "faces": 70,
+      "gallery_position": [
+        7.0,
+        448.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Merchant sign"
+    },
+    {
+      "name": "Villa sign",
+      "kit": "25 Borough Identity and Distance",
+      "dimensions_m": [
+        1.0,
+        0.135,
+        0.8
+      ],
+      "vertices": 72,
+      "faces": 70,
+      "gallery_position": [
+        14.0,
+        448.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Villa sign"
+    },
+    {
+      "name": "Civic banner",
+      "kit": "25 Borough Identity and Distance",
+      "dimensions_m": [
+        1.0,
+        0.05,
+        2.0
+      ],
+      "vertices": 18,
+      "faces": 13,
+      "gallery_position": [
+        21.0,
+        448.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Civic banner"
+    },
+    {
+      "name": "Warehouse number plaque",
+      "kit": "25 Borough Identity and Distance",
+      "dimensions_m": [
+        0.65,
+        0.08,
+        0.4
+      ],
+      "vertices": 32,
+      "faces": 24,
+      "gallery_position": [
+        28.0,
+        448.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Warehouse number plaque"
+    },
+    {
+      "name": "Street lamp post",
+      "kit": "25 Borough Identity and Distance",
+      "dimensions_m": [
+        0.5,
+        0.88,
+        3.0
+      ],
+      "vertices": 168,
+      "faces": 130,
+      "gallery_position": [
+        35.0,
+        448.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Street lamp post"
+    },
+    {
+      "name": "Distant windmill body",
+      "kit": "25 Borough Identity and Distance",
+      "dimensions_m": [
+        2.4,
+        2.4,
+        5.0
+      ],
+      "vertices": 32,
+      "faces": 20,
+      "gallery_position": [
+        42.0,
+        448.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Distant windmill body"
+    },
+    {
+      "name": "Windmill sail cross",
+      "kit": "25 Borough Identity and Distance",
+      "dimensions_m": [
+        5.2,
+        0.12,
+        5.2
+      ],
+      "vertices": 64,
+      "faces": 48,
+      "gallery_position": [
+        49.0,
+        448.0,
+        0.0
+      ],
+      "notes": "Pivot at rotor center; axle along Y.",
+      "collection": "Windmill sail cross"
+    },
+    {
+      "name": "Distant neighborhood cluster",
+      "kit": "25 Borough Identity and Distance",
+      "dimensions_m": [
+        6.2,
+        5.2,
+        3.8
+      ],
+      "vertices": 56,
+      "faces": 44,
+      "gallery_position": [
+        0.0,
+        455.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Distant neighborhood cluster"
+    }
+  ],
+  "assemblies": [
+    {
+      "name": "A Warehouse complete",
+      "objects": 43,
+      "mesh_objects": 43
+    },
+    {
+      "name": "B Merchant shophouse complete",
+      "objects": 32,
+      "mesh_objects": 32
+    },
+    {
+      "name": "C Courtyard tenement complete",
+      "objects": 133,
+      "mesh_objects": 133
+    },
+    {
+      "name": "D Hillside villa complete",
+      "objects": 29,
+      "mesh_objects": 29
+    },
+    {
+      "name": "E Clock Hall complete",
+      "objects": 67,
+      "mesh_objects": 67
+    },
+    {
+      "name": "F Canal Bathhouse complete",
+      "objects": 41,
+      "mesh_objects": 41
+    },
+    {
+      "name": "G Great Waterwheel Mill complete",
+      "objects": 112,
+      "mesh_objects": 111
+    },
+    {
+      "name": "H Lock and dock crane complete",
+      "objects": 16,
+      "mesh_objects": 16
+    },
+    {
+      "name": "I Distant windmill complete",
+      "objects": 2,
+      "mesh_objects": 2
+    }
+  ]
+}

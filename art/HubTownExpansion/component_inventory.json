@@ -1,0 +1,1977 @@
+{
+  "count": 109,
+  "categories": {
+    "09 Trees and Plants": 21,
+    "10 Gatehouse and Fortifications": 18,
+    "11 Watchtower": 10,
+    "12 Terrain and Retaining Walls": 15,
+    "13 Bridges and Water Edge": 10,
+    "14 Building and Roof Variants": 16,
+    "15 Streets and Ground Dressing": 10,
+    "16 Market Detail": 9
+  },
+  "components": [
+    {
+      "name": "Mature broadleaf tree",
+      "kit": "09 Trees and Plants",
+      "dimensions_m": [
+        5.8749,
+        5.9204,
+        7.0865
+      ],
+      "vertices": 4470,
+      "faces": 3684,
+      "gallery_position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Mature broadleaf tree"
+    },
+    {
+      "name": "Narrow courtyard tree",
+      "kit": "09 Trees and Plants",
+      "dimensions_m": [
+        3.0577,
+        3.113,
+        5.0962
+      ],
+      "vertices": 4470,
+      "faces": 3684,
+      "gallery_position": [
+        7.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Narrow courtyard tree"
+    },
+    {
+      "name": "Hillside pine 1",
+      "kit": "09 Trees and Plants",
+      "dimensions_m": [
+        2.8126,
+        2.8559,
+        6.35
+      ],
+      "vertices": 110,
+      "faces": 67,
+      "gallery_position": [
+        14.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Hillside pine 1"
+    },
+    {
+      "name": "Hillside pine 2",
+      "kit": "09 Trees and Plants",
+      "dimensions_m": [
+        3.3751,
+        3.4271,
+        7.15
+      ],
+      "vertices": 110,
+      "faces": 67,
+      "gallery_position": [
+        21.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Hillside pine 2"
+    },
+    {
+      "name": "Hillside pine 3",
+      "kit": "09 Trees and Plants",
+      "dimensions_m": [
+        3.9376,
+        3.9983,
+        7.95
+      ],
+      "vertices": 110,
+      "faces": 67,
+      "gallery_position": [
+        28.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Hillside pine 3"
+    },
+    {
+      "name": "Branching tree trunk",
+      "kit": "09 Trees and Plants",
+      "dimensions_m": [
+        1.9053,
+        0.7009,
+        3.3283
+      ],
+      "vertices": 36,
+      "faces": 24,
+      "gallery_position": [
+        35.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Branching tree trunk"
+    },
+    {
+      "name": "Broadleaf canopy cluster",
+      "kit": "09 Trees and Plants",
+      "dimensions_m": [
+        2.2698,
+        2.3236,
+        1.5664
+      ],
+      "vertices": 788,
+      "faces": 645,
+      "gallery_position": [
+        42.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Broadleaf canopy cluster"
+    },
+    {
+      "name": "Rounded shrub",
+      "kit": "09 Trees and Plants",
+      "dimensions_m": [
+        2.4824,
+        1.4763,
+        1.3575
+      ],
+      "vertices": 1284,
+      "faces": 1084,
+      "gallery_position": [
+        49.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Rounded shrub"
+    },
+    {
+      "name": "Sprawling shrub",
+      "kit": "09 Trees and Plants",
+      "dimensions_m": [
+        2.2138,
+        1.2117,
+        0.9533
+      ],
+      "vertices": 1284,
+      "faces": 1084,
+      "gallery_position": [
+        0.0,
+        7.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Sprawling shrub"
+    },
+    {
+      "name": "Hedge straight",
+      "kit": "09 Trees and Plants",
+      "dimensions_m": [
+        2.8889,
+        1.5697,
+        1.0888
+      ],
+      "vertices": 1239,
+      "faces": 1035,
+      "gallery_position": [
+        7.0,
+        7.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Hedge straight"
+    },
+    {
+      "name": "Hedge corner",
+      "kit": "09 Trees and Plants",
+      "dimensions_m": [
+        2.1967,
+        2.1648,
+        1.1046
+      ],
+      "vertices": 1089,
+      "faces": 915,
+      "gallery_position": [
+        14.0,
+        7.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Hedge corner"
+    },
+    {
+      "name": "Grass tuft green",
+      "kit": "09 Trees and Plants",
+      "dimensions_m": [
+        0.4927,
+        0.4686,
+        0.4681
+      ],
+      "vertices": 100,
+      "faces": 50,
+      "gallery_position": [
+        21.0,
+        7.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Grass tuft green"
+    },
+    {
+      "name": "Grass tuft dry",
+      "kit": "09 Trees and Plants",
+      "dimensions_m": [
+        0.5146,
+        0.4629,
+        0.4181
+      ],
+      "vertices": 100,
+      "faces": 50,
+      "gallery_position": [
+        28.0,
+        7.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Grass tuft dry"
+    },
+    {
+      "name": "Flower patch",
+      "kit": "09 Trees and Plants",
+      "dimensions_m": [
+        0.701,
+        0.5054,
+        0.5447
+      ],
+      "vertices": 828,
+      "faces": 1026,
+      "gallery_position": [
+        35.0,
+        7.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Flower patch"
+    },
+    {
+      "name": "Planted flower box",
+      "kit": "09 Trees and Plants",
+      "dimensions_m": [
+        1.5,
+        0.5739,
+        0.8747
+      ],
+      "vertices": 861,
+      "faces": 1052,
+      "gallery_position": [
+        42.0,
+        7.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Planted flower box"
+    },
+    {
+      "name": "Wall planter planted",
+      "kit": "09 Trees and Plants",
+      "dimensions_m": [
+        0.8766,
+        0.6716,
+        1.3216
+      ],
+      "vertices": 1202,
+      "faces": 1428,
+      "gallery_position": [
+        49.0,
+        7.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Wall planter planted"
+    },
+    {
+      "name": "Ivy patch sparse",
+      "kit": "09 Trees and Plants",
+      "dimensions_m": [
+        0.7466,
+        0.2126,
+        2.2838
+      ],
+      "vertices": 524,
+      "faces": 408,
+      "gallery_position": [
+        0.0,
+        14.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Ivy patch sparse"
+    },
+    {
+      "name": "Ivy patch dense",
+      "kit": "09 Trees and Plants",
+      "dimensions_m": [
+        1.3857,
+        0.211,
+        2.2764
+      ],
+      "vertices": 1310,
+      "faces": 1020,
+      "gallery_position": [
+        7.0,
+        14.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Ivy patch dense"
+    },
+    {
+      "name": "Hanging vines",
+      "kit": "09 Trees and Plants",
+      "dimensions_m": [
+        1.3762,
+        0.2303,
+        2.2797
+      ],
+      "vertices": 1310,
+      "faces": 1020,
+      "gallery_position": [
+        14.0,
+        14.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Hanging vines"
+    },
+    {
+      "name": "Corner wrapping ivy",
+      "kit": "09 Trees and Plants",
+      "dimensions_m": [
+        1.3689,
+        0.4301,
+        2.2837
+      ],
+      "vertices": 1310,
+      "faces": 1020,
+      "gallery_position": [
+        21.0,
+        14.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Corner wrapping ivy"
+    },
+    {
+      "name": "Bridge trailing plant",
+      "kit": "09 Trees and Plants",
+      "dimensions_m": [
+        0.7464,
+        0.4064,
+        2.2805
+      ],
+      "vertices": 524,
+      "faces": 408,
+      "gallery_position": [
+        28.0,
+        14.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Bridge trailing plant"
+    },
+    {
+      "name": "Complete gate arch surround",
+      "kit": "10 Gatehouse and Fortifications",
+      "dimensions_m": [
+        8.2,
+        2.2,
+        6.2
+      ],
+      "vertices": 888,
+      "faces": 666,
+      "gallery_position": [
+        0.0,
+        56.0,
+        0.0
+      ],
+      "notes": "8 m outer width; 4 m clear opening; 2 m passage depth; crown 6.2 m.",
+      "collection": "Complete gate arch surround"
+    },
+    {
+      "name": "Gate side masonry",
+      "kit": "10 Gatehouse and Fortifications",
+      "dimensions_m": [
+        1.982,
+        2.0,
+        5.982
+      ],
+      "vertices": 384,
+      "faces": 288,
+      "gallery_position": [
+        7.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Gate side masonry"
+    },
+    {
+      "name": "Gate overhead masonry",
+      "kit": "10 Gatehouse and Fortifications",
+      "dimensions_m": [
+        3.982,
+        2.0,
+        0.982
+      ],
+      "vertices": 128,
+      "faces": 96,
+      "gallery_position": [
+        14.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Gate overhead masonry"
+    },
+    {
+      "name": "Passage vaulted ceiling",
+      "kit": "10 Gatehouse and Fortifications",
+      "dimensions_m": [
+        4.44,
+        2.0,
+        2.22
+      ],
+      "vertices": 128,
+      "faces": 96,
+      "gallery_position": [
+        21.0,
+        56.0,
+        0.0
+      ],
+      "notes": "4 m clear span; spring plane Z=0; place at gate spring height Z=3.",
+      "collection": "Passage vaulted ceiling"
+    },
+    {
+      "name": "Passage sidewall",
+      "kit": "10 Gatehouse and Fortifications",
+      "dimensions_m": [
+        1.982,
+        0.4,
+        2.982
+      ],
+      "vertices": 192,
+      "faces": 144,
+      "gallery_position": [
+        28.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Passage sidewall"
+    },
+    {
+      "name": "Gate threshold",
+      "kit": "10 Gatehouse and Fortifications",
+      "dimensions_m": [
+        4.0,
+        2.0,
+        0.2
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        35.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Gate threshold"
+    },
+    {
+      "name": "Hinged gate left",
+      "kit": "10 Gatehouse and Fortifications",
+      "dimensions_m": [
+        2.014,
+        0.28,
+        4.9995
+      ],
+      "vertices": 354,
+      "faces": 370,
+      "gallery_position": [
+        42.0,
+        56.0,
+        0.0
+      ],
+      "notes": "Origin is hinge axis at base. Rotate about local Z to open.",
+      "collection": "Hinged gate left"
+    },
+    {
+      "name": "Hinged gate right",
+      "kit": "10 Gatehouse and Fortifications",
+      "dimensions_m": [
+        2.014,
+        0.28,
+        4.9995
+      ],
+      "vertices": 354,
+      "faces": 370,
+      "gallery_position": [
+        49.0,
+        56.0,
+        0.0
+      ],
+      "notes": "Origin is hinge axis at base. Rotate about local Z to open.",
+      "collection": "Hinged gate right"
+    },
+    {
+      "name": "Fort wall block bay",
+      "kit": "10 Gatehouse and Fortifications",
+      "dimensions_m": [
+        3.982,
+        1.0,
+        5.982
+      ],
+      "vertices": 704,
+      "faces": 528,
+      "gallery_position": [
+        0.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Fort wall block bay"
+    },
+    {
+      "name": "Corner quoin stack",
+      "kit": "10 Gatehouse and Fortifications",
+      "dimensions_m": [
+        0.75,
+        0.75,
+        5.98
+      ],
+      "vertices": 120,
+      "faces": 90,
+      "gallery_position": [
+        7.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Corner quoin stack"
+    },
+    {
+      "name": "Fort wall buttress",
+      "kit": "10 Gatehouse and Fortifications",
+      "dimensions_m": [
+        1.2,
+        1.3,
+        5.0
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        14.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Fort wall buttress"
+    },
+    {
+      "name": "Fort wall coping",
+      "kit": "10 Gatehouse and Fortifications",
+      "dimensions_m": [
+        4.0,
+        1.15,
+        0.24
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        21.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Fort wall coping"
+    },
+    {
+      "name": "Capped battlement bay",
+      "kit": "10 Gatehouse and Fortifications",
+      "dimensions_m": [
+        3.982,
+        0.7,
+        1.491
+      ],
+      "vertices": 152,
+      "faces": 114,
+      "gallery_position": [
+        28.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Capped battlement bay"
+    },
+    {
+      "name": "Wall top walkway",
+      "kit": "10 Gatehouse and Fortifications",
+      "dimensions_m": [
+        4.0,
+        2.0,
+        1.35
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        35.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Wall top walkway"
+    },
+    {
+      "name": "Wall to tower collar",
+      "kit": "10 Gatehouse and Fortifications",
+      "dimensions_m": [
+        1.4,
+        1.4,
+        3.2
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        42.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Wall to tower collar"
+    },
+    {
+      "name": "Wall height transition",
+      "kit": "10 Gatehouse and Fortifications",
+      "dimensions_m": [
+        4.0,
+        1.0,
+        6.0
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "gallery_position": [
+        49.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Wall height transition"
+    },
+    {
+      "name": "Battlement stair flight",
+      "kit": "10 Gatehouse and Fortifications",
+      "dimensions_m": [
+        1.5,
+        4.8,
+        3.0
+      ],
+      "vertices": 96,
+      "faces": 72,
+      "gallery_position": [
+        0.0,
+        70.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Battlement stair flight"
+    },
+    {
+      "name": "Upper gate landing",
+      "kit": "10 Gatehouse and Fortifications",
+      "dimensions_m": [
+        4.0,
+        3.0,
+        1.25
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        7.0,
+        70.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Upper gate landing"
+    },
+    {
+      "name": "Tower masonry base",
+      "kit": "11 Watchtower",
+      "dimensions_m": [
+        4.55,
+        4.55,
+        2.982
+      ],
+      "vertices": 1344,
+      "faces": 1008,
+      "gallery_position": [
+        0.0,
+        112.0,
+        0.0
+      ],
+      "notes": "4 m square perimeter; hollow center; stack in 3 m increments.",
+      "collection": "Tower masonry base"
+    },
+    {
+      "name": "Tower entrance wall",
+      "kit": "11 Watchtower",
+      "dimensions_m": [
+        2.1,
+        0.55,
+        2.8
+      ],
+      "vertices": 112,
+      "faces": 84,
+      "gallery_position": [
+        7.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Tower entrance wall"
+    },
+    {
+      "name": "Tower slit window wall",
+      "kit": "11 Watchtower",
+      "dimensions_m": [
+        4.0,
+        0.625,
+        3.0
+      ],
+      "vertices": 48,
+      "faces": 36,
+      "gallery_position": [
+        14.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Tower slit window wall"
+    },
+    {
+      "name": "Tower lookout transition",
+      "kit": "11 Watchtower",
+      "dimensions_m": [
+        4.8,
+        4.7,
+        0.3
+      ],
+      "vertices": 32,
+      "faces": 24,
+      "gallery_position": [
+        21.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Tower lookout transition"
+    },
+    {
+      "name": "Tower stone corbel",
+      "kit": "11 Watchtower",
+      "dimensions_m": [
+        1.0,
+        0.45,
+        0.8
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        28.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Tower stone corbel"
+    },
+    {
+      "name": "Complete lookout frame",
+      "kit": "11 Watchtower",
+      "dimensions_m": [
+        5.0,
+        5.0,
+        3.12
+      ],
+      "vertices": 448,
+      "faces": 336,
+      "gallery_position": [
+        35.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Complete lookout frame"
+    },
+    {
+      "name": "Lookout railing bay",
+      "kit": "11 Watchtower",
+      "dimensions_m": [
+        4.6,
+        0.14,
+        1.1
+      ],
+      "vertices": 40,
+      "faces": 30,
+      "gallery_position": [
+        42.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Lookout railing bay"
+    },
+    {
+      "name": "Lookout corner brace",
+      "kit": "11 Watchtower",
+      "dimensions_m": [
+        1.1366,
+        1.1366,
+        1.1131
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        49.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Lookout corner brace"
+    },
+    {
+      "name": "Complete watchtower hip roof",
+      "kit": "11 Watchtower",
+      "dimensions_m": [
+        5.7095,
+        5.7095,
+        3.1418
+      ],
+      "vertices": 277,
+      "faces": 207,
+      "gallery_position": [
+        0.0,
+        119.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Complete watchtower hip roof"
+    },
+    {
+      "name": "Tower roof finial",
+      "kit": "11 Watchtower",
+      "dimensions_m": [
+        0.24,
+        0.2283,
+        0.7
+      ],
+      "vertices": 76,
+      "faces": 74,
+      "gallery_position": [
+        7.0,
+        119.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Tower roof finial"
+    },
+    {
+      "name": "Raised terrain platform",
+      "kit": "12 Terrain and Retaining Walls",
+      "dimensions_m": [
+        9.375,
+        9.3339,
+        4.2115
+      ],
+      "vertices": 168,
+      "faces": 192,
+      "gallery_position": [
+        0.0,
+        168.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Raised terrain platform"
+    },
+    {
+      "name": "Half terrace platform",
+      "kit": "12 Terrain and Retaining Walls",
+      "dimensions_m": [
+        5.4084,
+        9.2855,
+        4.3374
+      ],
+      "vertices": 168,
+      "faces": 192,
+      "gallery_position": [
+        7.0,
+        168.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Half terrace platform"
+    },
+    {
+      "name": "Vertical cliff face",
+      "kit": "12 Terrain and Retaining Walls",
+      "dimensions_m": [
+        7.7243,
+        2.0919,
+        5.7352
+      ],
+      "vertices": 38,
+      "faces": 45,
+      "gallery_position": [
+        14.0,
+        168.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Vertical cliff face"
+    },
+    {
+      "name": "Rock ledge",
+      "kit": "12 Terrain and Retaining Walls",
+      "dimensions_m": [
+        5.5469,
+        2.7251,
+        0.9911
+      ],
+      "vertices": 38,
+      "faces": 45,
+      "gallery_position": [
+        21.0,
+        168.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Rock ledge"
+    },
+    {
+      "name": "Rock slope transition",
+      "kit": "12 Terrain and Retaining Walls",
+      "dimensions_m": [
+        4.0,
+        4.0,
+        3.0
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        28.0,
+        168.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Rock slope transition"
+    },
+    {
+      "name": "Terrain masonry filler 1",
+      "kit": "12 Terrain and Retaining Walls",
+      "dimensions_m": [
+        2.6356,
+        2.0014,
+        2.2377
+      ],
+      "vertices": 38,
+      "faces": 45,
+      "gallery_position": [
+        35.0,
+        168.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Terrain masonry filler 1"
+    },
+    {
+      "name": "Terrain masonry filler 2",
+      "kit": "12 Terrain and Retaining Walls",
+      "dimensions_m": [
+        2.6873,
+        1.9245,
+        2.2496
+      ],
+      "vertices": 38,
+      "faces": 45,
+      "gallery_position": [
+        42.0,
+        168.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Terrain masonry filler 2"
+    },
+    {
+      "name": "Terrain masonry filler 3",
+      "kit": "12 Terrain and Retaining Walls",
+      "dimensions_m": [
+        2.5635,
+        1.8848,
+        2.0474
+      ],
+      "vertices": 38,
+      "faces": 45,
+      "gallery_position": [
+        49.0,
+        168.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Terrain masonry filler 3"
+    },
+    {
+      "name": "Detailed retaining bay",
+      "kit": "12 Terrain and Retaining Walls",
+      "dimensions_m": [
+        3.982,
+        0.6,
+        2.982
+      ],
+      "vertices": 352,
+      "faces": 264,
+      "gallery_position": [
+        0.0,
+        175.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Detailed retaining bay"
+    },
+    {
+      "name": "Retaining reinforced corner",
+      "kit": "12 Terrain and Retaining Walls",
+      "dimensions_m": [
+        1.0,
+        1.72,
+        3.0
+      ],
+      "vertices": 72,
+      "faces": 54,
+      "gallery_position": [
+        7.0,
+        175.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Retaining reinforced corner"
+    },
+    {
+      "name": "Retaining buttress",
+      "kit": "12 Terrain and Retaining Walls",
+      "dimensions_m": [
+        0.8,
+        0.9,
+        3.0
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        14.0,
+        175.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Retaining buttress"
+    },
+    {
+      "name": "Retaining arched niche",
+      "kit": "12 Terrain and Retaining Walls",
+      "dimensions_m": [
+        2.1,
+        0.71,
+        2.75
+      ],
+      "vertices": 120,
+      "faces": 90,
+      "gallery_position": [
+        21.0,
+        175.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Retaining arched niche"
+    },
+    {
+      "name": "Stair following coping",
+      "kit": "12 Terrain and Retaining Walls",
+      "dimensions_m": [
+        0.35,
+        2.6385,
+        1.8816
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        28.0,
+        175.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Stair following coping"
+    },
+    {
+      "name": "Retaining cap corner detailed",
+      "kit": "12 Terrain and Retaining Walls",
+      "dimensions_m": [
+        1.0,
+        1.4,
+        0.2
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        35.0,
+        175.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Retaining cap corner detailed"
+    },
+    {
+      "name": "Retaining height step cap",
+      "kit": "12 Terrain and Retaining Walls",
+      "dimensions_m": [
+        4.0,
+        0.75,
+        1.7
+      ],
+      "vertices": 24,
+      "faces": 18,
+      "gallery_position": [
+        42.0,
+        175.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Retaining height step cap"
+    },
+    {
+      "name": "Dressed bridge arch stones",
+      "kit": "13 Bridges and Water Edge",
+      "dimensions_m": [
+        5.0,
+        0.45,
+        3.5
+      ],
+      "vertices": 112,
+      "faces": 84,
+      "gallery_position": [
+        0.0,
+        224.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Dressed bridge arch stones"
+    },
+    {
+      "name": "Bridge spandrel facade",
+      "kit": "13 Bridges and Water Edge",
+      "dimensions_m": [
+        5.0,
+        0.25,
+        2.6
+      ],
+      "vertices": 128,
+      "faces": 96,
+      "gallery_position": [
+        7.0,
+        224.0,
+        0.0
+      ],
+      "notes": "Matches a 4 m clear-span arch with 0.5 m voussoirs; spring at Z=1.",
+      "collection": "Bridge spandrel facade"
+    },
+    {
+      "name": "Bridge street abutment",
+      "kit": "13 Bridges and Water Edge",
+      "dimensions_m": [
+        3.2,
+        1.8,
+        3.191
+      ],
+      "vertices": 296,
+      "faces": 222,
+      "gallery_position": [
+        14.0,
+        224.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Bridge street abutment"
+    },
+    {
+      "name": "Bridge parapet corner join",
+      "kit": "13 Bridges and Water Edge",
+      "dimensions_m": [
+        1.0,
+        1.5,
+        1.02
+      ],
+      "vertices": 40,
+      "faces": 30,
+      "gallery_position": [
+        21.0,
+        224.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Bridge parapet corner join"
+    },
+    {
+      "name": "Covered bridge entrance",
+      "kit": "13 Bridges and Water Edge",
+      "dimensions_m": [
+        3.5038,
+        0.25,
+        4.2735
+      ],
+      "vertices": 40,
+      "faces": 30,
+      "gallery_position": [
+        28.0,
+        224.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Covered bridge entrance"
+    },
+    {
+      "name": "Waterline masonry bay",
+      "kit": "13 Bridges and Water Edge",
+      "dimensions_m": [
+        3.982,
+        0.62,
+        1.982
+      ],
+      "vertices": 248,
+      "faces": 186,
+      "gallery_position": [
+        35.0,
+        224.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Waterline masonry bay"
+    },
+    {
+      "name": "Water access steps",
+      "kit": "13 Bridges and Water Edge",
+      "dimensions_m": [
+        1.5,
+        2.8,
+        2.0
+      ],
+      "vertices": 64,
+      "faces": 48,
+      "gallery_position": [
+        42.0,
+        224.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Water access steps"
+    },
+    {
+      "name": "Culvert grate arch",
+      "kit": "13 Bridges and Water Edge",
+      "dimensions_m": [
+        1.8,
+        0.3,
+        2.0
+      ],
+      "vertices": 168,
+      "faces": 126,
+      "gallery_position": [
+        49.0,
+        224.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Culvert grate arch"
+    },
+    {
+      "name": "Drainage outlet pipe",
+      "kit": "13 Bridges and Water Edge",
+      "dimensions_m": [
+        0.6,
+        0.8,
+        0.6
+      ],
+      "vertices": 64,
+      "faces": 64,
+      "gallery_position": [
+        0.0,
+        231.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Drainage outlet pipe"
+    },
+    {
+      "name": "Canal maintenance walkway",
+      "kit": "13 Bridges and Water Edge",
+      "dimensions_m": [
+        4.0,
+        0.8626,
+        1.0713
+      ],
+      "vertices": 160,
+      "faces": 120,
+      "gallery_position": [
+        7.0,
+        231.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Canal maintenance walkway"
+    },
+    {
+      "name": "Narrow timber facade",
+      "kit": "14 Building and Roof Variants",
+      "dimensions_m": [
+        2.0,
+        0.36,
+        3.0
+      ],
+      "vertices": 48,
+      "faces": 36,
+      "gallery_position": [
+        0.0,
+        280.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Narrow timber facade"
+    },
+    {
+      "name": "Tall timber facade",
+      "kit": "14 Building and Roof Variants",
+      "dimensions_m": [
+        4.0,
+        0.375,
+        4.1
+      ],
+      "vertices": 64,
+      "faces": 48,
+      "gallery_position": [
+        7.0,
+        280.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Tall timber facade"
+    },
+    {
+      "name": "Projected upper story floor",
+      "kit": "14 Building and Roof Variants",
+      "dimensions_m": [
+        4.0,
+        2.0,
+        1.3132
+      ],
+      "vertices": 160,
+      "faces": 120,
+      "gallery_position": [
+        14.0,
+        280.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Projected upper story floor"
+    },
+    {
+      "name": "Bay window assembly",
+      "kit": "14 Building and Roof Variants",
+      "dimensions_m": [
+        2.0,
+        1.1,
+        2.58
+      ],
+      "vertices": 86,
+      "faces": 64,
+      "gallery_position": [
+        21.0,
+        280.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Bay window assembly"
+    },
+    {
+      "name": "Timber balcony section",
+      "kit": "14 Building and Roof Variants",
+      "dimensions_m": [
+        4.0,
+        1.51,
+        2.2576
+      ],
+      "vertices": 248,
+      "faces": 186,
+      "gallery_position": [
+        28.0,
+        280.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Timber balcony section"
+    },
+    {
+      "name": "Recessed shop entrance",
+      "kit": "14 Building and Roof Variants",
+      "dimensions_m": [
+        1.8,
+        1.06,
+        3.1
+      ],
+      "vertices": 124,
+      "faces": 114,
+      "gallery_position": [
+        35.0,
+        280.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Recessed shop entrance"
+    },
+    {
+      "name": "Attached lean to shed",
+      "kit": "14 Building and Roof Variants",
+      "dimensions_m": [
+        2.4,
+        1.8,
+        2.4
+      ],
+      "vertices": 28,
+      "faces": 19,
+      "gallery_position": [
+        42.0,
+        280.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Attached lean to shed"
+    },
+    {
+      "name": "Hip roof corner finished",
+      "kit": "14 Building and Roof Variants",
+      "dimensions_m": [
+        4.1246,
+        2.1246,
+        1.606
+      ],
+      "vertices": 19,
+      "faces": 13,
+      "gallery_position": [
+        49.0,
+        280.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Hip roof corner finished"
+    },
+    {
+      "name": "Roof valley flashing",
+      "kit": "14 Building and Roof Variants",
+      "dimensions_m": [
+        4.0,
+        0.4,
+        0.15
+      ],
+      "vertices": 6,
+      "faces": 2,
+      "gallery_position": [
+        0.0,
+        287.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Roof valley flashing"
+    },
+    {
+      "name": "Roof wall flashing",
+      "kit": "14 Building and Roof Variants",
+      "dimensions_m": [
+        4.0,
+        0.3125,
+        0.3125
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        7.0,
+        287.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Roof wall flashing"
+    },
+    {
+      "name": "Overhanging eave detail",
+      "kit": "14 Building and Roof Variants",
+      "dimensions_m": [
+        4.0,
+        0.8148,
+        0.4094
+      ],
+      "vertices": 64,
+      "faces": 48,
+      "gallery_position": [
+        14.0,
+        287.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Overhanging eave detail"
+    },
+    {
+      "name": "Dormer sidewall left",
+      "kit": "14 Building and Roof Variants",
+      "dimensions_m": [
+        1.2,
+        0.15,
+        1.0
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        21.0,
+        287.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Dormer sidewall left"
+    },
+    {
+      "name": "Dormer sidewall right",
+      "kit": "14 Building and Roof Variants",
+      "dimensions_m": [
+        1.2,
+        0.15,
+        1.0
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        28.0,
+        287.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Dormer sidewall right"
+    },
+    {
+      "name": "Chimney flashing collar",
+      "kit": "14 Building and Roof Variants",
+      "dimensions_m": [
+        1.05,
+        1.05,
+        0.1
+      ],
+      "vertices": 32,
+      "faces": 24,
+      "gallery_position": [
+        35.0,
+        287.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Chimney flashing collar"
+    },
+    {
+      "name": "Weathered slate roof panel",
+      "kit": "14 Building and Roof Variants",
+      "dimensions_m": [
+        3.992,
+        2.096,
+        1.734
+      ],
+      "vertices": 264,
+      "faces": 198,
+      "gallery_position": [
+        42.0,
+        287.0,
+        0.0
+      ],
+      "notes": "Missing slates expose an opening; use backing/sheathing where required.",
+      "collection": "Weathered slate roof panel"
+    },
+    {
+      "name": "Roof sheathing panel",
+      "kit": "14 Building and Roof Variants",
+      "dimensions_m": [
+        4.0,
+        2.5,
+        0.08
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        49.0,
+        287.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Roof sheathing panel"
+    },
+    {
+      "name": "Irregular cobblestone bay",
+      "kit": "15 Streets and Ground Dressing",
+      "dimensions_m": [
+        3.9871,
+        3.98,
+        0.12
+      ],
+      "vertices": 688,
+      "faces": 516,
+      "gallery_position": [
+        0.0,
+        336.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Irregular cobblestone bay"
+    },
+    {
+      "name": "Curved street border",
+      "kit": "15 Streets and Ground Dressing",
+      "dimensions_m": [
+        2.3351,
+        2.3351,
+        0.24
+      ],
+      "vertices": 72,
+      "faces": 54,
+      "gallery_position": [
+        7.0,
+        336.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Curved street border"
+    },
+    {
+      "name": "Stair edge stones",
+      "kit": "15 Streets and Ground Dressing",
+      "dimensions_m": [
+        1.98,
+        0.35,
+        0.12
+      ],
+      "vertices": 40,
+      "faces": 30,
+      "gallery_position": [
+        14.0,
+        336.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Stair edge stones"
+    },
+    {
+      "name": "Stone drain channel",
+      "kit": "15 Streets and Ground Dressing",
+      "dimensions_m": [
+        4.0,
+        0.54,
+        0.26
+      ],
+      "vertices": 24,
+      "faces": 18,
+      "gallery_position": [
+        21.0,
+        336.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Stone drain channel"
+    },
+    {
+      "name": "Paving dirt transition",
+      "kit": "15 Streets and Ground Dressing",
+      "dimensions_m": [
+        4.0,
+        2.136,
+        0.12
+      ],
+      "vertices": 152,
+      "faces": 114,
+      "gallery_position": [
+        28.0,
+        336.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Paving dirt transition"
+    },
+    {
+      "name": "Paving rock transition",
+      "kit": "15 Streets and Ground Dressing",
+      "dimensions_m": [
+        3.0,
+        2.0,
+        0.32
+      ],
+      "vertices": 284,
+      "faces": 342,
+      "gallery_position": [
+        35.0,
+        336.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Paving rock transition"
+    },
+    {
+      "name": "Moss patch",
+      "kit": "15 Streets and Ground Dressing",
+      "dimensions_m": [
+        1.3639,
+        0.9125,
+        0.07
+      ],
+      "vertices": 384,
+      "faces": 504,
+      "gallery_position": [
+        42.0,
+        336.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Moss patch"
+    },
+    {
+      "name": "Exposed roots",
+      "kit": "15 Streets and Ground Dressing",
+      "dimensions_m": [
+        2.3965,
+        1.5349,
+        0.1598
+      ],
+      "vertices": 56,
+      "faces": 42,
+      "gallery_position": [
+        49.0,
+        336.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Exposed roots"
+    },
+    {
+      "name": "Stone crack weeds",
+      "kit": "15 Streets and Ground Dressing",
+      "dimensions_m": [
+        0.6871,
+        0.4327,
+        0.4924
+      ],
+      "vertices": 135,
+      "faces": 78,
+      "gallery_position": [
+        0.0,
+        343.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Stone crack weeds"
+    },
+    {
+      "name": "Leaf litter",
+      "kit": "15 Streets and Ground Dressing",
+      "dimensions_m": [
+        1.2771,
+        1.2014,
+        0.0534
+      ],
+      "vertices": 100,
+      "faces": 80,
+      "gallery_position": [
+        7.0,
+        343.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Leaf litter"
+    },
+    {
+      "name": "Filled apple basket",
+      "kit": "16 Market Detail",
+      "dimensions_m": [
+        0.74,
+        0.74,
+        0.49
+      ],
+      "vertices": 1112,
+      "faces": 1152,
+      "gallery_position": [
+        0.0,
+        392.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Filled apple basket"
+    },
+    {
+      "name": "Filled bread tray",
+      "kit": "16 Market Detail",
+      "dimensions_m": [
+        0.8,
+        0.8,
+        0.43
+      ],
+      "vertices": 286,
+      "faces": 270,
+      "gallery_position": [
+        7.0,
+        392.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Filled bread tray"
+    },
+    {
+      "name": "Stacked goods crates",
+      "kit": "16 Market Detail",
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.717
+      ],
+      "vertices": 320,
+      "faces": 240,
+      "gallery_position": [
+        14.0,
+        392.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Stacked goods crates"
+    },
+    {
+      "name": "Fabric bundles",
+      "kit": "16 Market Detail",
+      "dimensions_m": [
+        0.8,
+        0.76,
+        0.26
+      ],
+      "vertices": 72,
+      "faces": 42,
+      "gallery_position": [
+        21.0,
+        392.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Fabric bundles"
+    },
+    {
+      "name": "Hanging shop display",
+      "kit": "16 Market Detail",
+      "dimensions_m": [
+        1.5,
+        0.2473,
+        0.96
+      ],
+      "vertices": 188,
+      "faces": 204,
+      "gallery_position": [
+        28.0,
+        392.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Hanging shop display"
+    },
+    {
+      "name": "Sagging tied canopy",
+      "kit": "16 Market Detail",
+      "dimensions_m": [
+        3.3907,
+        2.272,
+        0.6273
+      ],
+      "vertices": 97,
+      "faces": 72,
+      "gallery_position": [
+        35.0,
+        392.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Sagging tied canopy"
+    },
+    {
+      "name": "Weathered shop sign",
+      "kit": "16 Market Detail",
+      "dimensions_m": [
+        0.9017,
+        0.1312,
+        0.61
+      ],
+      "vertices": 40,
+      "faces": 30,
+      "gallery_position": [
+        42.0,
+        392.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Weathered shop sign"
+    },
+    {
+      "name": "Shutter hardware set",
+      "kit": "16 Market Detail",
+      "dimensions_m": [
+        0.38,
+        0.14,
+        0.85
+      ],
+      "vertices": 104,
+      "faces": 90,
+      "gallery_position": [
+        49.0,
+        392.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Shutter hardware set"
+    },
+    {
+      "name": "Wall planter bracket",
+      "kit": "16 Market Detail",
+      "dimensions_m": [
+        0.52,
+        0.69,
+        0.4
+      ],
+      "vertices": 80,
+      "faces": 76,
+      "gallery_position": [
+        0.0,
+        399.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Wall planter bracket"
+    }
+  ]
+}

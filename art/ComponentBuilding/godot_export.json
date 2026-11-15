@@ -1,0 +1,291 @@
+{
+  "source": "ComponentLibrary/foundation.blend",
+  "source_sha256": "5bfcc2c6e8913a8006bdc87fc2d65cb00e3d7cbbc6359dd91b7508c115679c49",
+  "material_conversion": "Authored base color/procedural graphs baked to sRGB PNG; Toon BSDF adapted to matte PBR; original Principled metallic/roughness retained.",
+  "components": [
+    {
+      "slug": "door_stone_wall",
+      "vertices": 1015,
+      "polygons": 926,
+      "material_correction": null,
+      "materials": [
+        {
+          "source": "stone_wall",
+          "roughness": 1.0,
+          "metallic": 0.0,
+          "shader": "BSDF_TOON"
+        },
+        {
+          "source": "Stone",
+          "roughness": 1.0,
+          "metallic": 0.0,
+          "shader": "BSDF_TOON"
+        },
+        {
+          "source": "wood",
+          "roughness": 1.0,
+          "metallic": 0.0,
+          "shader": "BSDF_TOON"
+        },
+        {
+          "source": "wall-loop",
+          "roughness": 1.0,
+          "metallic": 0.0,
+          "shader": "BSDF_TOON"
+        }
+      ]
+    },
+    {
+      "slug": "plain_stone_corner_wall",
+      "vertices": 1483,
+      "polygons": 1386,
+      "material_correction": null,
+      "materials": [
+        {
+          "source": "stone_wall",
+          "roughness": 1.0,
+          "metallic": 0.0,
+          "shader": "BSDF_TOON"
+        },
+        {
+          "source": "Stone",
+          "roughness": 1.0,
+          "metallic": 0.0,
+          "shader": "BSDF_TOON"
+        },
+        {
+          "source": "wood",
+          "roughness": 1.0,
+          "metallic": 0.0,
+          "shader": "BSDF_TOON"
+        },
+        {
+          "source": "wall-loop",
+          "roughness": 1.0,
+          "metallic": 0.0,
+          "shader": "BSDF_TOON"
+        }
+      ]
+    },
+    {
+      "slug": "second_story_corner",
+      "vertices": 682,
+      "polygons": 626,
+      "material_correction": null,
+      "materials": [
+        {
+          "source": "stone_wall",
+          "roughness": 1.0,
+          "metallic": 0.0,
+          "shader": "BSDF_TOON"
+        },
+        {
+          "source": "Stone",
+          "roughness": 1.0,
+          "metallic": 0.0,
+          "shader": "BSDF_TOON"
+        },
+        {
+          "source": "wood",
+          "roughness": 1.0,
+          "metallic": 0.0,
+          "shader": "BSDF_TOON"
+        },
+        {
+          "source": "wall-loop",
+          "roughness": 1.0,
+          "metallic": 0.0,
+          "shader": "BSDF_TOON"
+        },
+        {
+          "source": "second level ",
+          "roughness": 1.0,
+          "metallic": 0.0,
+          "shader": "BSDF_TOON"
+        }
+      ]
+    },
+    {
+      "slug": "second_story_plain",
+      "vertices": 299,
+      "polygons": 269,
+      "material_correction": null,
+      "materials": [
+        {
+          "source": "stone_wall",
+          "roughness": 1.0,
+          "metallic": 0.0,
+          "shader": "BSDF_TOON"
+        },
+        {
+          "source": "Stone",
+          "roughness": 1.0,
+          "metallic": 0.0,
+          "shader": "BSDF_TOON"
+        },
+        {
+          "source": "wood",
+          "roughness": 1.0,
+          "metallic": 0.0,
+          "shader": "BSDF_TOON"
+        },
+        {
+          "source": "wall-loop",
+          "roughness": 1.0,
+          "metallic": 0.0,
+          "shader": "BSDF_TOON"
+        },
+        {
+          "source": "second level ",
+          "roughness": 1.0,
+          "metallic": 0.0,
+          "shader": "BSDF_TOON"
+        }
+      ]
+    },
+    {
+      "slug": "second_story_window",
+      "vertices": 768,
+      "polygons": 678,
+      "material_correction": null,
+      "materials": [
+        {
+          "source": "stone_wall",
+          "roughness": 1.0,
+          "metallic": 0.0,
+          "shader": "BSDF_TOON"
+        },
+        {
+          "source": "Stone",
+          "roughness": 1.0,
+          "metallic": 0.0,
+          "shader": "BSDF_TOON"
+        },
+        {
+          "source": "wood",
+          "roughness": 1.0,
+          "metallic": 0.0,
+          "shader": "BSDF_TOON"
+        },
+        {
+          "source": "wall-loop",
+          "roughness": 1.0,
+          "metallic": 0.0,
+          "shader": "BSDF_TOON"
+        },
+        {
+          "source": "second level ",
+          "roughness": 1.0,
+          "metallic": 0.0,
+          "shader": "BSDF_TOON"
+        },
+        {
+          "source": "Stone.001",
+          "roughness": 1.0,
+          "metallic": 0.0,
+          "shader": "BSDF_TOON"
+        },
+        {
+          "source": "wood.001",
+          "roughness": 1.0,
+          "metallic": 0.0,
+          "shader": "BSDF_TOON"
+        },
+        {
+          "source": "wall-loop.001",
+          "roughness": 1.0,
+          "metallic": 0.0,
+          "shader": "BSDF_TOON"
+        },
+        {
+          "source": "Unassigned_Blender_Default",
+          "roughness": 0.5,
+          "metallic": 0.0,
+          "shader": "BSDF_PRINCIPLED"
+        },
+        {
+          "source": "Material.001",
+          "roughness": 0.36571428179740906,
+          "metallic": 0.6571428775787354,
+          "shader": "BSDF_PRINCIPLED"
+        }
+      ]
+    },
+    {
+      "slug": "windowed_stone_wall",
+      "vertices": 1202,
+      "polygons": 1114,
+      "material_correction": {
+        "from": "Stone",
+        "to": "stone_wall",
+        "panel_faces": [
+          804,
+          805,
+          806,
+          807,
+          808,
+          809,
+          810,
+          811,
+          812,
+          813,
+          814,
+          815,
+          816,
+          817,
+          818,
+          819,
+          820,
+          821,
+          822,
+          823,
+          824,
+          825,
+          826,
+          827,
+          828,
+          829
+        ],
+        "scope": "export copy only"
+      },
+      "materials": [
+        {
+          "source": "wood",
+          "roughness": 1.0,
+          "metallic": 0.0,
+          "shader": "BSDF_TOON"
+        },
+        {
+          "source": "wall-loop",
+          "roughness": 1.0,
+          "metallic": 0.0,
+          "shader": "BSDF_TOON"
+        },
+        {
+          "source": "Stone",
+          "roughness": 1.0,
+          "metallic": 0.0,
+          "shader": "BSDF_TOON"
+        },
+        {
+          "source": "Material",
+          "roughness": 0.36571428179740906,
+          "metallic": 0.6571428775787354,
+          "shader": "BSDF_PRINCIPLED"
+        },
+        {
+          "source": "Unassigned_Blender_Default.002",
+          "roughness": 0.5,
+          "metallic": 0.0,
+          "shader": "BSDF_PRINCIPLED"
+        },
+        {
+          "source": "stone_wall",
+          "roughness": 1.0,
+          "metallic": 0.0,
+          "shader": "BSDF_TOON"
+        }
+      ]
+    }
+  ]
+}

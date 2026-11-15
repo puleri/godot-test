@@ -37,7 +37,7 @@ func _frame(progress: float) -> void:
 	_camera.look_at(Vector3(-5,7,-65).lerp(Vector3(-2,6,-45),progress))
 
 func _input(event: InputEvent) -> void:
-	if active and event is InputEventKey and event.pressed and not event.echo and event.physical_keycode in [KEY_SPACE,KEY_ENTER,KEY_ESCAPE]:
+	if active and event.is_action_pressed("skip_cinematic"):
 		get_viewport().set_input_as_handled()
 		finish()
 

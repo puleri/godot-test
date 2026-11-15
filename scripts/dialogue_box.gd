@@ -91,7 +91,7 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if not active:
 		return
-	if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode in [KEY_SPACE, KEY_ENTER, KEY_KP_ENTER]:
+	if event.is_action_pressed("dialogue_advance"):
 		get_viewport().set_input_as_handled()
 		advance()
 

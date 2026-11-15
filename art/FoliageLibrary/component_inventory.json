@@ -1,0 +1,515 @@
+[
+  {
+    "name": "Oak tree 01",
+    "kit": "Trees",
+    "dimensions_m": [
+      4.8517,
+      4.3822,
+      7.0239
+    ],
+    "vertices": 318,
+    "faces": 315,
+    "gallery_position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "notes": "Base pivot; metres; solid flat-shaded crown and modeled branches.",
+    "collection": "Oak tree 01",
+    "triangles": 540
+  },
+  {
+    "name": "Oak tree 02",
+    "kit": "Trees",
+    "dimensions_m": [
+      5.5889,
+      5.0711,
+      7.9998
+    ],
+    "vertices": 318,
+    "faces": 315,
+    "gallery_position": [
+      10.0,
+      0.0,
+      0.0
+    ],
+    "notes": "Base pivot; metres; solid flat-shaded crown and modeled branches.",
+    "collection": "Oak tree 02",
+    "triangles": 540
+  },
+  {
+    "name": "Oak tree 03",
+    "kit": "Trees",
+    "dimensions_m": [
+      6.3157,
+      5.8357,
+      9.3539
+    ],
+    "vertices": 318,
+    "faces": 315,
+    "gallery_position": [
+      20.0,
+      0.0,
+      0.0
+    ],
+    "notes": "Base pivot; metres; solid flat-shaded crown and modeled branches.",
+    "collection": "Oak tree 03",
+    "triangles": 540
+  },
+  {
+    "name": "Linden tree 01",
+    "kit": "Trees",
+    "dimensions_m": [
+      4.3821,
+      3.7012,
+      7.9713
+    ],
+    "vertices": 318,
+    "faces": 315,
+    "gallery_position": [
+      30.0,
+      0.0,
+      0.0
+    ],
+    "notes": "Base pivot; metres; solid flat-shaded crown and modeled branches.",
+    "collection": "Linden tree 01",
+    "triangles": 540
+  },
+  {
+    "name": "Linden tree 02",
+    "kit": "Trees",
+    "dimensions_m": [
+      4.9715,
+      4.4774,
+      8.8963
+    ],
+    "vertices": 318,
+    "faces": 315,
+    "gallery_position": [
+      40.0,
+      0.0,
+      0.0
+    ],
+    "notes": "Base pivot; metres; solid flat-shaded crown and modeled branches.",
+    "collection": "Linden tree 02",
+    "triangles": 540
+  },
+  {
+    "name": "Linden tree 03",
+    "kit": "Trees",
+    "dimensions_m": [
+      5.4044,
+      5.0833,
+      10.0682
+    ],
+    "vertices": 318,
+    "faces": 315,
+    "gallery_position": [
+      50.0,
+      0.0,
+      0.0
+    ],
+    "notes": "Base pivot; metres; solid flat-shaded crown and modeled branches.",
+    "collection": "Linden tree 03",
+    "triangles": 540
+  },
+  {
+    "name": "Cypress tree 01",
+    "kit": "Trees",
+    "dimensions_m": [
+      1.6441,
+      1.3611,
+      7.7704
+    ],
+    "vertices": 168,
+    "faces": 194,
+    "gallery_position": [
+      60.0,
+      0.0,
+      0.0
+    ],
+    "notes": "Base pivot; metres; solid flat-shaded crown and modeled branches.",
+    "collection": "Cypress tree 01",
+    "triangles": 284
+  },
+  {
+    "name": "Cypress tree 02",
+    "kit": "Trees",
+    "dimensions_m": [
+      2.0754,
+      1.5963,
+      8.868
+    ],
+    "vertices": 168,
+    "faces": 194,
+    "gallery_position": [
+      0.0,
+      12.0,
+      0.0
+    ],
+    "notes": "Base pivot; metres; solid flat-shaded crown and modeled branches.",
+    "collection": "Cypress tree 02",
+    "triangles": 284
+  },
+  {
+    "name": "Cypress tree 03",
+    "kit": "Trees",
+    "dimensions_m": [
+      2.0953,
+      1.8296,
+      9.7966
+    ],
+    "vertices": 168,
+    "faces": 194,
+    "gallery_position": [
+      10.0,
+      12.0,
+      0.0
+    ],
+    "notes": "Base pivot; metres; solid flat-shaded crown and modeled branches.",
+    "collection": "Cypress tree 03",
+    "triangles": 284
+  },
+  {
+    "name": "Apple tree 01",
+    "kit": "Trees",
+    "dimensions_m": [
+      2.2272,
+      2.0052,
+      4.1781
+    ],
+    "vertices": 642,
+    "faces": 855,
+    "gallery_position": [
+      20.0,
+      12.0,
+      0.0
+    ],
+    "notes": "Base pivot; metres; solid flat-shaded crown and modeled branches.",
+    "collection": "Apple tree 01",
+    "triangles": 1080
+  },
+  {
+    "name": "Apple tree 02",
+    "kit": "Trees",
+    "dimensions_m": [
+      2.5905,
+      2.2501,
+      4.7578
+    ],
+    "vertices": 642,
+    "faces": 855,
+    "gallery_position": [
+      30.0,
+      12.0,
+      0.0
+    ],
+    "notes": "Base pivot; metres; solid flat-shaded crown and modeled branches.",
+    "collection": "Apple tree 02",
+    "triangles": 1080
+  },
+  {
+    "name": "Apple tree 03",
+    "kit": "Trees",
+    "dimensions_m": [
+      2.9809,
+      2.6769,
+      5.3343
+    ],
+    "vertices": 642,
+    "faces": 855,
+    "gallery_position": [
+      40.0,
+      12.0,
+      0.0
+    ],
+    "notes": "Base pivot; metres; solid flat-shaded crown and modeled branches.",
+    "collection": "Apple tree 03",
+    "triangles": 1080
+  },
+  {
+    "name": "Wild shrub",
+    "kit": "Shrubs",
+    "dimensions_m": [
+      1.7951,
+      1.6235,
+      1.0858
+    ],
+    "vertices": 182,
+    "faces": 203,
+    "gallery_position": [
+      50.0,
+      12.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Wild shrub",
+    "triangles": 308
+  },
+  {
+    "name": "Flowering shrub",
+    "kit": "Shrubs",
+    "dimensions_m": [
+      1.7749,
+      1.6225,
+      1.1485
+    ],
+    "vertices": 434,
+    "faces": 623,
+    "gallery_position": [
+      60.0,
+      12.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Flowering shrub",
+    "triangles": 728
+  },
+  {
+    "name": "Rose shrub",
+    "kit": "Shrubs",
+    "dimensions_m": [
+      1.8597,
+      1.5863,
+      1.2071
+    ],
+    "vertices": 434,
+    "faces": 623,
+    "gallery_position": [
+      0.0,
+      24.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Rose shrub",
+    "triangles": 728
+  },
+  {
+    "name": "Clipped hedge 2m",
+    "kit": "Shrubs",
+    "dimensions_m": [
+      2.2655,
+      0.8794,
+      1.5169
+    ],
+    "vertices": 48,
+    "faces": 80,
+    "gallery_position": [
+      10.0,
+      24.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Clipped hedge 2m",
+    "triangles": 80
+  },
+  {
+    "name": "Short clump",
+    "kit": "Ground plants",
+    "dimensions_m": [
+      0.833,
+      0.8054,
+      0.54
+    ],
+    "vertices": 154,
+    "faces": 154,
+    "gallery_position": [
+      20.0,
+      24.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Short clump",
+    "triangles": 220
+  },
+  {
+    "name": "Meadow clump",
+    "kit": "Ground plants",
+    "dimensions_m": [
+      0.8994,
+      1.2211,
+      0.9978
+    ],
+    "vertices": 154,
+    "faces": 154,
+    "gallery_position": [
+      30.0,
+      24.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Meadow clump",
+    "triangles": 220
+  },
+  {
+    "name": "Reeds clump",
+    "kit": "Ground plants",
+    "dimensions_m": [
+      1.4745,
+      1.6281,
+      1.9381
+    ],
+    "vertices": 462,
+    "faces": 504,
+    "gallery_position": [
+      40.0,
+      24.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Reeds clump",
+    "triangles": 756
+  },
+  {
+    "name": "Fern clump",
+    "kit": "Ground plants",
+    "dimensions_m": [
+      1.3976,
+      1.4013,
+      0.3095
+    ],
+    "vertices": 1152,
+    "faces": 1920,
+    "gallery_position": [
+      50.0,
+      24.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Fern clump",
+    "triangles": 1920
+  },
+  {
+    "name": "Wildflower clump",
+    "kit": "Ground plants",
+    "dimensions_m": [
+      0.9002,
+      0.8845,
+      0.5639
+    ],
+    "vertices": 286,
+    "faces": 319,
+    "gallery_position": [
+      60.0,
+      24.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Wildflower clump",
+    "triangles": 484
+  },
+  {
+    "name": "Ivy Vertical 2M",
+    "kit": "Climbers",
+    "dimensions_m": [
+      0.9865,
+      0.2661,
+      2.237
+    ],
+    "vertices": 480,
+    "faces": 628,
+    "gallery_position": [
+      0.0,
+      36.0,
+      0.0
+    ],
+    "notes": "Start-point pivot; 2m main vine; foliage extends beyond endpoints; place slightly clear of wall.",
+    "collection": "Ivy Vertical 2M",
+    "triangles": 808
+  },
+  {
+    "name": "Ivy Horizontal 2M",
+    "kit": "Climbers",
+    "dimensions_m": [
+      2.4518,
+      0.7956,
+      0.2638
+    ],
+    "vertices": 480,
+    "faces": 628,
+    "gallery_position": [
+      10.0,
+      36.0,
+      0.0
+    ],
+    "notes": "Start-point pivot; 2m main vine; foliage extends beyond endpoints; place slightly clear of wall.",
+    "collection": "Ivy Horizontal 2M",
+    "triangles": 808
+  },
+  {
+    "name": "Wisteria Canopy 2M",
+    "kit": "Climbers",
+    "dimensions_m": [
+      2.4245,
+      0.8033,
+      0.7597
+    ],
+    "vertices": 900,
+    "faces": 1328,
+    "gallery_position": [
+      20.0,
+      36.0,
+      0.0
+    ],
+    "notes": "Start-point pivot; 2m main vine; foliage extends beyond endpoints; place slightly clear of wall.",
+    "collection": "Wisteria Canopy 2M",
+    "triangles": 1508
+  },
+  {
+    "name": "Wisteria Hanging 2M",
+    "kit": "Climbers",
+    "dimensions_m": [
+      1.0153,
+      0.2651,
+      2.7418
+    ],
+    "vertices": 900,
+    "faces": 1328,
+    "gallery_position": [
+      30.0,
+      36.0,
+      0.0
+    ],
+    "notes": "Start-point pivot; 2m main vine; foliage extends beyond endpoints; place slightly clear of wall.",
+    "collection": "Wisteria Hanging 2M",
+    "triangles": 1508
+  },
+  {
+    "name": "Window flower box 1.2m",
+    "kit": "Planters",
+    "dimensions_m": [
+      1.2999,
+      0.46,
+      0.5796
+    ],
+    "vertices": 120,
+    "faces": 156,
+    "gallery_position": [
+      40.0,
+      36.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Window flower box 1.2m",
+    "triangles": 192
+  },
+  {
+    "name": "Terracotta planted pot",
+    "kit": "Planters",
+    "dimensions_m": [
+      0.9337,
+      0.9,
+      1.1811
+    ],
+    "vertices": 192,
+    "faces": 256,
+    "gallery_position": [
+      50.0,
+      36.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Terracotta planted pot",
+    "triangles": 352
+  }
+]

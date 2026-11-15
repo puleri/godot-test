@@ -18,8 +18,16 @@ const SELF_LIGHT_LAYER := 1 << 19
 @export var lose_sight_delay := 0.65
 @export var search_seconds := 4.0
 @export var capture_distance := 0.9
+@export_group("Pursuit Steering")
+@export var pursuit_response := 30.0
+@export var pursuit_repath_seconds := 0.05
+@export_group("")
 @export var navigation_height_offset := 0.5
 @export var show_vision := true
+@export_group("Guard Motion")
+@export var weighted_motion_enabled := true
+@export_range(0.0, 1.5, 0.05) var guard_motion_strength := 1.0
+@export_group("")
 @export var sight_light_path: NodePath = ^"SightLight"
 
 var guard_state := GuardState.PATROL
@@ -50,6 +58,8 @@ var _sight_light: SpotLight3D
 func _ready() -> void:
 	add_to_group("stealth_guards")
 	super._ready()
+	if _animation_driver != null:
+		_animation_driver.configure_guard_motion(self)
 	_player = get_node_or_null(player_path) as Node3D
 	_agent = NavigationAgent3D.new()
 	_agent.path_desired_distance = 0.3
@@ -73,6 +83,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if not active or not navigation_ready:
+		if _animation_driver != null:
+			_animation_driver.set_resolved_motion(0.0, false, delta)
+			_animation_driver.update_guard_motion(Vector3.ZERO, _last_visual_yaw, false, delta, true)
 		return
 	var previous_position := global_position
 	_apply_gravity(delta)
@@ -106,6 +119,7 @@ func _physics_process(delta: float) -> void:
 		_update_visual_facing(Vector3(resolved.x, 0.0, resolved.z), delta)
 	if _animation_driver != null:
 		_animation_driver.set_resolved_motion(speed, guard_state == GuardState.CHASE, delta)
+		_animation_driver.update_guard_motion(resolved, _last_visual_yaw, guard_state == GuardState.CHASE, delta, not active)
 	_update_feedback(delta)
 
 
@@ -168,11 +182,13 @@ func _change_state(next: GuardState) -> void:
 
 
 func _navigate_to(destination: Vector3, speed: float, delta: float) -> void:
-	if _repath_remaining <= 0.0 and _requested_destination.distance_squared_to(destination) > 0.04:
+	var chasing := guard_state == GuardState.CHASE
+	var moved_target := _requested_destination.distance_squared_to(destination) > (0.0025 if chasing else 0.04)
+	if _repath_remaining <= 0.0 and moved_target:
 		var surface := NavigationServer3D.map_get_closest_point(_agent.get_navigation_map(), destination)
 		_agent.target_position = surface - Vector3.UP * navigation_height_offset
 		_requested_destination = destination
-		_repath_remaining = 0.2
+		_repath_remaining = pursuit_repath_seconds if chasing else 0.2
 	var next_position := _agent.get_next_path_position()
 	if _agent.is_navigation_finished():
 		_stop_horizontal(delta)
@@ -183,6 +199,31 @@ func _navigate_to(destination: Vector3, speed: float, delta: float) -> void:
 		_stop_horizontal(delta)
 		return
 	_steer_toward(direction.normalized(), speed, delta)
+
+
+func _steer_toward(direction: Vector3, speed: float, delta: float) -> void:
+	if guard_state != GuardState.CHASE:
+		super._steer_toward(direction, speed, delta)
+		return
+	# Pursuit must redirect velocity instead of waiting for the patrol turn
+	# gate while residual momentum carries the guard past the target.
+	_turn_heading_toward(direction, delta)
+	var horizontal := Vector2(velocity.x, velocity.z)
+	var desired_direction := Vector2(direction.x, direction.z)
+	var alignment := horizontal.normalized().dot(desired_direction) if horizontal.length() > 0.1 else 1.0
+	var corner_speed := speed * lerpf(0.35, 1.0, maxf(0, alignment))
+	horizontal = horizontal.move_toward(desired_direction * corner_speed, maxf(acceleration, pursuit_response) * delta)
+	velocity.x = horizontal.x
+	velocity.z = horizontal.y
+
+
+func _stop_horizontal(delta: float) -> void:
+	if guard_state != GuardState.CHASE:
+		super._stop_horizontal(delta)
+		return
+	var horizontal := Vector2(velocity.x, velocity.z).move_toward(Vector2.ZERO, maxf(braking, pursuit_response) * delta)
+	velocity.x = horizontal.x
+	velocity.z = horizontal.y
 
 
 func _search(delta: float) -> void:

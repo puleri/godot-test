@@ -30,6 +30,13 @@ var _alert_requested := false
 var _alert_playing := false
 var _alert_remaining := 0.0
 var _warned: Dictionary = {}
+var guard_pose: SkeletonModifier3D
+var _guard_body: CharacterBody3D
+var _guard_last_position := Vector3.ZERO
+var _guard_phase := 0.0
+var _guard_gait_blend := 0.0
+var _guard_gait := "walk"
+var _guard_contact_strength := 0.0
 
 
 func _ready() -> void:
@@ -79,7 +86,7 @@ func play_alert() -> bool:
 
 
 func debug_snapshot() -> Dictionary:
-	return {"speed": _smoothed_speed, "weight": _locomotion_weight, "rate": _locomotion_rate, "alert_requested": _alert_requested, "alert_playing": _alert_playing}
+	return {"speed": _smoothed_speed, "weight": _locomotion_weight, "rate": _locomotion_rate, "alert_requested": _alert_requested, "alert_playing": _alert_playing, "weighted": guard_pose != null and guard_pose.enabled, "gait": _guard_gait, "phase": _guard_phase}
 
 
 func _build_tree() -> void:
@@ -87,6 +94,8 @@ func _build_tree() -> void:
 	if not _has_clip(idle_clip) or not _has_clip(locomotion_clip):
 		_warn_once("base", "NPCAnimationDriver is missing base clips (idle '%s', locomotion '%s')." % [idle_clip, locomotion_clip])
 		return
+	if _tree != null:
+		_tree.free()
 	_tree = AnimationTree.new()
 	_tree.name = "RuntimeNPCAnimationTree"
 	_tree.process_callback = AnimationTree.ANIMATION_PROCESS_PHYSICS
@@ -101,7 +110,23 @@ func _build_tree() -> void:
 	blend_tree.add_node("Locomotion", locomotion_node, Vector2(-520, 80))
 	blend_tree.add_node("LocomotionTimeScale", time_scale, Vector2(-300, 80))
 	blend_tree.add_node("BaseBlend", base_blend, Vector2(-80, 0))
-	blend_tree.connect_node("LocomotionTimeScale", 0, "Locomotion")
+	if guard_pose != null:
+		var walk_node := AnimationNodeAnimation.new()
+		walk_node.animation = walk_clip
+		var run_node := AnimationNodeAnimation.new()
+		run_node.animation = run_clip if _has_clip(run_clip) else walk_clip
+		blend_tree.add_node("GuardWalk", walk_node, Vector2(-960, 0))
+		blend_tree.add_node("GuardRun", run_node, Vector2(-960, 200))
+		blend_tree.add_node("WalkSeek", AnimationNodeTimeSeek.new(), Vector2(-760, 0))
+		blend_tree.add_node("RunSeek", AnimationNodeTimeSeek.new(), Vector2(-760, 200))
+		blend_tree.add_node("GaitBlend", AnimationNodeBlend2.new(), Vector2(-520, 100))
+		blend_tree.connect_node("WalkSeek", 0, "GuardWalk")
+		blend_tree.connect_node("RunSeek", 0, "GuardRun")
+		blend_tree.connect_node("GaitBlend", 0, "WalkSeek")
+		blend_tree.connect_node("GaitBlend", 1, "RunSeek")
+		blend_tree.connect_node("LocomotionTimeScale", 0, "GaitBlend")
+	else:
+		blend_tree.connect_node("LocomotionTimeScale", 0, "Locomotion")
 	blend_tree.connect_node("BaseBlend", 0, "Idle")
 	blend_tree.connect_node("BaseBlend", 1, "LocomotionTimeScale")
 	if _has_clip(alert_clip):
@@ -185,3 +210,75 @@ func _warn_once(key: String, message: String) -> void:
 		return
 	_warned[key] = true
 	push_warning(message)
+
+
+func configure_guard_motion(actor: CharacterBody3D) -> void:
+	if _player == null or _tree == null or not _has_clip(walk_clip):
+		return
+	var skeletons := actor.get_node(actor.visual_pivot_path).find_children("*", "Skeleton3D", true, false)
+	if skeletons.is_empty():
+		return
+	_guard_body = actor
+	var skeleton := skeletons[0] as Skeleton3D
+	guard_pose = preload("res://scripts/guard_procedural_pose.gd").new()
+	guard_pose.name = "GuardWeightAndContacts"
+	skeleton.add_child(guard_pose)
+	if not guard_pose.configure(actor, _player, idle_clip, walk_clip, run_clip if _has_clip(run_clip) else walk_clip):
+		guard_pose.free()
+		guard_pose = null
+		return
+	skeleton.modifier_callback_mode_process = Skeleton3D.MODIFIER_CALLBACK_MODE_PROCESS_PHYSICS
+	_guard_last_position = actor.global_position
+	_guard_gait = "run" if actor.locomotion_uses_run else "walk"
+	_guard_gait_blend = 1.0 if _guard_gait == "run" else 0.0
+	if guard_pose.profile == "hound":
+		guard_pose.contacts.set_gait(_guard_gait)
+	_build_tree()
+
+
+func reset_guard_motion() -> void:
+	if guard_pose == null:
+		return
+	guard_pose.reset_motion()
+	_guard_phase = 0.0
+	_guard_contact_strength = 0.0
+	_guard_last_position = _guard_body.global_position
+
+
+func update_guard_motion(resolved: Vector3, heading: float, wants_run: bool, delta: float, suppressed := false) -> void:
+	if guard_pose == null:
+		return
+	var actor := _guard_body
+	var relocated := actor.global_position.distance_to(_guard_last_position) > maxf(1.0, actor.run_speed * delta * 4.0)
+	_guard_last_position = actor.global_position
+	if relocated:
+		reset_guard_motion()
+	# Patrol gait is configured by the wrapper; a confirmed chase requests run.
+	var running: bool = wants_run or actor.locomotion_uses_run
+	_guard_gait_blend = move_toward(_guard_gait_blend, 1.0 if running else 0.0, delta / 0.22)
+	var gait := "run" if _guard_gait_blend >= 0.5 else "walk"
+	if gait != _guard_gait:
+		_guard_gait = gait
+		if guard_pose.profile == "hound":
+			guard_pose.contacts.set_gait(gait)
+	var motion := resolved - (actor.get_platform_velocity() if actor.is_on_floor() else Vector3.ZERO)
+	var speed := Vector2(motion.x, motion.z).length()
+	var stride: float = guard_pose.contacts.stride_length if guard_pose.profile == "hound" else lerpf(walk_reference_speed * _player.get_animation(walk_clip).length, run_reference_speed * _player.get_animation(run_clip if _has_clip(run_clip) else walk_clip).length, _guard_gait_blend)
+	if actor.is_on_floor() and not suppressed and not relocated:
+		_guard_phase = fposmod(_guard_phase + speed * delta / maxf(stride, 0.1), 1.0)
+	_tree.set("parameters/GaitBlend/blend_amount", _guard_gait_blend)
+	_tree.set("parameters/LocomotionTimeScale/scale", 0.0)
+	var walk_period := 0.5 if guard_pose.profile == "hound" else 1.0
+	_tree.set("parameters/WalkSeek/seek_request", _guard_phase * _player.get_animation(walk_clip).length * walk_period)
+	_tree.set("parameters/RunSeek/seek_request", _guard_phase * _player.get_animation(run_clip if _has_clip(run_clip) else walk_clip).length)
+	# Fade contacts through an alert or gait handover, preserving authored gestures.
+	var alert_active := _alert_playing
+	if _has_clip(alert_clip):
+		alert_active = alert_active or bool(_tree.get("parameters/Alert/active"))
+	var target_contact := absf(_guard_gait_blend * 2.0 - 1.0) if not alert_active and not suppressed else 0.0
+	_guard_contact_strength = move_toward(_guard_contact_strength, target_contact, delta / 0.10)
+	guard_pose.enabled = actor.weighted_motion_enabled
+	guard_pose.motion_strength = actor.guard_motion_strength
+	guard_pose.contact_strength = _guard_contact_strength
+	guard_pose.phase = _guard_phase
+	guard_pose.update_motion(delta, motion, heading, actor.is_on_floor(), actor.run_speed if running else actor.walk_speed, actor.acceleration, suppressed)

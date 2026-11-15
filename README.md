@@ -8,6 +8,48 @@ A tiny Godot starter project with a first playable Rook controller.
 2. Open this folder in Godot.
 3. Press Run. Phase 1 uses WASD/Arrow keys for cardinal platform movement and Space to jump. Touch the glowing chessboard to switch into third-person movement.
 
+## PlayStation controller
+
+Connect a DualShock/DualSense through macOS Bluetooth or USB, then run the game.
+The layout follows Sly 2/3 for the existing gameplay actions. Restart a running
+game after changing the input configuration.
+
+| Controller | Action |
+| --- | --- |
+| Left stick / D-pad | Camera-relative movement in any direction |
+| Cross (×) | Jump; advance dialogue; skip the opening camera shot |
+| Circle (○) | Interact; hold to work on objectives |
+| R1 (hold) | Run at 6.3 m/s (150% of normal speed) |
+| L1 (hold) | Quiet walk at 1.89 m/s |
+| Triangle (△) | Ring a nearby bell; hold to peek in Lamplight Store |
+| Share / Create | Map / overview in levels that provide one |
+| L3 | Vision overlay / HUD mode; camera toggle in courtyard demos |
+| Options | Pause / resume; skip the opening camera shot |
+
+The left stick uses a radial 20% deadzone and continuous 360-degree movement,
+including the main demo's platform, third-person, and isometric phases. Rook
+faces the travel direction. Small tilts preserve analog speed; diagonal movement
+has the same maximum speed as straight movement. Direction follows the active
+camera without applying the keyboard's separate inversion or tank steering.
+Authored camera shots stay in place; right-stick camera orbit is not implemented.
+
+Quiet stick tilts also reduce footstep noise in the advanced stealth levels;
+running increases the audible footstep radius from 5 to 8 metres. L1 takes
+priority over R1. Existing keyboard controls remain available, with Ctrl to run
+and Escape to pause. The pause screen shows controller controls: Cross, Circle
+or Options resumes, and Triangle or R restarts. Square is available for future
+combat; in Stealth Systems Lab, Square operates the door and R3 places a chime.
+Bay selection and other study/debug commands remain on the keyboard. Level HUD
+help text still shows keyboard equivalents.
+
+Check device detection with a native window (headless mode cannot inspect the
+physical controller), or run the automated input and movement checks:
+
+```sh
+godot --path . --script tools/check_controller.gd
+godot --headless --path . --fixed-fps 60 --script tests/test_controller_input.gd
+```
+
 ## Player-two visual
 
 `Rook/v2/Rook_v2-PlayerTwo.tscn` is an asset-only player-two variant. It uses the same model, skeleton, pose, and animations as the active rook, with a light toon body and dark accents. It is intentionally not spawned or wired to controls yet.
@@ -97,6 +139,43 @@ spotlights, other guards’ lamps, and real lightning expose Rook.
 The [performance note](docs/performance.md) records optimization priorities,
 stealth lighting constraints, and a repeatable profiling workflow.
 
+## Shared movement tuning
+
+Rook moves at **4.2 m/s** and Hounds pursue at **4.6 m/s** across levels.
+Reusable character controllers and level builders use the shared
+[movement baseline](docs/movement-tuning.md); use it for future levels to keep
+movement consistent. Hound patrol speeds and Mouse profiles retain their own tuning.
+
+## Lamplight Store
+
+Open `Levels/LamplightStore.tscn` and press **F6** to explore a wide exterior
+courtyard that transitions into a closer building-interior shot. A camera
+cutaway reveals the room while its roof still blocks lightning exposure.
+**E** operates the indoor light switch, hides in the barrel alcove or collects
+the ledger; hold **Q** to peek. Compare a lamp watchman with a close-sensing
+tracker. **P** pauses guards for camera exploration. See the
+[encounter guide](docs/lamplight-store.md) for tuning and verification.
+
+## Stealth Systems Lab
+
+Open `Levels/StealthSystemsLab.tscn` and press **F6** for three playable
+experiments inspired by our Mark of the Ninja study: sound through doorways,
+one guard investigating while another holds its post, and a remotely activated
+chime followed by an area search. The scene reuses our harbor assets and Demo_A2
+lighting and lightning. **1 / 2 / 3** select bays, **E** emits a sound, **G**
+toggles the door, and **F / Q** place and trigger the chime. **L** holds inspection
+illumination. See the [lab guide](docs/stealth-systems-lab.md) for walkthroughs,
+controls, implementation limits and verification.
+
+## Nocturne City
+
+Open `Levels/NocturneCity.tscn` and press **F6** to explore a new 160 × 136 metre
+night city, 20 times Midnight Exchange's footprint. Nine canal districts combine
+street bridges, +3m balconies, +6m rooftop routes, jump gaps, markets, towers,
+and fifteen Hound/Mouse watchmen. Recover five ward seals and return to the
+arrival quay. **M** opens the city atlas; **E** secures seals and **Q** rings bells.
+See [the city guide](docs/nocturne-city.md) for controls, rebuilding and checks.
+
 ## Procedural animation study
 
 Open `scenes/ProceduralAnimationTest.tscn` and press **F6** to compare Rook's
@@ -109,6 +188,19 @@ Rook's base idle now keeps both feet planted while the body dips. This is baked
 during FBX import and remains active with **P** off; see the
 [idle animation guide](docs/rook-idle.md) for reimport instructions and checks.
 
+## Guard motion
+
+Stealth guards now use head-led turns, body weight shifts, impact recovery and
+accessory follow-through. Hounds plant four paws and take diagonal recovery
+steps; Mouse guards use their head/body/hat/baton rig. Guard walk/run animation
+follows resolved travel distance, with separate patrol and chase gaits.
+
+Open `scenes/GuardMotionTest.tscn` and press **F6**. **C** cycles through the
+Hound and Mouse close-ups, **P** compares the additive motion layer, and **R**
+restarts the circuits. The shared guard integration covers the earlier stealth
+levels, Midnight Exchange, Stealth Systems Lab and Nocturne City. See
+[guard motion](docs/guard-motion.md) for rig limits, tuning and checks.
+
 ## Rigged bell
 
 `Mesh/Bell/bell.tscn` is the reusable bronze bell with oak supports, iron hardware,
@@ -119,7 +211,7 @@ Blender source, API and checks are described in [docs/bell.md](docs/bell.md).
 
 ## Blender reference library
 
-`art/ComponentLibrary/Rook_Component_Library.blend` contains 53 reusable component
+`art/ComponentLibrary/Rook_Component_Library.blend` contains 56 reusable component
 collections: building pieces, vegetation, props, characters, the storefront and
 bell, connector/room modules, and existing entryway assemblies. It opens to a
 labeled overview and includes a modeling workspace, asset catalogs and source

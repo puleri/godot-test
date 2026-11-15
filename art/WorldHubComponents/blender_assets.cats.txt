@@ -1,0 +1,41 @@
+VERSION 1
+
+b072444c-87fe-5deb-a508-0a0045c71e3b:01 Used in Latest Hub:01 Used in Latest Hub
+ab6019d0-4d36-5234-aa3f-72c3f805b701:02 Architecture and Props/01 Buildings:01 Buildings
+a1ff84a0-903c-55f8-86b5-35fc3d4eb865:02 Architecture and Props/02 Roofs and Openings:02 Roofs and Openings
+7c875c10-6210-57c0-81b7-628563220f92:02 Architecture and Props/03 Streets and Terraces:03 Streets and Terraces
+dcc925be-3a31-5034-b038-723a50795663:02 Architecture and Props/04 Bridges and Canals:04 Bridges and Canals
+13f1b71c-7d58-538a-9641-1ad1afd67c11:02 Architecture and Props/05 Gatehouse and Tower:05 Gatehouse and Tower
+b4f91cec-f505-5d1c-ba93-e4743dca77aa:02 Architecture and Props/06 Market and Landmarks:06 Market and Landmarks
+ffa6f0aa-8bfe-547f-abd7-60dd6b206fed:02 Architecture and Props/07 Props and Dressing:07 Props and Dressing
+d5fd180a-6ffe-51b0-85d2-96f1b62397ef:02 Architecture and Props/08 Character Bases:08 Character Bases
+0bf66dd9-378d-58bf-91e7-48beb3f102de:03 Environment and Fortifications/09 Trees and Plants:09 Trees and Plants
+4a732396-fdbf-52aa-85d9-fb7915822e2d:03 Environment and Fortifications/10 Gatehouse and Fortifications:10 Gatehouse and Fortifications
+f086edc2-6dc2-5e1c-9a35-c15b76a9bd24:03 Environment and Fortifications/11 Watchtower:11 Watchtower
+9c1aa053-2656-5b67-aa2a-51ad742d3060:03 Environment and Fortifications/12 Terrain and Retaining Walls:12 Terrain and Retaining Walls
+5d99daa0-25eb-5722-9c94-2b4c8ccc8ce9:03 Environment and Fortifications/13 Bridges and Water Edge:13 Bridges and Water Edge
+3089f446-2d6c-5470-a665-8913685bca15:03 Environment and Fortifications/14 Building and Roof Variants:14 Building and Roof Variants
+6e019c03-3a34-5afa-b7fd-60757fa264a7:03 Environment and Fortifications/15 Streets and Ground Dressing:15 Streets and Ground Dressing
+405e2484-ad74-5278-9dac-8f81172d2451:03 Environment and Fortifications/16 Market Detail:16 Market Detail
+22b95047-394f-5f69-a6c3-5063ef71105a:04 Boroughs and Landmarks/17 Canal Warehouse:17 Canal Warehouse
+1e6cf530-f3bc-5d77-8375-2c6af73bd9aa:04 Boroughs and Landmarks/18 Merchant Shophouse:18 Merchant Shophouse
+4121a8db-d358-5fcc-b9a6-fc2e66988440:04 Boroughs and Landmarks/19 Courtyard Tenement:19 Courtyard Tenement
+852c563b-663e-5e13-a462-56652449e044:04 Boroughs and Landmarks/20 Hillside Villa:20 Hillside Villa
+97a9bb58-dc2d-5c83-a9df-27981f5c1b96:04 Boroughs and Landmarks/21 Clock Hall:21 Clock Hall
+fcad4873-6a82-5c5b-baef-2c5ac58af84c:04 Boroughs and Landmarks/22 Canal Bathhouse:22 Canal Bathhouse
+c5d2118d-ae82-57f7-9b1f-879532346964:04 Boroughs and Landmarks/23 Great Waterwheel Mill:23 Great Waterwheel Mill
+b83df78e-a7cb-574f-b1b9-6fd997b9d8e3:04 Boroughs and Landmarks/24 Canal and Waterfront:24 Canal and Waterfront
+a89a43b0-a061-5847-b7f6-b0b798bd124b:04 Boroughs and Landmarks/25 Borough Identity and Distance:25 Borough Identity and Distance
+1a13fd3e-b202-5637-92c4-00b020c575b9:04 Boroughs and Landmarks/Complete assemblies:Complete assemblies
+52f2f543-8e09-5f02-8583-90eae4785d1c:05 Residential Streets/27 Courtyard Apartments:27 Courtyard Apartments
+d96f8a68-bdb1-50a6-952d-c84c32156b76:05 Residential Streets/28 Townhome Variety:28 Townhome Variety
+9cf0f4f6-df9c-5751-9fd3-04ea62ab1b78:05 Residential Streets/29 Shops and Restaurants:29 Shops and Restaurants
+7c14a6cf-7e81-526f-946e-0c1f4eece2ad:05 Residential Streets/30 Sloping Street Connections:30 Sloping Street Connections
+8a371423-79c8-5bd4-b825-a15f9bde404b:05 Residential Streets/Complete assemblies:Complete assemblies
+0056b1c3-e00a-56c5-bf00-ff95f08a9d45:06 Upper City and Waterways/33 Fortified Hillside:33 Fortified Hillside
+a8277f3c-7369-522b-a1d5-83d19e329873:06 Upper City and Waterways/34 River and Waterfall:34 River and Waterfall
+787c821e-c25e-552d-9bad-348db5eb03f8:06 Upper City and Waterways/35 Garden Structures:35 Garden Structures
+68cedd9f-5288-5bad-81a9-a0598568d737:06 Upper City and Waterways/36 Wisteria and Gardens:36 Wisteria and Gardens
+1138eb98-9812-551b-8a8f-7a1e639830d6:06 Upper City and Waterways/Complete assemblies:Complete assemblies
+d4f2b314-cb0a-567b-af84-25748f933d9e:07 Farms and Countryside/Rural Kit:Rural Kit
+51365509-bc16-5e9c-87c8-5f3f3cfd9107:07 Farms and Countryside/Examples:Examples

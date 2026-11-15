@@ -59,6 +59,32 @@ func _run() -> void:
 		for frame in fps / 2:
 			guard._update_awareness(1.0 / fps)
 		_check(is_equal_approx(guard.awareness, 0.5 * guard.recognition_strength / guard.seconds_to_detect), "Recognition integrates elapsed time at %d FPS" % fps)
+	for fps in [30, 60, 120]:
+		var normal := _time_to_chase(StealthGuard.GuardState.PATROL, fps, full_strength)
+		var alerted := _time_to_chase(StealthGuard.GuardState.SEARCH, fps, full_strength)
+		_check(absf(alerted - guard.seconds_to_detect * guard.alerted_detection_multiplier / full_strength) <= 1.0 / fps + 0.001 and alerted < normal * 0.4, "Searching guard reacquires at 30 percent of normal detection time at %d FPS" % fps)
+	_reset_guard()
+	guard._change_state(StealthGuard.GuardState.SEARCH)
+	guard.player_visible = true
+	guard.recognition_strength = full_strength
+	guard._update_awareness(0.01)
+	_check(guard.guard_state == StealthGuard.GuardState.SUSPICIOUS and guard._alerted_detection, "Fast recognition survives the search-to-suspicious transition")
+	guard._change_state(StealthGuard.GuardState.RETURN)
+	_check(guard._alerted_detection, "Returning guard retains heightened recognition until patrol resumes")
+	guard._change_state(StealthGuard.GuardState.PATROL)
+	_check(not guard._alerted_detection, "Completing the return clears heightened recognition")
+	guard.awareness = 0
+	guard._update_awareness(0.1)
+	_check(is_equal_approx(guard.awareness, 0.1 * full_strength / guard.seconds_to_detect), "A restored patrol uses normal detection time")
+	guard._change_state(StealthGuard.GuardState.CHASE)
+	guard.awareness = 0.2
+	guard._update_awareness(0.01)
+	_check(guard.guard_state == StealthGuard.GuardState.CHASE, "Reacquiring during pursuit never restarts the suspicious delay")
+	guard.player_visible = false
+	guard.uncertain_visible = false
+	guard._update_awareness(guard.lose_sight_delay + 0.01)
+	_check(guard.guard_state == StealthGuard.GuardState.SEARCH and guard._alerted_detection, "Lost pursuit enters search with heightened recognition intact")
+	_reset_guard()
 	player.position = Vector3(2.8, 0.49, -4)
 	_sense()
 	_check(not guard.player_visible and sensor.exposure == 0, "The outer view cone remains dark outside the lamp beam")
@@ -94,6 +120,12 @@ func _run() -> void:
 	await physics_frame
 	_sense()
 	_check(sensor.exposure > 0.9 and not guard.player_visible, "Lit Rook remains hidden behind solid sight-blocking cover")
+	_reset_guard()
+	guard._change_state(StealthGuard.GuardState.SEARCH)
+	for frame in 120:
+		_sense()
+		guard._update_awareness(1.0 / 60)
+	_check(not guard.player_visible and guard.awareness == 0 and guard.guard_state == StealthGuard.GuardState.SEARCH, "Heightened recognition cannot see or gain awareness through solid cover")
 	await _clear_cover()
 	spot.position = Vector3(-3, 1.2, -4)
 	spot.look_at(player.position + Vector3.UP * 0.3)
@@ -241,11 +273,27 @@ func _sense() -> void:
 
 func _reset_guard() -> void:
 	guard.guard_state = StealthGuard.GuardState.PATROL
+	guard._alerted_detection = false
 	guard.awareness = 0
 	guard.player_visible = false
 	guard._uncertain_suspicion = false
 	guard._uncertain_elapsed = 0
 	guard._lost_sight_elapsed = 0
+
+
+func _time_to_chase(start: StealthGuard.GuardState, fps: int, strength: float) -> float:
+	_reset_guard()
+	guard._change_state(start)
+	guard.player_visible = true
+	guard.uncertain_visible = false
+	guard.recognition_strength = strength
+	var elapsed := 0.0
+	for frame in fps * 10:
+		guard._update_awareness(1.0 / fps)
+		elapsed += 1.0 / fps
+		if guard.guard_state == StealthGuard.GuardState.CHASE:
+			return elapsed
+	return INF
 
 
 func _wall(at: Vector3, size: Vector3) -> void:

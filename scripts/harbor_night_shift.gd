@@ -41,16 +41,16 @@ func _ready() -> void:
 	ready_for_play.emit()
 
 
-func _unhandled_key_input(event: InputEvent) -> void:
-	if not event is InputEventKey or not event.pressed or event.echo:
+func _unhandled_input(event: InputEvent) -> void:
+	if not event.is_pressed() or event.is_echo():
 		return
-	if event.physical_keycode == KEY_R:
+	if event.is_action_pressed("restart"):
 		get_tree().reload_current_scene()
-	elif event.physical_keycode == KEY_TAB:
+	elif event.is_action_pressed("toggle_vision"):
 		for guard in guards:
 			guard.show_vision = not guard.show_vision
 		get_viewport().set_input_as_handled()
-	elif event.physical_keycode == KEY_M:
+	elif event.is_action_pressed("toggle_map"):
 		player.toggle_map()
 		get_viewport().set_input_as_handled()
 

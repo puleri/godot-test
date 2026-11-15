@@ -1,0 +1,506 @@
+[
+  {
+    "name": "Farm foundation 4m",
+    "kit": "Rural Kit",
+    "dimensions_m": [
+      4.0,
+      4.0,
+      0.6
+    ],
+    "vertices": 8,
+    "faces": 6,
+    "gallery_position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Farm foundation 4m"
+  },
+  {
+    "name": "Farm plain wall 4m",
+    "kit": "Rural Kit",
+    "dimensions_m": [
+      4.0,
+      0.32,
+      3.0
+    ],
+    "vertices": 40,
+    "faces": 30,
+    "gallery_position": [
+      18.0,
+      0.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Farm plain wall 4m"
+  },
+  {
+    "name": "Farm window wall 4m",
+    "kit": "Rural Kit",
+    "dimensions_m": [
+      4.0,
+      0.545,
+      3.0
+    ],
+    "vertices": 144,
+    "faces": 108,
+    "gallery_position": [
+      36.0,
+      0.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Farm window wall 4m"
+  },
+  {
+    "name": "Farm door wall 4m",
+    "kit": "Rural Kit",
+    "dimensions_m": [
+      4.0,
+      0.32,
+      3.0
+    ],
+    "vertices": 56,
+    "faces": 42,
+    "gallery_position": [
+      54.0,
+      0.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Farm door wall 4m"
+  },
+  {
+    "name": "Farm door leaf",
+    "kit": "Rural Kit",
+    "dimensions_m": [
+      1.18,
+      0.185,
+      2.24
+    ],
+    "vertices": 16,
+    "faces": 12,
+    "gallery_position": [
+      72.0,
+      0.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Farm door leaf"
+  },
+  {
+    "name": "Farm roof bay 8m",
+    "kit": "Rural Kit",
+    "dimensions_m": [
+      8.7,
+      4.0,
+      2.77
+    ],
+    "vertices": 116,
+    "faces": 88,
+    "gallery_position": [
+      90.0,
+      0.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Farm roof bay 8m"
+  },
+  {
+    "name": "Farm gable 8m",
+    "kit": "Rural Kit",
+    "dimensions_m": [
+      8.0,
+      0.355,
+      2.5
+    ],
+    "vertices": 14,
+    "faces": 11,
+    "gallery_position": [
+      0.0,
+      20.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Farm gable 8m"
+  },
+  {
+    "name": "Barn plank wall 4m",
+    "kit": "Rural Kit",
+    "dimensions_m": [
+      4.0,
+      0.32,
+      4.0
+    ],
+    "vertices": 112,
+    "faces": 84,
+    "gallery_position": [
+      18.0,
+      20.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Barn plank wall 4m"
+  },
+  {
+    "name": "Barn door opening 4m",
+    "kit": "Rural Kit",
+    "dimensions_m": [
+      4.0,
+      0.32,
+      4.0
+    ],
+    "vertices": 72,
+    "faces": 54,
+    "gallery_position": [
+      36.0,
+      20.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Barn door opening 4m"
+  },
+  {
+    "name": "Barn door leaf",
+    "kit": "Rural Kit",
+    "dimensions_m": [
+      1.45,
+      0.235,
+      3.2
+    ],
+    "vertices": 16,
+    "faces": 12,
+    "gallery_position": [
+      54.0,
+      20.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Barn door leaf"
+  },
+  {
+    "name": "Barn roof bay 8m",
+    "kit": "Rural Kit",
+    "dimensions_m": [
+      8.7,
+      4.0,
+      3.47
+    ],
+    "vertices": 116,
+    "faces": 88,
+    "gallery_position": [
+      72.0,
+      20.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Barn roof bay 8m"
+  },
+  {
+    "name": "Barn gable 8m",
+    "kit": "Rural Kit",
+    "dimensions_m": [
+      8.0,
+      0.355,
+      3.2
+    ],
+    "vertices": 14,
+    "faces": 11,
+    "gallery_position": [
+      90.0,
+      20.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Barn gable 8m"
+  },
+  {
+    "name": "Shed roof bay 4m",
+    "kit": "Rural Kit",
+    "dimensions_m": [
+      4.7,
+      4.0,
+      1.47
+    ],
+    "vertices": 116,
+    "faces": 88,
+    "gallery_position": [
+      0.0,
+      40.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Shed roof bay 4m"
+  },
+  {
+    "name": "Shed gable 4m",
+    "kit": "Rural Kit",
+    "dimensions_m": [
+      4.0,
+      0.355,
+      1.2
+    ],
+    "vertices": 14,
+    "faces": 11,
+    "gallery_position": [
+      18.0,
+      40.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Shed gable 4m"
+  },
+  {
+    "name": "Farm chimney",
+    "kit": "Rural Kit",
+    "dimensions_m": [
+      0.85,
+      0.85,
+      2.57
+    ],
+    "vertices": 16,
+    "faces": 12,
+    "gallery_position": [
+      36.0,
+      40.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Farm chimney"
+  },
+  {
+    "name": "Fence bay 4m",
+    "kit": "Rural Kit",
+    "dimensions_m": [
+      4.16,
+      0.18,
+      1.5
+    ],
+    "vertices": 32,
+    "faces": 24,
+    "gallery_position": [
+      54.0,
+      40.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Fence bay 4m"
+  },
+  {
+    "name": "Farm gate 4m",
+    "kit": "Rural Kit",
+    "dimensions_m": [
+      4.16,
+      0.215,
+      1.5
+    ],
+    "vertices": 40,
+    "faces": 30,
+    "gallery_position": [
+      72.0,
+      40.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Farm gate 4m"
+  },
+  {
+    "name": "Hay bale",
+    "kit": "Rural Kit",
+    "dimensions_m": [
+      1.3,
+      0.82,
+      0.92
+    ],
+    "vertices": 24,
+    "faces": 18,
+    "gallery_position": [
+      90.0,
+      40.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Hay bale"
+  },
+  {
+    "name": "Farm cart",
+    "kit": "Rural Kit",
+    "dimensions_m": [
+      2.02,
+      4.002,
+      1.15
+    ],
+    "vertices": 232,
+    "faces": 198,
+    "gallery_position": [
+      0.0,
+      60.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Farm cart"
+  },
+  {
+    "name": "Farm well",
+    "kit": "Rural Kit",
+    "dimensions_m": [
+      2.5,
+      1.8,
+      2.56
+    ],
+    "vertices": 96,
+    "faces": 88,
+    "gallery_position": [
+      18.0,
+      60.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Farm well"
+  },
+  {
+    "name": "Water trough",
+    "kit": "Rural Kit",
+    "dimensions_m": [
+      2.0,
+      0.8,
+      0.65
+    ],
+    "vertices": 48,
+    "faces": 36,
+    "gallery_position": [
+      36.0,
+      60.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Water trough"
+  },
+  {
+    "name": "Wheat bed 4m",
+    "kit": "Rural Kit",
+    "dimensions_m": [
+      4.0,
+      4.0,
+      1.03
+    ],
+    "vertices": 708,
+    "faces": 756,
+    "gallery_position": [
+      54.0,
+      60.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Wheat bed 4m"
+  },
+  {
+    "name": "Vegetable bed 4m",
+    "kit": "Rural Kit",
+    "dimensions_m": [
+      4.0,
+      4.0,
+      0.46
+    ],
+    "vertices": 658,
+    "faces": 806,
+    "gallery_position": [
+      72.0,
+      60.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Vegetable bed 4m"
+  },
+  {
+    "name": "Orchard fruit tree",
+    "kit": "Rural Kit",
+    "dimensions_m": [
+      3.8,
+      3.1021,
+      4.6
+    ],
+    "vertices": 328,
+    "faces": 378,
+    "gallery_position": [
+      90.0,
+      60.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "Orchard fruit tree"
+  },
+  {
+    "name": "A Low farmhouse",
+    "kit": "Examples",
+    "dimensions_m": [
+      8.77,
+      8.77,
+      6.21
+    ],
+    "vertices": 1388,
+    "faces": 1044,
+    "gallery_position": [
+      0.0,
+      80.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "A Low farmhouse"
+  },
+  {
+    "name": "B Tall farmhouse",
+    "kit": "Examples",
+    "dimensions_m": [
+      8.77,
+      8.77,
+      9.21
+    ],
+    "vertices": 2540,
+    "faces": 1908,
+    "gallery_position": [
+      18.0,
+      80.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "B Tall farmhouse"
+  },
+  {
+    "name": "C Timber barn",
+    "kit": "Examples",
+    "dimensions_m": [
+      8.7,
+      12.395,
+      7.91
+    ],
+    "vertices": 1536,
+    "faces": 1156,
+    "gallery_position": [
+      36.0,
+      80.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "C Timber barn"
+  },
+  {
+    "name": "D Farm shed",
+    "kit": "Examples",
+    "dimensions_m": [
+      4.77,
+      4.62,
+      6.07
+    ],
+    "vertices": 672,
+    "faces": 506,
+    "gallery_position": [
+      54.0,
+      80.0,
+      0.0
+    ],
+    "notes": "",
+    "collection": "D Farm shed"
+  }
+]

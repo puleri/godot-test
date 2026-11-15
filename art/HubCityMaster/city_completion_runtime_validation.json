@@ -1,0 +1,16 @@
+{
+  "checks": [
+    "SAILBOAT_MOTION_PASS",
+    "CAMERA_OBSTRUCTION_PASS",
+    "STAIR_CLIMB_PASS",
+    "HUB_LEVEL_PASS",
+    "CAMERA_RENDER_PASS"
+  ],
+  "mesh_chunks": 937,
+  "static_colliders": 868,
+  "foliage_plants": 3859,
+  "movement_m": 3.91998,
+  "stair_rise_m": 0.75883,
+  "renderer": "Metal Forward+",
+  "level": "Levels/HubCityFoliage.tscn"
+}

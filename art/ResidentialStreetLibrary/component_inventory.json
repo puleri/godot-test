@@ -1,0 +1,665 @@
+{
+  "count": 32,
+  "categories": {
+    "27 Courtyard Apartments": 10,
+    "28 Townhome Variety": 12,
+    "29 Shops and Restaurants": 7,
+    "30 Sloping Street Connections": 3
+  },
+  "components": [
+    {
+      "name": "Apartment paired window wall",
+      "kit": "27 Courtyard Apartments",
+      "dimensions_m": [
+        4.0,
+        0.525,
+        3.0
+      ],
+      "vertices": 184,
+      "faces": 138,
+      "gallery_position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Apartment paired window wall"
+    },
+    {
+      "name": "Apartment shuttered window wall",
+      "kit": "27 Courtyard Apartments",
+      "dimensions_m": [
+        4.0,
+        0.525,
+        3.0
+      ],
+      "vertices": 176,
+      "faces": 132,
+      "gallery_position": [
+        7.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Apartment shuttered window wall"
+    },
+    {
+      "name": "Apartment gallery door wall",
+      "kit": "27 Courtyard Apartments",
+      "dimensions_m": [
+        4.0,
+        0.498,
+        3.0
+      ],
+      "vertices": 124,
+      "faces": 114,
+      "gallery_position": [
+        14.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Apartment gallery door wall"
+    },
+    {
+      "name": "Apartment balcony corner doorway",
+      "kit": "27 Courtyard Apartments",
+      "dimensions_m": [
+        4.0,
+        1.998,
+        3.0
+      ],
+      "vertices": 132,
+      "faces": 120,
+      "gallery_position": [
+        21.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Apartment balcony corner doorway"
+    },
+    {
+      "name": "Masonry balcony supports",
+      "kit": "27 Courtyard Apartments",
+      "dimensions_m": [
+        3.28,
+        1.02,
+        0.75
+      ],
+      "vertices": 12,
+      "faces": 10,
+      "gallery_position": [
+        28.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Masonry balcony supports"
+    },
+    {
+      "name": "Gallery stair railing",
+      "kit": "27 Courtyard Apartments",
+      "dimensions_m": [
+        1.59,
+        4.87,
+        4.0382
+      ],
+      "vertices": 128,
+      "faces": 96,
+      "gallery_position": [
+        35.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Gallery stair railing"
+    },
+    {
+      "name": "Apartment rooftop room",
+      "kit": "27 Courtyard Apartments",
+      "dimensions_m": [
+        4.4187,
+        3.5844,
+        4.035
+      ],
+      "vertices": 326,
+      "faces": 245,
+      "gallery_position": [
+        42.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Apartment rooftop room"
+    },
+    {
+      "name": "Terracotta lean to roof",
+      "kit": "27 Courtyard Apartments",
+      "dimensions_m": [
+        3.992,
+        3.0538,
+        1.2275
+      ],
+      "vertices": 400,
+      "faces": 300,
+      "gallery_position": [
+        49.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Terracotta lean to roof"
+    },
+    {
+      "name": "Roof height transition",
+      "kit": "27 Courtyard Apartments",
+      "dimensions_m": [
+        4.0,
+        0.25,
+        0.74
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        0.0,
+        7.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Roof height transition"
+    },
+    {
+      "name": "Tiled eave",
+      "kit": "27 Courtyard Apartments",
+      "dimensions_m": [
+        4.0,
+        0.45,
+        0.34
+      ],
+      "vertices": 264,
+      "faces": 166,
+      "gallery_position": [
+        7.0,
+        7.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Tiled eave"
+    },
+    {
+      "name": "Townhome Twin sash facade",
+      "kit": "28 Townhome Variety",
+      "dimensions_m": [
+        4.0,
+        0.555,
+        3.0
+      ],
+      "vertices": 208,
+      "faces": 156,
+      "gallery_position": [
+        0.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Townhome Twin sash facade"
+    },
+    {
+      "name": "Townhome Triple slender facade",
+      "kit": "28 Townhome Variety",
+      "dimensions_m": [
+        4.0,
+        0.555,
+        3.0
+      ],
+      "vertices": 296,
+      "faces": 222,
+      "gallery_position": [
+        7.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Townhome Triple slender facade"
+    },
+    {
+      "name": "Townhome Paired arches facade",
+      "kit": "28 Townhome Variety",
+      "dimensions_m": [
+        4.0,
+        0.435,
+        3.0
+      ],
+      "vertices": 660,
+      "faces": 484,
+      "gallery_position": [
+        14.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Townhome Paired arches facade"
+    },
+    {
+      "name": "Townhome Wide bay opening facade",
+      "kit": "28 Townhome Variety",
+      "dimensions_m": [
+        4.0,
+        0.555,
+        3.0
+      ],
+      "vertices": 64,
+      "faces": 48,
+      "gallery_position": [
+        21.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Townhome Wide bay opening facade"
+    },
+    {
+      "name": "Peaked gable",
+      "kit": "28 Townhome Variety",
+      "dimensions_m": [
+        4.0434,
+        0.5,
+        2.1828
+      ],
+      "vertices": 70,
+      "faces": 53,
+      "gallery_position": [
+        28.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Peaked gable"
+    },
+    {
+      "name": "Bell stepped gable",
+      "kit": "28 Townhome Variety",
+      "dimensions_m": [
+        4.0499,
+        0.5,
+        2.3933
+      ],
+      "vertices": 160,
+      "faces": 116,
+      "gallery_position": [
+        35.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Bell stepped gable"
+    },
+    {
+      "name": "Scroll gable",
+      "kit": "28 Townhome Variety",
+      "dimensions_m": [
+        4.0424,
+        0.5,
+        1.9024
+      ],
+      "vertices": 160,
+      "faces": 116,
+      "gallery_position": [
+        42.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Scroll gable"
+    },
+    {
+      "name": "Rectangular projecting window",
+      "kit": "28 Townhome Variety",
+      "dimensions_m": [
+        2.0,
+        0.95,
+        2.6861
+      ],
+      "vertices": 144,
+      "faces": 108,
+      "gallery_position": [
+        49.0,
+        56.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Rectangular projecting window"
+    },
+    {
+      "name": "Faceted oriel window",
+      "kit": "28 Townhome Variety",
+      "dimensions_m": [
+        2.1966,
+        1.4718,
+        3.037
+      ],
+      "vertices": 318,
+      "faces": 239,
+      "gallery_position": [
+        0.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Faceted oriel window"
+    },
+    {
+      "name": "Townhome corner facade",
+      "kit": "28 Townhome Variety",
+      "dimensions_m": [
+        4.41,
+        4.41,
+        3.0
+      ],
+      "vertices": 1320,
+      "faces": 968,
+      "gallery_position": [
+        7.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Townhome corner facade"
+    },
+    {
+      "name": "Decorative floor band",
+      "kit": "28 Townhome Variety",
+      "dimensions_m": [
+        4.0,
+        0.6,
+        0.45
+      ],
+      "vertices": 136,
+      "faces": 102,
+      "gallery_position": [
+        14.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Decorative floor band"
+    },
+    {
+      "name": "Party wall roof junction",
+      "kit": "28 Townhome Variety",
+      "dimensions_m": [
+        0.42,
+        6.0,
+        0.71
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        21.0,
+        63.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Party wall roof junction"
+    },
+    {
+      "name": "Large glazed shopfront",
+      "kit": "29 Shops and Restaurants",
+      "dimensions_m": [
+        4.0,
+        0.498,
+        3.0
+      ],
+      "vertices": 228,
+      "faces": 192,
+      "gallery_position": [
+        0.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Large glazed shopfront"
+    },
+    {
+      "name": "Restaurant window frontage",
+      "kit": "29 Shops and Restaurants",
+      "dimensions_m": [
+        4.0,
+        0.498,
+        3.0
+      ],
+      "vertices": 308,
+      "faces": 252,
+      "gallery_position": [
+        7.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Restaurant window frontage"
+    },
+    {
+      "name": "Shop with separate residential entrance",
+      "kit": "29 Shops and Restaurants",
+      "dimensions_m": [
+        4.0,
+        0.498,
+        3.0
+      ],
+      "vertices": 228,
+      "faces": 192,
+      "gallery_position": [
+        14.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Shop with separate residential entrance"
+    },
+    {
+      "name": "Recessed restaurant entrance",
+      "kit": "29 Shops and Restaurants",
+      "dimensions_m": [
+        4.0,
+        1.26,
+        3.0
+      ],
+      "vertices": 248,
+      "faces": 228,
+      "gallery_position": [
+        21.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Recessed restaurant entrance"
+    },
+    {
+      "name": "Corner shopfront",
+      "kit": "29 Shops and Restaurants",
+      "dimensions_m": [
+        4.498,
+        4.498,
+        3.0
+      ],
+      "vertices": 536,
+      "faces": 444,
+      "gallery_position": [
+        28.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Corner shopfront"
+    },
+    {
+      "name": "Curved striped awning",
+      "kit": "29 Shops and Restaurants",
+      "dimensions_m": [
+        3.635,
+        1.2253,
+        1.5157
+      ],
+      "vertices": 496,
+      "faces": 180,
+      "gallery_position": [
+        35.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Curved striped awning"
+    },
+    {
+      "name": "Restaurant menu board",
+      "kit": "29 Shops and Restaurants",
+      "dimensions_m": [
+        0.78,
+        0.6583,
+        1.264
+      ],
+      "vertices": 80,
+      "faces": 60,
+      "gallery_position": [
+        42.0,
+        112.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Restaurant menu board"
+    },
+    {
+      "name": "Stepped arcade connector",
+      "kit": "30 Sloping Street Connections",
+      "dimensions_m": [
+        2.26,
+        1.28,
+        3.6958
+      ],
+      "vertices": 144,
+      "faces": 92,
+      "gallery_position": [
+        0.0,
+        168.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Stepped arcade connector"
+    },
+    {
+      "name": "Narrow facade infill",
+      "kit": "30 Sloping Street Connections",
+      "dimensions_m": [
+        0.5,
+        0.45,
+        3.0
+      ],
+      "vertices": 16,
+      "faces": 12,
+      "gallery_position": [
+        7.0,
+        168.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Narrow facade infill"
+    },
+    {
+      "name": "Shopfront foundation height transition",
+      "kit": "30 Sloping Street Connections",
+      "dimensions_m": [
+        4.0,
+        0.45,
+        1.2
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "gallery_position": [
+        14.0,
+        168.0,
+        0.0
+      ],
+      "notes": "",
+      "collection": "Shopfront foundation height transition"
+    }
+  ],
+  "reused_components": [
+    "Merchant party wall",
+    "Merchant floor bay",
+    "Merchant stepped gable",
+    "Merchant narrow roof half",
+    "Merchant front door",
+    "Tenement plain wall",
+    "Tenement passage arch",
+    "Tenement gallery floor",
+    "Tenement gallery post",
+    "Tenement gallery railing",
+    "Tenement timber stairs",
+    "Tenement stair landing",
+    "Terracotta hip roof",
+    "Terracotta roof half",
+    "Terracotta ridge",
+    "Tenement chimney short",
+    "Tenement chimney tall",
+    "Laundry line",
+    "Laundry hanging sheet",
+    "Laundry hanging shirt",
+    "Window flower box",
+    "Flower box planting",
+    "Wall lantern",
+    "Straight shop awning",
+    "Shop sign rectangular",
+    "Hanging sign bracket",
+    "Table",
+    "Chair",
+    "Potted plant",
+    "Fountain basin quarter",
+    "Fountain pedestal",
+    "Fountain lower tier",
+    "Fountain upper tier spout",
+    "Stone stairs short",
+    "Stone parapet straight",
+    "Planted flower box",
+    "Wall planter planted",
+    "Exposed roots",
+    "Ivy patch sparse"
+  ],
+  "assemblies": [
+    {
+      "name": "A Cream peaked bookshop",
+      "objects": 31,
+      "mesh_objects": 31
+    },
+    {
+      "name": "B Rose stepped tailor",
+      "objects": 31,
+      "mesh_objects": 31
+    },
+    {
+      "name": "C Sage arched cafe",
+      "objects": 35,
+      "mesh_objects": 35
+    },
+    {
+      "name": "D Ochre oriel restaurant",
+      "objects": 35,
+      "mesh_objects": 35
+    },
+    {
+      "name": "E Courtyard apartment complex",
+      "objects": 162,
+      "mesh_objects": 162
+    },
+    {
+      "name": "F Corner restaurant apartments",
+      "objects": 23,
+      "mesh_objects": 23
+    },
+    {
+      "name": "G Connected sloping shopping street",
+      "objects": 141,
+      "mesh_objects": 141
+    }
+  ]
+}

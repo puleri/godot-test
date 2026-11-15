@@ -1,0 +1,16 @@
+{
+  "deployed_families": {
+    "Boathouse": 23,
+    "Merchant": 252,
+    "Artisan": 234,
+    "Inn": 98,
+    "Apartment": 6,
+    "Warehouse": 9,
+    "Villa": 4,
+    "Farm": 6
+  },
+  "new_meshes": 2230,
+  "independent_mesh_data": true,
+  "edit_mode_verified_samples": 13,
+  "original_blockouts_hidden": true
+}

@@ -1,0 +1,10 @@
+VERSION 1
+
+b5ed6ec0-256f-5a78-ad2f-6a24cf9dfdb5:City Completion/Boats:Boats
+21526418-0080-551d-9d04-4e646c226758:City Completion/Bridges:Bridges
+37f5b923-2fc6-53f0-8be2-9445ee9886f6:City Completion/Retaining:Retaining
+5c2685d5-250b-53c1-bff5-a15046c5d1f8:City Completion/Shore:Shore
+33e1a352-ac28-5dc9-90de-773604a492b4:City Completion/Quays:Quays
+67d6522b-e365-5e9b-a4ae-95ab3916d487:City Completion/Farmland:Farmland
+f3ffb9c7-06a5-52ec-8e5b-2957a8b10d7f:City Completion/Architecture:Architecture
+a3a69262-16e8-54f7-8cdf-a984f5b2b670:City Completion/Building assemblies:Building assemblies

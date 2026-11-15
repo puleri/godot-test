@@ -7,6 +7,9 @@ const HEIGHT := 48.0
 
 var guard: StealthGuard
 var enabled := true
+# Camera-only cutaways can exclude their still-solid collision from this ray.
+# These exclusions never affect guard sight or the exposure sensor.
+var occlusion_exclusions: Array[RID] = []
 var _layer: CanvasLayer
 var _anchor: Node2D
 var _art: Sprite2D
@@ -104,7 +107,9 @@ func _physics_process(_delta: float) -> void:
 		return
 	var at := guard.global_position + Vector3.UP * (guard.eye_height + 0.65)
 	var query := PhysicsRayQueryParameters3D.create(camera.global_position, at, guard.sight_blocker_mask)
-	query.exclude = [guard.get_rid()]
+	var excluded: Array[RID] = [guard.get_rid()]
+	excluded.append_array(occlusion_exclusions)
+	query.exclude = excluded
 	_occluded = not get_world_3d().direct_space_state.intersect_ray(query).is_empty()
 
 

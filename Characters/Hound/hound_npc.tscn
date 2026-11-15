@@ -8,12 +8,12 @@
 radius = 0.28
 height = 0.86
 
-[node name="Hound_v2" type="CharacterBody3D"]
+[node name="Hound_v2" type="CharacterBody3D" groups=["hounds"]]
 collision_layer = 2
 collision_mask = 1
 script = ExtResource("1_controller")
 walk_speed = 0.8
-run_speed = 1.35
+run_speed = 4.6
 acceleration = 3.5
 braking = 6.0
 arrival_radius = 0.16

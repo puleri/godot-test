@@ -37,7 +37,6 @@ def native_records():
         "native_object": name,
         "library_scale": 4.0,
         "notes": "Native editable mesh and original materials, uniformly enlarged 4x for larger building modules. "
-                 "The window spans approximately 1.54 x 1.60 m, enough for the current Rook reference bounds. "
                  "Collection pivot is centered on the base; authoring placement is recorded in the inventory.",
     } for name, title, slug in [
         ("Foundation", "Foundation", "foundation"),
@@ -48,6 +47,9 @@ def native_records():
         ("Door_stone_wall", "Door stone wall", "door_stone_wall"),
         ("Plain_stone_corner_wall", "Plain stone corner wall", "plain_stone_corner_wall"),
         ("Broken_arch_wall", "Broken arch wall", "broken_arch_wall"),
+        ("second_story_plain", "Second story plain", "second_story_plain"),
+        ("second_story_corner", "Second story corner", "second_story_corner"),
+        ("second_story_window", "Second story window", "second_story_window"),
     ]] + [{
         "name": "Stone warehouse",
         "slug": "stone_warehouse",
@@ -464,6 +466,8 @@ Additional 4x wall modules include the door wall, L-shaped stone corner and brok
 arch. Numbered modeling variants are excluded. The new modules' single-frame
 authoring poses are frozen for stable static placement. The original plain wall
 is now sourced from Plain_stone_wall.001; its library name stays Plain stone wall.
+Second-story modules use the same uniform 4x scale as the ground-floor kit.
+Their base-centered origins make them ready to place at an upper-floor height.
 
 STONE WAREHOUSE / BUILDINGS
 The complete Night Cargo warehouse is appended from its native StoneWarehouse.blend.

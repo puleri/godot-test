@@ -1,0 +1,21 @@
+{
+  "realized_assemblies": 815,
+  "directly_editable_mesh_objects": 4503,
+  "edit_mode_verified_objects": 4502,
+  "remaining_collection_instances": 0,
+  "shared_scene_meshes": 0,
+  "world_geometry_unchanged": true,
+  "max_bounds_rounding_difference_m": 0.00020000000017716957,
+  "errors": [],
+  "original_objects_preserved": 3384,
+  "outer_building_masses": 248,
+  "landscape_extent_m": [
+    2800,
+    3200
+  ],
+  "source_master": "Hub_City_Master_Blockout.blend",
+  "saved_file_reopened": true,
+  "source_meshes_unchanged": 2643,
+  "boundary_vertices_checked": 1600,
+  "max_boundary_gap_m": 0.0
+}

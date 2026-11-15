@@ -1,0 +1,8 @@
+VERSION 1
+
+e35a0af6-65bc-5914-abb4-5b4f921a0fc5:27 Courtyard Apartments:27 Courtyard Apartments
+9299e2c9-ea14-5200-91ae-ad263e518b04:28 Townhome Variety:28 Townhome Variety
+644b1753-7487-5c8b-b7da-72fc621f1153:29 Shops and Restaurants:29 Shops and Restaurants
+c6990772-c735-54f1-a162-ac354bfda791:30 Sloping Street Connections:30 Sloping Street Connections
+e4d91fba-7f71-55db-8824-a909f2b0c27f:31 Reused Modules:31 Reused Modules
+36eac074-5059-597c-9c24-76ac3d45f745:32 Residential Assemblies:32 Residential Assemblies

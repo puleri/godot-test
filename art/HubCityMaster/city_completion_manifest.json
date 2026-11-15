@@ -1,0 +1,6328 @@
+{
+  "source": "Hub_City_Foliage_Study.blend",
+  "library_assets": 80,
+  "building_replacements": [
+    {
+      "old": "BLOCKOUT building 000",
+      "asset": "Boathouse variant 01",
+      "position": [
+        -180.44656372070312,
+        -150.86386108398438,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 001",
+      "asset": "Merchant variant 02",
+      "position": [
+        -171.015625,
+        -150.572998046875,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 002",
+      "asset": "Merchant variant 03",
+      "position": [
+        -163.3414764404297,
+        -149.62538146972656,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 003",
+      "asset": "Artisan variant 01",
+      "position": [
+        -144.8731231689453,
+        -149.77549743652344,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 004",
+      "asset": "Merchant variant 01",
+      "position": [
+        -136.73931884765625,
+        -149.32907104492188,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 005",
+      "asset": "Boathouse variant 01",
+      "position": [
+        -127.72775268554688,
+        -149.1978302001953,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 006",
+      "asset": "Artisan variant 03",
+      "position": [
+        -117.7929458618164,
+        -150.01324462890625,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 007",
+      "asset": "Merchant variant 04",
+      "position": [
+        -109.25880432128906,
+        -149.1920166015625,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 008",
+      "asset": "Merchant variant 01",
+      "position": [
+        -99.53924560546875,
+        -149.27635192871094,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 009",
+      "asset": "Artisan variant 01",
+      "position": [
+        -90.7372817993164,
+        -149.12696838378906,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 010",
+      "asset": "Boathouse variant 01",
+      "position": [
+        -82.0424575805664,
+        -149.20346069335938,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 011",
+      "asset": "Merchant variant 04",
+      "position": [
+        -73.1351089477539,
+        -148.8302459716797,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 012",
+      "asset": "Artisan variant 03",
+      "position": [
+        -63.96883773803711,
+        -150.0353546142578,
+        4.119999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 013",
+      "asset": "Merchant variant 02",
+      "position": [
+        79.9909896850586,
+        -150.03463745117188,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 014",
+      "asset": "Merchant variant 03",
+      "position": [
+        98.3713607788086,
+        -149.59613037109375,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 015",
+      "asset": "Boathouse variant 01",
+      "position": [
+        106.6052017211914,
+        -150.36622619628906,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 016",
+      "asset": "Merchant variant 01",
+      "position": [
+        115.68022918701172,
+        -150.07444763183594,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 017",
+      "asset": "Merchant variant 02",
+      "position": [
+        124.0578384399414,
+        -150.32411193847656,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 018",
+      "asset": "Artisan variant 03",
+      "position": [
+        134.15316772460938,
+        -150.26145935058594,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 019",
+      "asset": "Merchant variant 04",
+      "position": [
+        143.44467163085938,
+        -150.0055694580078,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 020",
+      "asset": "Boathouse variant 01",
+      "position": [
+        152.51783752441406,
+        -149.51185607910156,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 021",
+      "asset": "Artisan variant 01",
+      "position": [
+        160.76443481445312,
+        -149.7170867919922,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 022",
+      "asset": "Merchant variant 03",
+      "position": [
+        170.2846221923828,
+        -147.92233276367188,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 023",
+      "asset": "Merchant variant 04",
+      "position": [
+        178.9658660888672,
+        -148.82589721679688,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 024",
+      "asset": "Artisan variant 03",
+      "position": [
+        -180.3569793701172,
+        -140.04647827148438,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 025",
+      "asset": "Boathouse variant 01",
+      "position": [
+        -172.49581909179688,
+        -139.79730224609375,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 026",
+      "asset": "Merchant variant 03",
+      "position": [
+        -162.79896545410156,
+        -138.63088989257812,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 027",
+      "asset": "Artisan variant 01",
+      "position": [
+        -154.40670776367188,
+        -139.5086212158203,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 028",
+      "asset": "Merchant variant 01",
+      "position": [
+        -136.328857421875,
+        -137.23158264160156,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 029",
+      "asset": "Merchant variant 02",
+      "position": [
+        -117.5886459350586,
+        -137.45220947265625,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 030",
+      "asset": "Boathouse variant 01",
+      "position": [
+        -99.65419006347656,
+        -137.90496826171875,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 031",
+      "asset": "Merchant variant 04",
+      "position": [
+        -90.37596130371094,
+        -138.5161590576172,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 032",
+      "asset": "Merchant variant 01",
+      "position": [
+        -82.19524383544922,
+        -138.4643096923828,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 033",
+      "asset": "Artisan variant 01",
+      "position": [
+        97.96105194091797,
+        -139.16151428222656,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 034",
+      "asset": "Merchant variant 03",
+      "position": [
+        106.653564453125,
+        -138.65573120117188,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 035",
+      "asset": "Boathouse variant 01",
+      "position": [
+        114.87792205810547,
+        -139.40878295898438,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 036",
+      "asset": "Artisan variant 03",
+      "position": [
+        123.75894165039062,
+        -140.2284698486328,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 037",
+      "asset": "Merchant variant 02",
+      "position": [
+        133.8888702392578,
+        -139.48681640625,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 038",
+      "asset": "Merchant variant 03",
+      "position": [
+        160.84652709960938,
+        -137.64413452148438,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 039",
+      "asset": "Artisan variant 01",
+      "position": [
+        179.07876586914062,
+        -137.8561553955078,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 040",
+      "asset": "Boathouse variant 01",
+      "position": [
+        -180.98785400390625,
+        -129.04225158691406,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 041",
+      "asset": "Merchant variant 02",
+      "position": [
+        -171.7314910888672,
+        -128.89178466796875,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 042",
+      "asset": "Artisan variant 03",
+      "position": [
+        -163.83380126953125,
+        -129.2130126953125,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 043",
+      "asset": "Merchant variant 04",
+      "position": [
+        -153.74520874023438,
+        -127.52800750732422,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 044",
+      "asset": "Merchant variant 01",
+      "position": [
+        -144.3879852294922,
+        -127.28292083740234,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 045",
+      "asset": "Boathouse variant 01",
+      "position": [
+        -135.65130615234375,
+        -127.10244750976562,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 046",
+      "asset": "Merchant variant 03",
+      "position": [
+        -125.60337829589844,
+        -125.30037689208984,
+        4.619999885559082
+      ],
+      "scale_xy": 0.901980285719666
+    },
+    {
+      "old": "BLOCKOUT building 047",
+      "asset": "Merchant variant 04",
+      "position": [
+        -116.61795043945312,
+        -126.17740631103516,
+        4.619999885559082
+      ],
+      "scale_xy": 0.901980285719666
+    },
+    {
+      "old": "BLOCKOUT building 048",
+      "asset": "Artisan variant 03",
+      "position": [
+        -107.47356414794922,
+        -126.65252685546875,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 049",
+      "asset": "Merchant variant 02",
+      "position": [
+        -91.1865005493164,
+        -127.08415985107422,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 050",
+      "asset": "Boathouse variant 01",
+      "position": [
+        -81.71499633789062,
+        -128.0146942138672,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 051",
+      "asset": "Artisan variant 01",
+      "position": [
+        115.6623306274414,
+        -128.52989196777344,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 052",
+      "asset": "Merchant variant 01",
+      "position": [
+        134.39700317382812,
+        -128.55035400390625,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 053",
+      "asset": "Merchant variant 02",
+      "position": [
+        144.1009979248047,
+        -127.57279205322266,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 054",
+      "asset": "Artisan variant 03",
+      "position": [
+        161.70565795898438,
+        -127.08460998535156,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 055",
+      "asset": "Boathouse variant 01",
+      "position": [
+        170.08168029785156,
+        -127.16078186035156,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 056",
+      "asset": "Merchant variant 01",
+      "position": [
+        179.77777099609375,
+        -126.81005096435547,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641695559580662
+    },
+    {
+      "old": "BLOCKOUT building 057",
+      "asset": "Artisan variant 01",
+      "position": [
+        -179.7430419921875,
+        -117.71647644042969,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 058",
+      "asset": "Merchant variant 03",
+      "position": [
+        -171.50953674316406,
+        -117.62271881103516,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 059",
+      "asset": "Merchant variant 04",
+      "position": [
+        -163.01007080078125,
+        -117.88441467285156,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 060",
+      "asset": "Boathouse variant 01",
+      "position": [
+        -152.8224639892578,
+        -117.58125305175781,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 061",
+      "asset": "Merchant variant 02",
+      "position": [
+        -142.79928588867188,
+        -116.55645751953125,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 062",
+      "asset": "Merchant variant 03",
+      "position": [
+        -133.4105682373047,
+        -116.05104064941406,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 063",
+      "asset": "Artisan variant 01",
+      "position": [
+        -125.06884765625,
+        -115.45319366455078,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 064",
+      "asset": "Merchant variant 01",
+      "position": [
+        -115.5335693359375,
+        -114.29850769042969,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 065",
+      "asset": "Boathouse variant 01",
+      "position": [
+        -106.92546844482422,
+        -114.93121337890625,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 066",
+      "asset": "Artisan variant 03",
+      "position": [
+        -98.57331848144531,
+        -115.949462890625,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 067",
+      "asset": "Merchant variant 04",
+      "position": [
+        127.1123046875,
+        -116.95487976074219,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 068",
+      "asset": "Merchant variant 01",
+      "position": [
+        135.90545654296875,
+        -116.92102813720703,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 069",
+      "asset": "Artisan variant 01",
+      "position": [
+        144.96328735351562,
+        -117.21910858154297,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 070",
+      "asset": "Boathouse variant 01",
+      "position": [
+        154.41737365722656,
+        -115.94003295898438,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 071",
+      "asset": "Merchant variant 04",
+      "position": [
+        162.119384765625,
+        -116.1535873413086,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 072",
+      "asset": "Artisan variant 03",
+      "position": [
+        170.97157287597656,
+        -116.20516204833984,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 073",
+      "asset": "Merchant variant 02",
+      "position": [
+        179.9016571044922,
+        -115.10769653320312,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 074",
+      "asset": "Merchant variant 03",
+      "position": [
+        -179.7683868408203,
+        -106.82452392578125,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 075",
+      "asset": "Boathouse variant 01",
+      "position": [
+        -170.45486450195312,
+        -106.98612213134766,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 076",
+      "asset": "Merchant variant 01",
+      "position": [
+        -160.7079315185547,
+        -107.37986755371094,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 077",
+      "asset": "Merchant variant 02",
+      "position": [
+        -150.59645080566406,
+        -106.59397888183594,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 078",
+      "asset": "Artisan variant 03",
+      "position": [
+        -140.9947509765625,
+        -106.39619445800781,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 079",
+      "asset": "Merchant variant 04",
+      "position": [
+        -131.69143676757812,
+        -104.90064239501953,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 080",
+      "asset": "Boathouse variant 01",
+      "position": [
+        -123.42686462402344,
+        -104.08084106445312,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 081",
+      "asset": "Artisan variant 01",
+      "position": [
+        -115.72248077392578,
+        -103.59537506103516,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 082",
+      "asset": "Merchant variant 03",
+      "position": [
+        -106.8000717163086,
+        -102.29650115966797,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 083",
+      "asset": "Merchant variant 04",
+      "position": [
+        137.39431762695312,
+        -104.87120056152344,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 084",
+      "asset": "Artisan variant 03",
+      "position": [
+        145.8583221435547,
+        -105.74607849121094,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 085",
+      "asset": "Boathouse variant 01",
+      "position": [
+        154.1450958251953,
+        -104.50151062011719,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 086",
+      "asset": "Merchant variant 03",
+      "position": [
+        162.03671264648438,
+        -103.97891235351562,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 087",
+      "asset": "Artisan variant 01",
+      "position": [
+        170.8806915283203,
+        -104.84461212158203,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 088",
+      "asset": "Merchant variant 01",
+      "position": [
+        179.8396759033203,
+        -104.89701080322266,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 089",
+      "asset": "Merchant variant 02",
+      "position": [
+        -178.6177520751953,
+        -94.97613525390625,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 090",
+      "asset": "Boathouse variant 01",
+      "position": [
+        -168.0927734375,
+        -96.36380767822266,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 091",
+      "asset": "Merchant variant 04",
+      "position": [
+        -158.47811889648438,
+        -95.38150787353516,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 092",
+      "asset": "Merchant variant 01",
+      "position": [
+        -149.83705139160156,
+        -95.7650375366211,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 093",
+      "asset": "Artisan variant 01",
+      "position": [
+        -140.44677734375,
+        -96.27334594726562,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 094",
+      "asset": "Merchant variant 03",
+      "position": [
+        -131.68295288085938,
+        -94.5479736328125,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 095",
+      "asset": "Boathouse variant 01",
+      "position": [
+        -123.6270980834961,
+        -93.51486206054688,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 096",
+      "asset": "Artisan variant 03",
+      "position": [
+        -114.72650909423828,
+        -92.96619415283203,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 097",
+      "asset": "Merchant variant 02",
+      "position": [
+        138.0777587890625,
+        -95.10965728759766,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 098",
+      "asset": "Merchant variant 03",
+      "position": [
+        146.73805236816406,
+        -93.60958862304688,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 099",
+      "asset": "Artisan variant 01",
+      "position": [
+        154.89263916015625,
+        -93.07115173339844,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 100",
+      "asset": "Boathouse variant 01",
+      "position": [
+        163.67491149902344,
+        -92.23538970947266,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 101",
+      "asset": "Merchant variant 02",
+      "position": [
+        172.79080200195312,
+        -92.36125183105469,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 102",
+      "asset": "Artisan variant 03",
+      "position": [
+        181.62034606933594,
+        -93.18295288085938,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 103",
+      "asset": "Merchant variant 04",
+      "position": [
+        -166.4423828125,
+        -84.55731201171875,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 104",
+      "asset": "Merchant variant 01",
+      "position": [
+        -157.09043884277344,
+        -83.62377166748047,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 105",
+      "asset": "Artisan variant 01",
+      "position": [
+        -148.98927307128906,
+        -83.8770523071289,
+        5.119999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 106",
+      "asset": "Merchant variant 03",
+      "position": [
+        -139.99053955078125,
+        -83.90078735351562,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 107",
+      "asset": "Merchant variant 04",
+      "position": [
+        -132.49952697753906,
+        -83.69823455810547,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 108",
+      "asset": "Artisan variant 03",
+      "position": [
+        -123.91887664794922,
+        -83.26250457763672,
+        5.119999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 109",
+      "asset": "Merchant variant 02",
+      "position": [
+        -115.06766510009766,
+        -82.41436004638672,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 110",
+      "asset": "Merchant variant 03",
+      "position": [
+        173.517822265625,
+        -80.45922088623047,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 111",
+      "asset": "Artisan variant 01",
+      "position": [
+        183.2183837890625,
+        -82.3025894165039,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 112",
+      "asset": "Merchant variant 01",
+      "position": [
+        174.93399047851562,
+        -68.85991668701172,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 113",
+      "asset": "Merchant variant 02",
+      "position": [
+        182.7627410888672,
+        -69.85653686523438,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 114",
+      "asset": "Artisan variant 03",
+      "position": [
+        -169.6345977783203,
+        -65.5274429321289,
+        7.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 115",
+      "asset": "Merchant variant 04",
+      "position": [
+        -135.65455627441406,
+        -59.47626876831055,
+        7.619999885559082
+      ],
+      "scale_xy": 0.901980285719666
+    },
+    {
+      "old": "BLOCKOUT building 116",
+      "asset": "Merchant variant 01",
+      "position": [
+        -126.241943359375,
+        -59.23026657104492,
+        7.619999885559082
+      ],
+      "scale_xy": 0.9641695559580662
+    },
+    {
+      "old": "BLOCKOUT building 117",
+      "asset": "Artisan variant 01",
+      "position": [
+        173.3912811279297,
+        -58.581878662109375,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 118",
+      "asset": "Merchant variant 03",
+      "position": [
+        181.90438842773438,
+        -57.53413009643555,
+        4.619999885559082
+      ],
+      "scale_xy": 0.901980285719666
+    },
+    {
+      "old": "BLOCKOUT building 119",
+      "asset": "Merchant variant 04",
+      "position": [
+        -172.43106079101562,
+        -54.85723114013672,
+        8.119999885559082
+      ],
+      "scale_xy": 0.901980285719666
+    },
+    {
+      "old": "BLOCKOUT building 120",
+      "asset": "Artisan variant 03",
+      "position": [
+        -128.53538513183594,
+        -47.73887252807617,
+        8.119999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 121",
+      "asset": "Merchant variant 02",
+      "position": [
+        170.77737426757812,
+        -48.038753509521484,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641695559580662
+    },
+    {
+      "old": "BLOCKOUT building 122",
+      "asset": "Merchant variant 03",
+      "position": [
+        178.4117431640625,
+        -47.092369079589844,
+        4.619999885559082
+      ],
+      "scale_xy": 0.901980285719666
+    },
+    {
+      "old": "BLOCKOUT building 123",
+      "asset": "Artisan variant 01",
+      "position": [
+        -174.70298767089844,
+        -43.49800109863281,
+        8.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 124",
+      "asset": "Merchant variant 01",
+      "position": [
+        -157.19631958007812,
+        -41.08977508544922,
+        8.619999885559082
+      ],
+      "scale_xy": 0.9641695559580662
+    },
+    {
+      "old": "BLOCKOUT building 125",
+      "asset": "Merchant variant 02",
+      "position": [
+        176.057373046875,
+        -37.79311752319336,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641695559580662
+    },
+    {
+      "old": "BLOCKOUT building 126",
+      "asset": "Artisan variant 03",
+      "position": [
+        -175.73814392089844,
+        -32.059898376464844,
+        9.119999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 127",
+      "asset": "Merchant variant 04",
+      "position": [
+        133.375244140625,
+        -27.987516403198242,
+        5.619999885559082
+      ],
+      "scale_xy": 0.9019800532344621
+    },
+    {
+      "old": "BLOCKOUT building 128",
+      "asset": "Merchant variant 01",
+      "position": [
+        166.680908203125,
+        -26.85352897644043,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641695559580662
+    },
+    {
+      "old": "BLOCKOUT building 129",
+      "asset": "Artisan variant 01",
+      "position": [
+        176.61109924316406,
+        -28.17792510986328,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 130",
+      "asset": "Merchant variant 03",
+      "position": [
+        -174.61148071289062,
+        -19.105758666992188,
+        9.619999885559082
+      ],
+      "scale_xy": 0.901980285719666
+    },
+    {
+      "old": "BLOCKOUT building 131",
+      "asset": "Merchant variant 04",
+      "position": [
+        -124.11698150634766,
+        -15.114035606384277,
+        10.619999885559082
+      ],
+      "scale_xy": 0.9019800532344621
+    },
+    {
+      "old": "BLOCKOUT building 132",
+      "asset": "Artisan variant 03",
+      "position": [
+        124.70967102050781,
+        -19.832611083984375,
+        6.119999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 133",
+      "asset": "Merchant variant 02",
+      "position": [
+        134.26414489746094,
+        -17.427719116210938,
+        6.119999885559082
+      ],
+      "scale_xy": 0.9641695559580662
+    },
+    {
+      "old": "BLOCKOUT building 134",
+      "asset": "Merchant variant 03",
+      "position": [
+        177.3499298095703,
+        -15.792261123657227,
+        4.619999885559082
+      ],
+      "scale_xy": 0.901980169477064
+    },
+    {
+      "old": "BLOCKOUT building 135",
+      "asset": "Artisan variant 01",
+      "position": [
+        -137.65628051757812,
+        -7.565176010131836,
+        11.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 136",
+      "asset": "Merchant variant 01",
+      "position": [
+        -123.73065948486328,
+        -6.010972499847412,
+        11.619999885559082
+      ],
+      "scale_xy": 0.9641693074435925
+    },
+    {
+      "old": "BLOCKOUT building 137",
+      "asset": "Merchant variant 02",
+      "position": [
+        -110.95913696289062,
+        -3.8283655643463135,
+        9.619999885559082
+      ],
+      "scale_xy": 0.9641693074435925
+    },
+    {
+      "old": "BLOCKOUT building 138",
+      "asset": "Artisan variant 03",
+      "position": [
+        -101.5362548828125,
+        -3.487945079803467,
+        9.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 139",
+      "asset": "Merchant variant 04",
+      "position": [
+        116.65397644042969,
+        -10.134363174438477,
+        7.119999885559082
+      ],
+      "scale_xy": 0.9019800532344621
+    },
+    {
+      "old": "BLOCKOUT building 140",
+      "asset": "Merchant variant 01",
+      "position": [
+        125.59349060058594,
+        -8.872902870178223,
+        7.119999885559082
+      ],
+      "scale_xy": 0.9641694938294477
+    },
+    {
+      "old": "BLOCKOUT building 141",
+      "asset": "Artisan variant 01",
+      "position": [
+        134.06948852539062,
+        -8.06507682800293,
+        6.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 142",
+      "asset": "Merchant variant 03",
+      "position": [
+        142.3704833984375,
+        -5.7626776695251465,
+        6.619999885559082
+      ],
+      "scale_xy": 0.901980169477064
+    },
+    {
+      "old": "BLOCKOUT building 143",
+      "asset": "Merchant variant 04",
+      "position": [
+        150.61376953125,
+        -3.9228861331939697,
+        6.119999885559082
+      ],
+      "scale_xy": 0.9019800532344621
+    },
+    {
+      "old": "BLOCKOUT building 144",
+      "asset": "Artisan variant 03",
+      "position": [
+        -170.13504028320312,
+        2.465242862701416,
+        11.119999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 145",
+      "asset": "Merchant variant 02",
+      "position": [
+        -137.7461700439453,
+        4.4252142906188965,
+        12.619999885559082
+      ],
+      "scale_xy": 0.9641693074435925
+    },
+    {
+      "old": "BLOCKOUT building 146",
+      "asset": "Merchant variant 03",
+      "position": [
+        -123.56138610839844,
+        6.679928779602051,
+        13.119999885559082
+      ],
+      "scale_xy": 0.9019800532344621
+    },
+    {
+      "old": "BLOCKOUT building 147",
+      "asset": "Artisan variant 01",
+      "position": [
+        -108.11727905273438,
+        5.94403600692749,
+        11.119999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 148",
+      "asset": "Merchant variant 01",
+      "position": [
+        -99.67375183105469,
+        6.332955837249756,
+        10.619999885559082
+      ],
+      "scale_xy": 0.9641693074435925
+    },
+    {
+      "old": "BLOCKOUT building 149",
+      "asset": "Merchant variant 02",
+      "position": [
+        -89.64936828613281,
+        6.780852317810059,
+        10.119999885559082
+      ],
+      "scale_xy": 0.9641694317008294
+    },
+    {
+      "old": "BLOCKOUT building 150",
+      "asset": "Artisan variant 03",
+      "position": [
+        -80.03602600097656,
+        5.443015098571777,
+        9.119999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 151",
+      "asset": "Merchant variant 04",
+      "position": [
+        109.78681182861328,
+        1.8475465774536133,
+        8.119999885559082
+      ],
+      "scale_xy": 0.9019801113557631
+    },
+    {
+      "old": "BLOCKOUT building 152",
+      "asset": "Merchant variant 01",
+      "position": [
+        118.74748992919922,
+        1.8691047430038452,
+        8.119999885559082
+      ],
+      "scale_xy": 0.9641694317008294
+    },
+    {
+      "old": "BLOCKOUT building 153",
+      "asset": "Artisan variant 01",
+      "position": [
+        151.9864044189453,
+        5.364649295806885,
+        6.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 154",
+      "asset": "Merchant variant 03",
+      "position": [
+        181.71920776367188,
+        6.746862411499023,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9019800532344621
+    },
+    {
+      "old": "BLOCKOUT building 155",
+      "asset": "Merchant variant 04",
+      "position": [
+        -106.74021911621094,
+        16.547256469726562,
+        12.619999885559082
+      ],
+      "scale_xy": 0.9019800532344621
+    },
+    {
+      "old": "BLOCKOUT building 156",
+      "asset": "Artisan variant 03",
+      "position": [
+        -97.26488494873047,
+        16.08932113647461,
+        12.119999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 157",
+      "asset": "Merchant variant 02",
+      "position": [
+        -87.85578918457031,
+        16.697978973388672,
+        11.119999885559082
+      ],
+      "scale_xy": 0.9641694317008294
+    },
+    {
+      "old": "BLOCKOUT building 158",
+      "asset": "Merchant variant 03",
+      "position": [
+        -78.21769714355469,
+        17.223106384277344,
+        10.119999885559082
+      ],
+      "scale_xy": 0.901980285719666
+    },
+    {
+      "old": "BLOCKOUT building 159",
+      "asset": "Artisan variant 01",
+      "position": [
+        -69.52389526367188,
+        15.938268661499023,
+        8.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 160",
+      "asset": "Merchant variant 01",
+      "position": [
+        -60.51082992553711,
+        15.37476634979248,
+        7.119999885559082
+      ],
+      "scale_xy": 0.9641693074435925
+    },
+    {
+      "old": "BLOCKOUT building 161",
+      "asset": "Merchant variant 02",
+      "position": [
+        82.84337615966797,
+        15.17080020904541,
+        9.619999885559082
+      ],
+      "scale_xy": 0.9641693074435925
+    },
+    {
+      "old": "BLOCKOUT building 162",
+      "asset": "Artisan variant 03",
+      "position": [
+        93.12305450439453,
+        14.936474800109863,
+        9.119999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 163",
+      "asset": "Merchant variant 04",
+      "position": [
+        102.06949615478516,
+        15.04488754272461,
+        9.119999885559082
+      ],
+      "scale_xy": 0.901980169477064
+    },
+    {
+      "old": "BLOCKOUT building 164",
+      "asset": "Merchant variant 01",
+      "position": [
+        118.91259002685547,
+        13.277475357055664,
+        9.119999885559082
+      ],
+      "scale_xy": 0.9641694317008294
+    },
+    {
+      "old": "BLOCKOUT building 165",
+      "asset": "Artisan variant 01",
+      "position": [
+        126.63461303710938,
+        13.502876281738281,
+        8.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 166",
+      "asset": "Merchant variant 03",
+      "position": [
+        153.26605224609375,
+        15.429577827453613,
+        7.119999885559082
+      ],
+      "scale_xy": 0.9019800532344621
+    },
+    {
+      "old": "BLOCKOUT building 167",
+      "asset": "Merchant variant 04",
+      "position": [
+        182.1942596435547,
+        17.57876968383789,
+        5.119999885559082
+      ],
+      "scale_xy": 0.901980169477064
+    },
+    {
+      "old": "BLOCKOUT building 168",
+      "asset": "Artisan variant 03",
+      "position": [
+        -53.29370880126953,
+        25.48833656311035,
+        5.119999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 169",
+      "asset": "Merchant variant 02",
+      "position": [
+        55.06058120727539,
+        27.18822479248047,
+        11.119999885559082
+      ],
+      "scale_xy": 0.9641695559580662
+    },
+    {
+      "old": "BLOCKOUT building 170",
+      "asset": "Merchant variant 03",
+      "position": [
+        64.90275573730469,
+        26.7294979095459,
+        11.119999885559082
+      ],
+      "scale_xy": 0.901980285719666
+    },
+    {
+      "old": "BLOCKOUT building 171",
+      "asset": "Artisan variant 01",
+      "position": [
+        -115.30654907226562,
+        38.26529312133789,
+        20.1200008392334
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 172",
+      "asset": "Merchant variant 01",
+      "position": [
+        -105.56636047363281,
+        39.27574920654297,
+        20.1200008392334
+      ],
+      "scale_xy": 0.9641695559580662
+    },
+    {
+      "old": "BLOCKOUT building 173",
+      "asset": "Merchant variant 02",
+      "position": [
+        -89.06180572509766,
+        37.22910690307617,
+        18.1200008392334
+      ],
+      "scale_xy": 0.9641695559580662
+    },
+    {
+      "old": "BLOCKOUT building 174",
+      "asset": "Artisan variant 03",
+      "position": [
+        -78.78263854980469,
+        32.35126876831055,
+        16.6200008392334
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 175",
+      "asset": "Merchant variant 04",
+      "position": [
+        -70.57788848876953,
+        32.828041076660156,
+        14.619999885559082
+      ],
+      "scale_xy": 0.901980285719666
+    },
+    {
+      "old": "BLOCKOUT building 176",
+      "asset": "Merchant variant 01",
+      "position": [
+        -52.87575912475586,
+        32.34473419189453,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641695559580662
+    },
+    {
+      "old": "BLOCKOUT building 177",
+      "asset": "Artisan variant 01",
+      "position": [
+        -6.889793872833252,
+        36.46949005126953,
+        6.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 178",
+      "asset": "Merchant variant 03",
+      "position": [
+        1.9590444564819336,
+        37.48552322387695,
+        7.119999885559082
+      ],
+      "scale_xy": 0.901980285719666
+    },
+    {
+      "old": "BLOCKOUT building 179",
+      "asset": "Merchant variant 04",
+      "position": [
+        10.476517677307129,
+        38.02560043334961,
+        8.119999885559082
+      ],
+      "scale_xy": 0.901980285719666
+    },
+    {
+      "old": "BLOCKOUT building 180",
+      "asset": "Artisan variant 03",
+      "position": [
+        18.500520706176758,
+        38.005985260009766,
+        9.119999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 181",
+      "asset": "Merchant variant 02",
+      "position": [
+        28.22964096069336,
+        39.518272399902344,
+        10.119999885559082
+      ],
+      "scale_xy": 0.9641695559580662
+    },
+    {
+      "old": "BLOCKOUT building 182",
+      "asset": "Merchant variant 03",
+      "position": [
+        -134.85520935058594,
+        43.358829498291016,
+        21.1200008392334
+      ],
+      "scale_xy": 0.901980285719666
+    },
+    {
+      "old": "BLOCKOUT building 183",
+      "asset": "Artisan variant 01",
+      "position": [
+        9.0701904296875,
+        47.901390075683594,
+        8.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 184",
+      "asset": "Merchant variant 01",
+      "position": [
+        17.538772583007812,
+        48.96268081665039,
+        9.619999885559082
+      ],
+      "scale_xy": 0.9641695559580662
+    },
+    {
+      "old": "BLOCKOUT building 185",
+      "asset": "Merchant variant 02",
+      "position": [
+        -180.8759307861328,
+        58.58430862426758,
+        16.1200008392334
+      ],
+      "scale_xy": 0.9641695559580662
+    },
+    {
+      "old": "BLOCKOUT building 186",
+      "asset": "Artisan variant 03",
+      "position": [
+        -171.2666778564453,
+        58.076969146728516,
+        18.6200008392334
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 187",
+      "asset": "Merchant variant 04",
+      "position": [
+        -152.95677185058594,
+        59.54723358154297,
+        21.1200008392334
+      ],
+      "scale_xy": 0.901980285719666
+    },
+    {
+      "old": "BLOCKOUT building 188",
+      "asset": "Merchant variant 01",
+      "position": [
+        -144.40135192871094,
+        58.77773666381836,
+        22.1200008392334
+      ],
+      "scale_xy": 0.9641695559580662
+    },
+    {
+      "old": "BLOCKOUT building 189",
+      "asset": "Artisan variant 01",
+      "position": [
+        -136.269775390625,
+        57.23585891723633,
+        22.6200008392334
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 190",
+      "asset": "Merchant variant 03",
+      "position": [
+        9.20401382446289,
+        59.61735534667969,
+        8.619999885559082
+      ],
+      "scale_xy": 0.901980285719666
+    },
+    {
+      "old": "BLOCKOUT building 191",
+      "asset": "Merchant variant 04",
+      "position": [
+        17.133054733276367,
+        59.08866500854492,
+        9.619999885559082
+      ],
+      "scale_xy": 0.901980285719666
+    },
+    {
+      "old": "BLOCKOUT building 192",
+      "asset": "Artisan variant 03",
+      "position": [
+        -179.98956298828125,
+        69.82569122314453,
+        17.1200008392334
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 193",
+      "asset": "Merchant variant 02",
+      "position": [
+        -171.5945281982422,
+        69.56439971923828,
+        19.1200008392334
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 194",
+      "asset": "Merchant variant 03",
+      "position": [
+        -161.9710693359375,
+        70.1745834350586,
+        21.1200008392334
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 195",
+      "asset": "Artisan variant 01",
+      "position": [
+        -147.9448699951172,
+        69.2427978515625,
+        22.6200008392334
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 196",
+      "asset": "Merchant variant 01",
+      "position": [
+        -134.02294921875,
+        72.41034698486328,
+        23.6200008392334
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 197",
+      "asset": "Merchant variant 02",
+      "position": [
+        -44.6678581237793,
+        69.56781005859375,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 198",
+      "asset": "Artisan variant 03",
+      "position": [
+        -27.465497970581055,
+        70.18357849121094,
+        11.119999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 199",
+      "asset": "Merchant variant 04",
+      "position": [
+        -1.3446348905563354,
+        70.50127410888672,
+        12.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 200",
+      "asset": "Merchant variant 01",
+      "position": [
+        22.529632568359375,
+        73.99401092529297,
+        10.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 201",
+      "asset": "Artisan variant 01",
+      "position": [
+        -180.97799682617188,
+        80.64605712890625,
+        17.1200008392334
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 202",
+      "asset": "Merchant variant 03",
+      "position": [
+        -171.29530334472656,
+        81.8387451171875,
+        20.1200008392334
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 203",
+      "asset": "Merchant variant 04",
+      "position": [
+        -161.90444946289062,
+        81.38253784179688,
+        22.1200008392334
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 204",
+      "asset": "Artisan variant 03",
+      "position": [
+        -152.65866088867188,
+        81.13734436035156,
+        23.1200008392334
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 205",
+      "asset": "Merchant variant 02",
+      "position": [
+        -150.0935516357422,
+        80.4825210571289,
+        23.6200008392334
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 206",
+      "asset": "Merchant variant 03",
+      "position": [
+        -134.83718872070312,
+        82.01759338378906,
+        23.6200008392334
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 207",
+      "asset": "Artisan variant 01",
+      "position": [
+        -89.92144012451172,
+        81.12818145751953,
+        18.1200008392334
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 208",
+      "asset": "Merchant variant 01",
+      "position": [
+        -162.63253784179688,
+        92.50064849853516,
+        22.6200008392334
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 209",
+      "asset": "Merchant variant 02",
+      "position": [
+        -153.16671752929688,
+        92.8639144897461,
+        23.6200008392334
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 210",
+      "asset": "Artisan variant 03",
+      "position": [
+        -138.18846130371094,
+        93.8657455444336,
+        24.1200008392334
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 211",
+      "asset": "Merchant variant 04",
+      "position": [
+        -134.71664428710938,
+        92.56475067138672,
+        23.6200008392334
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 212",
+      "asset": "Merchant variant 01",
+      "position": [
+        -126.1632080078125,
+        93.4998550415039,
+        22.6200008392334
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 213",
+      "asset": "Artisan variant 01",
+      "position": [
+        -118.86759948730469,
+        95.26164245605469,
+        21.6200008392334
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 214",
+      "asset": "Merchant variant 03",
+      "position": [
+        -90.12032318115234,
+        89.56765747070312,
+        17.6200008392334
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 215",
+      "asset": "Merchant variant 04",
+      "position": [
+        -71.82559204101562,
+        92.898681640625,
+        13.119999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 216",
+      "asset": "Artisan variant 03",
+      "position": [
+        -179.99623107910156,
+        102.42152404785156,
+        18.1200008392334
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 217",
+      "asset": "Merchant variant 02",
+      "position": [
+        -170.431396484375,
+        103.17626953125,
+        21.6200008392334
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 218",
+      "asset": "Merchant variant 03",
+      "position": [
+        -162.77549743652344,
+        103.64667510986328,
+        23.1200008392334
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 219",
+      "asset": "Artisan variant 01",
+      "position": [
+        -154.2780303955078,
+        102.16337585449219,
+        24.1200008392334
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 220",
+      "asset": "Merchant variant 01",
+      "position": [
+        -140.41505432128906,
+        101.023193359375,
+        24.1200008392334
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 221",
+      "asset": "Merchant variant 02",
+      "position": [
+        -134.7059326171875,
+        103.82154083251953,
+        23.6200008392334
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 222",
+      "asset": "Artisan variant 03",
+      "position": [
+        -99.17134094238281,
+        103.15609741210938,
+        16.6200008392334
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 223",
+      "asset": "Merchant variant 04",
+      "position": [
+        -90.65222930908203,
+        104.12236022949219,
+        15.119999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 224",
+      "asset": "Merchant variant 01",
+      "position": [
+        -81.40655517578125,
+        106.62616729736328,
+        13.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 225",
+      "asset": "Artisan variant 01",
+      "position": [
+        -73.9047622680664,
+        108.43000030517578,
+        13.119999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 226",
+      "asset": "Merchant variant 03",
+      "position": [
+        -55.02411651611328,
+        97.10540008544922,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 227",
+      "asset": "Merchant variant 04",
+      "position": [
+        -34.833946228027344,
+        107.54121398925781,
+        6.119999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 228",
+      "asset": "Artisan variant 03",
+      "position": [
+        18.546140670776367,
+        103.03099060058594,
+        8.119999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 229",
+      "asset": "Merchant variant 02",
+      "position": [
+        26.709012985229492,
+        103.91390991210938,
+        9.119999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 230",
+      "asset": "Merchant variant 03",
+      "position": [
+        179.88076782226562,
+        104.41549682617188,
+        27.1200008392334
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 231",
+      "asset": "Artisan variant 01",
+      "position": [
+        -54.5628547668457,
+        114.5818099975586,
+        5.119999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 232",
+      "asset": "Merchant variant 01",
+      "position": [
+        -45.42375183105469,
+        114.09628295898438,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 233",
+      "asset": "Merchant variant 02",
+      "position": [
+        -27.621824264526367,
+        114.58480834960938,
+        10.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 234",
+      "asset": "Artisan variant 03",
+      "position": [
+        -0.6149797439575195,
+        114.24105834960938,
+        10.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 235",
+      "asset": "Merchant variant 04",
+      "position": [
+        17.683969497680664,
+        115.2471694946289,
+        7.119999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 236",
+      "asset": "Merchant variant 01",
+      "position": [
+        26.317808151245117,
+        114.13668823242188,
+        8.119999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 237",
+      "asset": "Artisan variant 01",
+      "position": [
+        179.78546142578125,
+        114.56394958496094,
+        26.6200008392334
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 238",
+      "asset": "Merchant variant 03",
+      "position": [
+        -54.67905807495117,
+        125.27729034423828,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 239",
+      "asset": "Merchant variant 04",
+      "position": [
+        -45.60817337036133,
+        125.9599838256836,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 240",
+      "asset": "Artisan variant 03",
+      "position": [
+        -27.181304931640625,
+        124.97845458984375,
+        10.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 241",
+      "asset": "Merchant variant 02",
+      "position": [
+        0.42086613178253174,
+        125.6344223022461,
+        10.119999885559082
+      ],
+      "scale_xy": 0.9641695559580662
+    },
+    {
+      "old": "BLOCKOUT building 242",
+      "asset": "Merchant variant 03",
+      "position": [
+        26.718576431274414,
+        126.11658477783203,
+        7.119999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 243",
+      "asset": "Artisan variant 01",
+      "position": [
+        180.2262420654297,
+        124.68124389648438,
+        26.6200008392334
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 244",
+      "asset": "Merchant variant 01",
+      "position": [
+        -54.19185256958008,
+        136.0690460205078,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 245",
+      "asset": "Merchant variant 02",
+      "position": [
+        -45.0270881652832,
+        136.4425048828125,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 246",
+      "asset": "Artisan variant 03",
+      "position": [
+        9.359955787658691,
+        135.76052856445312,
+        5.119999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 247",
+      "asset": "Merchant variant 04",
+      "position": [
+        26.725234985351562,
+        136.38880920410156,
+        6.119999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 248",
+      "asset": "Merchant variant 01",
+      "position": [
+        170.59410095214844,
+        136.90960693359375,
+        29.6200008392334
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 249",
+      "asset": "Artisan variant 01",
+      "position": [
+        179.9036865234375,
+        136.211181640625,
+        26.6200008392334
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 250",
+      "asset": "Merchant variant 03",
+      "position": [
+        -180.3735809326172,
+        147.47142028808594,
+        19.1200008392334
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 251",
+      "asset": "Merchant variant 04",
+      "position": [
+        -171.26837158203125,
+        148.03411865234375,
+        21.6200008392334
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 252",
+      "asset": "Artisan variant 03",
+      "position": [
+        -161.29922485351562,
+        147.1258087158203,
+        22.6200008392334
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 253",
+      "asset": "Merchant variant 02",
+      "position": [
+        -153.36822509765625,
+        147.75485229492188,
+        22.6200008392334
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 254",
+      "asset": "Merchant variant 03",
+      "position": [
+        -135.27391052246094,
+        147.55101013183594,
+        21.1200008392334
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 255",
+      "asset": "Artisan variant 01",
+      "position": [
+        -125.98651123046875,
+        147.09339904785156,
+        19.6200008392334
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 256",
+      "asset": "Merchant variant 01",
+      "position": [
+        -117.7462387084961,
+        148.01966857910156,
+        17.6200008392334
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 257",
+      "asset": "Merchant variant 02",
+      "position": [
+        -110.16670989990234,
+        151.4746551513672,
+        16.1200008392334
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 258",
+      "asset": "Artisan variant 03",
+      "position": [
+        -80.8422622680664,
+        147.08450317382812,
+        14.119999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 259",
+      "asset": "Merchant variant 04",
+      "position": [
+        -71.68324279785156,
+        147.8546600341797,
+        14.119999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 260",
+      "asset": "Merchant variant 01",
+      "position": [
+        -53.7266845703125,
+        147.23355102539062,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 261",
+      "asset": "Artisan variant 01",
+      "position": [
+        -8.363783836364746,
+        146.96702575683594,
+        9.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 262",
+      "asset": "Merchant variant 03",
+      "position": [
+        8.834900856018066,
+        147.551513671875,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 263",
+      "asset": "Merchant variant 04",
+      "position": [
+        18.705984115600586,
+        147.94961547851562,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 264",
+      "asset": "Artisan variant 03",
+      "position": [
+        27.67671775817871,
+        146.68582153320312,
+        5.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 265",
+      "asset": "Merchant variant 02",
+      "position": [
+        180.11338806152344,
+        147.9888153076172,
+        26.6200008392334
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 266",
+      "asset": "Merchant variant 03",
+      "position": [
+        -179.7848663330078,
+        158.15184020996094,
+        18.1200008392334
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 267",
+      "asset": "Artisan variant 01",
+      "position": [
+        -170.32034301757812,
+        157.6013641357422,
+        20.6200008392334
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 268",
+      "asset": "Merchant variant 01",
+      "position": [
+        -162.27268981933594,
+        158.12881469726562,
+        21.1200008392334
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 269",
+      "asset": "Merchant variant 02",
+      "position": [
+        -152.62733459472656,
+        158.5125274658203,
+        21.1200008392334
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 270",
+      "asset": "Artisan variant 03",
+      "position": [
+        -135.14108276367188,
+        157.89849853515625,
+        19.6200008392334
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 271",
+      "asset": "Merchant variant 04",
+      "position": [
+        -126.38580322265625,
+        158.61199951171875,
+        18.1200008392334
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 272",
+      "asset": "Merchant variant 01",
+      "position": [
+        -117.462158203125,
+        158.72482299804688,
+        16.6200008392334
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 273",
+      "asset": "Artisan variant 01",
+      "position": [
+        -108.34391021728516,
+        158.24655151367188,
+        15.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 274",
+      "asset": "Merchant variant 03",
+      "position": [
+        -99.2022933959961,
+        158.21682739257812,
+        14.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 275",
+      "asset": "Merchant variant 04",
+      "position": [
+        -81.63314056396484,
+        158.18296813964844,
+        14.119999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 276",
+      "asset": "Artisan variant 03",
+      "position": [
+        -72.44149017333984,
+        157.53274536132812,
+        14.119999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 277",
+      "asset": "Merchant variant 02",
+      "position": [
+        -53.96889877319336,
+        158.3350067138672,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 278",
+      "asset": "Merchant variant 03",
+      "position": [
+        0.38073456287384033,
+        159.01808166503906,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 279",
+      "asset": "Artisan variant 01",
+      "position": [
+        8.473916053771973,
+        158.27313232421875,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 280",
+      "asset": "Merchant variant 01",
+      "position": [
+        18.050655364990234,
+        158.18540954589844,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 281",
+      "asset": "Merchant variant 02",
+      "position": [
+        27.03358268737793,
+        158.29495239257812,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 282",
+      "asset": "Artisan variant 03",
+      "position": [
+        125.64865112304688,
+        158.4169158935547,
+        32.619998931884766
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 283",
+      "asset": "Merchant variant 04",
+      "position": [
+        135.160888671875,
+        159.00759887695312,
+        32.619998931884766
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 284",
+      "asset": "Merchant variant 01",
+      "position": [
+        143.6046142578125,
+        158.60726928710938,
+        32.619998931884766
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 285",
+      "asset": "Artisan variant 01",
+      "position": [
+        153.5951690673828,
+        158.3533935546875,
+        32.619998931884766
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 286",
+      "asset": "Merchant variant 03",
+      "position": [
+        162.01962280273438,
+        158.9646759033203,
+        32.619998931884766
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 287",
+      "asset": "Merchant variant 04",
+      "position": [
+        180.06288146972656,
+        158.0943603515625,
+        26.6200008392334
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 288",
+      "asset": "Artisan variant 03",
+      "position": [
+        -170.4769287109375,
+        169.35427856445312,
+        18.6200008392334
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 289",
+      "asset": "Merchant variant 02",
+      "position": [
+        -162.25633239746094,
+        169.0941925048828,
+        19.1200008392334
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 290",
+      "asset": "Merchant variant 03",
+      "position": [
+        -153.07861328125,
+        169.6017608642578,
+        19.1200008392334
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 291",
+      "asset": "Artisan variant 01",
+      "position": [
+        -144.42027282714844,
+        169.57635498046875,
+        18.6200008392334
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 292",
+      "asset": "Merchant variant 01",
+      "position": [
+        -125.56478881835938,
+        169.12025451660156,
+        16.6200008392334
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 293",
+      "asset": "Merchant variant 02",
+      "position": [
+        -117.43553924560547,
+        170.0467529296875,
+        15.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 294",
+      "asset": "Artisan variant 03",
+      "position": [
+        -108.40215301513672,
+        169.10057067871094,
+        14.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 295",
+      "asset": "Merchant variant 04",
+      "position": [
+        -99.21965026855469,
+        169.66854858398438,
+        14.119999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 296",
+      "asset": "Merchant variant 01",
+      "position": [
+        -90.10523986816406,
+        168.9894561767578,
+        14.119999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 297",
+      "asset": "Artisan variant 01",
+      "position": [
+        -80.99507141113281,
+        169.42616271972656,
+        14.119999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 298",
+      "asset": "Merchant variant 03",
+      "position": [
+        -71.71379089355469,
+        170.04177856445312,
+        13.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 299",
+      "asset": "Merchant variant 04",
+      "position": [
+        -44.801780700683594,
+        169.08018493652344,
+        9.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 300",
+      "asset": "Artisan variant 03",
+      "position": [
+        -18.036691665649414,
+        169.36778259277344,
+        9.119999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 301",
+      "asset": "Merchant variant 02",
+      "position": [
+        8.911849021911621,
+        169.4471893310547,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 302",
+      "asset": "Merchant variant 03",
+      "position": [
+        18.50563621520996,
+        169.7738494873047,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 303",
+      "asset": "Artisan variant 01",
+      "position": [
+        26.697879791259766,
+        168.71437072753906,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 304",
+      "asset": "Merchant variant 01",
+      "position": [
+        116.54685974121094,
+        169.01646423339844,
+        27.1200008392334
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 305",
+      "asset": "Merchant variant 02",
+      "position": [
+        126.08023071289062,
+        169.8494873046875,
+        26.6200008392334
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 306",
+      "asset": "Artisan variant 03",
+      "position": [
+        135.33860778808594,
+        168.62091064453125,
+        27.1200008392334
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 307",
+      "asset": "Merchant variant 04",
+      "position": [
+        144.22335815429688,
+        169.34654235839844,
+        26.6200008392334
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 308",
+      "asset": "Merchant variant 01",
+      "position": [
+        152.95407104492188,
+        169.2914276123047,
+        26.6200008392334
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 309",
+      "asset": "Artisan variant 01",
+      "position": [
+        162.18577575683594,
+        168.48089599609375,
+        26.6200008392334
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 310",
+      "asset": "Merchant variant 03",
+      "position": [
+        171.2803955078125,
+        170.01918029785156,
+        26.6200008392334
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 311",
+      "asset": "Merchant variant 04",
+      "position": [
+        180.54083251953125,
+        169.8541259765625,
+        26.6200008392334
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 312",
+      "asset": "Artisan variant 03",
+      "position": [
+        -179.5859375,
+        180.47140502929688,
+        15.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 313",
+      "asset": "Merchant variant 02",
+      "position": [
+        -171.4903564453125,
+        180.63641357421875,
+        17.1200008392334
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 314",
+      "asset": "Merchant variant 03",
+      "position": [
+        -161.9989471435547,
+        180.6897735595703,
+        17.1200008392334
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 315",
+      "asset": "Artisan variant 01",
+      "position": [
+        -153.24868774414062,
+        179.72499084472656,
+        17.1200008392334
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 316",
+      "asset": "Merchant variant 01",
+      "position": [
+        -143.60679626464844,
+        180.58468627929688,
+        17.1200008392334
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 317",
+      "asset": "Merchant variant 02",
+      "position": [
+        -134.30813598632812,
+        180.26614379882812,
+        16.1200008392334
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 318",
+      "asset": "Artisan variant 03",
+      "position": [
+        -126.35650634765625,
+        179.99322509765625,
+        15.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 319",
+      "asset": "Merchant variant 04",
+      "position": [
+        -116.71170043945312,
+        180.66421508789062,
+        14.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 320",
+      "asset": "Merchant variant 01",
+      "position": [
+        -108.2421875,
+        180.631103515625,
+        14.119999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 321",
+      "asset": "Artisan variant 01",
+      "position": [
+        -99.22673034667969,
+        180.6229248046875,
+        14.119999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 322",
+      "asset": "Merchant variant 03",
+      "position": [
+        -80.9834976196289,
+        180.25694274902344,
+        13.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 323",
+      "asset": "Merchant variant 04",
+      "position": [
+        -72.44867706298828,
+        181.00892639160156,
+        13.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 324",
+      "asset": "Artisan variant 03",
+      "position": [
+        -9.406907081604004,
+        179.57310485839844,
+        4.119999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 325",
+      "asset": "Merchant variant 02",
+      "position": [
+        0.4228261709213257,
+        180.4137420654297,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 326",
+      "asset": "Merchant variant 03",
+      "position": [
+        8.624526977539062,
+        180.88331604003906,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 327",
+      "asset": "Artisan variant 01",
+      "position": [
+        26.34735870361328,
+        179.553466796875,
+        4.619999885559082
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 328",
+      "asset": "Merchant variant 01",
+      "position": [
+        116.50582122802734,
+        180.0726318359375,
+        26.6200008392334
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 329",
+      "asset": "Merchant variant 02",
+      "position": [
+        125.49331665039062,
+        180.39456176757812,
+        26.6200008392334
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 330",
+      "asset": "Artisan variant 03",
+      "position": [
+        134.61398315429688,
+        179.89456176757812,
+        26.6200008392334
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 331",
+      "asset": "Merchant variant 04",
+      "position": [
+        153.3335418701172,
+        180.2686767578125,
+        26.6200008392334
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "BLOCKOUT building 332",
+      "asset": "Merchant variant 01",
+      "position": [
+        162.5810546875,
+        179.90284729003906,
+        26.6200008392334
+      ],
+      "scale_xy": 0.9641685619001715
+    },
+    {
+      "old": "BLOCKOUT building 333",
+      "asset": "Artisan variant 01",
+      "position": [
+        170.74224853515625,
+        180.2087860107422,
+        26.6200008392334
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "BLOCKOUT building 334",
+      "asset": "Merchant variant 03",
+      "position": [
+        179.96041870117188,
+        180.451416015625,
+        26.6200008392334
+      ],
+      "scale_xy": 0.9019793557788498
+    },
+    {
+      "old": "West artisans mass",
+      "asset": "Merchant variant 04",
+      "position": [
+        -80.56666564941406,
+        -60.2880859375,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "West artisans mass.001",
+      "asset": "Merchant variant 01",
+      "position": [
+        -75.31419372558594,
+        -60.637786865234375,
+        5.619999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "West artisans mass.002",
+      "asset": "Merchant variant 02",
+      "position": [
+        -70.19974517822266,
+        -60.90175247192383,
+        5.619999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "West artisans mass.003",
+      "asset": "Merchant variant 03",
+      "position": [
+        -74.431396484375,
+        -47.61104202270508,
+        5.619999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "West artisans mass.004",
+      "asset": "Merchant variant 04",
+      "position": [
+        -57.914669036865234,
+        -69.32381439208984,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "West artisans mass.005",
+      "asset": "Merchant variant 01",
+      "position": [
+        -59.9173698425293,
+        -62.0249137878418,
+        5.619999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "West artisans mass.006",
+      "asset": "Merchant variant 02",
+      "position": [
+        -63.659061431884766,
+        -41.59800338745117,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "West artisans mass.007",
+      "asset": "Merchant variant 03",
+      "position": [
+        -52.7352294921875,
+        -70.34950256347656,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "West artisans mass.008",
+      "asset": "Merchant variant 04",
+      "position": [
+        -54.52647018432617,
+        -62.60792541503906,
+        5.619999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "West artisans mass.009",
+      "asset": "Merchant variant 01",
+      "position": [
+        -57.26582717895508,
+        -41.59904861450195,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "West artisans mass.010",
+      "asset": "Merchant variant 02",
+      "position": [
+        -48.865501403808594,
+        -63.73942947387695,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "Merchant island mass",
+      "asset": "Merchant variant 03",
+      "position": [
+        -30.433273315429688,
+        -28.51873016357422,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "Merchant island mass.001",
+      "asset": "Merchant variant 04",
+      "position": [
+        -4.372209072113037,
+        -27.839391708374023,
+        6.619999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "Merchant island mass.002",
+      "asset": "Merchant variant 01",
+      "position": [
+        -3.8907923698425293,
+        -20.184755325317383,
+        6.119999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "Merchant island mass.003",
+      "asset": "Merchant variant 02",
+      "position": [
+        4.5457234382629395,
+        -48.686588287353516,
+        5.619999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "Merchant island mass.004",
+      "asset": "Merchant variant 03",
+      "position": [
+        13.554409980773926,
+        -26.333219528198242,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "Bathhouse island mass",
+      "asset": "Merchant variant 04",
+      "position": [
+        43.524452209472656,
+        -82.45038604736328,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "Bathhouse island mass.001",
+      "asset": "Merchant variant 01",
+      "position": [
+        42.396175384521484,
+        -75.34535217285156,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "Bathhouse island mass.002",
+      "asset": "Merchant variant 02",
+      "position": [
+        48.72793960571289,
+        -82.67919158935547,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "Bathhouse island mass.003",
+      "asset": "Merchant variant 03",
+      "position": [
+        47.712677001953125,
+        -75.39250946044922,
+        5.619999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "Bathhouse island mass.004",
+      "asset": "Merchant variant 04",
+      "position": [
+        44.53610610961914,
+        -52.2663459777832,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "Bathhouse island mass.005",
+      "asset": "Merchant variant 01",
+      "position": [
+        54.03562927246094,
+        -82.62923431396484,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "Bathhouse island mass.006",
+      "asset": "Merchant variant 02",
+      "position": [
+        53.24582290649414,
+        -75.82620239257812,
+        5.619999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "Bathhouse island mass.007",
+      "asset": "Merchant variant 03",
+      "position": [
+        50.99360275268555,
+        -53.266395568847656,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "Bathhouse island mass.008",
+      "asset": "Merchant variant 04",
+      "position": [
+        64.0018310546875,
+        -55.223236083984375,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "Bathhouse island mass.009",
+      "asset": "Merchant variant 01",
+      "position": [
+        70.31429290771484,
+        -56.19431686401367,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "South homes mass",
+      "asset": "Merchant variant 02",
+      "position": [
+        -12.866518020629883,
+        -107.91769409179688,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "South homes mass.001",
+      "asset": "Merchant variant 03",
+      "position": [
+        -7.993845462799072,
+        -122.56204986572266,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "South homes mass.002",
+      "asset": "Merchant variant 04",
+      "position": [
+        -7.321932792663574,
+        -107.61837768554688,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "South homes mass.003",
+      "asset": "Merchant variant 01",
+      "position": [
+        -2.525791645050049,
+        -122.55801391601562,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "South homes mass.004",
+      "asset": "Merchant variant 02",
+      "position": [
+        8.450553894042969,
+        -128.63414001464844,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "South homes mass.005",
+      "asset": "Merchant variant 03",
+      "position": [
+        8.688566207885742,
+        -121.45182037353516,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "South homes mass.006",
+      "asset": "Merchant variant 04",
+      "position": [
+        10.37490463256836,
+        -107.18305206298828,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "South homes mass.007",
+      "asset": "Merchant variant 01",
+      "position": [
+        14.500112533569336,
+        -121.14037322998047,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "South homes mass.008",
+      "asset": "Merchant variant 02",
+      "position": [
+        16.572072982788086,
+        -107.08538818359375,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "Fisher island mass",
+      "asset": "Merchant variant 03",
+      "position": [
+        -82.64959716796875,
+        -121.64832305908203,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "Fisher island mass.001",
+      "asset": "Merchant variant 04",
+      "position": [
+        -81.20591735839844,
+        -106.78713989257812,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "Fisher island mass.002",
+      "asset": "Merchant variant 01",
+      "position": [
+        -76.92452239990234,
+        -122.173583984375,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "Fisher island mass.003",
+      "asset": "Merchant variant 02",
+      "position": [
+        -75.0745620727539,
+        -107.7697982788086,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "Fisher island mass.004",
+      "asset": "Merchant variant 03",
+      "position": [
+        -65.04865264892578,
+        -122.2054214477539,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "Fisher island mass.005",
+      "asset": "Merchant variant 04",
+      "position": [
+        -62.59196853637695,
+        -108.61932373046875,
+        5.119999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "Fisher island mass.006",
+      "asset": "Merchant variant 01",
+      "position": [
+        -58.94453811645508,
+        -122.46813201904297,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "Fisher island mass.007",
+      "asset": "Merchant variant 02",
+      "position": [
+        -56.39004898071289,
+        -109.10897064208984,
+        4.619999885559082
+      ],
+      "scale_xy": 0.9
+    },
+    {
+      "old": "Outer borough house",
+      "asset": "Boathouse variant 03",
+      "position": [
+        -279.8232727050781,
+        -148.18064880371094,
+        25.561500549316406
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.001",
+      "asset": "Inn variant 04",
+      "position": [
+        -247.37094116210938,
+        -152.1896514892578,
+        16.01555824279785
+      ],
+      "scale_xy": 0.9559520206290794
+    },
+    {
+      "old": "Outer borough house.002",
+      "asset": "Apartment variant 01",
+      "position": [
+        -278.7181701660156,
+        -140.31332397460938,
+        26.29547882080078
+      ],
+      "scale_xy": 0.9441194973966244
+    },
+    {
+      "old": "Outer borough house.003",
+      "asset": "Inn variant 02",
+      "position": [
+        -248.23178100585938,
+        -136.4990997314453,
+        16.81194305419922
+      ],
+      "scale_xy": 0.9941116772963432
+    },
+    {
+      "old": "Outer borough house.004",
+      "asset": "Inn variant 03",
+      "position": [
+        -274.5439758300781,
+        -115.71078491210938,
+        26.918954849243164
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.005",
+      "asset": "Warehouse variant 04",
+      "position": [
+        -244.01596069335938,
+        -117.28289031982422,
+        15.486915588378906
+      ],
+      "scale_xy": 0.9095469569900593
+    },
+    {
+      "old": "Outer borough house.006",
+      "asset": "Inn variant 01",
+      "position": [
+        -273.623291015625,
+        -104.20306396484375,
+        27.309057235717773
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.007",
+      "asset": "Warehouse variant 02",
+      "position": [
+        -241.39932250976562,
+        -104.84453582763672,
+        14.517189979553223
+      ],
+      "scale_xy": 0.9138351815294765
+    },
+    {
+      "old": "Outer borough house.008",
+      "asset": "Inn variant 03",
+      "position": [
+        -271.7069396972656,
+        -86.98515319824219,
+        27.487619400024414
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.009",
+      "asset": "Artisan variant 04",
+      "position": [
+        -244.07382202148438,
+        -85.23553466796875,
+        15.456035614013672
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.010",
+      "asset": "Inn variant 01",
+      "position": [
+        -263.7314147949219,
+        -55.7998161315918,
+        25.099411010742188
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.011",
+      "asset": "Inn variant 02",
+      "position": [
+        -234.21292114257812,
+        -57.33572006225586,
+        11.515643119812012
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.012",
+      "asset": "Inn variant 03",
+      "position": [
+        -260.1349792480469,
+        -41.15692138671875,
+        23.517255783081055
+      ],
+      "scale_xy": 0.903807034100719
+    },
+    {
+      "old": "Outer borough house.013",
+      "asset": "Inn variant 04",
+      "position": [
+        -233.16836547851562,
+        -37.80598068237305,
+        10.987584114074707
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.014",
+      "asset": "Artisan variant 01",
+      "position": [
+        -261.5184020996094,
+        -24.700422286987305,
+        24.126283645629883
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.015",
+      "asset": "Artisan variant 02",
+      "position": [
+        -229.13201904296875,
+        -22.61212730407715,
+        9.091300010681152
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.016",
+      "asset": "Artisan variant 03",
+      "position": [
+        -257.4556884765625,
+        -10.218687057495117,
+        22.045547485351562
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.017",
+      "asset": "Artisan variant 04",
+      "position": [
+        -227.97662353515625,
+        -5.193326473236084,
+        8.609180450439453
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.018",
+      "asset": "Inn variant 01",
+      "position": [
+        -251.97970581054688,
+        7.3516106605529785,
+        19.17390251159668
+      ],
+      "scale_xy": 0.955710117093665
+    },
+    {
+      "old": "Outer borough house.019",
+      "asset": "Inn variant 02",
+      "position": [
+        -226.27166748046875,
+        10.54378890991211,
+        8.255951881408691
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.020",
+      "asset": "Inn variant 03",
+      "position": [
+        -251.32766723632812,
+        24.70726203918457,
+        18.735769271850586
+      ],
+      "scale_xy": 0.9891357421875
+    },
+    {
+      "old": "Outer borough house.021",
+      "asset": "Artisan variant 04",
+      "position": [
+        -223.43978881835938,
+        24.041231155395508,
+        7.196525573730469
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.022",
+      "asset": "Inn variant 01",
+      "position": [
+        -245.92800903320312,
+        40.00043487548828,
+        17.500690460205078
+      ],
+      "scale_xy": 0.9235953776892152
+    },
+    {
+      "old": "Outer borough house.023",
+      "asset": "Inn variant 02",
+      "position": [
+        -219.67242431640625,
+        39.762603759765625,
+        9.089611053466797
+      ],
+      "scale_xy": 0.9310892119871299
+    },
+    {
+      "old": "Outer borough house.024",
+      "asset": "Artisan variant 03",
+      "position": [
+        -241.98114013671875,
+        54.054443359375,
+        17.247098922729492
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.025",
+      "asset": "Inn variant 04",
+      "position": [
+        -214.94757080078125,
+        55.733558654785156,
+        10.897344589233398
+      ],
+      "scale_xy": 0.9884695870535715
+    },
+    {
+      "old": "Outer borough house.026",
+      "asset": "Artisan variant 01",
+      "position": [
+        -239.68240356445312,
+        73.95343780517578,
+        16.58742332458496
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.027",
+      "asset": "Inn variant 02",
+      "position": [
+        -213.53872680664062,
+        71.97763061523438,
+        10.772490501403809
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.028",
+      "asset": "Inn variant 03",
+      "position": [
+        -237.35833740234375,
+        90.83499145507812,
+        16.013442993164062
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.029",
+      "asset": "Inn variant 04",
+      "position": [
+        -207.57504272460938,
+        86.63231658935547,
+        10.25498104095459
+      ],
+      "scale_xy": 0.9199853555706511
+    },
+    {
+      "old": "Outer borough house.030",
+      "asset": "Inn variant 01",
+      "position": [
+        -237.93359375,
+        102.76707458496094,
+        16.360864639282227
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.031",
+      "asset": "Inn variant 02",
+      "position": [
+        -208.37326049804688,
+        106.46339416503906,
+        10.341727256774902
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.032",
+      "asset": "Artisan variant 03",
+      "position": [
+        -235.0950927734375,
+        120.33805084228516,
+        16.167001724243164
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.033",
+      "asset": "Artisan variant 04",
+      "position": [
+        -204.11480712890625,
+        119.32073974609375,
+        10.460556030273438
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.034",
+      "asset": "Artisan variant 01",
+      "position": [
+        -232.81893920898438,
+        133.8946990966797,
+        16.396535873413086
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.035",
+      "asset": "Artisan variant 02",
+      "position": [
+        -202.8662872314453,
+        135.76803588867188,
+        11.443947792053223
+      ],
+      "scale_xy": 0.9916800704656863
+    },
+    {
+      "old": "Outer borough house.036",
+      "asset": "Artisan variant 03",
+      "position": [
+        -231.33929443359375,
+        153.6891326904297,
+        16.859943389892578
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.037",
+      "asset": "Artisan variant 04",
+      "position": [
+        -231.9664306640625,
+        171.97232055664062,
+        17.25876235961914
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.038",
+      "asset": "Inn variant 01",
+      "position": [
+        -228.92019653320312,
+        182.6820831298828,
+        16.885215759277344
+      ],
+      "scale_xy": 0.9861143363988359
+    },
+    {
+      "old": "Outer borough house.039",
+      "asset": "Inn variant 02",
+      "position": [
+        -203.67520141601562,
+        186.45191955566406,
+        12.096450805664062
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.040",
+      "asset": "Apartment variant 03",
+      "position": [
+        -232.149169921875,
+        198.57540893554688,
+        18.480514526367188
+      ],
+      "scale_xy": 0.9187154767991219
+    },
+    {
+      "old": "Outer borough house.041",
+      "asset": "Artisan variant 04",
+      "position": [
+        -230.55239868164062,
+        215.19107055664062,
+        18.068355560302734
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.042",
+      "asset": "Inn variant 01",
+      "position": [
+        -231.47366333007812,
+        236.40696716308594,
+        19.378400802612305
+      ],
+      "scale_xy": 0.9774598993554414
+    },
+    {
+      "old": "Outer borough house.043",
+      "asset": "Inn variant 02",
+      "position": [
+        -203.84735107421875,
+        234.58184814453125,
+        13.470115661621094
+      ],
+      "scale_xy": 0.9635552300347222
+    },
+    {
+      "old": "Outer borough house.044",
+      "asset": "Artisan variant 03",
+      "position": [
+        -233.94900512695312,
+        247.35873413085938,
+        20.826236724853516
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.045",
+      "asset": "Inn variant 04",
+      "position": [
+        -203.2366943359375,
+        248.1563262939453,
+        17.630596160888672
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.046",
+      "asset": "Artisan variant 01",
+      "position": [
+        -235.96295166015625,
+        264.4283142089844,
+        26.308134078979492
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.047",
+      "asset": "Warehouse variant 02",
+      "position": [
+        -208.55239868164062,
+        263.4629211425781,
+        24.834491729736328
+      ],
+      "scale_xy": 0.967710158755596
+    },
+    {
+      "old": "Outer borough house.048",
+      "asset": "Inn variant 03",
+      "position": [
+        -238.238525390625,
+        300.2989807128906,
+        41.24981689453125
+      ],
+      "scale_xy": 0.9170711608748661
+    },
+    {
+      "old": "Outer borough house.049",
+      "asset": "Artisan variant 04",
+      "position": [
+        -212.66021728515625,
+        295.2071838378906,
+        38.68688201904297
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.050",
+      "asset": "Artisan variant 01",
+      "position": [
+        -240.3798828125,
+        309.1874084472656,
+        42.429481506347656
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.051",
+      "asset": "Inn variant 02",
+      "position": [
+        -215.13876342773438,
+        313.03857421875,
+        41.15947341918945
+      ],
+      "scale_xy": 0.9923861321327528
+    },
+    {
+      "old": "Outer borough house.052",
+      "asset": "Inn variant 03",
+      "position": [
+        -244.93045043945312,
+        328.50482177734375,
+        43.58964157104492
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.053",
+      "asset": "Inn variant 04",
+      "position": [
+        -214.79739379882812,
+        330.570556640625,
+        41.715858459472656
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.054",
+      "asset": "Artisan variant 01",
+      "position": [
+        -248.12567138671875,
+        343.36505126953125,
+        44.37596893310547
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.055",
+      "asset": "Artisan variant 02",
+      "position": [
+        -217.65420532226562,
+        345.8050537109375,
+        42.12645721435547
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.056",
+      "asset": "Artisan variant 03",
+      "position": [
+        -250.095703125,
+        358.621826171875,
+        44.83389663696289
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.057",
+      "asset": "Artisan variant 04",
+      "position": [
+        -222.135986328125,
+        362.0719909667969,
+        42.54849624633789
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.058",
+      "asset": "Artisan variant 01",
+      "position": [
+        -254.43020629882812,
+        376.0595703125,
+        45.23089599609375
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.059",
+      "asset": "Artisan variant 02",
+      "position": [
+        -226.73028564453125,
+        379.549072265625,
+        42.747467041015625
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.060",
+      "asset": "Artisan variant 03",
+      "position": [
+        -257.96832275390625,
+        391.3632507324219,
+        48.550655364990234
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.061",
+      "asset": "Artisan variant 04",
+      "position": [
+        -231.71786499023438,
+        396.2843017578125,
+        46.841636657714844
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.062",
+      "asset": "Villa variant 01",
+      "position": [
+        -258.72943115234375,
+        410.6022644042969,
+        53.269691467285156
+      ],
+      "scale_xy": 0.945830014522995
+    },
+    {
+      "old": "Outer borough house.063",
+      "asset": "Inn variant 02",
+      "position": [
+        -231.56256103515625,
+        407.1666259765625,
+        49.569149017333984
+      ],
+      "scale_xy": 0.9199025507717791
+    },
+    {
+      "old": "Outer borough house.064",
+      "asset": "Inn variant 03",
+      "position": [
+        -316.6917419433594,
+        -150.0707550048828,
+        26.449321746826172
+      ],
+      "scale_xy": 0.9398905607704586
+    },
+    {
+      "old": "Outer borough house.065",
+      "asset": "Inn variant 04",
+      "position": [
+        -284.48638916015625,
+        -151.9464569091797,
+        25.589157104492188
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.066",
+      "asset": "Inn variant 01",
+      "position": [
+        -310.26043701171875,
+        -134.5724639892578,
+        27.936925888061523
+      ],
+      "scale_xy": 0.9162324283959692
+    },
+    {
+      "old": "Outer borough house.067",
+      "asset": "Inn variant 02",
+      "position": [
+        -281.5229797363281,
+        -136.3264617919922,
+        26.694576263427734
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.068",
+      "asset": "Apartment variant 03",
+      "position": [
+        -311.34521484375,
+        -121.79863739013672,
+        29.5181827545166
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.069",
+      "asset": "Artisan variant 04",
+      "position": [
+        -280.06396484375,
+        -115.87413024902344,
+        27.864612579345703
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.070",
+      "asset": "Artisan variant 01",
+      "position": [
+        -303.2835693359375,
+        -90.73934173583984,
+        31.665687561035156
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.071",
+      "asset": "Artisan variant 02",
+      "position": [
+        -275.22430419921875,
+        -86.85034942626953,
+        28.317371368408203
+      ],
+      "scale_xy": 0.9742938781179475
+    },
+    {
+      "old": "Outer borough house.072",
+      "asset": "Inn variant 03",
+      "position": [
+        -302.4342346191406,
+        -70.13134765625,
+        32.89925765991211
+      ],
+      "scale_xy": 0.9741891097999981
+    },
+    {
+      "old": "Outer borough house.073",
+      "asset": "Inn variant 04",
+      "position": [
+        -271.4908447265625,
+        -69.01607513427734,
+        27.968250274658203
+      ],
+      "scale_xy": 0.9728495418440528
+    },
+    {
+      "old": "Outer borough house.074",
+      "asset": "Artisan variant 01",
+      "position": [
+        -298.3061828613281,
+        -56.335819244384766,
+        33.27354049682617
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.075",
+      "asset": "Artisan variant 02",
+      "position": [
+        -269.3991394042969,
+        -52.20827102661133,
+        27.186519622802734
+      ],
+      "scale_xy": 0.992159474626495
+    },
+    {
+      "old": "Outer borough house.076",
+      "asset": "Warehouse variant 03",
+      "position": [
+        -295.51092529296875,
+        -38.42259216308594,
+        33.56434631347656
+      ],
+      "scale_xy": 0.9829172226880268
+    },
+    {
+      "old": "Outer borough house.077",
+      "asset": "Artisan variant 04",
+      "position": [
+        -266.66375732421875,
+        -38.13297653198242,
+        26.135517120361328
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.078",
+      "asset": "Artisan variant 01",
+      "position": [
+        -291.91876220703125,
+        -9.190473556518555,
+        33.591957092285156
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.079",
+      "asset": "Inn variant 02",
+      "position": [
+        -261.531494140625,
+        -7.186378479003906,
+        24.018253326416016
+      ],
+      "scale_xy": 0.9022489349316217
+    },
+    {
+      "old": "Outer borough house.080",
+      "asset": "Artisan variant 03",
+      "position": [
+        -290.5179138183594,
+        6.504740238189697,
+        33.415321350097656
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.081",
+      "asset": "Inn variant 04",
+      "position": [
+        -258.373291015625,
+        10.843013763427734,
+        22.301342010498047
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.082",
+      "asset": "Inn variant 01",
+      "position": [
+        -287.0380859375,
+        24.562171936035156,
+        32.73512268066406
+      ],
+      "scale_xy": 0.9974532515992094
+    },
+    {
+      "old": "Outer borough house.083",
+      "asset": "Inn variant 02",
+      "position": [
+        -257.22021484375,
+        23.60860824584961,
+        21.61753273010254
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.084",
+      "asset": "Artisan variant 03",
+      "position": [
+        -285.18212890625,
+        38.97477722167969,
+        32.26039123535156
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.085",
+      "asset": "Artisan variant 04",
+      "position": [
+        -258.3772888183594,
+        40.88521957397461,
+        22.45698356628418
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.086",
+      "asset": "Artisan variant 01",
+      "position": [
+        -288.119384765625,
+        57.044620513916016,
+        32.62749099731445
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.087",
+      "asset": "Inn variant 02",
+      "position": [
+        -254.8836669921875,
+        57.289329528808594,
+        21.97453498840332
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.088",
+      "asset": "Inn variant 03",
+      "position": [
+        -287.6734313964844,
+        87.36167907714844,
+        32.353492736816406
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.089",
+      "asset": "Inn variant 04",
+      "position": [
+        -256.115478515625,
+        87.43848419189453,
+        22.570880889892578
+      ],
+      "scale_xy": 0.9304387936476032
+    },
+    {
+      "old": "Outer borough house.090",
+      "asset": "Artisan variant 01",
+      "position": [
+        -286.72918701171875,
+        101.67023468017578,
+        32.19739532470703
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.091",
+      "asset": "Inn variant 02",
+      "position": [
+        -259.98175048828125,
+        103.96185302734375,
+        24.26947784423828
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.092",
+      "asset": "Inn variant 03",
+      "position": [
+        -285.76123046875,
+        123.98950958251953,
+        32.248939514160156
+      ],
+      "scale_xy": 0.9110010348930407
+    },
+    {
+      "old": "Outer borough house.093",
+      "asset": "Artisan variant 04",
+      "position": [
+        -258.1750793457031,
+        119.38320922851562,
+        23.72918128967285
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.094",
+      "asset": "Artisan variant 01",
+      "position": [
+        -288.90924072265625,
+        149.9573516845703,
+        33.33604431152344
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.095",
+      "asset": "Artisan variant 02",
+      "position": [
+        -263.50494384765625,
+        154.8885955810547,
+        27.26532554626465
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.096",
+      "asset": "Artisan variant 03",
+      "position": [
+        -297.5805358886719,
+        185.1744384765625,
+        35.71243667602539
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.097",
+      "asset": "Artisan variant 04",
+      "position": [
+        -268.82476806640625,
+        183.01022338867188,
+        30.551076889038086
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.098",
+      "asset": "Artisan variant 01",
+      "position": [
+        -300.38629150390625,
+        202.26390075683594,
+        36.82054901123047
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.099",
+      "asset": "Artisan variant 02",
+      "position": [
+        -271.1011657714844,
+        204.52035522460938,
+        32.71028137207031
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.100",
+      "asset": "Artisan variant 03",
+      "position": [
+        -303.7832946777344,
+        217.09402465820312,
+        37.91864776611328
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.101",
+      "asset": "Artisan variant 04",
+      "position": [
+        -271.4888000488281,
+        218.10601806640625,
+        33.858909606933594
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.102",
+      "asset": "Inn variant 01",
+      "position": [
+        -304.9678649902344,
+        234.5836944580078,
+        38.96398162841797
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.103",
+      "asset": "Inn variant 02",
+      "position": [
+        -276.39013671875,
+        233.9759063720703,
+        36.583587646484375
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.104",
+      "asset": "Inn variant 03",
+      "position": [
+        -306.737060546875,
+        248.38885498046875,
+        39.96596908569336
+      ],
+      "scale_xy": 0.9400460379464286
+    },
+    {
+      "old": "Outer borough house.105",
+      "asset": "Artisan variant 04",
+      "position": [
+        -281.1900329589844,
+        249.75564575195312,
+        38.6047477722168
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.106",
+      "asset": "Inn variant 01",
+      "position": [
+        -309.08935546875,
+        264.5162658691406,
+        41.156700134277344
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.107",
+      "asset": "Inn variant 02",
+      "position": [
+        -282.4944763183594,
+        267.5832214355469,
+        40.36655044555664
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.108",
+      "asset": "Artisan variant 03",
+      "position": [
+        -313.66729736328125,
+        278.04656982421875,
+        42.33372116088867
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.109",
+      "asset": "Artisan variant 04",
+      "position": [
+        -288.1591491699219,
+        282.7737121582031,
+        41.843177795410156
+      ],
+      "scale_xy": 0.914164544571559
+    },
+    {
+      "old": "Outer borough house.110",
+      "asset": "Inn variant 01",
+      "position": [
+        -317.64068603515625,
+        296.15380859375,
+        43.53009796142578
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.111",
+      "asset": "Inn variant 02",
+      "position": [
+        -289.6627502441406,
+        298.8922119140625,
+        43.149078369140625
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.112",
+      "asset": "Inn variant 03",
+      "position": [
+        -318.49261474609375,
+        312.3484191894531,
+        44.56798553466797
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.113",
+      "asset": "Inn variant 04",
+      "position": [
+        -289.7196044921875,
+        316.37310791015625,
+        44.39601135253906
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.114",
+      "asset": "Warehouse variant 01",
+      "position": [
+        -322.4037170410156,
+        328.0066223144531,
+        45.54887390136719
+      ],
+      "scale_xy": 0.9890355166316871
+    },
+    {
+      "old": "Outer borough house.115",
+      "asset": "Artisan variant 02",
+      "position": [
+        -296.0104675292969,
+        326.60748291015625,
+        45.145606994628906
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.116",
+      "asset": "Artisan variant 03",
+      "position": [
+        -326.92236328125,
+        343.0793762207031,
+        46.385623931884766
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.117",
+      "asset": "Artisan variant 04",
+      "position": [
+        -297.1371765136719,
+        345.97247314453125,
+        46.21723175048828
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.118",
+      "asset": "Artisan variant 01",
+      "position": [
+        -332.7259826660156,
+        425.2771301269531,
+        61.5369987487793
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.119",
+      "asset": "Artisan variant 02",
+      "position": [
+        -302.62554931640625,
+        425.36474609375,
+        60.23579025268555
+      ],
+      "scale_xy": 0.99697749448242
+    },
+    {
+      "old": "Outer borough house.120",
+      "asset": "Artisan variant 03",
+      "position": [
+        -331.3743591308594,
+        442.7920227050781,
+        66.42091369628906
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.121",
+      "asset": "Artisan variant 04",
+      "position": [
+        -303.5775146484375,
+        439.61492919921875,
+        64.07556915283203
+      ],
+      "scale_xy": 0.9781543433915699
+    },
+    {
+      "old": "Outer borough house.122",
+      "asset": "Inn variant 01",
+      "position": [
+        -335.59881591796875,
+        456.0206298828125,
+        69.63423156738281
+      ],
+      "scale_xy": 0.9855801118899845
+    },
+    {
+      "old": "Outer borough house.123",
+      "asset": "Inn variant 02",
+      "position": [
+        -303.3715515136719,
+        455.6610412597656,
+        68.15682220458984
+      ],
+      "scale_xy": 0.9255813573008708
+    },
+    {
+      "old": "Outer borough house.124",
+      "asset": "Artisan variant 03",
+      "position": [
+        -333.97100830078125,
+        490.0902404785156,
+        78.02008056640625
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.125",
+      "asset": "Inn variant 04",
+      "position": [
+        -305.357177734375,
+        490.56744384765625,
+        76.01806640625
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.126",
+      "asset": "Warehouse variant 01",
+      "position": [
+        -355.3685607910156,
+        -148.68948364257812,
+        27.43992805480957
+      ],
+      "scale_xy": 0.9159214113886875
+    },
+    {
+      "old": "Outer borough house.127",
+      "asset": "Artisan variant 02",
+      "position": [
+        -324.4073181152344,
+        -147.9993896484375,
+        26.793746948242188
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.128",
+      "asset": "Inn variant 03",
+      "position": [
+        -349.5898742675781,
+        -134.1674346923828,
+        29.028263092041016
+      ],
+      "scale_xy": 0.9643694196428572
+    },
+    {
+      "old": "Outer borough house.129",
+      "asset": "Inn variant 04",
+      "position": [
+        -322.7840881347656,
+        -132.28895568847656,
+        28.5339412689209
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.130",
+      "asset": "Inn variant 01",
+      "position": [
+        -349.49017333984375,
+        -120.69281005859375,
+        30.690675735473633
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.131",
+      "asset": "Inn variant 02",
+      "position": [
+        -322.1383972167969,
+        -116.6788330078125,
+        30.20762825012207
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.132",
+      "asset": "Artisan variant 03",
+      "position": [
+        -347.8977355957031,
+        -104.05553436279297,
+        32.85490417480469
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.133",
+      "asset": "Boathouse variant 04",
+      "position": [
+        -319.2002258300781,
+        -105.25395202636719,
+        31.203359603881836
+      ],
+      "scale_xy": 0.9989292183692081
+    },
+    {
+      "old": "Outer borough house.134",
+      "asset": "Artisan variant 01",
+      "position": [
+        -347.3248291015625,
+        -87.2597885131836,
+        34.80487823486328
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.135",
+      "asset": "Artisan variant 02",
+      "position": [
+        -317.3255920410156,
+        -89.07009887695312,
+        32.61086654663086
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.136",
+      "asset": "Artisan variant 03",
+      "position": [
+        -346.3835754394531,
+        -69.69226837158203,
+        36.67131042480469
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.137",
+      "asset": "Artisan variant 04",
+      "position": [
+        -319.2012939453125,
+        -72.26504516601562,
+        34.164302825927734
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.138",
+      "asset": "Artisan variant 01",
+      "position": [
+        -347.6083984375,
+        -41.097599029541016,
+        39.49140548706055
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.139",
+      "asset": "Artisan variant 02",
+      "position": [
+        -315.1454162597656,
+        -37.45372772216797,
+        35.994205474853516
+      ],
+      "scale_xy": 0.9903271465729118
+    },
+    {
+      "old": "Outer borough house.140",
+      "asset": "Artisan variant 03",
+      "position": [
+        -346.4313049316406,
+        -25.489957809448242,
+        40.588741302490234
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.141",
+      "asset": "Artisan variant 04",
+      "position": [
+        -317.2319641113281,
+        -23.903295516967773,
+        36.86797332763672
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.142",
+      "asset": "Artisan variant 01",
+      "position": [
+        -345.2905578613281,
+        -9.997190475463867,
+        41.438026428222656
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.143",
+      "asset": "Artisan variant 02",
+      "position": [
+        -320.5514221191406,
+        -6.343282222747803,
+        37.96207046508789
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.144",
+      "asset": "Artisan variant 03",
+      "position": [
+        -348.9892883300781,
+        8.229799270629883,
+        42.85258483886719
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.145",
+      "asset": "Artisan variant 04",
+      "position": [
+        -320.2450256347656,
+        12.415217399597168,
+        38.3654670715332
+      ],
+      "scale_xy": 0.9102728373882479
+    },
+    {
+      "old": "Outer borough house.146",
+      "asset": "Inn variant 01",
+      "position": [
+        -352.0400695800781,
+        56.301849365234375,
+        44.51914978027344
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.147",
+      "asset": "Inn variant 02",
+      "position": [
+        -326.070556640625,
+        57.619049072265625,
+        39.77899169921875
+      ],
+      "scale_xy": 0.907291513459703
+    },
+    {
+      "old": "Outer borough house.148",
+      "asset": "Artisan variant 03",
+      "position": [
+        -354.71514892578125,
+        71.71308135986328,
+        45.04723358154297
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.149",
+      "asset": "Artisan variant 04",
+      "position": [
+        -331.0350646972656,
+        76.25318145751953,
+        40.43739700317383
+      ],
+      "scale_xy": 0.9839267339409122
+    },
+    {
+      "old": "Outer borough house.150",
+      "asset": "Inn variant 01",
+      "position": [
+        -358.86376953125,
+        90.14421081542969,
+        45.70458984375
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.151",
+      "asset": "Inn variant 02",
+      "position": [
+        -328.8721923828125,
+        90.24819946289062,
+        40.01518630981445
+      ],
+      "scale_xy": 0.9949063362532599
+    },
+    {
+      "old": "Outer borough house.152",
+      "asset": "Inn variant 03",
+      "position": [
+        -362.88604736328125,
+        104.37706756591797,
+        46.25714874267578
+      ],
+      "scale_xy": 0.905652111998165
+    },
+    {
+      "old": "Outer borough house.153",
+      "asset": "Artisan variant 04",
+      "position": [
+        -333.5845947265625,
+        102.80548858642578,
+        40.589847564697266
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.154",
+      "asset": "Artisan variant 01",
+      "position": [
+        -366.857177734375,
+        119.98441314697266,
+        46.65507507324219
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.155",
+      "asset": "Artisan variant 02",
+      "position": [
+        -339.9741516113281,
+        120.46762084960938,
+        41.51773452758789
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.156",
+      "asset": "Artisan variant 03",
+      "position": [
+        -369.808349609375,
+        136.7136688232422,
+        46.76333999633789
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.157",
+      "asset": "Artisan variant 04",
+      "position": [
+        -340.10595703125,
+        135.42083740234375,
+        41.298667907714844
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.158",
+      "asset": "Artisan variant 01",
+      "position": [
+        -374.52374267578125,
+        151.8151397705078,
+        47.144981384277344
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.159",
+      "asset": "Artisan variant 02",
+      "position": [
+        -342.43505859375,
+        152.01959228515625,
+        41.46358108520508
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.160",
+      "asset": "Artisan variant 03",
+      "position": [
+        -377.1240539550781,
+        166.93971252441406,
+        47.08472442626953
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.161",
+      "asset": "Artisan variant 04",
+      "position": [
+        -345.49578857421875,
+        170.4912567138672,
+        41.74361801147461
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.162",
+      "asset": "Villa variant 01",
+      "position": [
+        -378.61297607421875,
+        188.37844848632812,
+        46.638458251953125
+      ],
+      "scale_xy": 0.9587453206380209
+    },
+    {
+      "old": "Outer borough house.163",
+      "asset": "Villa variant 02",
+      "position": [
+        -351.0598449707031,
+        186.38421630859375,
+        42.547767639160156
+      ],
+      "scale_xy": 0.9343842085824972
+    },
+    {
+      "old": "Outer borough house.164",
+      "asset": "Apartment variant 03",
+      "position": [
+        -380.3026428222656,
+        199.06890869140625,
+        46.447505950927734
+      ],
+      "scale_xy": 0.9126888759561359
+    },
+    {
+      "old": "Outer borough house.165",
+      "asset": "Artisan variant 04",
+      "position": [
+        -351.55389404296875,
+        200.21226501464844,
+        42.40840148925781
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.166",
+      "asset": "Inn variant 01",
+      "position": [
+        -386.4769592285156,
+        216.9642333984375,
+        46.77007293701172
+      ],
+      "scale_xy": 0.927087870415832
+    },
+    {
+      "old": "Outer borough house.167",
+      "asset": "Inn variant 02",
+      "position": [
+        -353.3063049316406,
+        217.2124481201172,
+        42.70566940307617
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.168",
+      "asset": "Apartment variant 03",
+      "position": [
+        -387.8103942871094,
+        230.376708984375,
+        46.416290283203125
+      ],
+      "scale_xy": 0.9700023710047059
+    },
+    {
+      "old": "Outer borough house.169",
+      "asset": "Inn variant 04",
+      "position": [
+        -356.8864440917969,
+        231.81651306152344,
+        43.13653564453125
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.170",
+      "asset": "Inn variant 01",
+      "position": [
+        -387.1549377441406,
+        247.42050170898438,
+        45.960792541503906
+      ],
+      "scale_xy": 0.9916178385416666
+    },
+    {
+      "old": "Outer borough house.171",
+      "asset": "Artisan variant 02",
+      "position": [
+        -361.8179931640625,
+        248.003662109375,
+        43.61664962768555
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.172",
+      "asset": "Inn variant 03",
+      "position": [
+        -391.148681640625,
+        262.9453125,
+        45.96226501464844
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.173",
+      "asset": "Inn variant 04",
+      "position": [
+        -361.9251403808594,
+        262.8269958496094,
+        43.85100555419922
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.174",
+      "asset": "Artisan variant 01",
+      "position": [
+        -392.3931884765625,
+        294.7843017578125,
+        45.563941955566406
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.175",
+      "asset": "Artisan variant 02",
+      "position": [
+        -365.9554748535156,
+        299.95465087890625,
+        44.74370574951172
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.176",
+      "asset": "Artisan variant 03",
+      "position": [
+        -394.8831481933594,
+        312.27581787109375,
+        45.54952621459961
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.177",
+      "asset": "Artisan variant 04",
+      "position": [
+        -365.5196838378906,
+        316.2523193359375,
+        45.18724060058594
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.178",
+      "asset": "Artisan variant 01",
+      "position": [
+        -393.6741638183594,
+        327.3163146972656,
+        45.55048370361328
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.179",
+      "asset": "Artisan variant 02",
+      "position": [
+        -364.83221435546875,
+        331.8762512207031,
+        45.67108154296875
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.180",
+      "asset": "Artisan variant 03",
+      "position": [
+        -395.2989807128906,
+        345.39508056640625,
+        45.64252471923828
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.181",
+      "asset": "Artisan variant 04",
+      "position": [
+        -363.69677734375,
+        344.6018981933594,
+        46.09595489501953
+      ],
+      "scale_xy": 0.9424247423189178
+    },
+    {
+      "old": "Outer borough house.182",
+      "asset": "Inn variant 01",
+      "position": [
+        -395.0093688964844,
+        359.3299255371094,
+        45.75327682495117
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.183",
+      "asset": "Inn variant 02",
+      "position": [
+        -363.950927734375,
+        359.8824157714844,
+        46.55540084838867
+      ],
+      "scale_xy": 0.9333222704341292
+    },
+    {
+      "old": "Outer borough house.184",
+      "asset": "Inn variant 03",
+      "position": [
+        -389.03448486328125,
+        395.3114929199219,
+        50.48738098144531
+      ],
+      "scale_xy": 0.9759587284855686
+    },
+    {
+      "old": "Outer borough house.185",
+      "asset": "Inn variant 04",
+      "position": [
+        -360.7304992675781,
+        391.6269226074219,
+        50.42431640625
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.186",
+      "asset": "Inn variant 01",
+      "position": [
+        -388.28057861328125,
+        407.6728515625,
+        54.32963562011719
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.187",
+      "asset": "Inn variant 02",
+      "position": [
+        -357.2598876953125,
+        408.9957275390625,
+        55.96720504760742
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.188",
+      "asset": "Inn variant 03",
+      "position": [
+        -384.6708984375,
+        440.7229309082031,
+        64.54179382324219
+      ],
+      "scale_xy": 0.93779296875
+    },
+    {
+      "old": "Outer borough house.189",
+      "asset": "Inn variant 04",
+      "position": [
+        -354.76220703125,
+        442.2781066894531,
+        65.98326110839844
+      ],
+      "scale_xy": 0.9072948523628833
+    },
+    {
+      "old": "Outer borough house.190",
+      "asset": "Inn variant 01",
+      "position": [
+        -379.0135192871094,
+        473.6110534667969,
+        73.9151611328125
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.191",
+      "asset": "Inn variant 02",
+      "position": [
+        -349.2772216796875,
+        471.6746826171875,
+        73.8087387084961
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.192",
+      "asset": "Inn variant 03",
+      "position": [
+        -374.4424133300781,
+        489.0973205566406,
+        77.9143295288086
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.193",
+      "asset": "Inn variant 04",
+      "position": [
+        -345.2743225097656,
+        487.4083557128906,
+        77.48057556152344
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.194",
+      "asset": "Artisan variant 01",
+      "position": [
+        -372.0482177734375,
+        502.8865051269531,
+        81.4323501586914
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.195",
+      "asset": "Warehouse variant 02",
+      "position": [
+        -343.7098083496094,
+        503.9330139160156,
+        81.09794616699219
+      ],
+      "scale_xy": 0.921138217577364
+    },
+    {
+      "old": "Outer borough house.196",
+      "asset": "Artisan variant 03",
+      "position": [
+        -368.5859680175781,
+        521.0703735351562,
+        85.14179992675781
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.197",
+      "asset": "Artisan variant 04",
+      "position": [
+        -339.8725891113281,
+        521.3363647460938,
+        84.09546661376953
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.198",
+      "asset": "Artisan variant 01",
+      "position": [
+        -363.8179016113281,
+        552.224609375,
+        90.2607421875
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.199",
+      "asset": "Artisan variant 02",
+      "position": [
+        -335.5216064453125,
+        553.633544921875,
+        88.93820190429688
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.200",
+      "asset": "Artisan variant 03",
+      "position": [
+        -356.7798156738281,
+        569.990234375,
+        92.37452697753906
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.201",
+      "asset": "Artisan variant 04",
+      "position": [
+        -329.7846984863281,
+        569.5275268554688,
+        90.62960815429688
+      ],
+      "scale_xy": 0.9417051834308034
+    },
+    {
+      "old": "Outer borough house.202",
+      "asset": "Inn variant 01",
+      "position": [
+        -355.7603759765625,
+        587.3424682617188,
+        94.10233306884766
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.203",
+      "asset": "Artisan variant 02",
+      "position": [
+        -330.0329895019531,
+        586.095458984375,
+        92.52301025390625
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.204",
+      "asset": "Artisan variant 03",
+      "position": [
+        -414.52435302734375,
+        -153.61431884765625,
+        28.817068099975586
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.205",
+      "asset": "Artisan variant 04",
+      "position": [
+        -385.829345703125,
+        -149.97955322265625,
+        27.973770141601562
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.206",
+      "asset": "Apartment variant 01",
+      "position": [
+        -418.1065673828125,
+        -137.15895080566406,
+        31.096004486083984
+      ],
+      "scale_xy": 0.934269515780052
+    },
+    {
+      "old": "Outer borough house.207",
+      "asset": "Inn variant 02",
+      "position": [
+        -387.5346374511719,
+        -137.51531982421875,
+        29.6147518157959
+      ],
+      "scale_xy": 0.9347913878334708
+    },
+    {
+      "old": "Outer borough house.208",
+      "asset": "Inn variant 03",
+      "position": [
+        -421.5159606933594,
+        -104.743408203125,
+        35.019874572753906
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.209",
+      "asset": "Inn variant 04",
+      "position": [
+        -390.5491943359375,
+        -100.45182800292969,
+        34.66202163696289
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.210",
+      "asset": "Artisan variant 01",
+      "position": [
+        -423.20751953125,
+        -86.33768463134766,
+        37.87363815307617
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.211",
+      "asset": "Inn variant 02",
+      "position": [
+        -392.3162841796875,
+        -84.7099609375,
+        36.9142951965332
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.212",
+      "asset": "Artisan variant 03",
+      "position": [
+        -426.3277282714844,
+        -54.00569534301758,
+        42.660667419433594
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.213",
+      "asset": "Inn variant 04",
+      "position": [
+        -398.752197265625,
+        -55.82925033569336,
+        41.16106414794922
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.214",
+      "asset": "Warehouse variant 01",
+      "position": [
+        -433.77490234375,
+        -25.25409698486328,
+        46.85888671875
+      ],
+      "scale_xy": 0.9102316935908392
+    },
+    {
+      "old": "Outer borough house.215",
+      "asset": "Artisan variant 02",
+      "position": [
+        -404.2030029296875,
+        -20.673383712768555,
+        45.909488677978516
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.216",
+      "asset": "Artisan variant 03",
+      "position": [
+        -436.6777038574219,
+        -8.017972946166992,
+        49.395111083984375
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.217",
+      "asset": "Warehouse variant 04",
+      "position": [
+        -407.8890686035156,
+        -5.688204765319824,
+        47.99874496459961
+      ],
+      "scale_xy": 0.9420842609335986
+    },
+    {
+      "old": "Outer borough house.218",
+      "asset": "Artisan variant 01",
+      "position": [
+        -438.64794921875,
+        23.136438369750977,
+        53.17071533203125
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.219",
+      "asset": "Artisan variant 02",
+      "position": [
+        -413.3422546386719,
+        27.292787551879883,
+        51.517478942871094
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.220",
+      "asset": "Artisan variant 03",
+      "position": [
+        -444.74102783203125,
+        37.6387825012207,
+        54.97243118286133
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.221",
+      "asset": "Artisan variant 04",
+      "position": [
+        -415.97607421875,
+        43.73130416870117,
+        53.010108947753906
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.222",
+      "asset": "Inn variant 01",
+      "position": [
+        -449.37579345703125,
+        56.323341369628906,
+        56.76588821411133
+      ],
+      "scale_xy": 0.9642511983740877
+    },
+    {
+      "old": "Outer borough house.223",
+      "asset": "Artisan variant 02",
+      "position": [
+        -417.2610778808594,
+        58.06696701049805,
+        54.011234283447266
+      ],
+      "scale_xy": 0.9793666090847095
+    },
+    {
+      "old": "Outer borough house.224",
+      "asset": "Inn variant 03",
+      "position": [
+        -450.5663146972656,
+        75.1230239868164,
+        58.14973449707031
+      ],
+      "scale_xy": 0.9446972457888501
+    },
+    {
+      "old": "Outer borough house.225",
+      "asset": "Inn variant 04",
+      "position": [
+        -420.97332763671875,
+        73.0087661743164,
+        55.20612335205078
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.226",
+      "asset": "Inn variant 01",
+      "position": [
+        -454.6111755371094,
+        105.081298828125,
+        59.7159309387207
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.227",
+      "asset": "Artisan variant 02",
+      "position": [
+        -424.7311096191406,
+        102.61662292480469,
+        56.25139236450195
+      ],
+      "scale_xy": 0.962844613685827
+    },
+    {
+      "old": "Outer borough house.228",
+      "asset": "Inn variant 03",
+      "position": [
+        -459.2695617675781,
+        121.84606170654297,
+        60.39495086669922
+      ],
+      "scale_xy": 0.9311065742836675
+    },
+    {
+      "old": "Outer borough house.229",
+      "asset": "Artisan variant 04",
+      "position": [
+        -430.5941162109375,
+        122.15017700195312,
+        56.99668884277344
+      ],
+      "scale_xy": 0.9771195795037949
+    },
+    {
+      "old": "Outer borough house.230",
+      "asset": "Artisan variant 01",
+      "position": [
+        -459.0435485839844,
+        134.30055236816406,
+        60.33159255981445
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.231",
+      "asset": "Artisan variant 02",
+      "position": [
+        -430.4032897949219,
+        136.22238159179688,
+        56.716041564941406
+      ],
+      "scale_xy": 0.9923544878207295
+    },
+    {
+      "old": "Outer borough house.232",
+      "asset": "Artisan variant 03",
+      "position": [
+        -460.1783142089844,
+        151.7841033935547,
+        60.07697677612305
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.233",
+      "asset": "Artisan variant 04",
+      "position": [
+        -434.421875,
+        152.15130615234375,
+        56.78121566772461
+      ],
+      "scale_xy": 0.9367924428805359
+    },
+    {
+      "old": "Outer borough house.234",
+      "asset": "Artisan variant 01",
+      "position": [
+        -462.2092590332031,
+        185.64999389648438,
+        58.67171859741211
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.235",
+      "asset": "Artisan variant 02",
+      "position": [
+        -433.60601806640625,
+        185.46795654296875,
+        54.97299575805664
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.236",
+      "asset": "Artisan variant 03",
+      "position": [
+        -462.7062072753906,
+        215.69168090820312,
+        56.47340774536133
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.237",
+      "asset": "Artisan variant 04",
+      "position": [
+        -435.93304443359375,
+        219.79013061523438,
+        52.939414978027344
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.238",
+      "asset": "Artisan variant 01",
+      "position": [
+        -462.0030212402344,
+        234.63461303710938,
+        54.71582794189453
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.239",
+      "asset": "Artisan variant 02",
+      "position": [
+        -433.3876037597656,
+        233.312255859375,
+        51.63269805908203
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.240",
+      "asset": "Artisan variant 03",
+      "position": [
+        -464.1974182128906,
+        249.84039306640625,
+        53.5035400390625
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.241",
+      "asset": "Artisan variant 04",
+      "position": [
+        -432.998046875,
+        247.89907836914062,
+        50.53080749511719
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.242",
+      "asset": "Inn variant 01",
+      "position": [
+        -459.0873107910156,
+        267.99566650390625,
+        51.440940856933594
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.243",
+      "asset": "Inn variant 02",
+      "position": [
+        -433.8221435546875,
+        263.87445068359375,
+        49.54430389404297
+      ],
+      "scale_xy": 0.9385843818463167
+    },
+    {
+      "old": "Outer borough house.244",
+      "asset": "Inn variant 03",
+      "position": [
+        -461.3478088378906,
+        282.88958740234375,
+        50.2310905456543
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.245",
+      "asset": "Villa variant 04",
+      "position": [
+        -430.666015625,
+        280.3066711425781,
+        48.18815612792969
+      ],
+      "scale_xy": 0.9220326974808345
+    },
+    {
+      "old": "Outer borough house.246",
+      "asset": "Artisan variant 01",
+      "position": [
+        -458.7434387207031,
+        294.46044921875,
+        48.88494110107422
+      ],
+      "scale_xy": 1
+    },
+    {
+      "old": "Outer borough house.247",
+      "asset": "Artisan variant 02",
+      "position": [
+        -426.8127136230469,
+        299.8504638671875,
+        46.88526916503906
+      ],
+      "scale_xy": 0.9546508756390911
+    }
+  ],
+  "placement_counts": {
+    "Boathouse variant 01": 21,
+    "Merchant variant 02": 63,
+    "Merchant variant 03": 63,
+    "Artisan variant 01": 83,
+    "Merchant variant 01": 63,
+    "Artisan variant 03": 85,
+    "Merchant variant 04": 63,
+    "Inn variant 03": 23,
+    "Inn variant 04": 21,
+    "Apartment variant 01": 2,
+    "Inn variant 02": 29,
+    "Warehouse variant 04": 2,
+    "Inn variant 01": 25,
+    "Warehouse variant 02": 3,
+    "Artisan variant 04": 37,
+    "Artisan variant 02": 29,
+    "Apartment variant 03": 4,
+    "Villa variant 01": 2,
+    "Warehouse variant 03": 1,
+    "Warehouse variant 01": 3,
+    "Villa variant 02": 1,
+    "Villa variant 04": 1,
+    "Long span arch 10m": 42,
+    "Tall reinforced wall 6m": 142,
+    "Retaining drainage outlet": 46,
+    "Waterline masonry face 4m": 480,
+    "Wet waterline rock": 24,
+    "Shore boulder broad": 21,
+    "Shore rock shelf": 17,
+    "Headland rock cluster": 14,
+    "Shore boulder tall": 55,
+    "Dock quay connector": 3,
+    "Fishing boat": 3,
+    "Rope boat fender": 6,
+    "Furled sail launch": 3,
+    "Net drying frame": 1,
+    "Fishing net bundle": 1,
+    "Oar pair": 1,
+    "Lagoon sailing boat": 1,
+    "Wheat strip 8m": 144,
+    "Curved hedgerow boundary": 126,
+    "Irrigation ditch 4m": 144,
+    "Field ditch crossing": 18,
+    "Vegetable strip 8m": 144,
+    "Ploughed furrow strip": 144,
+    "Covered haystack": 6,
+    "Compost and tool rack": 6,
+    "Field boundary stone stile": 6,
+    "Farm variant 01": 2,
+    "Farm variant 02": 2,
+    "Farm variant 03": 1,
+    "Farm variant 04": 1,
+    "Boathouse variant 03": 1,
+    "Boathouse variant 04": 1
+  },
+  "new_editable_meshes": 2231,
+  "sailboat_position": [
+    60.0,
+    -122.0,
+    2.25
+  ]
+}

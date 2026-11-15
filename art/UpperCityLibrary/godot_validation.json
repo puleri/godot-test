@@ -1,0 +1,7 @@
+{
+  "flow_rotates_wheel": true,
+  "river_path_points": 7,
+  "river_vertices": 232,
+  "rotor_found": true,
+  "zero_flow_stops_wheel_and_particles": true
+}

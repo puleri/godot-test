@@ -1,6 +1,8 @@
 class_name NPCController
 extends CharacterBody3D
 
+const MOVEMENT = preload("res://scripts/movement_tuning.gd")
+
 enum RouteMode { ORDERED, RANDOM_OTHER }
 enum State { IDLE, MOVING }
 
@@ -48,6 +50,10 @@ var _warned_route := false
 
 
 func _ready() -> void:
+	# Identity lives on the reusable scene, surviving controller replacement.
+	# Hound pursuit always uses the shared baseline, including older scenes.
+	if is_in_group("hounds"):
+		run_speed = MOVEMENT.HOUND_PURSUIT_SPEED
 	add_to_group("npcs")
 	_rng.seed = random_seed if random_seed != 0 else hash(get_path())
 	_heading_yaw = global_rotation.y

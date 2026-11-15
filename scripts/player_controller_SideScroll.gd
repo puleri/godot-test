@@ -1,11 +1,15 @@
 extends CharacterBody3D
 
+const CONTROLLER_INPUT = preload("res://scripts/controller_input.gd")
+
+const MOVEMENT = preload("res://scripts/movement_tuning.gd")
+
 enum ControlPhase {
 	PHASE_1_PLATFORMER,
 	PHASE_2_THIRD_PERSON,
 }
 
-@export var max_walk_speed: float = 5.0
+@export var max_walk_speed: float = MOVEMENT.ROOK_MOVE_SPEED
 @export var ground_acceleration: float = 28.0
 @export var ground_deceleration: float = 36.0
 @export var air_acceleration: float = 12.0
@@ -66,6 +70,7 @@ var active_phase_1_camera_rotation: Vector3
 var phase_1_camera_flipped := false
 var interaction_locked := false
 var movement_speed_multiplier := 1.0
+var controller_movement_active := false
 var manual_jump_enabled := true
 var barrel_animation_mode_enabled := false
 var barrel_hop_animation_active := false
@@ -83,6 +88,8 @@ const GROUND_STATE := "Ground"
 const JUMP_STATE := "Jump"
 
 func _ready() -> void:
+	# Keep scene-local legacy overrides from changing Rook's baseline.
+	max_walk_speed = MOVEMENT.ROOK_MOVE_SPEED
 	animation_player = _find_animation_player(self)
 	_cache_player_collision_shapes()
 	global_position.z = side_plane_z
@@ -96,6 +103,12 @@ func _ready() -> void:
 	_configure_animation_loops()
 	_configure_animation_tree()
 	_initialize_animation_pose()
+
+func _input(event: InputEvent) -> void:
+	if CONTROLLER_INPUT.is_movement_event(event):
+		controller_movement_active = true
+	elif CONTROLLER_INPUT.is_keyboard_movement_event(event):
+		controller_movement_active = false
 
 func _physics_process(delta: float) -> void:
 	if interaction_locked:
@@ -120,11 +133,15 @@ func _physics_process(delta: float) -> void:
 	_update_animation(delta, jumped)
 
 func handle_phase_1_movement(delta: float) -> Vector3:
+	if controller_movement_active:
+		return _handle_controller_movement(delta)
 	var cardinal_input := _read_phase_1_cardinal_input()
 	_update_phase_1_ground_velocity(cardinal_input, delta)
 	return cardinal_input
 
 func handle_phase_2_movement(delta: float) -> Vector3:
+	if controller_movement_active:
+		return _handle_controller_movement(delta)
 	var turn_input := Input.get_axis("move_right", "move_left")
 	if not is_zero_approx(turn_input):
 		rotation.y += turn_input * turn_speed * delta
@@ -135,6 +152,14 @@ func handle_phase_2_movement(delta: float) -> Vector3:
 	target_velocity.y = 0.0
 	_update_ground_plane_velocity(target_velocity, target_velocity.normalized() if target_velocity.length() > 0.0 else Vector3.ZERO, delta)
 	return target_velocity.normalized() if target_velocity.length() > 0.0 else Vector3.ZERO
+
+func _handle_controller_movement(delta: float) -> Vector3:
+	var camera := get_viewport().get_camera_3d()
+	var basis := camera.global_basis if camera != null else Basis.IDENTITY
+	var stick := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var direction := CONTROLLER_INPUT.camera_relative_direction(stick, basis)
+	_update_ground_plane_velocity(direction * _get_current_max_walk_speed(), direction, delta)
+	return direction
 
 func transition_to_phase_2(trigger: Node = null) -> void:
 	if transition_started:
@@ -240,12 +265,13 @@ func _cache_player_collision_shapes() -> void:
 func _read_phase_1_cardinal_input() -> Vector3:
 	var input_sign := _get_phase_1_input_sign()
 	var horizontal_input := Input.get_axis("move_left", "move_right") * input_sign
-	if not is_zero_approx(horizontal_input):
-		return Vector3(_axis_sign(horizontal_input), 0.0, 0.0)
-
 	var vertical_input := Input.get_axis("move_down", "move_up") * input_sign
+	# Keep cardinal platform movement, choosing the stick's dominant axis.
+	# Preserve analog strength so a small tilt walks more slowly.
+	if not is_zero_approx(horizontal_input) and absf(horizontal_input) >= absf(vertical_input):
+		return Vector3(horizontal_input, 0.0, 0.0)
 	if not is_zero_approx(vertical_input):
-		return Vector3(0.0, 0.0, _axis_sign(vertical_input) * phase_1_vertical_axis_sign)
+		return Vector3(0.0, 0.0, vertical_input * phase_1_vertical_axis_sign)
 
 	return Vector3.ZERO
 
@@ -293,7 +319,8 @@ func _get_ground_plane_acceleration(movement_input: Vector3) -> float:
 	return ground_acceleration if is_on_floor() else air_acceleration
 
 func _get_current_max_walk_speed() -> float:
-	return max_walk_speed * movement_speed_multiplier
+	var pace := MOVEMENT.ROOK_QUIET_MULTIPLIER if Input.is_action_pressed("quiet_walk") else (MOVEMENT.ROOK_SPRINT_MULTIPLIER if Input.is_action_pressed("sprint") else 1.0)
+	return max_walk_speed * movement_speed_multiplier * pace
 
 func _update_vertical_velocity(delta: float) -> bool:
 	if is_on_floor():
@@ -312,7 +339,9 @@ func _update_facing(movement_input: Vector3) -> void:
 	if visual_pivot == null or movement_input.is_zero_approx():
 		return
 
-	if current_phase == ControlPhase.PHASE_2_THIRD_PERSON:
+	if controller_movement_active:
+		visual_pivot.rotation.y = atan2(-movement_input.z, movement_input.x) - global_rotation.y
+	elif current_phase == ControlPhase.PHASE_2_THIRD_PERSON:
 		visual_pivot.rotation.y = third_person_visual_yaw
 	elif absf(movement_input.x) > 0.0:
 		visual_pivot.rotation.y = facing_right_yaw if movement_input.x > 0.0 else facing_left_yaw

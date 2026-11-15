@@ -1,0 +1,54 @@
+{
+  "realized_assemblies": 714,
+  "directly_editable_mesh_objects": 5241,
+  "edit_mode_verified_objects": 5209,
+  "remaining_collection_instances": 0,
+  "shared_scene_meshes": 0,
+  "world_geometry_unchanged": true,
+  "max_bounds_rounding_difference_m": 0.0005000000001018634,
+  "errors": [],
+  "farmsteads": 6,
+  "rural_component_placements": 714,
+  "original_objects_preserved": 6061,
+  "inherited_world_scale": [
+    3.3517158031463623,
+    3.3517158031463623,
+    3.3517158031463623
+  ],
+  "farm_locations": [
+    {
+      "name": "West orchard farm",
+      "x": -560,
+      "y": -140
+    },
+    {
+      "name": "Old grain farm",
+      "x": -700,
+      "y": 100
+    },
+    {
+      "name": "North pasture farm",
+      "x": -550,
+      "y": 380
+    },
+    {
+      "name": "Eastern market garden",
+      "x": 410,
+      "y": 400
+    },
+    {
+      "name": "Hill orchard farm",
+      "x": 660,
+      "y": 220
+    },
+    {
+      "name": "Upper valley farm",
+      "x": 780,
+      "y": 540
+    }
+  ],
+  "saved_file_reopened": true,
+  "rural_meshes_checked": 738,
+  "conformed_crop_beds_checked": 414,
+  "minimum_bed_clearance_local_m": 0.17902755737304688
+}

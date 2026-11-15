@@ -127,7 +127,7 @@ func _configure_ground_lighting() -> void:
 
 func _input(event: InputEvent) -> void:
 	# Handle Tab before GUI focus navigation, including while the result is shown.
-	if event is InputEventKey and event.physical_keycode == KEY_TAB and event.pressed and not event.echo:
+	if event.is_action_pressed("toggle_vision"):
 		display_mode = ((display_mode + 1) % DisplayMode.size()) as DisplayMode
 		_apply_display_mode()
 		get_viewport().set_input_as_handled()
@@ -152,14 +152,13 @@ func _apply_display_mode() -> void:
 		guard.set_suspicion_visible(hud_visible or styled_visible)
 
 
-func _unhandled_key_input(event: InputEvent) -> void:
-	if not event is InputEventKey or not event.pressed or event.echo:
+func _unhandled_input(event: InputEvent) -> void:
+	if not event.is_pressed() or event.is_echo():
 		return
-	match event.physical_keycode:
-		KEY_R:
-			get_tree().reload_current_scene()
-		KEY_Q:
-			ring_nearest_bell()
+	if event.is_action_pressed("restart"):
+		get_tree().reload_current_scene()
+	elif event.is_action_pressed("secondary_action"):
+		ring_nearest_bell()
 
 
 func _process(delta: float) -> void:
@@ -195,7 +194,7 @@ func _process(delta: float) -> void:
 	try_extract()
 
 
-func _update_interaction(delta: float, holding := Input.is_physical_key_pressed(KEY_E)) -> void:
+func _update_interaction(delta: float, holding := Input.is_action_pressed("interact")) -> void:
 	for i in $Stations.get_child_count():
 		var station = $Stations.get_child(i)
 		if station.completed:

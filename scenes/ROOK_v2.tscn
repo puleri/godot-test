@@ -10,7 +10,7 @@ enum ControlPhase {
 	PHASE_2_THIRD_PERSON,
 }
 
-@export var max_walk_speed: float = 5.0
+@export var max_walk_speed: float = preload(\"res://scripts/movement_tuning.gd\").ROOK_MOVE_SPEED
 @export var ground_acceleration: float = 28.0
 @export var ground_deceleration: float = 36.0
 @export var air_acceleration: float = 12.0
@@ -68,6 +68,7 @@ const GROUND_STATE := \"Ground\"
 const JUMP_STATE := \"Jump\"
 
 func _ready() -> void:
+	max_walk_speed = preload(\"res://scripts/movement_tuning.gd\").ROOK_MOVE_SPEED
 	animation_player = _find_animation_player(self)
 	global_position.z = side_plane_z
 
@@ -450,7 +451,7 @@ height = 0.47758788
 
 [node name="Player" type="CharacterBody3D" unique_id=557277699]
 script = SubResource("GDScript_0wufq")
-max_walk_speed = 2.0
+max_walk_speed = 4.2
 ground_deceleration = 100.0
 phase_1_camera_position = Vector3(0, 2.31, 10)
 phase_1_camera_rotation = Vector3(-0.174533, 0, 0)
