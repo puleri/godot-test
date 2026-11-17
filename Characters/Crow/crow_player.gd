@@ -1,10 +1,11 @@
 extends CharacterBody3D
 
 const ControllerInput = preload("res://scripts/controller_input.gd")
-const ProceduralPose = preload("res://scripts/rook_procedural_pose.gd")
+const ProceduralPose = preload("res://Characters/Crow/crow_procedural_pose.gd")
 const OutfitMotion = preload("res://Characters/Crow/crow_outfit_motion.gd")
 
 const WALK_SPEED := 1.35
+const SPRINT_SPEED := WALK_SPEED * 1.5
 const ACCELERATION := 5.8
 const BRAKING := 7.5
 const PIVOT_RADIUS := 0.47
@@ -14,6 +15,9 @@ const LANDING_BRACE_TIME := 0.09
 const LANDING_BRACE_SPEED := 2.0
 const STEP_HEIGHT := 0.16
 const STEP_PROBE_DISTANCE := 0.085
+
+## Maximum outward wing rotation at full sprint.
+@export_range(0.0, 25.0, 0.5) var sprint_wing_degrees := 12.0
 
 @onready var visual: Node3D = $Crow
 @onready var animation: AnimationPlayer = $AnimationPlayer
@@ -82,6 +86,8 @@ func _move(direction: Vector3, jumped: bool, delta: float) -> void:
 	var was_grounded := is_on_floor()
 	var start := global_transform
 	var planar := Vector3(velocity.x, 0.0, velocity.z)
+	var sprinting := Input.is_action_pressed("sprint")
+	var top_speed := SPRINT_SPEED if sprinting else WALK_SPEED
 	var preparing := _jump_squat_elapsed >= 0.0
 	var braced := was_grounded and not jumped and (preparing or _landing_brace_remaining > 0.0)
 	# Load both legs before jumping and briefly absorb the landing.
@@ -91,7 +97,7 @@ func _move(direction: Vector3, jumped: bool, delta: float) -> void:
 	var yaw_error := angle_difference(visual.rotation.y, _facing)
 	if not braced:
 		# A loaded leg first brakes the old stride before the hips can swing around.
-		var opposing_speed := maxf(-planar.dot(direction), 0.0) / WALK_SPEED
+		var opposing_speed := maxf(-planar.dot(direction), 0.0) / top_speed
 		yaw_step = ProceduralPose.pivot_step(yaw_error, opposing_speed, delta)
 		visual.rotation.y += yaw_step
 	var follow := 1.0 - exp(-12.0 * delta)
@@ -99,7 +105,7 @@ func _move(direction: Vector3, jumped: bool, delta: float) -> void:
 	_pose.turn_chest_offset = lerpf(_pose.turn_chest_offset, clampf(yaw_error * 0.16, -0.17, 0.17), follow)
 	# Shed momentum on the old heading before pushing off toward the new one.
 	var alignment := smoothstep(0.25, 0.94, cos(yaw_error - yaw_step)) if was_grounded else 1.0
-	var desired := direction * WALK_SPEED * alignment
+	var desired := direction * top_speed * alignment
 	var rate := BRAKING if planar.dot(desired - planar) < 0.0 else ACCELERATION
 	planar = Vector3.ZERO if braced else planar.move_toward(desired, rate * delta)
 	velocity.x = planar.x
@@ -120,7 +126,7 @@ func _move(direction: Vector3, jumped: bool, delta: float) -> void:
 		_jump_squat_elapsed = -1.0
 		_landing_brace_remaining = 0.0
 	var travel := (global_position - start.origin) / delta
-	var speed := minf(Vector2(travel.x, travel.z).length(), WALK_SPEED)
+	var speed := minf(Vector2(travel.x, travel.z).length(), SPRINT_SPEED)
 	# A pivot consumes steps even when the capsule hardly translates.
 	var yaw_rate := yaw_step / delta if grounded else 0.0
 	var gait_speed := _pose.foot_placement.pivot_gait_speed(speed, yaw_rate, PIVOT_RADIUS)
@@ -135,10 +141,17 @@ func _move(direction: Vector3, jumped: bool, delta: float) -> void:
 	animation.advance(delta)
 	if walking:
 		_pose.foot_placement.phase = animation.current_animation_position / animation.current_animation_length
+	# One small outward beat per stride, fading as Crow brakes or leaves the floor.
+	var spread := 0.0
+	if sprinting and grounded and not braced and not direction.is_zero_approx():
+		var effort := smoothstep(WALK_SPEED, SPRINT_SPEED, speed)
+		var beat := 0.6 - 0.4 * cos(TAU * _pose.foot_placement.phase)
+		spread = deg_to_rad(sprint_wing_degrees) * effort * beat
+	_pose.wing_spread = lerpf(_pose.wing_spread, spread, 1.0 - exp(-22.0 * delta))
 	var turn_load := 0.055 * clampf(absf(yaw_rate) / ProceduralPose.TURN_RATE, 0.0, 1.0)
 	_pose.takeoff_squat = maxf(turn_load if grounded else 0.0, 0.19 * smoothstep(0.0, JUMP_SQUAT_TIME, _jump_squat_elapsed))
 	_pose.foot_placement.hold_contacts = grounded and (braced or _landing_brace_remaining > 0.0)
-	_pose.update_motion(delta, travel, grounded, impact, WALK_SPEED, ACCELERATION)
+	_pose.update_motion(delta, travel, grounded, impact, top_speed, ACCELERATION)
 
 
 func _try_step(start: Transform3D, motion: Vector3) -> void:
