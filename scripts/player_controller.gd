@@ -31,7 +31,7 @@ enum ControlPhase {
 @export var facing_down_yaw: float = -PI / 2.0
 @export var third_person_visual_yaw: float = 0.0
 @export var phase_1_vertical_axis_sign: float = -1.0
-@export var turn_speed: float = 2.8
+@export var turn_speed: float = 5.6
 @export var phase_1_camera_position: Vector3 = Vector3(0.0, 0.5, 10.0)
 @export var phase_1_camera_rotation: Vector3 = Vector3(0.0, 0.0, 0.0)
 @export var phase_1_flipped_camera_position: Vector3 = Vector3(0.0, 0.5, -10.0)
@@ -64,7 +64,7 @@ enum ControlPhase {
 			visual_pivot.rotation.y = _target_visual_yaw
 		procedural_animation_toggled.emit(value)
 ## Base turn timing. Head leads; pelvis and feet follow at separate rates.
-@export_range(0.0, 0.2, 0.005) var visual_turn_response := 0.055
+@export_range(0.0, 0.2, 0.005) var visual_turn_response := 0.0275
 @export_range(0.0, 15.0, 0.5) var procedural_lean_degrees := 7.0
 ## Fraction of leg length, not world units, so both Rook scene scales work.
 @export_range(0.0, 0.25, 0.01) var procedural_landing_compression := 0.12
@@ -110,6 +110,8 @@ var barrel_hop_animation_active := false
 var barrel_animation_fallback_warned := false
 var player_collision_shapes: Array[CollisionShape3D] = []
 var procedural_pose: ProceduralPose
+var _turn_heading := 0.0
+var _pivot_yaw_rate := 0.0
 var _target_visual_yaw := 0.0
 var _last_procedural_position := Vector3.ZERO
 var _skip_next_procedural_impact := true
@@ -137,6 +139,7 @@ func _ready() -> void:
 	if visual_pivot != null:
 		visual_pivot.rotation.y = facing_right_yaw
 	_target_visual_yaw = facing_right_yaw
+	_turn_heading = global_rotation.y + facing_right_yaw
 
 	_configure_phase_1_camera()
 
@@ -217,7 +220,7 @@ func _handle_controller_movement(delta: float) -> Vector3:
 	var basis := camera.global_basis if camera != null else Basis.IDENTITY
 	var stick := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var direction := CONTROLLER_INPUT.camera_relative_direction(stick, basis)
-	_update_ground_plane_velocity(direction * _get_current_max_walk_speed(), direction, delta)
+	_update_ground_plane_velocity(direction * _get_current_max_walk_speed() * _turn_alignment(direction), direction, delta)
 	return direction
 
 func transition_to_phase_2(trigger: Node = null) -> void:
@@ -395,7 +398,7 @@ func _axis_sign(value: float) -> float:
 
 func _update_phase_1_ground_velocity(cardinal_input: Vector3, delta: float) -> void:
 	var acceleration := _get_ground_plane_acceleration(cardinal_input)
-	var current_max_walk_speed := _get_current_max_walk_speed()
+	var current_max_walk_speed := _get_current_max_walk_speed() * _turn_alignment(cardinal_input)
 
 	if not is_zero_approx(cardinal_input.x):
 		velocity.x = move_toward(velocity.x, cardinal_input.x * current_max_walk_speed, acceleration * delta)
@@ -422,7 +425,7 @@ func _update_ground_plane_velocity(target_velocity: Vector3, movement_input: Vec
 	velocity.z = updated_velocity.z
 
 func _get_ground_plane_acceleration(movement_input: Vector3) -> float:
-	if movement_input.is_zero_approx():
+	if movement_input.is_zero_approx() or (is_on_floor() and velocity.dot(movement_input) < 0.0):
 		return ground_deceleration if is_on_floor() else air_deceleration
 
 	return ground_acceleration if is_on_floor() else air_acceleration
@@ -460,14 +463,28 @@ func _update_facing(movement_input: Vector3) -> void:
 func _set_visual_facing_yaw(yaw: float) -> void:
 	_target_visual_yaw = yaw
 
+func _turn_alignment(direction: Vector3) -> float:
+	if not is_on_floor() or barrel_animation_mode_enabled or visual_turn_response <= 0.0:
+		return 1.0
+	var forward := Vector3(cos(_turn_heading), 0.0, -sin(_turn_heading))
+	return smoothstep(0.64, 0.98, forward.dot(direction.normalized()))
+
+
 func _update_visual_turn(delta: float) -> void:
 	if visual_pivot == null:
 		return
-	if procedural_animation_enabled and not barrel_animation_mode_enabled and procedural_pose != null and visual_turn_response > 0.0:
-		var target_world := global_rotation.y + _target_visual_yaw
-		visual_pivot.global_rotation.y = procedural_pose.update_turn(delta, target_world, visual_pivot.global_rotation.y, visual_turn_response)
+	var target := global_rotation.y + _target_visual_yaw
+	_pivot_yaw_rate = 0.0
+	if not barrel_animation_mode_enabled and procedural_pose != null and visual_turn_response > 0.0:
+		var forward := Vector3(cos(target), 0.0, -sin(target))
+		var opposing := -velocity.dot(forward) / maxf(_get_current_max_walk_speed(), 0.01)
+		var previous := _turn_heading
+		_turn_heading = procedural_pose.update_turn(delta, target, previous, visual_turn_response, opposing)
+		_pivot_yaw_rate = angle_difference(previous, _turn_heading) / delta
 	else:
-		visual_pivot.rotation.y = _target_visual_yaw
+		_turn_heading = target
+	visual_pivot.global_rotation.y = _turn_heading if procedural_animation_enabled else target
+
 
 func _configure_procedural_pose() -> void:
 	if visual_pivot == null:
@@ -478,6 +495,8 @@ func _configure_procedural_pose() -> void:
 	var skeleton := skeletons[0] as Skeleton3D
 	procedural_pose = ProceduralPose.new()
 	procedural_pose.name = "RookProceduralPose"
+	procedural_pose.use_forward_knee_plane = true
+	procedural_pose.foot_placement.compact_pivot_stance = true
 	skeleton.add_child(procedural_pose)
 	procedural_pose.configure_locomotion(self, animation_player, idle_animation_name, walk_animation_name)
 	# Movement, base pose and modifiers share the physics clock.
@@ -586,9 +605,13 @@ func _update_animation(delta: float, jumped: bool) -> void:
 	if _uses_distance_gait():
 		var actual_motion := _get_locomotion_velocity()
 		var actual_speed := Vector2(actual_motion.x, actual_motion.z).length() if not interaction_locked and not _is_camera_flip_control_paused() else 0.0
-		normalized_speed = clampf(actual_speed / maxf(_get_current_max_walk_speed(), 0.01), 0.0, 1.0)
+		var feet := procedural_pose.foot_placement
+		var yaw_rate := _pivot_yaw_rate if is_on_floor() and not interaction_locked and not _is_camera_flip_control_paused() else 0.0
+		var gait_speed := feet.pivot_gait_speed(actual_speed, yaw_rate, feet.stride_length * 1.05)
+		procedural_pose.takeoff_squat = 0.055 * clampf(absf(yaw_rate) / ProceduralPose.TURN_RATE, 0.0, 1.0)
+		normalized_speed = clampf(gait_speed / maxf(_get_current_max_walk_speed(), 0.01), 0.0, 1.0)
 		if is_on_floor():
-			_walk_cycle_phase = fposmod(_walk_cycle_phase + actual_speed * delta / procedural_pose.foot_placement.stride_length, 1.0)
+			_walk_cycle_phase = fposmod(_walk_cycle_phase + gait_speed * delta / procedural_pose.foot_placement.stride_length, 1.0)
 	_update_ground_blend(normalized_speed, delta)
 
 	if using_animation_tree:

@@ -13,6 +13,8 @@ var occlusion_exclusions: Array[RID] = []
 var _layer: CanvasLayer
 var _anchor: Node2D
 var _art: Sprite2D
+var _audio_art: Sprite2D
+var _audio_remaining := 0.0
 var _motion: Tween
 var _state := 0 # 0 clear, 1 suspicious, 2 confirmed pursuit
 var _phase := 0.0
@@ -34,6 +36,11 @@ func _ready() -> void:
 	# The pointed tail stays at the head anchor as the bubble stretches upward.
 	_art.offset.y = -_art.texture.get_height() * 0.5
 	_anchor.add_child(_art)
+	_audio_art = Sprite2D.new()
+	_audio_art.texture = preload("res://textures/audio-alert.png")
+	_audio_art.scale = Vector2.ONE * 192.0 / _audio_art.texture.get_width()
+	_audio_art.hide()
+	_layer.add_child(_audio_art)
 	_anchor.modulate.a = 0.0
 	_anchor.hide()
 
@@ -87,20 +94,28 @@ func _process(delta: float) -> void:
 		_frozen = false
 		refresh()
 		_phase += delta
+		_audio_remaining = maxf(0.0, _audio_remaining - delta)
 	var camera := get_viewport().get_camera_3d()
 	var at := guard.global_position + Vector3.UP * (guard.eye_height + 0.65)
 	_anchor.visible = enabled and guard.is_visible_in_tree() and camera != null and not _occluded and (_state != 0 or _anchor.modulate.a > 0.01)
+	_audio_art.visible = enabled and guard.is_visible_in_tree() and camera != null and not _occluded and _audio_remaining > 0.0
 	if camera == null or camera.is_position_behind(at):
 		_anchor.hide()
+		_audio_art.hide()
 		return
 	_anchor.position = camera.unproject_position(at)
+	_audio_art.position = camera.unproject_position(guard.global_position + Vector3.UP * guard.eye_height)
+	_audio_art.position.y -= 50.0
+	_audio_art.position += Vector2(sin(_phase * 41.0) * 2.0, cos(_phase * 37.0) * 1.5)
+	_audio_art.rotation = sin(_phase * 32.0) * 0.035
+	_audio_art.modulate.a = minf(1.0, _audio_remaining / 0.2)
 	_anchor.position.y += _entrance_drop
 	# Two pixels of float; no continuous wobble or repeated entrance on lost sight.
 	_anchor.position.y += sin(_phase * 2.6) * 2.0 if _state == 1 else 0.0
 
 
 func _physics_process(_delta: float) -> void:
-	if not enabled or _state == 0:
+	if not enabled or (_state == 0 and _audio_remaining <= 0.0):
 		return
 	var camera := get_viewport().get_camera_3d()
 	if camera == null:
@@ -115,4 +130,9 @@ func _physics_process(_delta: float) -> void:
 
 func set_enabled(value: bool) -> void:
 	enabled = value
+	_process(0.0)
+
+
+func show_audio_alert() -> void:
+	_audio_remaining = 2.5
 	_process(0.0)

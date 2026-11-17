@@ -110,6 +110,7 @@ func receive_noise(at: Vector3, kind: String, result: Dictionary, investigate :=
 	heard_note = "HEARD %.1fm / %s" % [result.distance, "DIRECT" if result.direct else "AROUND DOOR"]
 	if listen_only or not active or player_visible or uncertain_visible or guard_state == GuardState.CHASE:
 		return true
+	_suspicion_bubble.show_audio_alert()
 	if not investigate:
 		if duty == "SENTRY" and guard_state == GuardState.PATROL:
 			last_heard_position = at

@@ -153,15 +153,16 @@ func _update_awareness(delta: float) -> void:
 func hear_sound(at: Vector3, audible_radius: float, kind := "SOUND") -> bool:
 	if not active or not navigation_ready or player_visible or guard_state == GuardState.CHASE:
 		return false
-	# Footsteps give one investigation location, not continuous homing updates.
-	if kind != "BELL" and guard_state == GuardState.SEARCH:
-		return false
 	var reach := minf(hearing_range, audible_radius)
 	var query := PhysicsRayQueryParameters3D.create(global_position + Vector3.UP * eye_height, at + Vector3.UP * 0.3, sight_blocker_mask)
 	query.exclude = [get_rid()]
 	if not get_world_3d().direct_space_state.intersect_ray(query).is_empty():
 		reach *= sound_wall_transmission
 	if global_position.distance_to(at) > reach:
+		return false
+	_suspicion_bubble.show_audio_alert()
+	# Repeat sounds remain visible, but do not redirect an ongoing investigation.
+	if kind != "BELL" and guard_state == GuardState.SEARCH:
 		return false
 	last_heard_position = at
 	_start_investigation(at, kind)

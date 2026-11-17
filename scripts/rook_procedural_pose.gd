@@ -1,8 +1,10 @@
 extends SkeletonModifier3D
 ## Additive Rook pose, evaluated after the authored AnimationTree pose.
-## Bone names describe the imported Rook rig; no imported resources are changed.
+## The default bone map describes Rook. Other rigs can supply their own map.
 
 const FootPlacement = preload("res://scripts/rook_foot_placement.gd")
+
+const TURN_RATE := 10.5 # radians per second
 
 var foot_placement := FootPlacement.new()
 var foot_planting_enabled := true
@@ -29,7 +31,19 @@ var max_lean_degrees := 7.0
 var lean_response := 20.0
 var landing_response := 26.0
 var landing_compression := 0.12
+var takeoff_squat := 0.0
 var full_landing_speed := 10.0
+var spine_bone := "Spine"
+var pelvis_bone := "Bone.027"
+var head_bone := "Head"
+var cape_bones := PackedStringArray(["Cape_1", "Cape_2", "CapeEnd"])
+var leg_bones: Array[PackedStringArray] = [
+	PackedStringArray(["Bone.030", "Bone.032", "Bone.034"]),
+	PackedStringArray(["Bone.031", "Bone.033", "Bone.035"]),
+]
+var use_forward_knee_plane := false
+var use_rest_knee_plane := false
+var model_forward := Vector3.RIGHT
 
 var world_lean := Vector3.ZERO
 var compression := 0.0
@@ -45,14 +59,14 @@ var _leg_length := 0.0
 
 func _ready() -> void:
 	var skeleton := get_skeleton()
-	_spine = skeleton.find_bone("Spine")
-	_hips = skeleton.find_bone("Bone.027")
-	_head = skeleton.find_bone("Head")
-	for name in ["Cape_1", "Cape_2", "CapeEnd"]:
+	_spine = skeleton.find_bone(spine_bone)
+	_hips = skeleton.find_bone(pelvis_bone)
+	_head = skeleton.find_bone(head_bone)
+	for name in cape_bones:
 		var bone := skeleton.find_bone(name)
 		if bone >= 0:
 			_cape.append(bone)
-	for names in [["Bone.030", "Bone.032", "Bone.034"], ["Bone.031", "Bone.033", "Bone.035"]]:
+	for names in leg_bones:
 		var chain := Vector3i(skeleton.find_bone(names[0]), skeleton.find_bone(names[1]), skeleton.find_bone(names[2]))
 		if chain.x >= 0 and chain.y >= 0 and chain.z >= 0:
 			_legs.append(chain)
@@ -61,12 +75,12 @@ func _ready() -> void:
 		_leg_length = skeleton.get_bone_global_rest(chain.x).origin.distance_to(skeleton.get_bone_global_rest(chain.y).origin)
 		_leg_length += skeleton.get_bone_global_rest(chain.y).origin.distance_to(skeleton.get_bone_global_rest(chain.z).origin)
 	if _spine < 0 or _hips < 0 or _legs.size() != 2:
-		push_warning("Rook procedural pose needs the Spine, hip and two leg chains; unsupported bones will be left alone.")
+		push_warning("Procedural pose needs a spine, pelvis and two leg chains.")
 
 
 func configure_locomotion(player: CharacterBody3D, animation_player: AnimationPlayer, idle: String, walk: String) -> void:
 	if _legs.size() == 2 and not idle.is_empty() and not walk.is_empty():
-		foot_placement.configure(get_skeleton(), _legs, player, animation_player.get_animation(idle), animation_player.get_animation(walk))
+		foot_placement.configure(get_skeleton(), _legs, player, animation_player.get_animation(idle), animation_player.get_animation(walk), model_forward)
 
 
 func reset_motion() -> void:
@@ -85,30 +99,31 @@ func reset_motion() -> void:
 	world_lean = Vector3.ZERO
 	_lean_velocity = Vector3.ZERO
 	compression = 0.0
+	takeoff_squat = 0.0
 	_compression_velocity = 0.0
 	_previous_velocity = Vector3.ZERO
 	_motion_initialized = false
 
 
-func update_turn(delta: float, target: float, current: float, response: float) -> float:
-	if not _turn_initialized:
-		head_yaw = current
-		pelvis_yaw = current
-		legs_yaw = current
-		_previous_chest_yaw = current
-		_turn_initialized = true
-	# Each follower chases the preceding part, rather than the requested heading.
-	# Use one unwrapped heading so reversals consistently take the same arc.
-	var desired := head_yaw + angle_difference(head_yaw, target)
-	head_yaw = lerpf(head_yaw, desired, 1.0 - exp(-delta / maxf(response * 0.45, 0.005)))
-	pelvis_yaw = lerpf(pelvis_yaw, head_yaw, 1.0 - exp(-delta / maxf(response * 1.1, 0.005)))
-	legs_yaw = lerpf(legs_yaw, pelvis_yaw, 1.0 - exp(-delta / maxf(response * 1.7, 0.005)))
-	turn_pelvis_offset = clampf(pelvis_yaw - legs_yaw, -deg_to_rad(32), deg_to_rad(32))
-	turn_chest_offset = turn_pelvis_offset + clampf(head_yaw - pelvis_yaw, -deg_to_rad(20), deg_to_rad(20)) * 0.35
-	turn_head_offset = clampf(head_yaw - legs_yaw - turn_chest_offset, -deg_to_rad(55), deg_to_rad(55))
+static func pivot_step(error: float, opposing_speed: float, delta: float, response := 36.0) -> float:
+	var limit := TURN_RATE * lerpf(1.0, 0.35, clampf(opposing_speed, 0.0, 1.0)) * delta
+	return clampf(error * (1.0 - exp(-response * delta)), -limit, limit)
+
+
+func update_turn(delta: float, target: float, current: float, response: float, opposing_speed := 0.0) -> float:
+	var error := angle_difference(current, target)
+	var step := pivot_step(error, opposing_speed, delta, 1.0 / maxf(response, 0.005))
+	legs_yaw = current + step
+	var follow := 1.0 - exp(-delta / maxf(response, 0.005))
+	turn_pelvis_offset = lerpf(turn_pelvis_offset, clampf(error * 0.08, -0.08, 0.08), follow)
+	turn_chest_offset = lerpf(turn_chest_offset, clampf(error * 0.16, -0.17, 0.17), follow)
+	turn_head_offset = lerpf(turn_head_offset, clampf(error * 0.42, -0.48, 0.48), follow)
+	pelvis_yaw = legs_yaw + turn_pelvis_offset
 	var chest_yaw := legs_yaw + turn_chest_offset
-	_turn_speed = (chest_yaw - _previous_chest_yaw) / maxf(delta, 0.0001)
+	head_yaw = chest_yaw + turn_head_offset
+	_turn_speed = angle_difference(_previous_chest_yaw, chest_yaw) / maxf(delta, 0.0001) if _turn_initialized else 0.0
 	_previous_chest_yaw = chest_yaw
+	_turn_initialized = true
 	return legs_yaw
 
 
@@ -155,7 +170,7 @@ func update_motion(delta: float, resolved_velocity: Vector3, grounded: bool, imp
 		drag -= planar_velocity / maxf(max_speed, 0.01) * 0.12
 		var cape_target := drag.cross(Vector3.UP) + Vector3.UP * clampf(-_turn_speed * 0.025, -0.16, 0.16)
 		if impact_speed > 0.0 and get_skeleton() != null:
-			var forward := (get_skeleton().get_parent() as Node3D).global_basis.x.normalized()
+			var forward := ((get_skeleton().get_parent() as Node3D).global_basis * model_forward).normalized()
 			cape_target += forward.cross(Vector3.UP) * minf(impact_speed / full_landing_speed, 1.0) * 0.15
 		for i in 3:
 			var follow := cape_target if i == 0 else cape_angles[i - 1] * 0.85
@@ -213,7 +228,8 @@ func _process_modification_with_delta(delta: float) -> void:
 				_rotate_world(skeleton, _cape[i], rotation_vector.normalized(), rotation_vector.length())
 
 	var inverse := skeleton.global_basis.inverse()
-	var displacement := (inverse * Vector3.DOWN).normalized() * _leg_length * landing_compression * compression
+	var squat := maxf(takeoff_squat, landing_compression * compression)
+	var displacement := (inverse * Vector3.DOWN).normalized() * _leg_length * squat
 	if _grounded and foot_planting_enabled:
 		var desired_shift := foot_placement.weight_shift
 		# Small inertial translation as well as lean, with a soft supporting knee.
@@ -246,10 +262,10 @@ func _process_modification_with_delta(delta: float) -> void:
 	for i in _legs.size():
 		# Follow the pelvis with the knee plane, while the sole keeps its contact.
 		var knee := skeleton.get_bone_global_pose(_legs[i].y).origin
-		_solve_leg(skeleton, _legs[i], feet[i], knee)
+		solve_leg(skeleton, _legs[i], feet[i], knee)
 
 
-func _solve_leg(skeleton: Skeleton3D, chain: Vector3i, foot: Transform3D, previous_knee: Vector3) -> void:
+func solve_leg(skeleton: Skeleton3D, chain: Vector3i, foot: Transform3D, previous_knee: Vector3) -> void:
 	var hip := skeleton.get_bone_global_pose(chain.x).origin
 	var knee := skeleton.get_bone_global_pose(chain.y).origin
 	var ankle := skeleton.get_bone_global_pose(chain.z).origin
@@ -259,19 +275,29 @@ func _solve_leg(skeleton: Skeleton3D, chain: Vector3i, foot: Transform3D, previo
 	if upper <= 0.0 or lower <= 0.0 or to_foot.length_squared() < 1e-14:
 		return
 	var direction := to_foot.normalized()
-	var distance := clampf(to_foot.length(), absf(upper - lower) + 1e-8, upper + lower - 1e-8)
-	# Preserve the clip's knee plane; fall back to Rook's +X forward if straight.
+	var reach_limit := (upper + lower) * 0.988 if use_rest_knee_plane or (use_forward_knee_plane and _grounded) else upper + lower - 1e-8
+	var distance := clampf(to_foot.length(), absf(upper - lower) + 1e-8, reach_limit)
+	# Preserve the clip's knee plane; fall back to the rig's forward axis if straight.
 	var bend := previous_knee - hip
+	if use_forward_knee_plane and _grounded:
+		var model := skeleton.get_parent() as Node3D
+		bend = (skeleton.global_basis.inverse() * (model.global_basis * model_forward)).normalized()
+	elif use_rest_knee_plane:
+		# The crow's hock points back. Preserve its bind-pose pole even when
+		# a planted toe passes behind the animated knee during a turn.
+		var rest_hip := skeleton.get_bone_global_rest(chain.x).origin
+		var rest_axis := (skeleton.get_bone_global_rest(chain.z).origin - rest_hip).normalized()
+		bend = (skeleton.get_bone_global_rest(chain.y).origin - rest_hip).slide(rest_axis)
 	bend -= direction * bend.dot(direction)
 	if bend.length_squared() < 1e-12:
 		var model := skeleton.get_parent() as Node3D
-		bend = skeleton.global_basis.inverse() * model.global_basis.x.normalized()
+		bend = skeleton.global_basis.inverse() * (model.global_basis * model_forward).normalized()
 		bend -= direction * bend.dot(direction)
 	var along := (upper * upper - lower * lower + distance * distance) / (2.0 * distance)
 	var height := sqrt(maxf(upper * upper - along * along, 0.0))
 	var target_knee := hip + direction * along + bend.normalized() * height
 	_rotate_bone_to(skeleton, chain.x, chain.y, target_knee)
-	_rotate_bone_to(skeleton, chain.y, chain.z, foot.origin)
+	_rotate_bone_to(skeleton, chain.y, chain.z, hip + direction * distance)
 	# Preserve ankle orientation after the parents have rotated.
 	var ankle_pose := skeleton.get_bone_global_pose(chain.z)
 	ankle_pose.basis = foot.basis

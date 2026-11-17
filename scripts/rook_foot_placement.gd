@@ -2,11 +2,17 @@ extends RefCounted
 ## World-space ankle contacts over the authored gait. All distances scale with the rig.
 
 var enabled := true
+var stride_extension := 1.0
+var touchdown_yaw := 0.0
+var compact_pivot_stance := false
+var turn_step_speed := 0.0
 var stride_length := 1.0
 var phase := 0.0
 var grounded := false
 var speed := 0.0
 var weight_shift := Vector3.ZERO
+var toe_probe_distance := 0.0
+var hold_contacts := false
 var planted: Array[bool] = [false, false]
 var anchors: Array[Transform3D] = [Transform3D.IDENTITY, Transform3D.IDENTITY]
 var feet: Array[Transform3D] = [Transform3D.IDENTITY, Transform3D.IDENTITY]
@@ -24,6 +30,7 @@ var _settle_time := 0.0
 var _settle_duration := 0.16
 var _initialized := false
 var _was_moving := false
+var _was_holding := false
 var _body: CharacterBody3D
 var _leg_length := 1.0
 var _clearance: Array[float] = [0.03, 0.03]
@@ -31,8 +38,10 @@ var _support: Array[Node3D] = [null, null]
 var _last_support: Array[Transform3D] = [Transform3D.IDENTITY, Transform3D.IDENTITY]
 
 
-func configure(skeleton: Skeleton3D, legs: Array[Vector3i], player: CharacterBody3D, idle: Animation, walk: Animation) -> void:
+func configure(skeleton: Skeleton3D, legs: Array[Vector3i], player: CharacterBody3D, idle: Animation, walk: Animation, model_forward := Vector3.RIGHT) -> void:
 	_body = player
+	_idle.clear()
+	_front.clear()
 	var original: Array[Transform3D] = []
 	for bone in skeleton.get_bone_count():
 		original.append(skeleton.get_bone_pose(bone))
@@ -50,7 +59,7 @@ func configure(skeleton: Skeleton3D, legs: Array[Vector3i], player: CharacterBod
 	for i in 2:
 		_clearance[i] = clampf((skeleton.global_transform * _idle[i].origin).y - player.global_position.y - bottom, _leg_length * 0.025, _leg_length * 0.12)
 	var model := skeleton.get_parent() as Node3D
-	var forward := (skeleton.global_basis.inverse() * model.global_basis.x).normalized()
+	var forward := (skeleton.global_basis.inverse() * (model.global_basis * model_forward)).normalized()
 	var minimum := [INF, INF]
 	var maximum := [-INF, -INF]
 	for frame in 96:
@@ -72,9 +81,19 @@ func configure(skeleton: Skeleton3D, legs: Array[Vector3i], player: CharacterBod
 	reset()
 
 
+func pivot_gait_speed(speed_mps: float, yaw_rate: float, radius: float) -> float:
+	turn_step_speed = absf(yaw_rate) * radius
+	var gait_speed := Vector2(speed_mps, turn_step_speed).length()
+	stride_extension = speed_mps / gait_speed if gait_speed > 0.001 else 0.0
+	var stance_time := 0.52 * stride_length / maxf(gait_speed, 0.01)
+	touchdown_yaw = clampf(yaw_rate * stance_time * 0.5, -0.38, 0.38)
+	return gait_speed
+
+
 func reset() -> void:
 	_initialized = false
 	_was_moving = false
+	_was_holding = false
 	_settling = -1
 	_settle_time = 0.0
 	grounded = false
@@ -91,7 +110,7 @@ func solve_targets(skeleton: Skeleton3D, authored: Array[Transform3D], delta: fl
 	if not enabled or not grounded or _idle.size() != 2:
 		reset()
 		return authored
-	var moving := speed > _leg_length * 0.035
+	var moving := speed + turn_step_speed > _leg_length * 0.035
 	if not _initialized:
 		for i in 2:
 			feet[i] = skeleton.global_transform * authored[i]
@@ -101,7 +120,17 @@ func solve_targets(skeleton: Skeleton3D, authored: Array[Transform3D], delta: fl
 		_initialized = true
 	for i in 2:
 		_follow_support(i)
-	if moving:
+	if hold_contacts:
+		# Keep both feet at their contacts while the body loads or absorbs impact.
+		_settling = -1
+		for i in 2:
+			if not _was_holding and not planted[i]:
+				anchors[i] = _on_ground(feet[i], i, true)
+			feet[i] = anchors[i]
+			planted[i] = _contact_valid[i]
+			_was_stance[i] = false
+			_early_swing[i] = false
+	elif moving:
 		_settling = -1
 		for i in 2:
 			var cycle := fposmod(phase - _contact_phase[i], 1.0)
@@ -124,9 +153,33 @@ func solve_targets(skeleton: Skeleton3D, authored: Array[Transform3D], delta: fl
 					_swing_from[i] = feet[i]
 					_swing_start_cycle[i] = cycle
 				var progress := clampf((cycle - _swing_start_cycle[i]) / maxf(1.0 - _swing_start_cycle[i], 0.01), 0.0, 1.0)
-				var target := _on_ground(skeleton.global_transform * _front[i], i)
+				var landing := _front[i]
+				landing.origin = _idle[i].origin.lerp(landing.origin, stride_extension)
+				var target := skeleton.global_transform * landing
+				if compact_pivot_stance:
+					# Rook's idle has a trailing ankle and a very narrow stance.
+					# Place turning steps under the hips with room for the body to rotate.
+					var model := skeleton.get_parent() as Node3D
+					var forward := model.global_basis.x.normalized()
+					var side := forward.cross(Vector3.UP)
+					var offset := target.origin - _body.global_position
+					var turn_weight := clampf(turn_step_speed / maxf(_leg_length, 0.01), 0.0, 1.0)
+					target.origin -= forward * offset.dot(forward) * turn_weight
+					var side_sign := signf((skeleton.global_basis * (_idle[i].origin - _idle[1 - i].origin)).dot(side))
+					target.origin += side * side_sign * _leg_length * (0.16 + 0.12 * turn_weight)
+				if absf(touchdown_yaw) > 0.0001:
+					var lead := Basis(Vector3.UP, touchdown_yaw)
+					target.origin = _body.global_position + lead * (target.origin - _body.global_position)
+					target.basis = lead * target.basis
+				target = _on_ground(target, i)
+				var previous := feet[i].origin
 				feet[i] = _swing_from[i].interpolate_with(target, smoothstep(0.0, 1.0, progress))
 				feet[i].origin.y += sin(progress * PI) * _leg_length * 0.15
+				if compact_pivot_stance:
+					var swing_speed := maxf(_leg_length * 4.0, Vector2(speed, turn_step_speed).length() * 2.36)
+					feet[i].origin = previous.move_toward(feet[i].origin, swing_speed * delta)
+				if toe_probe_distance > 0.0:
+					feet[i] = _on_ground(feet[i], i, false, true)
 			planted[i] = stance and _contact_valid[i]
 			_was_stance[i] = stance
 	else:
@@ -164,12 +217,15 @@ func solve_targets(skeleton: Skeleton3D, authored: Array[Transform3D], delta: fl
 			var progress := clampf(_settle_time / _settle_duration, 0.0, 1.0)
 			feet[i] = _swing_from[i].interpolate_with(desired[i], smoothstep(0.0, 1.0, progress))
 			feet[i].origin.y += sin(progress * PI) * _leg_length * 0.085
+			if toe_probe_distance > 0.0:
+				feet[i] = _on_ground(feet[i], i, false, true)
 			if progress >= 1.0:
 				anchors[i] = _on_ground(feet[i], i, true)
 				feet[i] = anchors[i]
 				planted[i] = _contact_valid[i]
 				_settling = -1
-	_was_moving = moving
+	_was_moving = moving and not hold_contacts
+	_was_holding = hold_contacts
 	var support_center := Vector3.ZERO
 	var count := 0.0
 	for i in 2:
@@ -188,12 +244,18 @@ func solve_targets(skeleton: Skeleton3D, authored: Array[Transform3D], delta: fl
 	return result
 
 
-func _on_ground(pose: Transform3D, index: int, bind_contact: bool = false) -> Transform3D:
+func _on_ground(pose: Transform3D, index: int, bind_contact := false, lift_only := false) -> Transform3D:
 	# No contact across a ledge: leave the proposed animation target in place.
-	var query := PhysicsRayQueryParameters3D.create(pose.origin + Vector3.UP * _leg_length * 0.6, pose.origin - Vector3.UP * _leg_length * 0.65, _body.collision_mask, [_body.get_rid()])
-	var hit := _body.get_world_3d().direct_space_state.intersect_ray(query)
-	if not hit.is_empty() and hit.normal.y >= cos(_body.floor_max_angle):
-		pose.origin.y = hit.position.y + _clearance[index]
+	var hit := _floor_below(pose.origin)
+	if toe_probe_distance > 0.0:
+		# This rig's foot bone points along its long toe. Clear the next tread
+		# when the toe reaches the riser before the ankle.
+		var toe := _floor_below(pose.origin + pose.basis.y.normalized() * toe_probe_distance)
+		if not toe.is_empty() and not hit.is_empty() and toe.position.y > hit.position.y:
+			hit = toe
+	if not hit.is_empty():
+		var floor_height: float = hit.position.y + _clearance[index]
+		pose.origin.y = maxf(pose.origin.y, floor_height) if lift_only else floor_height
 		if bind_contact:
 			_contact_valid[index] = true
 			_support[index] = hit.collider as Node3D
@@ -203,6 +265,14 @@ func _on_ground(pose: Transform3D, index: int, bind_contact: bool = false) -> Tr
 		_contact_valid[index] = false
 		_support[index] = null
 	return pose
+
+
+func _floor_below(position: Vector3) -> Dictionary:
+	var query := PhysicsRayQueryParameters3D.create(position + Vector3.UP * _leg_length * 0.6, position - Vector3.UP * _leg_length * 0.65, _body.collision_mask, [_body.get_rid()])
+	var hit := _body.get_world_3d().direct_space_state.intersect_ray(query)
+	if not hit.is_empty() and hit.normal.y >= cos(_body.floor_max_angle):
+		return hit
+	return {}
 
 
 func _follow_support(index: int) -> void:

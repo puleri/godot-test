@@ -162,21 +162,33 @@ func _check_contacts(path: String) -> void:
 	await _frames(120)
 	_check(modifier.foot_placement.planted[0] and modifier.foot_placement.planted[1] and absf(modifier.turn_head_offset) < 0.001, label + " pivot steps finish with an untwisted body")
 	# Rapid cardinal changes and reversals must not leave a stretched, twisted rig.
+	var min_ankle_side := INF
+	var min_forward_bend := INF
 	var rapid_drift := 0.0
 	var rapid_error := 0.0
-	for action in ["move_left", "move_up", "move_right", "move_down", "move_left", "move_right"]:
+	var actions := ["move_left", "move_up", "move_right", "move_down", "move_left", "move_right", "move_left", "move_right"]
+	for index in actions.size():
+		var action: String = actions[index]
 		Input.action_press(action)
-		for frame in 18:
+		for frame in (18 if index < 4 else 64):
 			var before_feet := [_pose["Bone.034"].origin, _pose["Bone.035"].origin]
 			var before_planted: Array[bool] = modifier.foot_placement.planted.duplicate()
 			await _frames(1)
 			for i in 2:
 				var ankle: Vector3 = _pose["Bone.034" if i == 0 else "Bone.035"].origin
+				var knee: Vector3 = _pose["Bone.032" if i == 0 else "Bone.033"].origin
+				var hip: Vector3 = _pose["Bone.030" if i == 0 else "Bone.031"].origin
+				var facing: Basis = player.visual_pivot.global_basis.orthonormalized()
+				var pole := (knee - hip).slide((ankle - hip).normalized())
+				min_forward_bend = minf(min_forward_bend, pole.dot(facing.x))
+				var lateral := (ankle - player.global_position as Vector3).dot(facing.z)
+				min_ankle_side = minf(min_ankle_side, lateral * (1.0 if i == 0 else -1.0))
 				if before_planted[i] and modifier.foot_placement.planted[i]:
 					rapid_drift = maxf(rapid_drift, ankle.distance_to(before_feet[i]))
 				if modifier.foot_placement.planted[i]:
 					rapid_error = maxf(rapid_error, ankle.distance_to(modifier.foot_placement.anchors[i].origin))
 		Input.action_release(action)
+	_check(min_ankle_side > 0.0 and min_forward_bend > 0.01, "%s reversal keeps ankles on their own side and knees bent forward (%.3f / %.3f m)" % [label, min_ankle_side, min_forward_bend])
 	_check(rapid_drift < 0.025 and rapid_error < 0.035, "%s contacts survive quick turns/reversals (drift %.4f, error %.4f)" % [label, rapid_drift, rapid_error])
 	await _frames(120)
 	# World-space contacts travel with their supporting platform.

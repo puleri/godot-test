@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="godot-test"
-run/main_scene="res://scenes/hub_foliage/HubFoliage.tscn"
+run/main_scene="res://Levels/MidnightExchange.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -30,22 +30,22 @@ window/stretch/aspect="expand"
 
 hub_look_left={
 "deadzone": 0.2,
-"events": [Object(InputEventJoypadMotion,"device":-1,"axis":2,"axis_value":-1.0)
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":2,"axis_value":-1.0,"script":null)
 ]
 }
 hub_look_right={
 "deadzone": 0.2,
-"events": [Object(InputEventJoypadMotion,"device":-1,"axis":2,"axis_value":1.0)
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":2,"axis_value":1.0,"script":null)
 ]
 }
 hub_look_up={
 "deadzone": 0.2,
-"events": [Object(InputEventJoypadMotion,"device":-1,"axis":3,"axis_value":-1.0)
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":3,"axis_value":-1.0,"script":null)
 ]
 }
 hub_look_down={
 "deadzone": 0.2,
-"events": [Object(InputEventJoypadMotion,"device":-1,"axis":3,"axis_value":1.0)
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":3,"axis_value":1.0,"script":null)
 ]
 }
 move_left={

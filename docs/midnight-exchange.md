@@ -209,3 +209,49 @@ The reusable **NorthQuayWarehouse** exterior now stands beyond the north wall at
 framing, warm windows, loading doors and a slate roof. Its collision stays outside
 the courtyard, and its windows add no gameplay lights. See [the warehouse guide](stone-warehouse.md)
 for the editable Blender source, Godot scene and verification commands.
+
+## Interaction polish and artist workbook
+
+Midnight Exchange is the project startup scene again. HUD and Styled HUD modes
+show a bottom-center prompt near a station or bell. Prompts include the action,
+hold percentage, prerequisite, guard-clearance reason, or bell cooldown. Keyboard
+and controller labels follow the last input device. Actions and prompts both
+require proximity and a clear ray through cover. Hidden HUD modes hide prompts.
+
+Each station and bell receives a warm surface shimmer: a 0.75-second diagonal
+sweep every five seconds. It respects depth, pauses with gameplay, and adds no
+illumination or stealth exposure. Completed stations stop shimmering. Locked
+stations still shimmer; proximity text explains their prerequisite.
+
+The audio-alert artwork appears for 2.5 seconds when a guard accepts a sound
+investigation: YOU WERE HEARD for Rook's noise, BELL HEARD for distractions.
+Inaudible or rejected sounds do not trigger it. Both HUD styles receive events.
+The eye remains visual suspicion/chase/search feedback; hearing alone does not
+fill it. The audio icon reports an event, not the duration of the guard's search.
+
+`art/MidnightExchange/MidnightExchange_Interactables.blend` contains all six placed
+props as editable collections, in metres, with motion previews and START HERE text:
+
+| Object | Job | Moving part during use |
+| --- | --- | --- |
+| Manifest | Copy manifest, 1.8 seconds | TurningPage lifts and tilts |
+| Crank | Release vault mechanism, 2.2 seconds | CrankRotor turns wheel and crossbar |
+| NightSeal | Recover target, 2.6 seconds | Seal rotates and rises; disappears on completion in-game |
+| Bell_0, Bell_1, Bell_2 | Distract guards | Existing animated bell and clapper |
+
+The seal uses coin artwork but cannot auto-collect as an ordinary coin. The
+station controls its movement and completion. Interrupted station work resets
+motion and progress; completed stages persist for that attempt.
+
+This workbook is a snapshot, not a live link. Export and integrate replacements
+deliberately, preserving moving-part pivots and the bell's Ring action. The three
+bells share one design. Automatic extraction rings are not manually operated props;
+there are no separate loose coins in this saved level.
+
+Rebuild exports with `godot --headless --path . --script tools/export_exchange_interactables.gd`,
+then run Blender with `--python tools/build_exchange_interactables.py`. The builder
+refuses to overwrite an existing workbook unless passed `-- --replace`; preserve
+artist edits first.
+
+Focused verification: `godot --headless --path . --fixed-fps 60 --script tests/test_exchange_polish.gd`.
+With a native renderer, append `-- --preview` to capture `/tmp/exchange-polish.png`.

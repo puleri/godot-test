@@ -27,6 +27,14 @@ func _run() -> void:
 		camera.look_at(focus)
 		var bubble = guard._suspicion_bubble
 		_check(bubble._state == 0 and not bubble._anchor.visible, "Patrolling guard has no bubble")
+		bubble.show_audio_alert()
+		_check(bubble._audio_art.visible, "Heard sound displays artwork at the guard")
+		bubble.set_enabled(false)
+		_check(not bubble._audio_art.visible, "Hidden display mode hides audio artwork")
+		bubble.set_enabled(true)
+		bubble._audio_remaining = 0.01
+		bubble._process(0.02)
+		_check(not bubble._audio_art.visible, "Audio artwork expires")
 		guard.awareness = 0.1
 		guard._change_state(StealthGuard.GuardState.SUSPICIOUS)
 		var entrance: Tween = bubble._motion

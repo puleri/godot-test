@@ -41,6 +41,10 @@ var _result: PanelContainer
 var _result_title: Label
 var _result_detail: Label
 var _bell_audio: AudioStreamPlayer
+var _interaction_panel: PanelContainer
+var _interaction_label: Label
+var _interaction_art: TextureRect
+var _using_controller := false
 
 
 func _ready() -> void:
@@ -59,6 +63,11 @@ func _ready() -> void:
 	_hud_markers.append($Player/PlayerMarker)
 	_apply_display_mode()
 	_build_bell_audio()
+	_build_interaction_prompt()
+	for target in $Stations.get_children() + $Bells.get_children():
+		var shimmer := preload("res://scripts/exchange_shimmer.gd").new()
+		target.add_child(shimmer)
+		shimmer.setup(target)
 	region.bake_navigation_mesh(false)
 	await get_tree().physics_frame
 	await get_tree().physics_frame
@@ -126,6 +135,10 @@ func _configure_ground_lighting() -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if event is InputEventJoypadButton or (event is InputEventJoypadMotion and absf(event.axis_value) > 0.25):
+		_using_controller = true
+	elif event is InputEventKey or event is InputEventMouseButton:
+		_using_controller = false
 	# Handle Tab before GUI focus navigation, including while the result is shown.
 	if event.is_action_pressed("toggle_vision"):
 		display_mode = ((display_mode + 1) % DisplayMode.size()) as DisplayMode
@@ -181,8 +194,9 @@ func _process(delta: float) -> void:
 	var arrow: String = arrows[posmod(roundi(direction.angle() / (PI / 4)), 8)]
 	_objective.text = descriptions[stage] + "   /   %dm %s" % [roundi(Vector2(offset.x, offset.z).length()), arrow]
 	_update_interaction(delta)
+	_update_interaction_prompt()
 	for bell in $Bells.get_children():
-		var nearby: bool = bell.position.distance_to(player.position) < 2.3
+		var nearby: bool = _can_reach(bell, 2.3)
 		bell.get_node("Caption").text = "Q / RING BELL" if nearby and bell_cooldown <= 0 else ("BELL / %.0fs" % ceilf(bell_cooldown) if bell_cooldown > 0 else "NOISE BELL")
 		var pulse: MeshInstance3D = bell.get_node("Pulse")
 		if pulse.visible:
@@ -199,7 +213,7 @@ func _update_interaction(delta: float, holding := Input.is_action_pressed("inter
 		var station = $Stations.get_child(i)
 		if station.completed:
 			continue
-		var nearby: bool = station.position.distance_to(player.position) < 1.8
+		var nearby: bool = _can_reach(station, 1.8)
 		var clear: bool = station.guard_is_clear() and not under_pursuit()
 		if i == stage and nearby and clear and holding:
 			if station.advance(delta):
@@ -213,7 +227,7 @@ func ring_nearest_bell() -> bool:
 		return false
 	var nearest: Node3D
 	for bell in $Bells.get_children():
-		if bell.position.distance_to(player.position) < 2.3 and (nearest == null or bell.position.distance_to(player.position) < nearest.position.distance_to(player.position)):
+		if _can_reach(bell, 2.3) and (nearest == null or bell.position.distance_to(player.position) < nearest.position.distance_to(player.position)):
 			nearest = bell
 	if nearest == null:
 		return false
@@ -221,7 +235,8 @@ func ring_nearest_bell() -> bool:
 	_bell_audio.play()
 	nearest.get_node("Visual").ring()
 	for guard in guards:
-		guard.investigate_noise(nearest.global_position)
+		if guard.investigate_noise(nearest.global_position):
+			_notify_heard("BELL")
 	var pulse: MeshInstance3D = nearest.get_node("Pulse")
 	pulse.scale = Vector3.ONE
 	pulse.show()
@@ -244,6 +259,7 @@ func _end_run(won: bool) -> void:
 	if finished:
 		return
 	finished = true
+	_interaction_panel.hide()
 	_alert_eye.freeze()
 	_styled_hud.get_node("Control/EyeAnchor/AlertEye").freeze()
 	player.set_interaction_locked(true)
@@ -355,7 +371,8 @@ func _on_noise_emitted(at: Vector3, audible_radius: float, kind: String) -> void
 	if finished:
 		return
 	for guard in guards:
-		guard.hear_sound(at, audible_radius, kind)
+		if guard.hear_sound(at, audible_radius, kind):
+			_notify_heard(kind)
 
 
 func _start_opening_dialogue() -> void:
@@ -396,3 +413,84 @@ func _layout_dialogue(screen: Control) -> void:
 	var fit := minf((screen.size.x - 48.0) / 1667.0, 0.77)
 	_dialogue.scale = Vector2.ONE * fit
 	_dialogue.position = Vector2(screen.size.x * 0.5, screen.size.y - 300.0 * fit)
+
+
+func _notify_heard(kind: String) -> void:
+	_alert_eye.notify_heard(kind)
+	_styled_hud.get_node("Control/EyeAnchor/AlertEye").notify_heard(kind)
+
+
+func _can_reach(target: Node3D, radius: float) -> bool:
+	if target.global_position.distance_to(player.global_position) >= radius:
+		return false
+	var query := PhysicsRayQueryParameters3D.create(player.global_position + Vector3.UP * 0.6, target.global_position + Vector3.UP * 0.6, guards[0].sight_blocker_mask)
+	query.exclude = [player.get_rid()]
+	return get_world_3d().direct_space_state.intersect_ray(query).is_empty()
+
+
+func _build_interaction_prompt() -> void:
+	_interaction_panel = _panel(20, 12)
+	_hud_layer.get_child(0).add_child(_interaction_panel)
+	_interaction_panel.set_anchors_and_offsets_preset(Control.PRESET_CENTER_BOTTOM)
+	_interaction_panel.offset_left = -240
+	_interaction_panel.offset_right = 240
+	_interaction_panel.offset_top = -196
+	_interaction_panel.offset_bottom = -82
+	_interaction_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_interaction_panel.add_theme_stylebox_override("panel", StyleBoxEmpty.new())
+	var content := VBoxContainer.new()
+	content.add_theme_constant_override("separation", 8)
+	_interaction_panel.add_child(content)
+	_interaction_art = TextureRect.new()
+	_interaction_art.name = "PlayStationInteract"
+	_interaction_art.texture = preload("res://textures/ps-interact.png")
+	_interaction_art.custom_minimum_size = Vector2(292, 53)
+	_interaction_art.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	_interaction_art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_interaction_art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	_interaction_art.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	content.add_child(_interaction_art)
+	_interaction_art.hide()
+	_interaction_label = _label("", 20, Color("e9e3d7"))
+	_interaction_label.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.95))
+	_interaction_label.add_theme_constant_override("shadow_offset_x", 2)
+	_interaction_label.add_theme_constant_override("shadow_offset_y", 2)
+	_interaction_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	content.add_child(_interaction_label)
+	_interaction_panel.hide()
+
+
+func _update_interaction_prompt() -> void:
+	_interaction_panel.hide()
+	_interaction_art.hide()
+	if finished:
+		return
+	var lines: PackedStringArray = []
+	var use_key := "Circle" if _using_controller else "E"
+	var bell_key := "Triangle" if _using_controller else "Q"
+	for i in $Stations.get_child_count():
+		var station = $Stations.get_child(i)
+		if not _can_reach(station, 1.8):
+			continue
+		if station.completed:
+			lines.append(station.title + " — complete")
+		elif i != stage:
+			lines.append("Copy the manifest first" if stage == 0 else "Release the vault crank first")
+		elif under_pursuit():
+			lines.append("Break line of sight and lose pursuit first")
+		elif not station.guard_is_clear():
+			lines.append("Lure the Hound away from the crank")
+		else:
+			var progress_text := "  %d%%" % mini(100, roundi(station.progress / station.hold_seconds * 100)) if station.progress > 0 else ""
+			_interaction_art.visible = _using_controller
+			if _using_controller:
+				lines.append("HOLD — %s%s" % [station.title, progress_text])
+			else:
+				lines.append("Hold [%s]  %s%s" % [use_key, station.title, progress_text])
+		break
+	for bell in $Bells.get_children():
+		if _can_reach(bell, 2.3):
+			lines.append("Bell ready in %ds" % ceili(bell_cooldown) if bell_cooldown > 0 else "[%s]  Ring bell — draw guards here" % bell_key)
+			break
+	_interaction_label.text = "\n".join(lines)
+	_interaction_panel.visible = not lines.is_empty()

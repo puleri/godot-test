@@ -20,3 +20,4 @@ texture_progress = ExtResource("1_o5msl")
 tint_under = Color(0.76, 0.73947996, 0.7144, 0.078431375)
 tint_over = Color(1, 1, 1, 0)
 tint_progress = Color(0.75686276, 0.7372549, 0.7137255, 1)
+

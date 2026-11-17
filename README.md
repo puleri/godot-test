@@ -6,7 +6,7 @@ A tiny Godot starter project with a first playable Rook controller.
 
 1. Install Godot 4.7.2 and its matching export templates.
 2. Open this folder in Godot.
-3. Press Run. Phase 1 uses WASD/Arrow keys for cardinal platform movement and Space to jump. Touch the glowing chessboard to switch into third-person movement.
+3. Press Run to play Midnight Exchange. Sneak past the sorting mouse, copy the manifest, lure the Hound away from the vault crank, recover the night seal, and return to the blue arrival circle. Nearby prompts show keyboard/controller interactions. See `docs/midnight-exchange.md` for the encounter and editable prop workbook.
 
 ## PlayStation controller
 

@@ -6,6 +6,9 @@ enum OverlayState { CLEAR, PURSUIT, SEARCH }
 
 @onready var texture_progress_bar: TextureProgressBar = $TextureProgressBar
 
+var _hearing_seconds := 0.0
+var _hearing_caption: Label
+
 var _overlay_state := OverlayState.CLEAR
 var _overlay_tween: Tween
 var _pursuing_guards: Dictionary = {}
@@ -15,11 +18,26 @@ func _ready() -> void:
 	texture_progress_bar.step = 0.0
 	texture_progress_bar.value = 0.0
 	texture_progress_bar.tint_over.a = 0.0
+	_hearing_caption = Label.new()
+	_hearing_caption.position = Vector2(232, 160)
+	_hearing_caption.add_theme_font_size_override("font_size", 20)
+	add_child(_hearing_caption)
+	_hearing_caption.hide()
 	refresh()
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
+	_hearing_seconds = maxf(0.0, _hearing_seconds - delta)
+	_hearing_caption.visible = _hearing_seconds > 0.0
+	_hearing_caption.modulate.a = minf(1.0, _hearing_seconds / 0.35)
 	refresh()
+
+
+func notify_heard(kind: String) -> void:
+	_hearing_seconds = 2.5
+	_hearing_caption.text = "BELL HEARD" if kind == "BELL" else "YOU WERE HEARD"
+	_hearing_caption.show()
+	_hearing_caption.modulate.a = 1.0
 
 
 func refresh() -> void:

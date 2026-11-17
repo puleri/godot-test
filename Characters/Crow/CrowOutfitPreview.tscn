@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://Characters/Crow/crow_outfit_preview.gd" id="1_preview"]
+[ext_resource type="PackedScene" path="res://Characters/Crow/crow.glb" id="2_crow"]
+
+[sub_resource type="Environment" id="Environment_preview"]
+background_mode = 1
+background_color = Color(0.23, 0.26, 0.31, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.71, 0.76, 0.9, 1)
+ambient_light_energy = 0.83
+
+[sub_resource type="StandardMaterial3D" id="Material_floor"]
+albedo_color = Color(0.33, 0.36, 0.40, 1)
+roughness = 1.0
+
+[sub_resource type="PlaneMesh" id="Mesh_floor"]
+material = SubResource("Material_floor")
+size = Vector2(20, 20)
+
+[node name="CrowOutfitPreview" type="Node3D"]
+script = ExtResource("1_preview")
+
+[node name="Crow" parent="." instance=ExtResource("2_crow")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+position = Vector3(2.4, 1.44, -3.25)
+rotation = Vector3(-0.183, 2.524, 0)
+projection = 1
+size = 1.92
+current = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_preview")
+
+[node name="KeyLight" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-48, 145, 0)
+light_color = Color(1, 0.91, 0.80, 1)
+light_energy = 1.15
+shadow_enabled = true
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+position = Vector3(0, -0.003, 0)
+mesh = SubResource("Mesh_floor")
