@@ -151,36 +151,11 @@ func _station(parent: Node, title: String, action: String, at: Vector3, duration
 	source.free()
 	if title != "NightSeal":
 		station.get_node("Visual").free()
-		var visual = kit.group(station, "Visual")
-		if title == "Manifest":
-			_prop_box(visual, Vector3(1.1, 0.18, 0.8), Vector3(0, 0.7, 0), Color("63524a"))
-			_prop_box(visual, Vector3(0.65, 0.03, 0.52), Vector3(0, 0.81, 0), Color("f0d9a0"))
-			for side in [-1, 1]:
-				_prop_box(visual, Vector3(0.12, 0.7, 0.6), Vector3(side * 0.4, 0.35, 0), Color("63524a"))
-		else:
-			_prop_box(visual, Vector3(0.6, 0.9, 0.5), Vector3(0, 0.45, 0), Color("526875"))
-			var wheel := MeshInstance3D.new()
-			wheel.name = "Wheel"
-			var mesh := TorusMesh.new()
-			mesh.inner_radius = 0.26
-			mesh.outer_radius = 0.34
-			wheel.mesh = mesh
-			wheel.rotation.x = PI / 2
-			wheel.position = Vector3(0, 0.8, 0.3)
-			wheel.material_override = _glow(Color("e4bc77"))
-			visual.add_child(wheel)
-			_prop_box(visual, Vector3(0.5, 0.06, 0.06), Vector3(0, 0.8, 0.3), Color("e4bc77"))
+		var model := preload("res://Mesh/MidnightExchange/Manifest.glb") if title == "Manifest" else preload("res://Mesh/MidnightExchange/Crank.glb")
+		var visual := model.instantiate()
+		visual.name = "Visual"
+		station.add_child(visual)
 	return station
-
-
-func _prop_box(parent: Node3D, size: Vector3, at: Vector3, tint: Color) -> void:
-	var instance := MeshInstance3D.new()
-	var mesh := BoxMesh.new()
-	mesh.size = size
-	instance.mesh = mesh
-	instance.position = at
-	instance.material_override = _glow(tint)
-	parent.add_child(instance)
 
 
 func _exchange_guards(level: Node3D) -> void:

@@ -24,6 +24,9 @@
 [ext_resource type="PackedScene" path="res://scenes/backdrops/HarborBackdrop.tscn" id="22_backdrop"]
 [ext_resource type="PackedScene" path="res://Modules/Buildings/StoneWarehouse.tscn" id="23_warehouse"]
 
+[ext_resource type="PackedScene" path="res://Mesh/MidnightExchange/Manifest.glb" id="24_manifest"]
+[ext_resource type="PackedScene" path="res://Mesh/MidnightExchange/Crank.glb" id="25_crank"]
+
 [sub_resource type="NavigationMesh" id="NavigationMesh_4mltw"]
 geometry_parsed_geometry_type = 1
 geometry_collision_mask = 1
@@ -128,59 +131,9 @@ albedo_color = Color(1, 0.74, 0.31, 1)
 inner_radius = 0.7
 outer_radius = 0.78
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tht23"]
-shading_mode = 0
-albedo_color = Color(0.3882353, 0.32156864, 0.2901961, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_5cjm2"]
-size = Vector3(1.1, 0.18, 0.8)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_72ibk"]
-shading_mode = 0
-albedo_color = Color(0.9411765, 0.8509804, 0.627451, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_vwjji"]
-size = Vector3(0.65, 0.03, 0.52)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lr3t8"]
-shading_mode = 0
-albedo_color = Color(0.3882353, 0.32156864, 0.2901961, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_hkyr1"]
-size = Vector3(0.12, 0.7, 0.6)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ukl53"]
-shading_mode = 0
-albedo_color = Color(0.3882353, 0.32156864, 0.2901961, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_rpjdc"]
-size = Vector3(0.12, 0.7, 0.6)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wbrl3"]
 shading_mode = 0
 albedo_color = Color(1, 0.74, 0.31, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4m1dj"]
-shading_mode = 0
-albedo_color = Color(0.32156864, 0.40784314, 0.45882353, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_xo5lc"]
-size = Vector3(0.6, 0.9, 0.5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1vdbg"]
-shading_mode = 0
-albedo_color = Color(0.89411765, 0.7372549, 0.46666667, 1)
-
-[sub_resource type="TorusMesh" id="TorusMesh_jg6d6"]
-inner_radius = 0.26
-outer_radius = 0.34
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5kdqx"]
-shading_mode = 0
-albedo_color = Color(0.89411765, 0.7372549, 0.46666667, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_jvp8m"]
-size = Vector3(0.5, 0.06, 0.06)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttgyr"]
 shading_mode = 0
@@ -5058,27 +5011,7 @@ text = "CARGO SEAL"
 font_size = 28
 outline_size = 8
 
-[node name="Visual" type="Node3D" parent="Stations/Manifest" unique_id=1105313428]
-
-[node name="@MeshInstance3D@2" type="MeshInstance3D" parent="Stations/Manifest/Visual" unique_id=790387153]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
-material_override = SubResource("StandardMaterial3D_tht23")
-mesh = SubResource("BoxMesh_5cjm2")
-
-[node name="@MeshInstance3D@3" type="MeshInstance3D" parent="Stations/Manifest/Visual" unique_id=989049039]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.81, 0)
-material_override = SubResource("StandardMaterial3D_72ibk")
-mesh = SubResource("BoxMesh_vwjji")
-
-[node name="@MeshInstance3D@4" type="MeshInstance3D" parent="Stations/Manifest/Visual" unique_id=1598757962]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.35, 0)
-material_override = SubResource("StandardMaterial3D_lr3t8")
-mesh = SubResource("BoxMesh_hkyr1")
-
-[node name="@MeshInstance3D@5" type="MeshInstance3D" parent="Stations/Manifest/Visual" unique_id=1399248409]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.35, 0)
-material_override = SubResource("StandardMaterial3D_ukl53")
-mesh = SubResource("BoxMesh_rpjdc")
+[node name="Visual" parent="Stations/Manifest" instance=ExtResource("24_manifest")]
 
 [node name="Crank" type="Node3D" parent="Stations" unique_id=1428594127]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
@@ -5101,22 +5034,7 @@ text = "CARGO SEAL"
 font_size = 28
 outline_size = 8
 
-[node name="Visual" type="Node3D" parent="Stations/Crank" unique_id=1008616043]
-
-[node name="@MeshInstance3D@6" type="MeshInstance3D" parent="Stations/Crank/Visual" unique_id=1561409926]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
-material_override = SubResource("StandardMaterial3D_4m1dj")
-mesh = SubResource("BoxMesh_xo5lc")
-
-[node name="Wheel" type="MeshInstance3D" parent="Stations/Crank/Visual" unique_id=219735603]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.8, 0.3)
-material_override = SubResource("StandardMaterial3D_1vdbg")
-mesh = SubResource("TorusMesh_jg6d6")
-
-[node name="@MeshInstance3D@7" type="MeshInstance3D" parent="Stations/Crank/Visual" unique_id=707221364]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0.3)
-material_override = SubResource("StandardMaterial3D_5kdqx")
-mesh = SubResource("BoxMesh_jvp8m")
+[node name="Visual" parent="Stations/Crank" instance=ExtResource("25_crank")]
 
 [node name="NightSeal" type="Node3D" parent="Stations" unique_id=1510280433]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14)

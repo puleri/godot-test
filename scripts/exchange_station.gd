@@ -20,22 +20,9 @@ func prepare_visuals() -> void:
 		return
 	var visual := get_node("Visual") as Node3D
 	if name == "Manifest":
-		moving_part = visual.get_child(1) as Node3D
-		moving_part.name = "TurningPage"
+		moving_part = visual.find_child("TurningPage", true, false)
 	elif name == "Crank":
-		var wheel := visual.get_node("Wheel") as Node3D
-		var handle := visual.get_child(2) as Node3D
-		moving_part = Node3D.new()
-		moving_part.name = "CrankRotor"
-		moving_part.position = wheel.position
-		visual.add_child(moving_part)
-		for part in [wheel, handle]:
-			var local: Transform3D = part.transform
-			part.owner = null
-			visual.remove_child(part)
-			moving_part.add_child(part)
-			part.transform = local
-			part.position -= moving_part.position
+		moving_part = visual.find_child("CrankRotor", true, false)
 	else:
 		# This objective uses coin art, but must never auto-collect on contact.
 		visual.set_process(false)
