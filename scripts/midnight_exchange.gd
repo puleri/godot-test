@@ -4,6 +4,9 @@ extends Node3D
 signal ready_for_play
 enum DisplayMode { HUD_ONLY, HUD_AND_VISION, VISION_ONLY, HIDDEN, STYLED_HUD }
 
+const SignatureForgery := preload("res://Modules/Gameplay/SignatureForgery/signature_forgery.gd")
+const STATION_REACH := 1.8
+
 @export var readable_lamp_ground := true
 @export var play_opening_dialogue := true
 @export var play_establishing_shot := true
@@ -28,6 +31,7 @@ var _world_labels: Array[Node] = []
 var _hud_markers: Array[Node] = []
 @onready var player: CharacterBody3D = $Player
 @onready var region: NavigationRegion3D = $NavigationRegion3D
+@onready var _manifest = $Stations/Manifest
 var guards: Array[StealthGuard] = []
 var stage := 0
 var finished := false
@@ -45,6 +49,9 @@ var _interaction_panel: PanelContainer
 var _interaction_label: Label
 var _interaction_art: TextureRect
 var _using_controller := false
+var _signature: SignatureForgery
+var _studied_signature := false
+var _wait_for_interact_release := false
 
 
 func _ready() -> void:
@@ -139,6 +146,7 @@ func _input(event: InputEvent) -> void:
 		_using_controller = true
 	elif event is InputEventKey or event is InputEventMouseButton:
 		_using_controller = false
+	_signature.using_controller = _using_controller
 	# Handle Tab before GUI focus navigation, including while the result is shown.
 	if event.is_action_pressed("toggle_vision"):
 		display_mode = ((display_mode + 1) % DisplayMode.size()) as DisplayMode
@@ -152,6 +160,8 @@ func _apply_display_mode() -> void:
 	var vision_visible := display_mode in [DisplayMode.HUD_AND_VISION, DisplayMode.VISION_ONLY]
 	# The shared result panel remains available in either HUD option.
 	_hud_layer.visible = hud_visible or styled_visible
+	if not _hud_layer.visible and _signature.view != SignatureForgery.View.CLOSED:
+		_tuck_signature()
 	_styled_hud.visible = styled_visible
 	for control in _standard_hud_controls:
 		control.visible = hud_visible
@@ -166,12 +176,18 @@ func _apply_display_mode() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if _signature.view != SignatureForgery.View.CLOSED and _signature.handle_input(event):
+		get_viewport().set_input_as_handled()
+		return
 	if not event.is_pressed() or event.is_echo():
 		return
 	if event.is_action_pressed("restart"):
 		get_tree().reload_current_scene()
 	elif event.is_action_pressed("secondary_action"):
 		ring_nearest_bell()
+	elif event.is_action_pressed("interact") and stage == 0 and not finished:
+		if _try_open_signature():
+			get_viewport().set_input_as_handled()
 
 
 func _process(delta: float) -> void:
@@ -185,7 +201,7 @@ func _process(delta: float) -> void:
 			threat = guard
 	_guard_label.text = threat.guard_title + " / " + threat.state_name()
 	_guard_label.modulate = threat.state_color()
-	var descriptions := ["01 / COPY THE SORTING MANIFEST", "02 / RELEASE THE VAULT CRANK", "03 / RECOVER THE NIGHT SEAL", "04 / RETURN TO THE BLUE EXIT"]
+	var descriptions := ["01 / STUDY THE CLERK’S SIGNATURE", "02 / RELEASE THE VAULT CRANK", "03 / RECOVER THE NIGHT SEAL", "04 / RETURN TO THE BLUE EXIT"]
 	var destination: Vector3 = $Extraction.position if stage == 3 else $Stations.get_child(stage).position
 	var offset := destination - player.position
 	var camera: Camera3D = $LevelCamera
@@ -193,6 +209,11 @@ func _process(delta: float) -> void:
 	var arrows := ["→", "↘", "↓", "↙", "←", "↖", "↑", "↗"]
 	var arrow: String = arrows[posmod(roundi(direction.angle() / (PI / 4)), 8)]
 	_objective.text = descriptions[stage] + "   /   %dm %s" % [roundi(Vector2(offset.x, offset.z).length()), arrow]
+	if stage == 0 and _studied_signature:
+		_objective.text = "01 / FORGE THE SIGNATURE FROM COVER"
+	if _signature.view != SignatureForgery.View.CLOSED:
+		if under_pursuit() or (_signature.view == SignatureForgery.View.MANUSCRIPT and not _can_reach(_manifest, STATION_REACH)):
+			_tuck_signature()
 	_update_interaction(delta)
 	_update_interaction_prompt()
 	for bell in $Bells.get_children():
@@ -209,17 +230,68 @@ func _process(delta: float) -> void:
 
 
 func _update_interaction(delta: float, holding := Input.is_action_pressed("interact")) -> void:
-	for i in $Stations.get_child_count():
+	if _wait_for_interact_release:
+		_wait_for_interact_release = holding
+		return
+	for i in range(1, $Stations.get_child_count()):
 		var station = $Stations.get_child(i)
 		if station.completed:
 			continue
-		var nearby: bool = _can_reach(station, 1.8)
+		var nearby: bool = _can_reach(station, STATION_REACH)
 		var clear: bool = station.guard_is_clear() and not under_pursuit()
 		if i == stage and nearby and clear and holding:
 			if station.advance(delta):
 				stage += 1
 		else:
 			station.reset_progress()
+
+
+func _try_open_signature() -> bool:
+	if not _hud_layer.visible or under_pursuit():
+		return false
+	if _can_reach(_manifest, STATION_REACH):
+		_studied_signature = true
+		_manifest.set_manifest_open(true)
+		_signature.present(SignatureForgery.View.MANUSCRIPT)
+	elif _studied_signature and _has_forgery_cover():
+		_signature.present(SignatureForgery.View.DRAFT)
+	else:
+		return false
+	_interaction_panel.hide()
+	player.set_interaction_locked(true)
+	return true
+
+
+func _has_forgery_cover() -> bool:
+	if exposure_sensor.exposure < exposure_sensor.hidden_threshold:
+		return true
+	var target_position := player.global_position
+	for guard in guards:
+		var eye := guard.global_position + Vector3.UP * guard.eye_height
+		var target := target_position + guard.player_sight_offset
+		if not guard.active or eye.distance_squared_to(target) > guard.sight_range * guard.sight_range:
+			continue
+		var query := PhysicsRayQueryParameters3D.create(eye, target, guard.sight_blocker_mask)
+		query.exclude = [guard.get_rid(), player.get_rid()]
+		if get_world_3d().direct_space_state.intersect_ray(query).is_empty():
+			return false
+	return true
+
+
+func _tuck_signature() -> void:
+	if _signature.view == SignatureForgery.View.MANUSCRIPT:
+		_manifest.set_manifest_open(false)
+	_signature.dismiss()
+	player.set_interaction_locked(false)
+
+
+func _complete_signature() -> void:
+	_tuck_signature()
+	if under_pursuit():
+		return
+	_manifest.mark_completed()
+	_wait_for_interact_release = true
+	stage = 1
 
 
 func ring_nearest_bell() -> bool:
@@ -260,13 +332,15 @@ func _end_run(won: bool) -> void:
 		return
 	finished = true
 	_interaction_panel.hide()
+	if _signature.view != SignatureForgery.View.CLOSED:
+		_tuck_signature()
 	_alert_eye.freeze()
 	_styled_hud.get_node("Control/EyeAnchor/AlertEye").freeze()
 	player.set_interaction_locked(true)
 	for guard in guards:
 		guard.active = false
 	_result_title.text = "The midnight exchange is complete." if won else "Caught on the night shift."
-	_result_detail.text = ("Manifest copied. Vault released. Night seal recovered.\nTime / %d:%02d" % [int(elapsed) / 60, int(elapsed) % 60] if won else "Use the bell to move the Hound. Stone screens break sight.\nMice turn quickly, but their patrol pauses give you an opening.") + "\n\nR / restart"
+	_result_detail.text = ("Signature forged. Vault released. Night seal recovered.\nTime / %d:%02d" % [int(elapsed) / 60, int(elapsed) % 60] if won else "Use the bell to move the Hound. Stone screens break sight.\nMice turn quickly, but their patrol pauses give you an opening.") + "\n\nR / restart"
 	_result.show()
 
 
@@ -309,7 +383,7 @@ func _build_hud() -> void:
 	footer.offset_bottom = -24
 	screen.add_child(footer)
 	_standard_hud_controls.append(footer)
-	footer.add_child(_label("WASD / ARROWS  move     SHIFT  slow walk     SPACE  jump     E  hold to work     Q  nearby bell     TAB  HUD / vision / styled HUD     R  restart", 12, Color("91a9b7")))
+	footer.add_child(_label("WASD / ARROWS  move     SHIFT  slow walk     SPACE  jump     E  interact / hold to work     Q  nearby bell     TAB  HUD / vision / styled HUD     R  restart", 12, Color("91a9b7")))
 	_result = _panel()
 	_result.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
 	_result.position = Vector2(-330, -100)
@@ -322,6 +396,14 @@ func _build_hud() -> void:
 	result_box.add_child(_result_title)
 	result_box.add_child(_result_detail)
 	_result.hide()
+	var signature_layer := CanvasLayer.new()
+	signature_layer.layer = 5 # Above guard suspicion bubbles.
+	add_child(signature_layer)
+	_signature = SignatureForgery.new()
+	signature_layer.add_child(_signature)
+	_signature.tuck_away_requested.connect(_tuck_signature)
+	_signature.signature_forged.connect(_complete_signature)
+	_manifest.set_manifest_signature(_signature.source_ink)
 
 
 func _label(text: String, size: int, tint := Color("e9ede9")) -> Label:
@@ -463,21 +545,24 @@ func _build_interaction_prompt() -> void:
 func _update_interaction_prompt() -> void:
 	_interaction_panel.hide()
 	_interaction_art.hide()
-	if finished:
+	if finished or _signature.view != SignatureForgery.View.CLOSED:
 		return
 	var lines: PackedStringArray = []
 	var use_key := "Circle" if _using_controller else "E"
 	var bell_key := "Triangle" if _using_controller else "Q"
 	for i in $Stations.get_child_count():
 		var station = $Stations.get_child(i)
-		if not _can_reach(station, 1.8):
+		if not _can_reach(station, STATION_REACH):
 			continue
 		if station.completed:
 			lines.append(station.title + " — complete")
 		elif i != stage:
-			lines.append("Copy the manifest first" if stage == 0 else "Release the vault crank first")
+			lines.append("Forge the manifest signature first" if stage == 0 else "Release the vault crank first")
 		elif under_pursuit():
 			lines.append("Break line of sight and lose pursuit first")
+		elif station == _manifest:
+			_interaction_art.visible = _using_controller
+			lines.append("[%s]  Study the signature" % use_key)
 		elif not station.guard_is_clear():
 			lines.append("Lure the Hound away from the crank")
 		else:
@@ -488,6 +573,14 @@ func _update_interaction_prompt() -> void:
 			else:
 				lines.append("Hold [%s]  %s%s" % [use_key, station.title, progress_text])
 		break
+	if stage == 0 and _studied_signature and not _can_reach(_manifest, STATION_REACH):
+		if under_pursuit():
+			lines.append("Lose pursuit before forging")
+		elif _has_forgery_cover():
+			_interaction_art.visible = _using_controller
+			lines.append("[%s]  Forge the signature" % use_key)
+		else:
+			lines.append("Find cover to forge the signature")
 	for bell in $Bells.get_children():
 		if _can_reach(bell, 2.3):
 			lines.append("Bell ready in %ds" % ceili(bell_cooldown) if bell_cooldown > 0 else "[%s]  Ring bell — draw guards here" % bell_key)

@@ -1,0 +1,19 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://Modules/Gameplay/CargoSeal.tscn" id="seal"]
+
+[node name="NightSeal" instance=ExtResource("seal")]
+monitoring = false
+display_name = "NIGHT SEAL"
+hovering = false
+
+[node name="Visual" parent="." index="1"]
+position = Vector3(0, 0.652, 0.012)
+rotation = Vector3(0.52, 0.10, 1.5707963)
+scale = Vector3(0.43, 0.43, 0.43)
+
+[node name="Ring" parent="." index="2"]
+visible = false
+
+[node name="Caption" parent="." index="3"]
+visible = false

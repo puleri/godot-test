@@ -3,8 +3,8 @@
 Open `Levels/MidnightExchange.tscn` in Godot and press **F6**. This is a new,
 editable level; the existing demo and harbor scenes remain available.
 
-Move with WASD/arrows, slow walk with Shift, jump with Space, hold E to work at
-the current objective, and press Q near a gold bell to make a distraction.
+Move with WASD/arrows, slow walk with Shift, jump with Space, press E to interact
+(hold for the crank and seal), and press Q near a gold bell to make a distraction.
 Tab cycles **HUD only → HUD + guard vision → guard vision only → everything hidden → Styled HUD**,
 then returns to HUD only (the default). Hidden HUD includes all screen panels,
 result messages, floating labels, player/objective/exit rings, and bell pulses. Guard
@@ -24,8 +24,12 @@ crank wings, two doors into the vault gallery, and solid screens that make
 circuits for escaping pursuit. There is no global deadline. The medium
 challenge comes from choosing an opening and spending time exposed at a task.
 
-1. Copy the west-wing manifest: hold E for 1.8 seconds while the sorting mouse
-   looks away. Its two-second pauses display a countdown.
+1. Forge the sorting clerk’s signature. At the west-wing desk, press E or Circle
+   to study the four ink strokes at the bottom right of the manuscript. Tuck it
+   away, move into shadow or behind solid cover, and press E or Circle to open
+   the draft. Select strokes with ←/→ or the stick/D-pad and ink each with E or
+   Circle. Press E or Circle again once all four strokes are in place to submit.
+   Space or Cross undoes the last stroke. Q or Triangle tucks the draft away.
 2. Release the east-wing vault crank: hold E for 2.2 seconds. The Hound's whole
    normal circuit stays within five metres of the crank, so waiting for the
    patrol alone does not clear it. Ring the east bell, go around the screen's
@@ -35,9 +39,15 @@ challenge comes from choosing an opening and spending time exposed at a task.
    central screen; time its turn or use the gallery bell to move it.
 4. Return to the blue arrival circle with no guard seeing or chasing Rook.
 
-Work resets when E is released, Rook leaves, a guard sees Rook, or a chase is
-active. Completed stages persist for the current attempt. Rook can recover
-from a sighting by breaking sight and moving away from the last seen position.
+The manuscript uses one of six handwritten signatures per run. Each look at the
+desk shows the same signature. Guards keep moving during both views and a
+sighting closes the panel. Draft ink persists when the panel closes. A wrong
+submission can be edited in cover or checked against the original at the desk.
+
+Crank and seal progress resets when E is released, Rook leaves, a guard sees
+Rook, or a chase is active. Completed stages persist for the current attempt.
+Rook can recover from a sighting by breaking sight and moving away from the
+last seen position.
 
 ## Mouse guards and distractions
 
@@ -87,11 +97,11 @@ Rebuilding replaces only `Levels/MidnightExchange.tscn`; save a hand-edited
 variant under a different name first. The new scripts extend the existing
 stealth controllers without changing the ambient NPCs or earlier encounters.
 
-The 49 integration assertions exercise all five display modes, styled coin
+The integration assertions exercise all five display modes, styled coin
 collection, frozen eye feedback, and hidden results,
 saved-scene navigation, every patrol
 corner, physical movement through the full route, real mouse vision and
-capture, ordered/interruptible work, a physical kite around the live Hound,
+capture, interruptible signature forgery, a physical kite around the live Hound,
 noise investigation and cooldown, extraction, restart, and camera following.
 They do not establish a human difficulty rating; medium is the intended tuning
 and should be refined with playtesting. Godot may print the existing macOS
@@ -234,14 +244,14 @@ props as editable collections, in metres, with motion previews and START HERE te
 
 | Object | Job | Moving part during use |
 | --- | --- | --- |
-| Manifest | Copy manifest, 1.8 seconds | TurningPage lifts and tilts |
+| Manifest | Study and forge the clerk’s signature | TurningPage lifts while studying |
 | Crank | Release vault mechanism, 2.2 seconds | CrankRotor turns wheel and crossbar |
 | NightSeal | Recover target, 2.6 seconds | Seal rotates and rises; disappears on completion in-game |
 | Bell_0, Bell_1, Bell_2 | Distract guards | Existing animated bell and clapper |
 
 The seal uses coin artwork but cannot auto-collect as an ordinary coin. The
-station controls its movement and completion. Interrupted station work resets
-motion and progress; completed stages persist for that attempt.
+station controls its movement and completion. Interrupted timed work resets
+motion and progress. Completed stages persist for that attempt.
 
 This workbook is a snapshot, not a live link. Export and integrate replacements
 deliberately, preserving moving-part pivots and the bell's Ring action. The three

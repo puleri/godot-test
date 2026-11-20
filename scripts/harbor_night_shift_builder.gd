@@ -14,6 +14,7 @@ const LEVEL_SCRIPT = preload("res://scripts/harbor_night_shift.gd")
 const PLAYER_SCRIPT = preload("res://scripts/harbor_stealth_player.gd")
 const GUARD_SCRIPT = preload("res://scripts/stealth_guard.gd")
 var kit = KIT.new()
+var wall_asset: PackedScene = WALL
 
 
 func build_room(title: String, width: int, depth: int) -> Node3D:
@@ -179,7 +180,7 @@ func _wall_span(parent: Node, start: Vector3, direction: Vector3, length: float,
 		if low:
 			kit.rail(parent, at, direction, segment)
 		else:
-			var piece = kit.visual(parent, WALL, at, Vector3(segment, 2.6, 0.6))
+			var piece = kit.visual(parent, wall_asset, at, Vector3(segment, 2.6, 0.6))
 			piece.rotation.y = atan2(-direction.z, direction.x)
 			kit.box(piece, Vector3(segment, 2.6, 0.6), Vector3(0, 1.3, 0))
 		used += segment
@@ -195,7 +196,7 @@ func _cap(room: Node3D, port_name: String, low := false) -> void:
 
 
 func _cover_wall(parent: Node, title: String, at: Vector3, length: float, yaw := 0.0) -> void:
-	var piece = kit.visual(parent, WALL, at, Vector3(length, 2.25, 0.8))
+	var piece = kit.visual(parent, wall_asset, at, Vector3(length, 2.25, 0.8))
 	piece.name = title
 	piece.rotation.y = yaw
 	kit.box(piece, Vector3(length, 2.25, 0.8), Vector3(0, 1.125, 0))

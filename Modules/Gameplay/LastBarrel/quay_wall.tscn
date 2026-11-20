@@ -1,0 +1,19 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://Mesh/Harboretum-Mesh/habor_wall_4.tscn" id="wall"]
+
+[sub_resource type="StandardMaterial3D" id="Mortar"]
+resource_name = "Lime mortar"
+albedo_color = Color(0.129, 0.132, 0.141, 1)
+roughness = 0.95
+
+[sub_resource type="StandardMaterial3D" id="Stone"]
+resource_name = "Quayside granite"
+albedo_color = Color(0.187, 0.18, 0.18, 1)
+roughness = 0.89
+
+[node name="QuayWall" instance=ExtResource("wall")]
+
+[node name="HarborWall-4" parent="." index="0"]
+surface_material_override/0 = SubResource("Mortar")
+surface_material_override/1 = SubResource("Stone")

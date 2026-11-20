@@ -4,11 +4,23 @@ const ControllerInput = preload("res://scripts/controller_input.gd")
 const ProceduralPose = preload("res://Characters/Crow/crow_procedural_pose.gd")
 const OutfitMotion = preload("res://Characters/Crow/crow_outfit_motion.gd")
 
+const BeakAndWing = preload("res://Characters/Crow/crow_beak_and_wing.gd")
+
+## Dialogue or voice playback can animate this value independently on each actor.
+@export_range(0.0, 1.0) var speech_openness := 0.0:
+	set(value):
+		speech_openness = clampf(value, 0, 1)
+		if performance:
+			performance.speech_openness = speech_openness
+
+var performance: BeakAndWing
+
 const WALK_SPEED := 1.35
 const SPRINT_SPEED := WALK_SPEED * 1.5
 const ACCELERATION := 5.8
+const AIR_ACCELERATION := 2.6
 const BRAKING := 7.5
-const PIVOT_RADIUS := 0.47
+const PIVOT_RADIUS := 0.51
 const JUMP_SPEED := 3.6
 const JUMP_SQUAT_TIME := 0.10
 const LANDING_BRACE_TIME := 0.09
@@ -43,6 +55,9 @@ func _ready() -> void:
 	_pose.model_forward = Vector3.FORWARD
 	_pose.foot_placement.toe_probe_distance = 0.14
 	_pose.cape_motion_enabled = false
+	_pose.max_lean_degrees = 10.0
+	_pose.lean_response = 16.0
+	_pose.support_shift_strength = 1.45
 	_pose.full_landing_speed = 5.0
 	_pose.landing_compression = 0.30
 	_pose.landing_response = 18.0
@@ -54,6 +69,10 @@ func _ready() -> void:
 	outfit.satchel_drag = 0.50
 	outfit.influence = 0.72
 	skeleton.add_child(outfit)
+	performance = BeakAndWing.new()
+	performance.name = "BeakAndWing"
+	performance.speech_openness = speech_openness
+	skeleton.add_child(performance)
 	animation.play(&"Idle")
 	animation.advance(0.0)
 
@@ -90,23 +109,18 @@ func _move(direction: Vector3, jumped: bool, delta: float) -> void:
 	var top_speed := SPRINT_SPEED if sprinting else WALK_SPEED
 	var preparing := _jump_squat_elapsed >= 0.0
 	var braced := was_grounded and not jumped and (preparing or _landing_brace_remaining > 0.0)
-	# Load both legs before jumping and briefly absorb the landing.
-	var yaw_step := 0.0
 	if direction.length_squared() > 0.001:
 		_facing = atan2(-direction.x, -direction.z)
+	var opposing_speed := maxf(-planar.dot(direction.normalized()), 0.0) / top_speed
+	var yaw_step := _pose.advance_heading(visual.rotation.y, _facing, opposing_speed, was_grounded, braced, delta)
+	visual.rotation.y += yaw_step
 	var yaw_error := angle_difference(visual.rotation.y, _facing)
-	if not braced:
-		# A loaded leg first brakes the old stride before the hips can swing around.
-		var opposing_speed := maxf(-planar.dot(direction), 0.0) / top_speed
-		yaw_step = ProceduralPose.pivot_step(yaw_error, opposing_speed, delta)
-		visual.rotation.y += yaw_step
-	var follow := 1.0 - exp(-12.0 * delta)
-	_pose.turn_head_offset = lerpf(_pose.turn_head_offset, clampf(yaw_error * 0.42, -0.48, 0.48), follow)
-	_pose.turn_chest_offset = lerpf(_pose.turn_chest_offset, clampf(yaw_error * 0.16, -0.17, 0.17), follow)
 	# Shed momentum on the old heading before pushing off toward the new one.
-	var alignment := smoothstep(0.25, 0.94, cos(yaw_error - yaw_step)) if was_grounded else 1.0
+	var alignment := smoothstep(0.25, 0.94, cos(yaw_error)) if was_grounded else 1.0
 	var desired := direction * top_speed * alignment
-	var rate := BRAKING if planar.dot(desired - planar) < 0.0 else ACCELERATION
+	var rate := AIR_ACCELERATION
+	if was_grounded:
+		rate = BRAKING if planar.dot(desired - planar) < 0.0 else ACCELERATION
 	planar = Vector3.ZERO if braced else planar.move_toward(desired, rate * delta)
 	velocity.x = planar.x
 	velocity.z = planar.z
@@ -148,8 +162,7 @@ func _move(direction: Vector3, jumped: bool, delta: float) -> void:
 		var beat := 0.6 - 0.4 * cos(TAU * _pose.foot_placement.phase)
 		spread = deg_to_rad(sprint_wing_degrees) * effort * beat
 	_pose.wing_spread = lerpf(_pose.wing_spread, spread, 1.0 - exp(-22.0 * delta))
-	var turn_load := 0.055 * clampf(absf(yaw_rate) / ProceduralPose.TURN_RATE, 0.0, 1.0)
-	_pose.takeoff_squat = maxf(turn_load if grounded else 0.0, 0.19 * smoothstep(0.0, JUMP_SQUAT_TIME, _jump_squat_elapsed))
+	_pose.takeoff_squat = maxf(_pose.turn_load if grounded else 0.0, 0.19 * smoothstep(0.0, JUMP_SQUAT_TIME, _jump_squat_elapsed))
 	_pose.foot_placement.hold_contacts = grounded and (braced or _landing_brace_remaining > 0.0)
 	_pose.update_motion(delta, travel, grounded, impact, top_speed, ACCELERATION)
 

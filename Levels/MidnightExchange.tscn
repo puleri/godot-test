@@ -4995,7 +4995,7 @@ sample_offsets = PackedVector3Array(0, 0.1, 0, 0, 0.55, 0)
 [node name="Manifest" type="Node3D" parent="Stations" unique_id=1049808358]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0)
 script = ExtResource("18_r3gqw")
-title = "COPY MANIFEST"
+title = "FORGE MANIFEST SIGNATURE"
 
 [node name="Ring" type="MeshInstance3D" parent="Stations/Manifest" unique_id=1823898178]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
@@ -5007,7 +5007,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 pixel_size = 0.006
 billboard = 1
 modulate = Color(1, 0.8, 0.45, 1)
-text = "CARGO SEAL"
+text = "MANIFEST"
 font_size = 28
 outline_size = 8
 

@@ -1,0 +1,21 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://Characters/Mouse/mouse_npc.tscn" id="mouse"]
+
+[sub_resource type="StandardMaterial3D" id="Fur"]
+resource_name = "Dock mouse fur"
+albedo_color = Color(0.56, 0.435, 0.36, 1)
+roughness = 0.93
+
+[sub_resource type="StandardMaterial3D" id="Coat"]
+resource_name = "Dock watch teal"
+albedo_color = Color(0.114, 0.211, 0.215, 1)
+roughness = 0.87
+
+[node name="QuayMouse" instance=ExtResource("mouse")]
+
+[node name="Mouse" parent="VisualPivot/Model/Root/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("Fur")
+surface_material_override/1 = SubResource("Coat")
+
+[editable path="VisualPivot/Model"]

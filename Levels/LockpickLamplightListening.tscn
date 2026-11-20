@@ -1,0 +1,225 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://Levels/LockpickLamplightShop.tscn" id="base"]
+
+[ext_resource type="Script" path="res://Modules/Gameplay/Lockpicking/listening_lock.gd" id="game"]
+
+[ext_resource type="Script" path="res://Modules/Gameplay/Lockpicking/listening_hud.gd" id="ui"]
+
+[sub_resource type="StandardMaterial3D" id="Iron"]
+albedo_color = Color(0.075, 0.055, 0.049, 1)
+metallic = 0.52
+roughness = 0.6
+
+[sub_resource type="StandardMaterial3D" id="Brass"]
+albedo_color = Color(0.58, 0.31, 0.093, 1)
+metallic = 0.52
+roughness = 0.6
+
+[sub_resource type="StandardMaterial3D" id="Lip"]
+albedo_color = Color(0.76, 0.48, 0.16, 1)
+metallic = 0.45
+roughness = 0.6
+
+[sub_resource type="StandardMaterial3D" id="Void"]
+albedo_color = Color(0.012, 0.009, 0.01, 1)
+metallic = 0
+roughness = 0.6
+
+[sub_resource type="StandardMaterial3D" id="Steel"]
+albedo_color = Color(0.57, 0.56, 0.5, 1)
+metallic = 0.72
+roughness = 0.6
+
+[sub_resource type="StandardMaterial3D" id="Walnut"]
+albedo_color = Color(0.22, 0.085, 0.035, 1)
+metallic = 0.12
+roughness = 0.6
+
+[sub_resource type="CylinderMesh" id="Back"]
+material = SubResource("Iron")
+top_radius = 0.26
+bottom_radius = 0.26
+height = 0.045
+radial_segments = 8
+rings = 0
+
+[sub_resource type="CylinderMesh" id="Collar"]
+material = SubResource("Brass")
+top_radius = 0.142
+bottom_radius = 0.142
+height = 0.035
+radial_segments = 16
+rings = 0
+
+[sub_resource type="CylinderMesh" id="Plug"]
+material = SubResource("Lip")
+top_radius = 0.107
+bottom_radius = 0.107
+height = 0.021
+radial_segments = 16
+rings = 0
+
+[sub_resource type="CylinderMesh" id="Mouth"]
+material = SubResource("Void")
+top_radius = 0.032
+bottom_radius = 0.032
+height = 0.006
+radial_segments = 12
+rings = 0
+
+[sub_resource type="CylinderMesh" id="Rivet"]
+material = SubResource("Brass")
+top_radius = 0.017
+bottom_radius = 0.017
+height = 0.013
+radial_segments = 8
+rings = 0
+
+[sub_resource type="CylinderMesh" id="Handle"]
+material = SubResource("Walnut")
+top_radius = 0.022
+bottom_radius = 0.022
+height = 0.17
+radial_segments = 8
+rings = 0
+
+[sub_resource type="CylinderMesh" id="Ferrule"]
+material = SubResource("Brass")
+top_radius = 0.021
+bottom_radius = 0.021
+height = 0.028
+radial_segments = 8
+rings = 0
+
+[sub_resource type="BoxMesh" id="Slot"]
+material = SubResource("Void")
+size = Vector3(0.029, 0.074, 0.008)
+
+[sub_resource type="BoxMesh" id="Shank"]
+material = SubResource("Steel")
+size = Vector3(0.17, 0.009, 0.012)
+
+[sub_resource type="BoxMesh" id="Bar"]
+material = SubResource("Steel")
+size = Vector3(0.145, 0.014, 0.014)
+
+[sub_resource type="BoxMesh" id="Elbow"]
+material = SubResource("Steel")
+size = Vector3(0.015, 0.063, 0.014)
+
+[sub_resource type="AudioStreamWAV" id="TickSound"]
+format = 1
+mix_rate = 22050
+data = PackedByteArray("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+//5//7/+f/y//T//v8bABgAGAD7/+v/9P/x//r/9/8AAAoADgARAA8A9P/q/+v/9v8FAA8AEQAHAAsAEQAKAPT/6//m//f/DQANABYABgAGAP7//P/z/+7/+P/7/xEAEQAUAAsA+P/0//f/+v/9////AQAOABIADQAFAPL/5v/x//7/CwAFAAwADQAPAAsAAgD3/+f/7/8AABEAEAAHAAMA///9//3/9v/u//j///8RABgAEAAAAPX/+f/z//n/+/8DAAUADwARAAkA/P/t/+z/+P8CAAUACwAIAAoACAABAPT/8f/z//3/BQANAA4ABgAEAP7/AAD3//X/+v/+/wwAEwARAAMA/P/z//T/+f8AAPv/AwAMABEABwD+//b/8P/4/wIABQAEAAQACQAJAAgA+v/1/+//9v///wcABwAHAAAAAAD7//3/9//4//7/AwAPAAsABgD7//z/+v/7/wAA/f8CAAcABgAOAAQA/P/3//f/+////wIABwAEAAYABAD///z/+P/5//z/BAAIAAYAAQD//wAA/f/4//r/+f/+/wcADQAJAAAA+//5//7/AAAAAAEAAQAFAAkABgAAAPv/+P/6/wAAAwACAAYABQAGAAMA/f/3//n/+v8BAAQACQAFAAEAAgD//////P/3//v/AgAKAAsAAgAAAPn/+v////7//P8BAAUACAAGAAQA/v/6//j//v8BAAQAAwAFAAcABQAAAPv/9//3/wAAAwAGAAYAAgD//////v/7//v//P8AAAYABwADAAAA/v/+//7//f/9//7/AgAHAAYABgAAAPz/+v/+////AAACAAQABAAEAAMA///6//n//P8BAAMABgACAAAAAAAAAP//+v/9////AwAGAAUAAgAAAP7//P/+//3//v///wEABQAEAAIA/P/6//z/AAAAAA==")
+
+[sub_resource type="BoxMesh" id="WingPad"]
+material = SubResource("Walnut")
+size = Vector3(0.10, 0.025, 0.085)
+
+[node name="LamplightListeningLock" instance=ExtResource("base")]
+script = ExtResource("game")
+
+[node name="HUD" parent="Overlay"]
+script = ExtResource("ui")
+
+[node name="LockPlate" parent="Hinge/DoorBody"]
+mesh = null
+
+[node name="Index" parent="Hinge/DoorBody/LockPlate"]
+visible = false
+
+[node name="ForgedPlate" parent="Hinge/DoorBody/LockPlate" type="MeshInstance3D"]
+position = Vector3(0, 0, 0.074)
+rotation_degrees = Vector3(90, 0, 0)
+scale = Vector3(0.86, 1, 1.45)
+mesh = SubResource("Back")
+
+[node name="CylinderRim" parent="Hinge/DoorBody/LockPlate" type="MeshInstance3D"]
+position = Vector3(0, 0, 0.109)
+rotation_degrees = Vector3(90, 0, 0)
+scale = Vector3(1, 1, 1)
+mesh = SubResource("Collar")
+
+[node name="CylinderFace" parent="Hinge/DoorBody/LockPlate" type="MeshInstance3D"]
+position = Vector3(0, 0, 0.136)
+rotation_degrees = Vector3(90, 0, 0)
+scale = Vector3(1, 1, 1)
+mesh = SubResource("Plug")
+
+[node name="Keyway" parent="Hinge/DoorBody/LockPlate" type="MeshInstance3D"]
+position = Vector3(0, 0.008, 0.151)
+rotation_degrees = Vector3(90, 0, 0)
+scale = Vector3(1, 1, 1)
+mesh = SubResource("Mouth")
+
+[node name="KeywayStem" parent="Hinge/DoorBody/LockPlate" type="MeshInstance3D"]
+position = Vector3(0, -0.034, 0.151)
+rotation_degrees = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+mesh = SubResource("Slot")
+
+[node name="Fastener0" parent="Hinge/DoorBody/LockPlate" type="MeshInstance3D"]
+position = Vector3(0, 0.28, 0.103)
+rotation_degrees = Vector3(90, 0, 0)
+scale = Vector3(1, 1, 1)
+mesh = SubResource("Rivet")
+
+[node name="Fastener1" parent="Hinge/DoorBody/LockPlate" type="MeshInstance3D"]
+position = Vector3(0, -0.28, 0.103)
+rotation_degrees = Vector3(90, 0, 0)
+scale = Vector3(1, 1, 1)
+mesh = SubResource("Rivet")
+
+[node name="Tools" parent="Hinge/DoorBody/LockPlate" type="Node3D"]
+position = Vector3(0,0,0.159)
+visible = false
+
+[node name="Probe" parent="Hinge/DoorBody/LockPlate/Tools" type="Node3D"]
+
+
+[node name="Brace" parent="Hinge/DoorBody/LockPlate/Tools" type="Node3D"]
+
+
+[node name="Pick" parent="Hinge/DoorBody/LockPlate/Tools/Probe" type="MeshInstance3D"]
+position = Vector3(0.077, 0.012, 0.018)
+rotation_degrees = Vector3(0, -15, 4)
+scale = Vector3(1, 1, 1)
+mesh = SubResource("Shank")
+
+[node name="Ferrule" parent="Hinge/DoorBody/LockPlate/Tools/Probe" type="MeshInstance3D"]
+position = Vector3(0.163, 0.017, 0.041)
+rotation_degrees = Vector3(0, -15, 94)
+scale = Vector3(1, 1, 1)
+mesh = SubResource("Ferrule")
+
+[node name="Grip" parent="Hinge/DoorBody/LockPlate/Tools/Probe" type="MeshInstance3D"]
+position = Vector3(0.252, 0.024, 0.067)
+rotation_degrees = Vector3(0, -15, 94)
+scale = Vector3(1, 1, 1)
+mesh = SubResource("Handle")
+
+[node name="BentEnd" parent="Hinge/DoorBody/LockPlate/Tools/Brace" type="MeshInstance3D"]
+position = Vector3(-0.002, -0.055, 0.02)
+rotation_degrees = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+mesh = SubResource("Elbow")
+
+[node name="Wrench" parent="Hinge/DoorBody/LockPlate/Tools/Brace" type="MeshInstance3D"]
+position = Vector3(-0.073, -0.089, 0.033)
+rotation_degrees = Vector3(0, 9, 4)
+scale = Vector3(1, 1, 1)
+mesh = SubResource("Bar")
+
+[node name="LeatherPad" parent="Hinge/DoorBody/LockPlate/Tools/Brace" type="MeshInstance3D"]
+mesh = SubResource("WingPad")
+
+[node name="LatchLight" parent="Hinge/DoorBody/LockPlate" type="OmniLight3D"]
+position = Vector3(-0.38, 0.35, 0.45)
+light_color = Color(1, 0.80, 0.56, 1)
+light_energy = 0.43
+omni_range = 1.5
+
+[node name="Tick" parent="." type="AudioStreamPlayer"]
+stream = SubResource("TickSound")
+volume_db = -7.0

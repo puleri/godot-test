@@ -1,0 +1,21 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://Characters/Hound/hound_npc.tscn" id="hound"]
+
+[sub_resource type="StandardMaterial3D" id="Hide"]
+resource_name = "Sentinel tawny hide"
+albedo_color = Color(0.41, 0.25, 0.155, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="Coat"]
+resource_name = "Sentinel navy"
+albedo_color = Color(0.095, 0.146, 0.207, 1)
+roughness = 0.91
+
+[node name="QuayHound" instance=ExtResource("hound")]
+
+[node name="Hat_006" parent="VisualPivot/Model/Root/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("Hide")
+surface_material_override/1 = SubResource("Coat")
+
+[editable path="VisualPivot/Model"]

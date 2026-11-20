@@ -1,0 +1,87 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://Modules/Gameplay/Lockpicking/Doorway.tscn" id="base"]
+
+[sub_resource type="StandardMaterial3D" id="815f45"]
+albedo_color = Color(0.293284528705352, 0.16909476587348068, 0.09509463997466434, 1)
+
+[sub_resource type="BoxMesh" id="Mesh0"]
+material = SubResource("815f45")
+size = Vector3(0.84, 0.82, 0.84)
+
+[sub_resource type="BoxShape3D" id="Shape0"]
+size = Vector3(0.84, 0.82, 0.84)
+
+[sub_resource type="StandardMaterial3D" id="4c3a30"]
+albedo_color = Color(0.11315979221342234, 0.06956616518084272, 0.04948367005814681, 1)
+
+[sub_resource type="BoxMesh" id="Mesh1"]
+material = SubResource("4c3a30")
+size = Vector3(0.1, 0.97, 0.05)
+
+[node name="HarborStorehouse" instance=ExtResource("base")]
+mechanism = 0
+
+[node name="Cargo0" parent="." type="MeshInstance3D"]
+position = Vector3(-2.7, 0.42, 0.85)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh0")
+
+[node name="Body" parent="Cargo0" type="StaticBody3D"]
+
+
+[node name="Collision" parent="Cargo0/Body" type="CollisionShape3D"]
+shape = SubResource("Shape0")
+
+[node name="Brace0" parent="." type="MeshInstance3D"]
+position = Vector3(-2.7, 0.42, 1.28)
+rotation = Vector3(0, 0, -0.72)
+mesh = SubResource("Mesh1")
+
+[node name="Cargo1" parent="." type="MeshInstance3D"]
+position = Vector3(-3.57, 0.42, 0.85)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh0")
+
+[node name="Body" parent="Cargo1" type="StaticBody3D"]
+
+
+[node name="Collision" parent="Cargo1/Body" type="CollisionShape3D"]
+shape = SubResource("Shape0")
+
+[node name="Brace1" parent="." type="MeshInstance3D"]
+position = Vector3(-3.57, 0.42, 1.28)
+rotation = Vector3(0, 0, -0.72)
+mesh = SubResource("Mesh1")
+
+[node name="Cargo2" parent="." type="MeshInstance3D"]
+position = Vector3(-3.2, 1.25, 0.85)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh0")
+
+[node name="Body" parent="Cargo2" type="StaticBody3D"]
+
+
+[node name="Collision" parent="Cargo2/Body" type="CollisionShape3D"]
+shape = SubResource("Shape0")
+
+[node name="Brace2" parent="." type="MeshInstance3D"]
+position = Vector3(-3.2, 1.25, 1.28)
+rotation = Vector3(0, 0, -0.72)
+mesh = SubResource("Mesh1")
+
+[node name="Cargo3" parent="." type="MeshInstance3D"]
+position = Vector3(3, 0.42, 1.2)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh0")
+
+[node name="Body" parent="Cargo3" type="StaticBody3D"]
+
+
+[node name="Collision" parent="Cargo3/Body" type="CollisionShape3D"]
+shape = SubResource("Shape0")
+
+[node name="Brace3" parent="." type="MeshInstance3D"]
+position = Vector3(3, 0.42, 1.63)
+rotation = Vector3(0, 0, -0.72)
+mesh = SubResource("Mesh1")

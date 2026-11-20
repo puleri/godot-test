@@ -88,8 +88,28 @@ func _run() -> void:
 		guard.set_physics_process(false)
 		guard.position = Vector3(100, 0, 100)
 		guard.guard_state = StealthGuard.GuardState.PATROL
-	var station = level.get_node("Stations").get_child(0)
-	level.player.position = station.position
+	var station = level.get_node("Stations/Manifest")
+	level.player.position = station.position + Vector3.UP * 0.49
+	await _tap(JOY_BUTTON_B)
+	var forgery = level._signature
+	_check(forgery.view == forgery.View.MANUSCRIPT and forgery.using_controller, "Circle opens the signature with controller prompts")
+	await _tap(JOY_BUTTON_Y)
+	level.player.position += Vector3.BACK * 2.5
+	await _tap(JOY_BUTTON_B)
+	_check(forgery.view == forgery.View.DRAFT, "Circle opens the draft away from the manuscript")
+	await _tap(JOY_BUTTON_DPAD_RIGHT)
+	_stick(Vector2(0.8, 0))
+	_stick(Vector2(1, 0))
+	_stick(Vector2.ZERO)
+	await _tap(JOY_BUTTON_B)
+	_check(forgery.draft == PackedInt32Array([2]), "D-pad and held stick each select one stroke")
+	await _tap(JOY_BUTTON_A)
+	_check(forgery.draft.is_empty(), "Cross undoes the last stroke")
+	await _tap(JOY_BUTTON_Y)
+	_check(forgery.view == forgery.View.CLOSED and not level.player.interaction_locked, "Triangle tucks away the draft")
+	level.stage = 1
+	station = level.get_node("Stations/Crank")
+	level.player.position = station.position + Vector3.UP * 0.49
 	Input.parse_input_event(_button(JOY_BUTTON_B, true))
 	level._update_interaction(0.1)
 	_check(station.progress > 0, "Holding Circle advances an actual objective")

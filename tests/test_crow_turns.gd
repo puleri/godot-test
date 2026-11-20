@@ -11,6 +11,10 @@ var _minimum_bend := INF
 var _maximum_twist := 0.0
 var _maximum_plant_error := 0.0
 var _support_samples := 0
+var _turn_tick := -1
+var _turn_bones: Array[int] = []
+var _initial_bases: Array[Basis] = []
+var _turn_onsets := Vector3i(-1, -1, -1)
 
 
 func _initialize() -> void:
@@ -28,6 +32,11 @@ func _run() -> void:
 	_rig.skeleton_updated.connect(_sample)
 	for tick in 40:
 		await physics_frame
+	for bone in ["Head_2", "Spine", "Pelvis"]:
+		var index := _rig.find_bone(bone)
+		_turn_bones.append(index)
+		_initial_bases.append(_world_bone_basis(index))
+	_turn_tick = 0
 	# Vary the point in the stride where the player snaps the stick across.
 	var actions := ["move_down", "move_up", "move_down", "move_left", "move_right", "move_left", "move_right"]
 	var durations := [82, 93, 75, 64, 8, 19, 101]
@@ -38,12 +47,21 @@ func _run() -> void:
 		Input.action_release(actions[index])
 	print("Crow turns: %d support samples, lateral clearance %.3f m, rear hock bend %.3f m, foot twist %.1f degrees, plant error %.4f m" % [
 		_support_samples, _minimum_side, _minimum_bend, _maximum_twist, _maximum_plant_error])
-	quit(0 if _support_samples > 300 and _minimum_side > 0.0 and _minimum_bend > 0.01 and _maximum_twist < 55.0 and _maximum_plant_error < 0.003 else 1)
+	var staged := _turn_onsets.x >= 0 and _turn_onsets.x < _turn_onsets.y and _turn_onsets.y < _turn_onsets.z
+	print("Head, shoulders and hips first rotate at physics samples ", _turn_onsets)
+	quit(0 if staged and _support_samples > 300 and _minimum_side > 0.0 and _minimum_bend > 0.01 and _maximum_twist < 55.0 and _maximum_plant_error < 0.003 else 1)
 
 
 func _sample() -> void:
 	if not _player.is_on_floor():
 		return
+	if _turn_tick >= 0 and _turn_tick < 12:
+		for i in _turn_bones.size():
+			var rotation := _world_bone_basis(_turn_bones[i]) * _initial_bases[i].transposed()
+			var yaw := atan2(-rotation.x.z, rotation.x.x)
+			if _turn_onsets[i] < 0 and absf(yaw) > 0.02:
+				_turn_onsets[i] = _turn_tick
+		_turn_tick += 1
 	var placement = _rig.get_node("CrowProceduralPose").foot_placement
 	for i in _legs.size():
 		var chain := _legs[i]
@@ -61,3 +79,7 @@ func _sample() -> void:
 			_support_samples += 1
 			var actual := _rig.global_transform * ankle.origin
 			_maximum_plant_error = maxf(_maximum_plant_error, actual.distance_to(placement.anchors[i].origin))
+
+
+func _world_bone_basis(bone: int) -> Basis:
+	return (_rig.global_basis * _rig.get_bone_global_pose(bone).basis).orthonormalized()

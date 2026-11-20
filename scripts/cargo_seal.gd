@@ -3,11 +3,13 @@ extends Area3D
 
 signal recovered(seal: Area3D)
 @export var display_name := "CARGO SEAL"
+@export var hovering := true
 var collected := false
 
 
 func _ready() -> void:
 	$Caption.text = display_name
+	set_process(hovering)
 	body_entered.connect(recover)
 
 

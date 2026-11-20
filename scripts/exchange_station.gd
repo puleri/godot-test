@@ -55,6 +55,28 @@ func reset_progress() -> void:
 	$Caption.text = title
 
 
+func set_manifest_signature(ink: Texture2D) -> void:
+	var signature := Sprite3D.new()
+	signature.name = "ClerkSignature"
+	signature.texture = ink
+	signature.pixel_size = 0.2 / ink.get_width()
+	signature.shaded = true
+	signature.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	signature.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	# Follow the sloped right-hand leaf of the imported manuscript, just above the paper.
+	signature.transform = Transform3D(
+		Basis(Vector3.BACK, atan(0.18)) * Basis(Vector3.RIGHT, -PI / 2.0),
+		Vector3(0.20, 0.041, 0.175))
+	moving_part.add_child(signature)
+
+
+func set_manifest_open(open: bool) -> void:
+	moving_part.transform = _rest_transform
+	if open:
+		moving_part.rotation.z += 0.08
+		moving_part.position.y += 0.045
+
+
 func guard_is_clear() -> bool:
 	var guard := get_node_or_null(clearance_guard) as Node3D
 	return guard == null or guard.global_position.distance_to(global_position) > clearance_distance
@@ -68,10 +90,14 @@ func advance(delta: float) -> bool:
 	$Caption.text = "%s\n%d%%" % [title, mini(100, int(progress / hold_seconds * 100))]
 	if progress < hold_seconds:
 		return false
+	mark_completed()
+	return true
+
+
+func mark_completed() -> void:
 	completed = true
 	$Caption.text = title + "\nCOMPLETE"
 	$Caption.modulate = Color("87d1c5")
 	if name == "NightSeal":
 		$Visual.hide()
 	$Ring.material_override.albedo_color = Color("87d1c5")
-	return true

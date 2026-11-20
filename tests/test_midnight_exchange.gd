@@ -105,15 +105,56 @@ func _run() -> void:
 	_check(level.stage == 0 and not stations[2].completed, "The vault requires the manifest and crank first")
 	player.position = stations[0].position + Vector3.UP * 0.49
 	level._update_interaction(1.0, true)
-	_check(stations[0].progress > 0 and level.stage == 0, "Work takes time rather than collecting on contact")
-	level._update_interaction(0.1, false)
-	_check(stations[0].progress == 0, "Releasing E resets interrupted work")
+	_check(stations[0].progress == 0 and level.stage == 0, "Holding interact cannot bypass the signature puzzle")
+	var forgery = level._signature
 	mouse.player_visible = true
-	level._update_interaction(3.0, true)
-	_check(level.stage == 0, "A guard's sight blocks objective work")
+	await _press_key(KEY_E)
+	_check(forgery.view == forgery.View.CLOSED and not level._studied_signature, "A guard's sight blocks reading the manuscript")
 	mouse.player_visible = false
-	level._update_interaction(2.0, true)
-	_check(level.stage == 1 and stations[0].completed, "A full clear interaction copies the manifest")
+	await _press_key(KEY_E)
+	_check(forgery.view == forgery.View.MANUSCRIPT and player.interaction_locked, "Interact opens the original signature at the desk")
+	var signature: PackedInt32Array = forgery.target.duplicate()
+	await _press_key(KEY_Q)
+	_check(forgery.view == forgery.View.CLOSED and not player.interaction_locked, "Rook can tuck away the manuscript and move immediately")
+	level.exposure_sensor.set_physics_process(false)
+	level.exposure_sensor.exposure = 1.0
+	mouse.position = Vector3(-7, 0, 2)
+	player.position = Vector3(-7.8, 0.49, 2)
+	await physics_frame
+	await _press_key(KEY_E)
+	_check(forgery.view == forgery.View.CLOSED, "A lit spot with a clear ray to the mouse does not count as cover")
+	player.position = Vector3(-11, 0.49, 2)
+	await physics_frame
+	await _press_key(KEY_E)
+	_check(forgery.view == forgery.View.DRAFT, "Real cover behind the sorting screen opens the draft")
+	var choices: int = forgery.Signatures.STROKES.size()
+	for slot in signature.size():
+		var glyph := (signature[slot] + 1) % choices if slot == signature.size() - 1 else signature[slot]
+		for step in posmod(glyph - forgery.selection, choices):
+			await _press_key(KEY_RIGHT)
+		await _press_key(KEY_E)
+	await _press_key(KEY_E)
+	_check(forgery.rejected and level.stage == 0 and not stations[0].completed, "An incorrect signature keeps the vault locked")
+	await _press_key(KEY_SPACE)
+	_check(forgery.draft.size() == signature.size() - 1 and not forgery.rejected, "Undo removes the most recent stroke")
+	mouse.player_visible = true
+	level._process(0.0)
+	_check(forgery.view == forgery.View.CLOSED and not player.interaction_locked and forgery.draft.size() == signature.size() - 1, "Being spotted closes the draft, preserves ink and lets Rook escape")
+	mouse.player_visible = false
+	player.position = stations[0].position + Vector3.UP * 0.49
+	await _press_key(KEY_E)
+	_check(forgery.view == forgery.View.MANUSCRIPT and forgery.target == signature, "A return to the desk shows the same signature")
+	await _press_key(KEY_E)
+	player.position = Vector3(-11, 0.49, 2)
+	await _press_key(KEY_E)
+	for step in posmod(forgery.selection - signature[-1], choices):
+		await _press_key(KEY_LEFT)
+	await _press_key(KEY_E)
+	_check(level.stage == 0, "The filled draft waits for a separate submission")
+	await _press_key(KEY_E)
+	_check(level.stage == 1 and stations[0].completed and not player.interaction_locked, "Submitting the matching signature unlocks the crank")
+	level.exposure_sensor.set_physics_process(true)
+	level._update_interaction(0.0, false)
 	player.position = stations[1].position + Vector3.UP * 0.49
 	hound.position = Vector3(14, 0, 2)
 	level._update_interaction(3.0, true)
@@ -177,6 +218,7 @@ func _run() -> void:
 	root.add_child(level)
 	await level.ready_for_play
 	_check(level.stage == 0 and level.bell_cooldown == 0 and not level.finished, "Restart restores objectives, bells and active play")
+	_check(not level._studied_signature and level._signature.draft.is_empty(), "A new run discards notes and resets the draft")
 	_check(_display_matches(true, false) and not level._styled_hud.visible and level._styled_hud.coins_collected == 0, "Restart restores default HUD and resets styled coins")
 	level.set_process(false)
 	level.player.set_physics_process(false)
@@ -198,13 +240,19 @@ func _run() -> void:
 
 
 func _press_tab() -> void:
+	await _press_key(KEY_TAB)
+
+
+func _press_key(code: Key) -> void:
 	var event := InputEventKey.new()
-	event.physical_keycode = KEY_TAB
+	event.keycode = code
+	event.physical_keycode = code
 	event.pressed = true
 	Input.parse_input_event(event)
 	await process_frame
 	event = InputEventKey.new()
-	event.physical_keycode = KEY_TAB
+	event.keycode = code
+	event.physical_keycode = code
 	Input.parse_input_event(event)
 	await process_frame
 

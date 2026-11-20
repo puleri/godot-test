@@ -28,6 +28,7 @@ var _speed := 0.0
 var _body_shift := Vector3.ZERO
 var _contact_drop := 0.0
 var max_lean_degrees := 7.0
+var support_shift_strength := 1.0
 var lean_response := 20.0
 var landing_response := 26.0
 var landing_compression := 0.12
@@ -231,7 +232,7 @@ func _process_modification_with_delta(delta: float) -> void:
 	var squat := maxf(takeoff_squat, landing_compression * compression)
 	var displacement := (inverse * Vector3.DOWN).normalized() * _leg_length * squat
 	if _grounded and foot_planting_enabled:
-		var desired_shift := foot_placement.weight_shift
+		var desired_shift := foot_placement.weight_shift * support_shift_strength
 		# Small inertial translation as well as lean, with a soft supporting knee.
 		var world_leg_length := (skeleton.global_basis * Vector3.ONE.normalized() * _leg_length).length()
 		desired_shift -= world_lean * world_leg_length * 0.18

@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://Materials/TheLastBarrel/pursers_chart.jpg" id="chart"]
+
+[resource]
+resource_name = "Purser's engraved chart"
+albedo_texture = ExtResource("chart")
+roughness = 0.96
+texture_filter = 5

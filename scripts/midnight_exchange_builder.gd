@@ -91,7 +91,8 @@ func build_exchange() -> Node3D:
 	player.max_walk_speed = MOVEMENT.ROOK_MOVE_SPEED
 	level.get_node("LevelCamera").size = 9.4
 	var stations = kit.group(level, "Stations")
-	_station(stations, "Manifest", "COPY MANIFEST", Vector3(-12, 0, 0), 1.8)
+	var manifest = _station(stations, "Manifest", "FORGE MANIFEST SIGNATURE", Vector3(-12, 0, 0), 1.8)
+	manifest.get_node("Caption").text = "MANIFEST"
 	var crank = _station(stations, "Crank", "RELEASE VAULT", Vector3(12, 0, 0), 2.2)
 	crank.clearance_guard = NodePath("../../Guards/CrankHound")
 	crank.clearance_distance = 5.0

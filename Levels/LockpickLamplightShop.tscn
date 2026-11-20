@@ -1,0 +1,223 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://Modules/Gameplay/Lockpicking/Doorway.tscn" id="base"]
+
+[sub_resource type="StandardMaterial3D" id="79553d"]
+albedo_color = Color(0.2613613362007413, 0.13841454884616858, 0.07617656376213364, 1)
+
+[sub_resource type="BoxMesh" id="Mesh0"]
+material = SubResource("79553d")
+size = Vector3(1.9, 0.1, 0.58)
+
+[sub_resource type="BoxShape3D" id="Shape0"]
+size = Vector3(1.9, 0.1, 0.58)
+
+[sub_resource type="StandardMaterial3D" id="946d4e"]
+albedo_color = Color(0.37557680483897155, 0.21656854138219325, 0.11857631784686024, 1)
+
+[sub_resource type="BoxMesh" id="Mesh1"]
+material = SubResource("946d4e")
+size = Vector3(0.38, 0.35, 0.35)
+
+[sub_resource type="StandardMaterial3D" id="7b6350"]
+albedo_color = Color(0.26918873141530014, 0.1821256125646012, 0.12410510655937633, 1)
+
+[sub_resource type="BoxMesh" id="Mesh2"]
+material = SubResource("7b6350")
+size = Vector3(0.38, 0.35, 0.35)
+
+[sub_resource type="StandardMaterial3D" id="404e59"]
+albedo_color = Color(0.08305229318210468, 0.11857631784686024, 0.1503590895006102, 1)
+
+[sub_resource type="BoxMesh" id="Mesh3"]
+material = SubResource("404e59")
+size = Vector3(0.38, 0.35, 0.35)
+
+[node name="LamplightShop" instance=ExtResource("base")]
+mechanism = 1
+
+[node name="Shelf0_0" parent="." type="MeshInstance3D"]
+position = Vector3(2.7, 0.55, 0.52)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh0")
+
+[node name="Body" parent="Shelf0_0" type="StaticBody3D"]
+
+
+[node name="Collision" parent="Shelf0_0/Body" type="CollisionShape3D"]
+shape = SubResource("Shape0")
+
+[node name="Parcel0_0_0" parent="." type="MeshInstance3D"]
+position = Vector3(2.0, 0.78, 0.48)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh1")
+
+[node name="Parcel0_0_1" parent="." type="MeshInstance3D"]
+position = Vector3(2.45, 0.78, 0.48)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh2")
+
+[node name="Parcel0_0_2" parent="." type="MeshInstance3D"]
+position = Vector3(2.9, 0.78, 0.48)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh3")
+
+[node name="Parcel0_0_3" parent="." type="MeshInstance3D"]
+position = Vector3(3.35, 0.78, 0.48)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh1")
+
+[node name="Shelf0_1" parent="." type="MeshInstance3D"]
+position = Vector3(2.7, 1.29, 0.52)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh0")
+
+[node name="Body" parent="Shelf0_1" type="StaticBody3D"]
+
+
+[node name="Collision" parent="Shelf0_1/Body" type="CollisionShape3D"]
+shape = SubResource("Shape0")
+
+[node name="Parcel0_1_0" parent="." type="MeshInstance3D"]
+position = Vector3(2.0, 1.52, 0.48)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh2")
+
+[node name="Parcel0_1_1" parent="." type="MeshInstance3D"]
+position = Vector3(2.45, 1.52, 0.48)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh3")
+
+[node name="Parcel0_1_2" parent="." type="MeshInstance3D"]
+position = Vector3(2.9, 1.52, 0.48)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh1")
+
+[node name="Parcel0_1_3" parent="." type="MeshInstance3D"]
+position = Vector3(3.35, 1.52, 0.48)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh2")
+
+[node name="Shelf0_2" parent="." type="MeshInstance3D"]
+position = Vector3(2.7, 2.03, 0.52)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh0")
+
+[node name="Body" parent="Shelf0_2" type="StaticBody3D"]
+
+
+[node name="Collision" parent="Shelf0_2/Body" type="CollisionShape3D"]
+shape = SubResource("Shape0")
+
+[node name="Parcel0_2_0" parent="." type="MeshInstance3D"]
+position = Vector3(2.0, 2.26, 0.48)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh3")
+
+[node name="Parcel0_2_1" parent="." type="MeshInstance3D"]
+position = Vector3(2.45, 2.26, 0.48)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh1")
+
+[node name="Parcel0_2_2" parent="." type="MeshInstance3D"]
+position = Vector3(2.9, 2.26, 0.48)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh2")
+
+[node name="Parcel0_2_3" parent="." type="MeshInstance3D"]
+position = Vector3(3.35, 2.26, 0.48)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh3")
+
+[node name="Shelf1_0" parent="." type="MeshInstance3D"]
+position = Vector3(-3.3, 0.55, 0.52)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh0")
+
+[node name="Body" parent="Shelf1_0" type="StaticBody3D"]
+
+
+[node name="Collision" parent="Shelf1_0/Body" type="CollisionShape3D"]
+shape = SubResource("Shape0")
+
+[node name="Parcel1_0_0" parent="." type="MeshInstance3D"]
+position = Vector3(-4.0, 0.78, 0.48)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh1")
+
+[node name="Parcel1_0_1" parent="." type="MeshInstance3D"]
+position = Vector3(-3.55, 0.78, 0.48)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh2")
+
+[node name="Parcel1_0_2" parent="." type="MeshInstance3D"]
+position = Vector3(-3.1, 0.78, 0.48)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh3")
+
+[node name="Parcel1_0_3" parent="." type="MeshInstance3D"]
+position = Vector3(-2.65, 0.78, 0.48)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh1")
+
+[node name="Shelf1_1" parent="." type="MeshInstance3D"]
+position = Vector3(-3.3, 1.29, 0.52)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh0")
+
+[node name="Body" parent="Shelf1_1" type="StaticBody3D"]
+
+
+[node name="Collision" parent="Shelf1_1/Body" type="CollisionShape3D"]
+shape = SubResource("Shape0")
+
+[node name="Parcel1_1_0" parent="." type="MeshInstance3D"]
+position = Vector3(-4.0, 1.52, 0.48)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh2")
+
+[node name="Parcel1_1_1" parent="." type="MeshInstance3D"]
+position = Vector3(-3.55, 1.52, 0.48)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh3")
+
+[node name="Parcel1_1_2" parent="." type="MeshInstance3D"]
+position = Vector3(-3.1, 1.52, 0.48)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh1")
+
+[node name="Parcel1_1_3" parent="." type="MeshInstance3D"]
+position = Vector3(-2.65, 1.52, 0.48)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh2")
+
+[node name="Shelf1_2" parent="." type="MeshInstance3D"]
+position = Vector3(-3.3, 2.03, 0.52)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh0")
+
+[node name="Body" parent="Shelf1_2" type="StaticBody3D"]
+
+
+[node name="Collision" parent="Shelf1_2/Body" type="CollisionShape3D"]
+shape = SubResource("Shape0")
+
+[node name="Parcel1_2_0" parent="." type="MeshInstance3D"]
+position = Vector3(-4.0, 2.26, 0.48)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh3")
+
+[node name="Parcel1_2_1" parent="." type="MeshInstance3D"]
+position = Vector3(-3.55, 2.26, 0.48)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh1")
+
+[node name="Parcel1_2_2" parent="." type="MeshInstance3D"]
+position = Vector3(-3.1, 2.26, 0.48)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh2")
+
+[node name="Parcel1_2_3" parent="." type="MeshInstance3D"]
+position = Vector3(-2.65, 2.26, 0.48)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("Mesh3")
