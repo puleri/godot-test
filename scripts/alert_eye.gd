@@ -6,6 +6,8 @@ enum OverlayState { CLEAR, PURSUIT, SEARCH }
 
 @onready var texture_progress_bar: TextureProgressBar = $TextureProgressBar
 
+var extra_awareness := 0.0
+var extra_pursuit := false
 var _hearing_seconds := 0.0
 var _hearing_caption: Label
 
@@ -41,8 +43,8 @@ func notify_heard(kind: String) -> void:
 
 
 func refresh() -> void:
-	var awareness := 0.0
-	var pursuing := false
+	var awareness := clampf(extra_awareness, 0.0, 1.0)
+	var pursuing := extra_pursuit
 	var searching := false
 	var remembered: Dictionary = {}
 	for node in get_tree().get_nodes_in_group("stealth_guards"):

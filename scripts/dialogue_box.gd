@@ -16,6 +16,7 @@ var _body: Label
 var _hint: Label
 var _count: Label
 var _rest_position := Vector2.ZERO
+var _advance_binding := ""
 
 
 func _ready() -> void:
@@ -70,7 +71,7 @@ func _show_line() -> void:
 	_clock = 0.0
 	_delay = 0.028
 	_count.text = "%02d / %02d" % [line_index + 1, lines.size()]
-	_hint.text = "REVEAL"
+	_update_hint()
 	$Splatter.modulate = _speaker.modulate
 
 
@@ -89,7 +90,7 @@ func _process(delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if not active:
+	if not active or event.is_echo():
 		return
 	if event.is_action_pressed("dialogue_advance"):
 		get_viewport().set_input_as_handled()
@@ -99,7 +100,12 @@ func _input(event: InputEvent) -> void:
 func _reveal_all() -> void:
 	_body.visible_characters = -1
 	_revealing = false
-	_hint.text = "END" if line_index == lines.size() - 1 else "CONTINUE"
+	_update_hint()
+
+
+func _update_hint() -> void:
+	var action := "REVEAL" if _revealing else ("END" if line_index == lines.size() - 1 else "CONTINUE")
+	_hint.text = action if _advance_binding.is_empty() else _advance_binding + "   " + action
 
 
 func advance() -> void:
@@ -123,3 +129,32 @@ func advance() -> void:
 			active = false
 			_closing = false
 			dialogue_finished.emit())
+
+
+func display_caption(speaker: String, message: String) -> void:
+	_speaker.text = speaker
+	_speaker.modulate = Color("d6c48d")
+	_body.text = message
+	_body.visible_characters = -1
+	_body.position.y = -46 if not speaker.is_empty() else -60
+	_speaker.visible = not speaker.is_empty()
+	$Splatter.modulate = _speaker.modulate
+	_hint.hide()
+	_count.hide()
+	$ContinueButton.hide()
+	show()
+
+
+func set_advance_hint(binding: String) -> void:
+	if _advance_binding == binding:
+		return
+	$ContinueButton.hide()
+	_hint.position.x = 140
+	_hint.size.x = 460
+	_hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	_advance_binding = binding
+	_update_hint()
+
+
+func displayed_text() -> String:
+	return _body.text

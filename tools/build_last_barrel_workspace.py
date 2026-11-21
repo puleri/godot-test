@@ -169,7 +169,7 @@ print("Exported", path)
 readme = bpy.data.texts.new("START HERE")
 readme.write("""THE LAST BARREL
 
-The viewport opens on Rook's arrival beside the barrel. The Quay opening and
+The viewport opens above the fish market and quay. The Quay opening and
 Merchant cutaway cameras frame the two halves of the level. The collections
 reproduce the saved Godot layout in metres. Use the Outliner to hide the quay, office, two ships, cast, and
 markers independently. Expand the outbound merchant to work on an individual
@@ -220,14 +220,14 @@ camera.location = (31, -28, 47)
 camera.rotation_euler = (Vector((0, 3, 0)) - camera.location).to_track_quat("-Z", "Y").to_euler()
 camera_data.type = "ORTHO"
 camera_data.ortho_scale = 57
-quay_focus = Vector((-1.0, -1.4, 0.7))
+quay_focus = Vector((-1.5, -5.0, 1.0))
 quay_camera = bpy.data.objects.new("Quay opening", bpy.data.cameras.new("Quay opening"))
 preview.objects.link(quay_camera)
 quay_camera.location = (3.4, -29.4, 21.5)
 quay_view = (quay_focus - quay_camera.location).to_track_quat("-Z", "Y")
 quay_camera.rotation_euler = quay_view.to_euler()
 quay_camera.data.type = "ORTHO"
-quay_camera.data.ortho_scale = 32.0
+quay_camera.data.ortho_scale = 54.0
 ship_view = Vector((-0.17, 1.0, -0.82)).to_track_quat("-Z", "Y")
 ship_camera = bpy.data.objects.new("Merchant cutaway", bpy.data.cameras.new("Merchant cutaway"))
 preview.objects.link(ship_camera)
@@ -247,7 +247,7 @@ for workspace in bpy.data.workspaces:
             if area.type == "VIEW_3D":
                 space = area.spaces.active
                 space.shading.color_type = "MATERIAL"
-                space.region_3d.view_distance = 33.0
+                space.region_3d.view_distance = 52.0
                 space.region_3d.view_location = quay_focus
                 space.region_3d.view_rotation = quay_view
 

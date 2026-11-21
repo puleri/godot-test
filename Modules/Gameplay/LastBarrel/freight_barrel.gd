@@ -12,7 +12,7 @@ func conceals(target: CharacterBody3D, observer: Node3D) -> bool:
 	return not moving or observer.global_position.distance_to(target.global_position) > 2.2
 
 
-func carry_to(positions: Array[Vector3]) -> void:
+func carry_to(positions: Array[Vector3], hoist_line: MeshInstance3D) -> void:
 	transition_in_progress = true
 	_set_player_locked(inside_player, true)
 	_set_player_collision_enabled(inside_player, false)
@@ -21,13 +21,16 @@ func carry_to(positions: Array[Vector3]) -> void:
 	var transfer := create_tween().set_trans(Tween.TRANS_SINE)
 	var start := global_position
 	for destination in positions:
-		transfer.tween_method(_carry, start, destination, 0.7)
+		transfer.tween_method(_carry.bind(hoist_line), start, destination, 0.9)
 		start = destination
 	await transfer.finished
 	barrel_base_y = global_position.y
 	await exit_barrel()
 
 
-func _carry(at: Vector3) -> void:
+func _carry(at: Vector3, hoist_line: MeshInstance3D) -> void:
+	var length := maxf(0.12, 3.55 - at.y - 1.10)
+	hoist_line.scale.y = length / 2.1
+	hoist_line.global_position = Vector3(at.x, 3.55 - length * 0.5, at.z)
 	global_position = at
 	inside_player.global_position = at + Vector3.UP * 0.49

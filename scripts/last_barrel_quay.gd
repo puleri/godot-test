@@ -20,6 +20,8 @@ func build(level: Node3D) -> void:
 	_bell_frame(quay)
 	_freight(quay)
 	_lamps(quay, office)
+	_harbor_life(level, quay, office)
+	_waterfront(quay)
 	joinery.finish()
 
 
@@ -225,12 +227,13 @@ func _lamps(quay: Node3D, office: Node3D) -> void:
 	var fittings := preload("res://scripts/last_barrel_ship.gd").new()
 	for spec in [
 		[office, "OfficePorchLamp", Vector3(-6.9, 2.03, 4.96), false],
-		[office, "WritingLamp", Vector3(-9.9, 2.3, -2.2), true],
+		[office, "WritingLamp", Vector3(-9.9, 5.1, -2.2), false],
 		[quay, "BellLamp", Vector3(3.38, 2.85, -5.28), true],
 		[quay, "SortingLamp", Vector3(-3, 2.5, -9.7), true],
 		[quay, "GateLamp", Vector3(7.6, 2.6, -9.9), true],
 		[quay, "LighterLamp", Vector3(-8.2, 2.0, -17.3), true],
-		[quay, "BarrelLamp", Vector3(-5.85, 2.0, 12.3), true],
+		[quay, "BarrelLamp", Vector3(-11.6, 2.6, 14.1), true],
+		[office, "TeaLamp", Vector3(-10.4, 2.4, 2.1), false],
 	]:
 		var parent: Node3D = spec[0]
 		var at: Vector3 = spec[2]
@@ -243,3 +246,133 @@ func _lamps(quay: Node3D, office: Node3D) -> void:
 		if spec[3]:
 			joinery.timber(fixture, "frame", Vector3(0, -at.y, -0.43), Vector3(0, 0.49, -0.43), 0.135, 0.14)
 	fittings.j.finish()
+
+
+func _harbor_life(level: Node3D, quay: Node3D, office: Node3D) -> void:
+	var frontage: Node3D = office.get_node("UpperFrontage")
+	var roof := _group(frontage, "SlateCourses")
+	for side in [-1.0, 1.0]:
+		var slope := Basis(Vector3.RIGHT, 0.24 * side)
+		for row in 8:
+			for column in 18:
+				var distance := 0.28 + row * 0.60
+				var at := Vector3(-12.59 + column * 0.53, 6.49 - distance * 0.245, side * distance)
+				joinery.box(roof, "blue" if (row + column) % 4 else "ironblue", at, Vector3(0.52, 0.07, 0.62), slope)
+	joinery.box(roof, "soot", Vector3(-8.08, 6.49, 0), Vector3(9.65, 0.17, 0.19))
+	var gable := _group(frontage, "QuaysideGable", Vector3(-6.1, 5.1, 4.96))
+	joinery.face(gable, "oak_dark", [Vector3(-1.65, 0, 0), Vector3(1.65, 0, 0), Vector3(0, 1.37, 0)], Vector3.BACK)
+	for side in [-1.0, 1.0]:
+		joinery.timber(gable, "frame", Vector3(side * 1.67, 0, 0.16), Vector3(0, 1.4, 0.16), 0.17, 0.21)
+
+	var court: Node3D = quay.get_node("BreakCourtyard")
+	var arch := _group(court, "CourtyardArch", Vector3(-8.6, 1.83, 12.92))
+	for index in 13:
+		var angle := PI * index / 12.0
+		var at := Vector3(0, sin(angle) * 1.33, cos(angle) * 1.33)
+		joinery.box(arch, "ironblue", at, Vector3(0.72, 0.32, 0.32), Basis(Vector3.RIGHT, -angle))
+	var canopy := _group(court, "TeaShelter", Vector3(-12.85, 2.9, 15.25))
+	joinery.box(canopy, "canvas_dark", Vector3.ZERO, Vector3(1.8, 0.11, 2.4), Basis(Vector3.BACK, 0.13))
+	for z in [-1.1, 1.1]:
+		joinery.timber(canopy, "oak_dark", Vector3(0.81, -2.9, z), Vector3(0.81, 0, z), 0.11, 0.11)
+
+	var town := _group(quay, "ShoreWarehouses")
+	joinery.box(town, "ironblue", Vector3(-20, -0.79, 13), Vector3(12, 1.53, 32))
+	for z in [6.4, 13.6, 20.8]:
+		var shed := _group(town, "Warehouse", Vector3(-17.1, 0, z))
+		joinery.box(shed, "wainscot", Vector3(0, 1.8, 0), Vector3(4.6, 3.6, 6.6))
+		for side in [-1.0, 1.0]:
+			joinery.box(shed, "blue", Vector3(side * 1.25, 3.94, 0), Vector3(2.75, 0.18, 7.05), Basis(Vector3.BACK, -side * 0.31))
+		for window_z in [-1.7, 1.7]:
+			joinery.box(shed, "lamp", Vector3(2.32, 2.52, window_z), Vector3(0.04, 0.53, 0.62))
+			joinery.box(shed, "frame", Vector3(2.36, 2.52, window_z), Vector3(0.05, 0.56, 0.07))
+
+	var lighter := _group(level.get_node("Ships/PotatoLighter"), "LighterFittings", Vector3(-8.3, 0, -17.7))
+	for side in [-1.0, 1.0]:
+		joinery.box(lighter, "oak_dark", Vector3(0, 0.42, side * 1.78), Vector3(7.8, 0.18, 0.16))
+		for x in [-3.55, -1.5, 1.5, 3.55]:
+			joinery.box(lighter, "oak", Vector3(x, 0.2, side * 1.78), Vector3(0.14, 0.54, 0.14))
+		joinery.rod(lighter, "cord_dark", Vector3(-0.6, 3.23, 0), Vector3(side * 3.8, 0.42, side * 1.6), 0.024)
+	joinery.box(lighter, "oak_red", Vector3(-2.65, 0.72, 0), Vector3(1.85, 1.44, 2.18))
+	joinery.box(lighter, "blue", Vector3(-2.65, 1.48, 0), Vector3(2.02, 0.16, 2.4))
+	joinery.box(lighter, "lamp", Vector3(-1.71, 1.08, 0), Vector3(0.025, 0.37, 0.6))
+
+	var shore_lamps := preload("res://scripts/last_barrel_ship.gd").new()
+	shore_lamps._lantern(quay, "NetMendingLamp", Vector3(10.35, 1.42, 7.12), 4.2)
+	shore_lamps._lantern(quay, "TallyLamp", Vector3(-12.27, 2.14, -7.12), 4.1)
+	shore_lamps.j.finish()
+	var details := _group(quay, "PlacesToExplore")
+	_exhibit(details, "Tide slate", Vector3(-12.85, 0, 15.95),
+		"LOW WATER AT ONE BELL. Steps slick below the third rung. Leave a lamp for the oyster boats.")
+	_exhibit(details, "Net mender’s bench", Vector3(9.5, 0, 7.4),
+		"Someone patched this net with a blue sleeve. The other sleeve is folded under the bench.")
+	_exhibit(details, "Lost property shelf", Vector3(11.7, 0, 1.8),
+		"A brass button, a child’s carved gull, and three keys. A card asks claimants to describe what they lost.")
+	_exhibit(details, "Dockers’ tally", Vector3(-11.25, 0, -7.0),
+		"Paid through Thursday. Friday’s crew left their marks anyway. Beside each mark is a mug ring.")
+	_exhibit(details, "Fishmongers’ board", Vector3(-1.0, 2.8, 29.25),
+		"The first bell is for the boats. The second is for the buyers. Unsold fish goes to the kitchens on Mill Street.")
+	_exhibit(details, "Tide marks", Vector3(17.45, -0.935, 8.75),
+		"Names are scratched beside the high-water lines. The newest one is higher than Rook can reach.")
+	for spec in [[Vector3(-13.6, 0.3, 34.4), Vector3(3.1, 4.9, 7.3)],
+			[Vector3(-16.05, 0.02, 29.6), Vector3(5.1, 4.3, 4.6)],
+			[Vector3(2.7, 0.45, 33.8), Vector3(3.1, 5.1, 5.6)]]:
+		var house := _group(quay, "MarketBackstreet", spec[0])
+		var size: Vector3 = spec[1]
+		joinery.box(house, "ironblue", Vector3.UP * (size.y * 0.5 - 1.9), size)
+		for side in [-1.0, 1.0]:
+			joinery.box(house, "blue", Vector3(side * size.x * 0.24, size.y - 1.55, 0),
+				Vector3(size.x * 0.55, 0.15, size.z + 0.3), Basis(Vector3.BACK, -side * 0.36))
+		for x in [-0.85, 0.85]:
+			joinery.box(house, "lamp", Vector3(x, size.y - 2.98, -size.z * 0.5 - 0.02),
+				Vector3(0.48, 0.69, 0.06))
+
+	for at in [Vector3(9.8, 0, 10.1), Vector3(11.5, 0, 6.4), Vector3(-11.9, 0, -8.1)]:
+		var pile := _group(quay, "SackStack", at)
+		for index in 3:
+			joinery.box(pile, "canvas" if index % 2 else "canvas_dark", Vector3((index % 2) * 0.49, 0.2 + (index / 2) * 0.27, 0), Vector3(0.57, 0.33, 0.86), Basis(Vector3.UP, index * 0.19), 0.14)
+
+
+func _exhibit(parent: Node3D, title: String, at: Vector3, inscription: String) -> void:
+	var prop := _group(parent, title, at)
+	prop.set_meta("inscription", inscription)
+	joinery.box(prop, "oak_dark", Vector3(0, 0.63, 0), Vector3(1.18, 0.12, 0.53))
+	for x in [-0.47, 0.47]:
+		joinery.box(prop, "frame", Vector3(x, 0.31, 0), Vector3(0.12, 0.62, 0.39))
+	joinery.box(prop, "paper", Vector3(0.08, 0.701, 0.04), Vector3(0.39, 0.018, 0.29), Basis(Vector3.UP, 0.16))
+	match title:
+		"Net mender’s bench":
+			for strand in 7:
+				joinery.rod(prop, "cord_dark", Vector3(-0.44, 0.72, -0.23 + strand * 0.07), Vector3(0.51, 0.72, -0.20 + strand * 0.07), 0.008)
+			for strand in 10:
+				joinery.rod(prop, "cord", Vector3(-0.44 + strand * 0.10, 0.73, -0.23), Vector3(-0.40 + strand * 0.10, 0.73, 0.23), 0.009)
+		"Lost property shelf":
+			joinery.ring(prop, "brass", Vector3(-0.30, 0.71, 0), 0.08, 0.016, Vector3.RIGHT, Vector3.FORWARD)
+			joinery.box(prop, "oak_light", Vector3(0.35, 0.76, -0.12), Vector3(0.12, 0.12, 0.19))
+		_:
+			joinery.box(prop, "blue", Vector3(-0.26, 0.714, -0.05), Vector3(0.31, 0.035, 0.30))
+
+
+func _waterfront(quay: Node3D) -> void:
+	var shore := _group(quay, "WaterfrontMasonry")
+	# Stepped outer faces sit below the walkable quay and frame the tide steps.
+	for spec in [
+		[Vector3(14.45, -0.8, -5.1), Vector3(1.3, 1.3, 11.8)],
+		[Vector3(14.85, -0.8, 0.8), Vector3(2.1, 1.3, 2.0)],
+		[Vector3(14.4, -0.8, 3.7), Vector3(1.2, 1.3, 4.0)],
+		[Vector3(14.45, -0.8, 12.1), Vector3(1.3, 1.3, 5.4)],
+		[Vector3(15.05, -0.8, 15.6), Vector3(2.5, 1.3, 2.0)],
+		[Vector3(12.0, -0.8, 17.35), Vector3(4.2, 1.3, 1.3)],
+		[Vector3(6.8, -0.8, 17.55), Vector3(3.0, 1.3, 1.7)],
+	]:
+		joinery.box(shore, "ironblue", spec[0], spec[1], Basis.IDENTITY, 0.08)
+	for at in [Vector3(15.1, -1.16, -8), Vector3(15.8, -1.20, -2.1),
+			Vector3(15.9, -1.2, 2.1), Vector3(15.75, -1.2, 12.4),
+			Vector3(16.4, -1.2, 16.2), Vector3(12.4, -1.2, 18.5),
+			Vector3(8.1, -1.2, 18.7)]:
+		var rock := _group(shore, "ShoreRock", at)
+		joinery.box(rock, "soot", Vector3.ZERO, Vector3(1.7, 0.75, 1.25), Basis(Vector3.UP, at.z * 0.27), 0.27)
+	for at in [Vector3(13.6, 0, -8.2), Vector3(13.6, 0, -3.0), Vector3(13.6, 0, 2.8),
+			Vector3(13.6, 0, 11.1), Vector3(13.6, 0, 15.4)]:
+		var bollard := _group(shore, "MooringBollard", at)
+		joinery.rod(bollard, "metal", Vector3.ZERO, Vector3.UP * 0.48, 0.13, 0.10, 10)
+		joinery.rod(bollard, "metal_lit", Vector3.UP * 0.46, Vector3.UP * 0.54, 0.16, 0.16, 10)

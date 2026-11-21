@@ -7,7 +7,7 @@ const PLANKS := preload("res://Mesh/Harboretum-Mesh/wood_planks.tscn")
 const LOCK_DEMO := preload("res://Modules/Gameplay/Lockpicking/Doorway.tscn")
 const CROW := preload("res://Characters/Crow/crow.glb")
 const MASTER_MODEL := preload("res://Mesh/TheLastBarrel/Shipmaster.glb")
-const ARRIVAL := Vector3(-4.75, 0.49, 13.60)
+const ARRIVAL := Vector3(-4.75, 3.29, 29.6)
 const WOOD := Color("574139")
 const TRIM := Color("392f32")
 const IRON := Color("343c49")
@@ -33,12 +33,15 @@ func build() -> Node3D:
 	_quay(quay)
 	var office := kit.group(quay, "Office")
 	_office(office)
+	_build_upper_floor(office)
+	_build_break_court(quay)
 	var ships := kit.group(level, "Ships")
 	_ships(ships)
 	var cargo := kit.group(level, "Cargo")
 	_cargo(cargo)
 	_actors(level)
 	QUAY_ART.new().build(level)
+	preload("res://scripts/last_barrel_market.gd").new().build(level)
 	var points := kit.group(level, "Points")
 	for entry in [
 		["Arrival", ARRIVAL],
@@ -46,7 +49,7 @@ func build() -> Node3D:
 		["OfficeApproach", Vector3(-4.5, 0.49, 7.5)],
 		["OfficeLock", Vector3(-6.1, 0, 5.45)],
 		["OfficeThreshold", Vector3(-6.1, 0, 4.5)],
-		["Desk", Vector3(-10.1, 0, -1.45)],
+		["Desk", Vector3(-10.1, 2.8, -1.45)],
 		["OfficeExit", Vector3(-5.7, 0, 5.8)],
 		["SmokingPost", QUAY_ART.SMOKING_POST],
 		["Ashtray", QUAY_ART.ASH_TRAY],
@@ -65,11 +68,16 @@ func build() -> Node3D:
 func _quay(quay: Node3D) -> void:
 	var paving := kit.group(quay, "Paving")
 	kit.box(paving, Vector3(28, 0.34, 28), Vector3(0, -0.17, 3))
-	_wall_span(quay, Vector3(-14, 0, -11), Vector3.RIGHT, 19.0)
+	_wall_span(quay, Vector3(-14, 0, -11), Vector3.RIGHT, 19.0, true)
 	_wall_span(quay, Vector3(7, 0, -11), Vector3.RIGHT, 7.0)
 	_wall_span(quay, Vector3(-14, 0, -11), Vector3.BACK, 28.0)
-	_wall_span(quay, Vector3(14, 0, -11), Vector3.BACK, 28.0)
-	_wall_span(quay, Vector3(-14, 0, 17), Vector3.RIGHT, 28.0, true)
+	_wall_span(quay, Vector3(14, 0, -11), Vector3.BACK, 17.5)
+	_wall_span(quay, Vector3(14, 0, 9.4), Vector3.BACK, 7.6)
+	_wall_span(quay, Vector3(-14, 0, 17), Vector3.RIGHT, 7.75, true)
+	_wall_span(quay, Vector3(-3.25, 0, 17), Vector3.RIGHT, 17.25, true)
+	_market_approach(quay)
+	for x in [-6.2, -3.3]:
+		_solid(quay, "ArrivalGatePier", Vector3(x, 1.13, 17), Vector3(0.57, 2.26, 0.62), TRIM)
 	_solid(quay, "GangwayShutter", Vector3(6, 1.43, -11), Vector3(2.05, 2.86, 0.31), TRIM)
 	var crank := preload("res://Mesh/MidnightExchange/Crank.glb").instantiate() as Node3D
 	crank.name = "Crank"
@@ -99,6 +107,81 @@ func _quay(quay: Node3D) -> void:
 	_sign(quay, "HOIST", Vector3(0.4, 2.35, -9.1), Color("c5d9de"))
 
 
+func _market_approach(quay: Node3D) -> void:
+	var market := kit.group(quay, "FishMarket")
+	var granite := Color("5d5860")
+	var paving := Color("777078")
+	_solid(market, "GateApron", Vector3(-6.2, -0.25, 18.55), Vector3(11.5, 0.5, 3.1), granite)
+	_solid(market, "MarketTerrace", Vector3(-5.0, 0.65, 29.7), Vector3(13.4, 4.3, 7.0), granite)
+	_solid(market, "UpperStreet", Vector3(-8.8, 0.65, 35.4), Vector3(9.6, 4.3, 4.4), granite)
+	_descent(market, "Fish Steps", -4.75, 2.65, 20.0, 26.3, 0.0, 2.8, paving, true)
+	_descent(market, "Cart Ramp", -9.3, 3.2, 20.0, 26.3, 0.0, 2.8, granite, false)
+	# Retaining walls frame the two routes while leaving both ends connected.
+	for x in [-11.25, -7.2, -3.2]:
+		var rail := _solid(market, "DescentParapet", Vector3(x, 1.84, 23.15), Vector3(0.31, 0.78, 6.9), granite)
+		rail.rotation.x = -atan2(2.8, 6.3)
+	for x in [-10.2, -7.5, -2.2, 0.55]:
+		_solid(market, "FishStall", Vector3(x, 3.24, 31.25), Vector3(2.05, 0.88, 1.0), WOOD)
+		for side in [-0.89, 0.89]:
+			_box(market, "AwningPost", Vector3(x + side, 3.92, 31.25), Vector3(0.12, 2.23, 0.12), WOOD)
+		for strip in 8:
+			var awning := _box(market, "StripedCanvas", Vector3(x - 1.03 + strip * 0.29, 4.93, 31.28), Vector3(0.286, 0.08, 1.53), Color("556f70") if strip % 2 else Color("b2a18b"))
+			awning.rotation.x = 0.21
+		_box(market, "ClosedShutter", Vector3(x, 3.94, 31.64), Vector3(2.02, 1.32, 0.12), TRIM)
+	_wall_span(market, Vector3(-11.65, 2.8, 26.3), Vector3.BACK, 6.9, true)
+	_wall_span(market, Vector3(1.7, 2.8, 26.3), Vector3.BACK, 6.9, true)
+	_wall_span(market, Vector3(-3.2, 2.8, 26.3), Vector3.RIGHT, 4.9, true)
+	_wall_span(market, Vector3(-13.5, 2.8, 37.6), Vector3.RIGHT, 9.5, true)
+
+	_sign(market, "QUAY", Vector3(-4.75, 1.3, 18.15))
+	for spec in [[Vector3(-2.25, 5.1, 29.0), 5.0], [Vector3(-10.8, 4.45, 26.4), 3.4], [Vector3(-5.85, 2.45, 17.4), 4.0]]:
+		var light := OmniLight3D.new()
+		light.position = spec[0]
+		light.light_color = Color("ffc586")
+		light.light_energy = 2.2
+		light.omni_range = spec[1]
+		market.add_child(light)
+		_box(market, "WallLantern", light.position, Vector3(0.17, 0.24, 0.17), BRASS)
+
+	var landing := kit.group(quay, "TideLanding")
+	_solid(landing, "WaterlinePlatform", Vector3(16.95, -1.13, 7.95), Vector3(3.5, 0.39, 3.0), Color("49464a"))
+	_solid(landing, "MooringFinger", Vector3(19.2, -1.07, 8.55), Vector3(1.2, 0.27, 1.8), WOOD)
+	var steps := kit.group(landing, "TideSteps")
+	steps.position = Vector3(0, 0, 8.0)
+	steps.rotation.y = -PI / 2.0
+	_descent(steps, "Wet Steps", 0.0, 2.67, -15.93, -14.5, -0.935, 0.0, Color("625d65"), true, 0.72)
+	_box(landing, "SeawallThreshold", Vector3(14.14, -0.12, 8.0), Vector3(0.72, 0.24, 2.67), granite)
+	_wall_span(landing, Vector3(15.5, -0.935, 6.5), Vector3.RIGHT, 3.1, true)
+	_wall_span(landing, Vector3(15.5, -0.935, 9.45), Vector3.RIGHT, 3.1, true)
+	for z in [6.62, 9.3]:
+		_solid(landing, "MooringPost", Vector3(18.48, -0.51, z), Vector3(0.23, 0.83, 0.24), WOOD)
+
+
+func _descent(parent: Node3D, title: String, x: float, width: float, start: float, end: float,
+		low: float, high: float, tint: Color, steps: bool, top_landing := 0.0) -> void:
+	var lane := kit.group(parent, title)
+	var shape := ConvexPolygonShape3D.new()
+	var points := PackedVector3Array()
+	for edge in [x - width / 2, x + width / 2]:
+		points.append_array([Vector3(edge, low - 0.27, start), Vector3(edge, low, start),
+			Vector3(edge, low - 0.27, end + top_landing), Vector3(edge, high, end + top_landing),
+			Vector3(edge, high, end)])
+	shape.points = points
+	kit.shape(lane, shape)
+	if steps:
+		var count := ceili((high - low) / 0.18)
+		for index in count:
+			var depth := (end - start) / count
+			var top := lerpf(low, high, float(index + 1) / count)
+			_box(lane, "StoneTread", Vector3(x, (top + low - 0.2) * 0.5, start + depth * (index + 0.5)),
+				Vector3(width, top - low + 0.2, depth), tint)
+	else:
+		var angle := atan2(high - low, end - start)
+		var ramp := _box(lane, "PavedSlope", Vector3(x, (low + high) * 0.5 - 0.11, (start + end) * 0.5),
+			Vector3(width, 0.2, Vector2(end - start, high - low).length()), tint)
+		ramp.rotation.x = -angle
+
+
 func _office(office: Node3D) -> void:
 	_wall_span(office, Vector3(-12.6, 0, -4.4), Vector3.RIGHT, 9.05)
 	_wall_span(office, Vector3(-12.6, 0, -4.4), Vector3.BACK, 8.9)
@@ -116,6 +199,7 @@ func _office(office: Node3D) -> void:
 		door.add_child(node)
 	assembly.free()
 	_box(door, "Timber lintel", Vector3(0, 2.79, 0), Vector3(2.16, 0.26, 0.35), WOOD)
+	var furnishings := office.get_child_count()
 	var desk = _station(office, "Manifest", "SHIPMASTER’S MANIFEST", Vector3(-10.10, 0, -2.75), 1.8)
 	desk.get_node("Ring").hide()
 	desk.get_node("Caption").hide()
@@ -128,7 +212,80 @@ func _office(office: Node3D) -> void:
 	_cover_wall(office, "FoldingScreen", Vector3(-8.48, 0, 1.10), 3.1)
 	_solid(office, "WritingCabinet", Vector3(-4.1, 0.65, -1.1), Vector3(0.52, 1.3, 1.8), WOOD)
 	_box(office, "OfficeRunner", Vector3(-7.7, 0.021, -1.6), Vector3(2.1, 0.025, 3.0), Color("63524b"))
+	for child in office.get_children().slice(furnishings):
+		child.position.y += 2.8
 	_sign(office, "SHIPMASTER", Vector3(-6.1, 2.93, 4.5))
+
+
+func _build_upper_floor(office: Node3D) -> void:
+	var loft := kit.group(office, "UpperFloor")
+	_solid(loft, "WritingRoomFloor", Vector3(-9.95, 2.70, 0.05), Vector3(5.3, 0.2, 8.5), WOOD)
+	_solid(loft, "Landing", Vector3(-5.48, 2.70, -3.53), Vector3(3.64, 0.2, 1.55), WOOD)
+	var stair := ConvexPolygonShape3D.new()
+	var vertices := PackedVector3Array()
+	for x in [-6.99, -5.07]:
+		vertices.append(Vector3(x, -0.18, 3.86))
+		vertices.append(Vector3(x, 0.0, 3.86))
+		vertices.append(Vector3(x, -0.18, -2.72))
+		vertices.append(Vector3(x, 2.8, -2.72))
+	stair.points = vertices
+	kit.shape(loft, stair)
+	for step in 16:
+		_box(loft, "OakTread", Vector3(-6.03, step * 0.175, 3.57 - step * 0.394), Vector3(1.84, 0.19, 0.403), WOOD)
+	for x in [-12.58, -3.6]:
+		_solid(loft, "UpperSideWall", Vector3(x, 3.5, 0), Vector3(0.23, 1.4, 8.5), TRIM)
+	_solid(loft, "UpperRearWall", Vector3(-8.08, 3.5, -4.32), Vector3(9, 1.4, 0.27), TRIM)
+	var facade := kit.group(office, "UpperFrontage")
+	for side in [-1, 1]:
+		var roof := _box(facade, "SlateRoof", Vector3(-8.08, 5.85, 2.25 * side), Vector3(9.55, 0.19, 4.85), Color("283546"))
+		roof.rotation.x = 0.24 * side
+	var runner := _box(loft, "LandingRunner", Vector3(-9.2, 2.815, 2.86), Vector3(2.7, 0.026, 1.12), Color("824f39"))
+	runner.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	for x in [-12.4, -10.1, -7.85, -5.65, -3.75]:
+		_box(facade, "TimberPost", Vector3(x, 4.08, 4.46), Vector3(0.22, 2.58, 0.35), WOOD)
+	for y in [3.06, 4.98]:
+		_box(facade, "FrontBeam", Vector3(-8.08, y, 4.46), Vector3(9.13, 0.53, 0.38), WOOD)
+	for x in [-11.25, -9.0, -6.75, -4.68]:
+		var window := _box(facade, "LitWindow", Vector3(x, 4.02, 4.44), Vector3(1.5, 1.15, 0.14), Color("dfa45e"))
+		var glass := window.mesh.material as StandardMaterial3D
+		glass.emission_enabled = true
+		glass.emission = Color("ad6b28")
+		_box(facade, "WindowMullion", Vector3(x, 4.02, 4.54), Vector3(0.09, 1.19, 0.1), WOOD)
+	_box(facade, "UpperEaves", Vector3(-8.08, 5.35, 4.36), Vector3(9.45, 0.25, 1.74), TRIM)
+	_solid(loft, "ChartRack", Vector3(-9.02, 3.48, 0.16), Vector3(0.27, 1.36, 1.32), WOOD)
+	_solid(loft, "ChartRackWing", Vector3(-7.91, 3.48, 0.16), Vector3(0.21, 1.36, 1.32), WOOD)
+	_solid(loft, "StairRail", Vector3(-7.18, 3.23, 0.66), Vector3(0.16, 0.86, 6.66), WOOD)
+	_solid(office, "BreakBench", Vector3(-10.5, 0.32, 2.8), Vector3(2.6, 0.64, 0.65), WOOD)
+
+	var kettle := kit.group(office, "TeaKettle")
+	kettle.position = Vector3(-7.63, 0.94, 3.62)
+	var pot := MeshInstance3D.new()
+	var body := CylinderMesh.new()
+	body.top_radius = 0.19
+	body.bottom_radius = 0.23
+	body.height = 0.38
+	body.material = _material(BRASS)
+	pot.mesh = body
+	kettle.add_child(pot)
+	_solid(office, "TeaStand", Vector3(-7.63, 0.34, 3.64), Vector3(0.65, 0.68, 0.68), WOOD)
+
+
+func _build_break_court(quay: Node3D) -> void:
+	var court := kit.group(quay, "BreakCourtyard")
+	_wall_span(court, Vector3(-14, 0, 9), Vector3.RIGHT, 5.4, true)
+	_wall_span(court, Vector3(-8.6, 0, 9), Vector3.BACK, 2.6)
+	_wall_span(court, Vector3(-8.6, 0, 14.25), Vector3.BACK, 2.75)
+	for z in [11.5, 14.35]:
+		_solid(court, "EntryPier", Vector3(-8.6, 1.46, z), Vector3(0.65, 2.92, 0.48), TRIM)
+	_box(court, "EntryLintel", Vector3(-8.6, 2.9, 12.93), Vector3(0.68, 0.42, 3.4), WOOD)
+	_solid(court, "CardBench", Vector3(-12.6, 0.35, 12.8), Vector3(0.6, 0.7, 2.0), WOOD)
+	for offset in [Vector3(7.2, 0, 8.9), Vector3(10.6, 0, 9.8), Vector3(8.8, 0, 5.0)]:
+		_solid(quay, "CargoSkid", offset + Vector3.UP * 0.08, Vector3(1.9, 0.16, 1.3), WOOD)
+		for x in [-0.45, 0.45]:
+			_solid(quay, "RopeboundCargo", offset + Vector3(x, 0.54, 0), Vector3(0.85, 0.77, 1.08), Color("72614c"))
+	for x in [5.5, 9.5, 11.2]:
+		_solid(quay, "FreightCrate", Vector3(x, 0.46, -8.2), Vector3(1.0, 0.92, 0.76), WOOD)
+
 
 
 func _ships(ships: Node3D) -> void:
@@ -150,7 +307,7 @@ func _cargo(cargo: Node3D) -> void:
 	# Keep the interaction origin at the feet and fit the same cask used in the freight stock.
 	var barrel = kit.group(cargo, "SpareBarrel")
 	barrel.set_script(preload("res://Modules/Gameplay/LastBarrel/freight_barrel.gd"))
-	barrel.position = Vector3(-5.9, 0, 13.35)
+	barrel.position = Vector3(-10.5, 0, 12.8)
 	kit.visual(barrel, BARREL, Vector3.ZERO, Vector3(0.87, 1.12, 0.87))
 	barrel.collision_height = 1.12
 	barrel.collision_center_y = 0.56
@@ -158,6 +315,12 @@ func _cargo(cargo: Node3D) -> void:
 	barrel.exit_offset = Vector3(0.8, 0, 0)
 	barrel.enter_prompt = ""
 	barrel.exit_prompt = ""
+	var tabletop := kit.group(barrel, "Tabletop")
+	_box(tabletop, "LooseBoard", Vector3(0, 1.12, 0), Vector3(1.3, 0.10, 1.07), WOOD)
+	for x in [-0.35, 0.31]:
+		_box(tabletop, "Cup", Vector3(x, 1.24, 0.30), Vector3(0.14, 0.15, 0.14), IRON)
+	for index in 4:
+		_box(tabletop, "Card", Vector3(-0.18 + index * 0.12, 1.18, 0), Vector3(0.085, 0.008, 0.13), Color("d4ba8e"))
 	var stock := kit.group(cargo, "PotatoStock")
 	for index in 3:
 		var at := Vector3(-6.1 - index * 0.93, 0, -9.3)
@@ -177,6 +340,21 @@ func _actors(level: Node3D) -> void:
 		Vector3(-2.1, 0, 6.1), Vector3(-6.1, 0, 6.2),
 	])
 	var people := kit.group(level, "People")
+	for spec in [["CardWatch", Vector3(-11.55, 0, 12.8)], ["CardPartner", Vector3(-10.4, 0, 11.55)], ["TeaWatch", Vector3(-9.5, 0, 2)], ["LandingWatch", Vector3(-10.9, 2.8, 3.1)]]:
+		var on_break := preload("res://Modules/Gameplay/LastBarrel/quay_mouse.tscn").instantiate()
+		on_break.name = spec[0]
+		on_break.set_script(preload("res://Modules/Gameplay/LastBarrel/story_porter.gd"))
+		on_break.position = spec[1]
+		on_break.collision_layer = 0
+		on_break.collision_mask = 0
+		people.add_child(on_break)
+	var lighter_hand := preload("res://Modules/Gameplay/LastBarrel/quay_mouse.tscn").instantiate()
+	lighter_hand.name = "LighterHand"
+	lighter_hand.set_script(preload("res://Modules/Gameplay/LastBarrel/story_porter.gd"))
+	lighter_hand.position = Vector3(-8.2, 0, -18.6)
+	lighter_hand.collision_layer = 0
+	lighter_hand.collision_mask = 0
+	people.add_child(lighter_hand)
 	var clerk := _crow(people, "Clerk", CROW, Vector3(-3, 0, -9.7))
 	clerk.rotation.y = PI
 	var shipmaster := _crow(people, "Shipmaster", MASTER_MODEL, QUAY_ART.SMOKING_POST)

@@ -28,7 +28,7 @@ var _readout: Label
 var _progress: Label
 var _report := "Stand on the blue pad and press E."
 var _audio: AudioStreamPlayer
-var _feedback: Node3D
+var _feedback: Array[Node3D] = []
 var inspection_light := false
 
 
@@ -69,8 +69,10 @@ func select_bay(index: int, jump := true) -> void:
 		player.jump_to(SPAWNS[active_bay])
 	else:
 		player.set_interaction_locked(false)
-	if is_instance_valid(_feedback):
-		_feedback.queue_free()
+	for effect in _feedback:
+		if is_instance_valid(effect):
+			effect.queue_free()
+	_feedback.clear()
 	player.get_node("ExposureSensor").refresh()
 	lure_armed = false
 	$RemoteChime.hide()
@@ -291,10 +293,8 @@ func toggle_inspection_light() -> void:
 
 
 func _draw_noise(at: Vector3, radius: float, receipts: Array[Dictionary]) -> void:
-	if is_instance_valid(_feedback):
-		_feedback.queue_free()
 	var fx := Node3D.new()
-	_feedback = fx
+	_feedback.append(fx)
 	fx.name = "NoiseFeedback"
 	add_child(fx)
 	var material := StandardMaterial3D.new()
@@ -334,7 +334,10 @@ func _draw_noise(at: Vector3, radius: float, receipts: Array[Dictionary]) -> voi
 	tween.tween_interval(1.6)
 	tween.tween_property(material, "albedo_color:a", 0, 0.4)
 	tween.parallel().tween_property(circle_material, "albedo_color:a", 0, 0.4)
-	tween.tween_callback(fx.queue_free)
+	tween.tween_callback(func() -> void:
+		_feedback.erase(fx)
+		fx.queue_free()
+	)
 
 
 func _chime_sound() -> AudioStreamWAV:

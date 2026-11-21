@@ -132,6 +132,14 @@ func solve_targets(skeleton: Skeleton3D, authored: Array[Transform3D], delta: fl
 			_early_swing[i] = false
 	elif moving:
 		_settling = -1
+		var forward := Vector3.ZERO
+		var side := Vector3.ZERO
+		var turn_weight := 0.0
+		if compact_pivot_stance and turn_step_speed > 0.0:
+			var model := skeleton.get_parent() as Node3D
+			forward = model.global_basis.x.normalized()
+			side = forward.cross(Vector3.UP)
+			turn_weight = clampf(turn_step_speed / _leg_length, 0.0, 1.0)
 		for i in 2:
 			var cycle := fposmod(phase - _contact_phase[i], 1.0)
 			if cycle < _last_cycle[i]:
@@ -143,6 +151,15 @@ func solve_targets(skeleton: Skeleton3D, authored: Array[Transform3D], delta: fl
 			separation.y = 0.0
 			if _was_stance[i] and separation.length() > _leg_length * 0.66:
 				_early_swing[i] = true
+			var outward := Vector3.ZERO
+			var inside_edge := 0.0
+			if turn_weight > 0.0:
+				var idle_separation := skeleton.global_basis * (_idle[i].origin - _idle[1 - i].origin)
+				outward = side * signf(idle_separation.dot(side))
+				# Lift a contact if the turning body is about to sweep it across center.
+				inside_edge = _leg_length * 0.015 * turn_weight
+				if separation.dot(outward) < inside_edge:
+					_early_swing[i] = true
 			var stance := cycle < 0.52 and not _early_swing[i]
 			if stance:
 				if not _was_stance[i] or not _contact_valid[i]:
@@ -156,17 +173,10 @@ func solve_targets(skeleton: Skeleton3D, authored: Array[Transform3D], delta: fl
 				var landing := _front[i]
 				landing.origin = _idle[i].origin.lerp(landing.origin, stride_extension)
 				var target := skeleton.global_transform * landing
-				if compact_pivot_stance:
-					# Rook's idle has a trailing ankle and a very narrow stance.
-					# Place turning steps under the hips with room for the body to rotate.
-					var model := skeleton.get_parent() as Node3D
-					var forward := model.global_basis.x.normalized()
-					var side := forward.cross(Vector3.UP)
+				if turn_weight > 0.0:
+					# Shorten pivot steps to keep the feet under the hips.
 					var offset := target.origin - _body.global_position
-					var turn_weight := clampf(turn_step_speed / maxf(_leg_length, 0.01), 0.0, 1.0)
 					target.origin -= forward * offset.dot(forward) * turn_weight
-					var side_sign := signf((skeleton.global_basis * (_idle[i].origin - _idle[1 - i].origin)).dot(side))
-					target.origin += side * side_sign * _leg_length * (0.16 + 0.12 * turn_weight)
 				if absf(touchdown_yaw) > 0.0001:
 					var lead := Basis(Vector3.UP, touchdown_yaw)
 					target.origin = _body.global_position + lead * (target.origin - _body.global_position)
@@ -175,6 +185,9 @@ func solve_targets(skeleton: Skeleton3D, authored: Array[Transform3D], delta: fl
 				var previous := feet[i].origin
 				feet[i] = _swing_from[i].interpolate_with(target, smoothstep(0.0, 1.0, progress))
 				feet[i].origin.y += sin(progress * PI) * _leg_length * 0.15
+				if turn_weight > 0.0:
+					var swing_side := (feet[i].origin - _body.global_position).dot(outward)
+					feet[i].origin += outward * maxf(inside_edge - swing_side, 0.0)
 				if compact_pivot_stance:
 					var swing_speed := maxf(_leg_length * 4.0, Vector2(speed, turn_step_speed).length() * 2.36)
 					feet[i].origin = previous.move_toward(feet[i].origin, swing_speed * delta)

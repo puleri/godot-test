@@ -12,7 +12,7 @@ func _initialize() -> void:
 
 
 func _run() -> void:
-	create_timer(440.0).timeout.connect(func(): push_error("The Last Barrel checks timed out"); quit(1))
+	create_timer(600.0).timeout.connect(func(): push_error("The Last Barrel checks timed out"); quit(1))
 	change_scene_to_file("res://Levels/TheLastBarrel.tscn")
 	await scene_changed
 	await _attach()
@@ -95,17 +95,7 @@ func _play_quay() -> void:
 	var sentinel_position: Vector3 = level.sentinel.position
 	var watch_start: Vector3 = level.guard.position
 	var arrival: Vector3 = level.player.position
-	_check(arrival.distance_to(level._point("Arrival")) < 0.10, "Rook starts at the authored arrival marker beside the barrel")
-	var barrel_start: Vector3 = level.barrel.position
-	await _tap(KEY_E)
-	await create_timer(0.47).timeout
-	_check(level.barrel.player_inside and level.phase == level.Phase.SCOUT, "The barrel is usable at the start")
-	_check(await _walk(barrel_start + Vector3(0, 0, 1.25), 2.1), "Rook can walk in the barrel before the bell")
-	_check(level.barrel.position.distance_to(barrel_start) > 1.0, "The occupied barrel follows Rook during scouting")
-	_check(await _walk(barrel_start, 2.1), "Rook can put the spare barrel back")
-	await _tap(KEY_E)
-	await create_timer(0.47).timeout
-	_check(not level.barrel.player_inside and not level.player.interaction_locked, "An early barrel exit restores movement")
+	_check(arrival.distance_to(level._point("Arrival")) < 0.10, "Rook starts at the authored arrival marker above the quay")
 	level._place_player(arrival)
 	level.player.set_physics_process(true)
 	_input(KEY_D, true)
@@ -118,6 +108,8 @@ func _play_quay() -> void:
 	_check(level.guard.position.distance_to(watch_start) > 0.7, "The live dock watch moves along the navigation route")
 	_check(not level.sentinel.hear_sound(level.sentinel.position, 20.0, "BELL"), "The sentinel refuses a distraction")
 	level.guard.active = false
+	_check(await _walk(Vector3(-9.3, 2.8, 27.0)) and await _walk(Vector3(-9.3, 0, 19.2)), "The cart ramp descends to the gate apron")
+	_check(await _walk(Vector3(-4.75, 0, 19.0)) and await _walk(Vector3(-4.75, 0, 14.0)), "The market route enters the working quay")
 	_check(await _walk(Vector3(-2.55, 0, 13.35)) and await _walk(Vector3(0.5, 0, 13.35)), "Rook can rejoin the approach from the barrel")
 	_check(await _walk(Vector3(0.5, 0, -4)), "Rook physically reaches the harbor overlook")
 	_check(level.phase == level.Phase.DISTRACTION, "The loaded valuables change the objective")
@@ -139,14 +131,15 @@ func _play_quay() -> void:
 			await _tap(KEY_E)
 	await create_timer(0.6).timeout
 	_check(level.door_unlocked and level.phase == level.Phase.ENTER_OFFICE, "Four pins open the physical office door")
-	_check(await _walk(Vector3(-6.1, 0, 2.55)), "Rook can cross the picked doorway")
-	_check(await _walk(Vector3(-6.1, 0, -1.45)), "The office cover leaves a playable route to the desk")
-	_check(await _walk(Vector3(-10.1, 0, -1.45)), "Rook reaches the manuscript")
+	_check(await _walk(Vector3(-6.1, 0, 2.55), 1.9), "Rook can cross the picked doorway")
+	_check(await _walk(level.STAIR_TOP, 1.9) and await _walk(level.OFFICE_ENTRY), "Rook can climb the stairs to the writing room")
+	_check(level.player.position.y > 3.0, "The ramp reaches the upper floor")
+	_check(await _walk(Vector3(-10.1, 2.8, -1.45)), "Rook reaches the manuscript")
 	await _tap(KEY_E)
 	_check(level.signature.view == level.Forgery.View.MANUSCRIPT, "The source is readable at the desk")
 	var pattern: PackedInt32Array = level.signature.target.duplicate()
 	await _tap(KEY_Q)
-	_check(await _walk(Vector3(-8.5, 0, -0.16)), "Rook can reach the shadow behind the shelf")
+	_check(await _walk(Vector3(-8.42, 2.8, -1.3)) and await _walk(Vector3(-8.42, 2.8, -0.12)), "Rook can reach the shadow behind the shelf")
 	for frame in 1000:
 		if level._office_patrolling:
 			break
@@ -169,40 +162,49 @@ func _play_quay() -> void:
 		await _tap(KEY_E)
 	await _tap(KEY_E)
 	_check(level.phase == level.Phase.REPLACE and not level.manifest_swapped, "A valid draft still requires a physical swap")
-	for attempt in 4:
-		if level._seen():
-			await create_timer(0.5).timeout
-		else:
+	for frame in 900:
+		if not is_instance_valid(level):
+			_check(false, "The draft cover keeps Rook hidden while waiting for the swap")
+			return
+		if level.master.position.z > 2.1 and not level._seen():
 			break
-	_check(await _walk(Vector3(-10.1, 0, -1.45)), "Rook gets back to the desk")
+		await physics_frame
+	_check(await _walk(Vector3(-8.42, 2.8, -1.46)) and await _walk(Vector3(-10.1, 2.8, -1.45)), "Rook gets back to the desk")
 	# The actual shipmaster patrol and sight stay live through the approach.
-	for attempt in 8:
+	for attempt in 22:
 		await _tap(KEY_E)
+		if not is_instance_valid(level):
+			_check(false, "Rook was spotted during the swap")
+			return
 		if level.manifest_swapped:
 			break
 		await create_timer(0.18).timeout
 	_check(level.manifest_swapped and level.phase == level.Phase.LEAVE_OFFICE, "Interact replaces the original")
 	if failures > 0:
 		return
-	_check(await _walk(Vector3(-10.60, 0, -0.25)) and await _walk(Vector3(-10.60, 0, 2.52)) and await _walk(Vector3(-8.05, 0, 3.15)) and await _walk(Vector3(-6.1, 0, 3.57)), "Office has an escape route")
+	_check(await _walk(Vector3(-8.43, 2.8, -1.46)) and await _walk(Vector3(-8.43, 2.8, -3.18)) and await _walk(level.STAIR_TOP) and await _walk(level.STAIR_FOOT, 1.9), "Rook can escape down the stairs")
 	if failures > 0:
 		return
 	await _tap(KEY_E)
 	await create_timer(1.05).timeout
-	_check(await _walk(Vector3(-6.10, 0, 5.8)), "Rook escapes the office through the picked door")
+	_check(await _walk(Vector3(-6.10, 0, 5.8), 1.9), "Rook escapes the office through the picked door")
 	_check(await _walk(Vector3(-2.63, 0, 5.8)) and await _walk(Vector3(-2.66, 0, -5.8)) and await _walk(Vector3(-4.05, 0, -7.05)), "Rook reaches the sorting overlook")
 	_check(level.phase == level.Phase.BARREL_RUN and level.delivery_left > 39.0, "Wrong-ship reveal starts the handoff clock")
-	for destination in [Vector3(-2.65, 0, -5.65), Vector3(-2.65, 0, 12.81), Vector3(-4.78, 0, 13.35)]:
-		_check(await _walk(destination), "The arrival barrel is reachable before the handoff")
+	for destination in [Vector3(-2.65, 0, -5.65), Vector3(-2.65, 0, 12.83), Vector3(-9.37, 0, 12.83)]:
+		_check(await _walk(destination), "The opposite courtyard is reachable before the handoff")
+	for frame in 800:
+		if level._card_guards_away():
+			break
+		await physics_frame
 	await _tap(KEY_E)
 	await create_timer(0.47).timeout
-	_check(level.barrel.player_inside, "Rook climbs into the real moving barrel")
-	for destination in [Vector3(-2.65, 0, 12.82), Vector3(-2.66, 0, -5.60), Vector3(-3.25, 0, -7.98), Vector3(0.4, 0, -8.2), Vector3(0.4, 0, -9.1)]:
+	_check(level.barrel.player_inside and not level.get_node("Cargo/SpareBarrel/Tabletop").visible, "Rook takes the guards’ table barrel while they are away")
+	for destination in [Vector3(-2.65, 0, 12.83), Vector3(-2.66, 0, -5.60), Vector3(-3.25, 0, -7.98), Vector3(0.4, 0, -7.94), Vector3(0.4, 0, -9.1)]:
 		_check(await _walk(destination, 2.1), "Occupied barrel fits the dock route")
 	_check(level.delivery_left > 4.0, "The timed barrel route has a margin for stealth")
 	if failures > 0:
 		return
-	_check(await _wait_phase(level.Phase.SHIP, 47.0), "The clerk reads the forged entry and the hoist puts Rook aboard")
+	_check(await _wait_phase(level.Phase.SHIP, 72.0), "The clerk reads the forged entry and the hoist puts Rook aboard")
 	_check(not level.barrel.player_inside and not level.player.interaction_locked, "Freight transfer returns control outside the barrel on deck")
 
 
@@ -215,10 +217,10 @@ func _play_ship() -> void:
 		_check(await _walk(destination), "Rook walks down the hatch stair to the lower hold")
 	_check(level.player.position.y < -0.5, "The hold sits below the freight deck")
 	await _tap(KEY_E)
-	_check(level.ship_step == level.ShipStep.MARKS and "triangle" in level._story.text, "The sailcloth tag identifies a different consignment")
+	_check(level.ship_step == level.ShipStep.MARKS and "triangle" in level._caption.displayed_text(), "The sailcloth tag identifies a different consignment")
 	_check(await _walk(Vector3(9.25, -1.2, -21.7)) and await _walk(Vector3(12.7, -1.2, -21.7)) and await _walk(level._point("SilverCrate")), "The silver freight can be searched from the central aisle")
 	await _tap(KEY_E)
-	_check(level.ship_step == level.ShipStep.MARKS and "diamond" in level._story.text, "The silver crate carries a second distinct mark")
+	_check(level.ship_step == level.ShipStep.MARKS and "diamond" in level._caption.displayed_text(), "The silver crate carries a second distinct mark")
 	_check(await _walk(Vector3(12.7, -1.2, -21.7)) and await _walk(Vector3(15.25, -1.2, -21.7)) and await _walk(level._point("CrescentCrate")), "Rook finds the crate at the back of the hold")
 	await _tap(KEY_E)
 	await create_timer(0.5).timeout
@@ -246,6 +248,7 @@ func _check_early_lock() -> void:
 	await _attach()
 	level.guard.active = false
 	var lock_at: Vector3 = level._point("OfficeLock")
+	_check(await _walk(Vector3(-4.75, 0, 14.0)), "The fish steps reach the quay directly")
 	_check(await _walk(Vector3(-2.55, 0, 13.35)) and await _walk(Vector3(-2.52, 0, 5.85)) and await _walk(lock_at), "Rook can reach the closed lock straight from arrival")
 	# Start with a full gap between glances. Leave the pick in place after the
 	# first pin so we also exercise the shipmaster interrupting the attempt.
@@ -342,7 +345,7 @@ func _walk(destination: Vector3, speed := 4.2) -> bool:
 		if not is_instance_valid(player):
 			return false
 		if player.interaction_locked:
-			print("Movement interrupted at ", player.position, " toward ", destination, " / ", level._story.text)
+			print("Movement interrupted at ", player.position, " toward ", destination, " / ", level._caption.displayed_text())
 			return false
 		var offset := destination - player.position
 		offset.y = 0

@@ -13,12 +13,15 @@ const Pins := preload("res://Modules/Gameplay/Lockpicking/listening_pins.gd")
 const Comic := preload("res://Modules/Gameplay/LastBarrel/ending_comic.gd")
 const ShipEvidence := preload("res://Modules/Gameplay/LastBarrel/ship_evidence.gd")
 const DockCutaway := preload("res://Modules/Gameplay/LastBarrel/dock_cutaway.gd")
-const DELIVERY_WINDOW := 45.0
+const DELIVERY_WINDOW := 65.0
 const DECK_FIRE := 12.0
 const PORT_FIRE := 26.0
+const STAIR_FOOT := Vector3(-6.03, 0, 3.82)
+const STAIR_TOP := Vector3(-6.03, 2.8, -3.18)
+const OFFICE_ENTRY := Vector3(-8.2, 2.8, -3.18)
 const OFFICE_ROUTE := [
-	Vector3(-6.10, 0, 2.65), Vector3(-6.1, 0, -3.15), Vector3(-8.55, 0, -3.0),
-	Vector3(-10.55, 0, -0.4), Vector3(-10.55, 0, 2.50), Vector3(-7.65, 0, 2.65),
+	OFFICE_ENTRY, Vector3(-7.56, 2.8, -1.3), Vector3(-7.56, 2.8, 0.55),
+	Vector3(-7.56, 2.8, 2.78), Vector3(-10.55, 2.8, 2.78), Vector3(-7.56, 2.8, 2.78),
 ]
 const SONNET := [
 	"Shall I compare thee to a harbor light?",
@@ -71,7 +74,12 @@ var _evidence: ShipEvidence
 var _dock_cutaway: DockCutaway
 var _objective: Label
 var _prompt: Label
-var _story: Label
+var _dialogue: Node2D
+var _caption: Node2D
+var _styled_hud: CanvasLayer
+var _alert_eye: AlertEye
+var _story_alerts := {}
+var _confirmed_alert_time := 0.0
 var _patrol: Label
 var _pin_readout: Label
 var _pin_panel: PanelContainer
@@ -83,10 +91,16 @@ var _story_left := 0.0
 var _restart_queued := false
 var _door_busy := false
 var _reopen_door := false
+var _break_clock := 0.0
+var _tea_distraction := 0.0
+
+var _kit_briefed := false
+var _kit_farewell := false
 var _smoking := false
 var _smoke_clock := 0.0
 var _checkpoint_pins := 0
 var _checkpoint_barrel := Vector3.ZERO
+var _checkpoint_table_taken := false
 var _master_index := 0
 var _master_pause := 0.0
 var _office_returning := false
@@ -102,6 +116,10 @@ func _ready() -> void:
 	get_window().content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
 	_build_ui(int(_retry.get("variant", -1)))
 	_build_audio()
+	for title in ["Shipmaster", "TeaWatch", "LandingWatch"]:
+		var alert := preload("res://Modules/Gameplay/LastBarrel/story_alert.gd").new()
+		$People.get_node(title).add_child(alert)
+		_story_alerts[title] = alert
 	desk.set_manifest_signature(signature.source_ink)
 	guard.player_caught.connect(_capture)
 	sentinel.player_caught.connect(_capture)
@@ -112,8 +130,10 @@ func _ready() -> void:
 	seal.recovered.connect(func(_item): _finish())
 	_checkpoint_barrel = barrel.position
 	if not _retry.is_empty():
+		player.quay_intro = 0.0
 		_checkpoint_pins = int(_retry.get("seated", 0))
 		_checkpoint_barrel = _retry.get("barrel_position", barrel.position)
+		_checkpoint_table_taken = _retry.get("table_taken", false)
 		checkpoint = _retry.get("checkpoint", Checkpoint.ARRIVAL) as Checkpoint
 		_retry.clear()
 		_restore_checkpoint()
@@ -122,6 +142,12 @@ func _ready() -> void:
 		_restore_checkpoint()
 	else:
 		_begin_smoke_break()
+	if not start_aboard:
+		var deckhand := create_tween().set_loops()
+		deckhand.tween_property($People/LighterHand, "position:x", -5.5, 3.7)
+		deckhand.tween_interval(2.4)
+		deckhand.tween_property($People/LighterHand, "position:x", -8.2, 3.7)
+		deckhand.tween_interval(1.8)
 	$Quay.bake_navigation_mesh(false)
 	await get_tree().physics_frame
 	await get_tree().physics_frame
@@ -135,7 +161,7 @@ func _begin_smoke_break() -> void:
 	master.position = _point("SmokingPost")
 	master.rotation.y = PI
 	pipe.set_lit(true)
-	_say("ROOK  /  A tip says the Night Seal ships tonight. Check the quay.", 8.0)
+	_say("ROOK  /  The fish stalls are shut. If the tip is right, the Night Seal sails from the quay below.", 8.0)
 
 
 func _restore_checkpoint() -> void:
@@ -144,6 +170,7 @@ func _restore_checkpoint() -> void:
 	if checkpoint in [Checkpoint.OFFICE, Checkpoint.BARREL]:
 		barrel.position = _checkpoint_barrel
 		barrel.barrel_base_y = _checkpoint_barrel.y
+		$Cargo/SpareBarrel/Tabletop.visible = not _checkpoint_table_taken
 	match checkpoint:
 		Checkpoint.ARRIVAL:
 			_begin_smoke_break()
@@ -183,6 +210,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if not event.is_pressed() or event.is_echo():
 		return
+	if _dialogue.active and event.is_action_pressed("dialogue_advance"):
+		_dialogue.advance()
+		get_viewport().set_input_as_handled()
+		return
 	if event.is_action_pressed("restart"):
 		_retry.clear()
 		get_tree().reload_current_scene()
@@ -212,6 +243,12 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _interact() -> bool:
+	if _dialogue.active:
+		_dialogue.advance()
+		return true
+	if phase == Phase.SCOUT and not _kit_briefed and _near($People/Kit, 2.1):
+		_start_kit_briefing()
+		return true
 	if modal == Modal.LOCK:
 		pins.listening = pins.contact
 		if not pins.contact:
@@ -219,6 +256,11 @@ func _interact() -> bool:
 		return true
 	if modal != Modal.NONE:
 		return false
+	if phase == Phase.ENTER_OFFICE and _tea_distraction <= 0.0 and _near($Quay/Office/TeaKettle, 1.25):
+		_tea_distraction = 4.0
+		_tick.play()
+		_say("ROOK  /  That rattle should keep the watch busy for a moment.", 3.0)
+		return true
 	if phase < Phase.LOADING:
 		if barrel.transition_in_progress:
 			return false
@@ -252,18 +294,44 @@ func _interact() -> bool:
 			_swing(true)
 		return true
 	if phase < Phase.LOADING and _near(barrel, 1.35):
+		var tabletop := $Cargo/SpareBarrel/Tabletop
+		if tabletop.visible and not _card_guards_away():
+			_say("ROOK  /  That’s their card table. Wait until they go for tea.")
+			return true
+		tabletop.hide()
 		barrel.enter_barrel(player)
+		return true
+	var exhibit := _nearby_exhibit()
+	if exhibit:
+		_say(str(exhibit.get_meta("inscription")), 8.0)
 		return true
 	if phase == Phase.SHIP:
 		return _inspect_ship(_ship_target())
 	return false
 
 
+func _start_kit_briefing() -> void:
+	var lines: Array[Dictionary] = [
+		{"speaker": "Kit", "text": "The Night Seal is meant to sail tonight. My contact saw the merchant at the far berth."},
+		{"speaker": "Rook", "text": "Do we know where they stowed it?"},
+		{"speaker": "Kit", "text": "No. The shipmaster keeps the cargo list in his quarters. The hound at the crank guards the gangway."},
+		{"speaker": "Kit", "text": "Take this note. The fish steps and the cart ramp both lead down to the quay."},
+		{"speaker": "Rook", "text": "I’ll take a look. Keep a way home open for me."},
+		{"speaker": "Kit", "text": "Always. I’ll watch from here. Good luck, Rook."},
+	]
+	_caption.hide()
+	_prompt.get_parent().hide()
+	player.set_interaction_locked(true)
+	_dialogue.start_dialogue(lines)
+	_dialogue.set_advance_hint("Cross / Circle" if controller else "Space / E")
+
+
 func _physics_process(delta: float) -> void:
 	if _restart_queued or phase == Phase.ENDING:
 		return
+	_confirmed_alert_time = maxf(0.0, _confirmed_alert_time - delta)
 	_story_left = maxf(0.0, _story_left - delta)
-	_story.get_parent().visible = _story_left > 0
+	_caption.visible = _story_left > 0 and not _dialogue.active and modal == Modal.NONE
 	if player.position.y < -2.65:
 		if phase == Phase.SHIP:
 			_fail("Rook fell overboard.")
@@ -273,6 +341,7 @@ func _physics_process(delta: float) -> void:
 	match phase:
 		Phase.SCOUT:
 			if _near($Points/Scout, 2.0):
+				_kit_briefed = true
 				phase = Phase.DISTRACTION
 				_say("ROOK  /  The valuables are already aboard. I’ll have to find a way onto that ship.", 7.0)
 		Phase.ENTER_OFFICE:
@@ -290,6 +359,11 @@ func _physics_process(delta: float) -> void:
 			_tick_delivery(delta)
 		Phase.SHIP:
 			_tick_fire(delta)
+	if phase < Phase.LOADING:
+		_tick_break_guards(delta)
+	if _kit_briefed and not _kit_farewell and phase == Phase.SCOUT and player.position.z < 25.5:
+		_kit_farewell = true
+		_say("KIT  /  I’ll be watching. Come back in one piece.", 4.0)
 	if _smoking:
 		_tick_smoke_break(delta)
 	if _office_patrolling:
@@ -306,6 +380,31 @@ func _physics_process(delta: float) -> void:
 		_close_modal()
 		_say("ROOK  /  Tuck the paper away. Keep out of sight.")
 	_update_ui()
+
+
+func _card_guards_away() -> bool:
+	return _break_clock >= 5.0 and _break_clock < 10.0
+
+
+func _tick_break_guards(delta: float) -> void:
+	_break_clock = fmod(_break_clock + delta, 13.0)
+	var tea_break := smoothstep(3.3, 5.0, _break_clock) * (1.0 - smoothstep(10.0, 12.0, _break_clock))
+	$People/CardWatch.position = Vector3(-11.55, 0, 12.8).lerp(Vector3(-13.2, 0, 15.8), tea_break)
+	$People/CardPartner.position = Vector3(-10.4, 0, 11.55).lerp(Vector3(-11.3, 0, 15.6), tea_break)
+	_tea_distraction = maxf(0.0, _tea_distraction - delta)
+	var tea := smoothstep(0.5, 3.0, _break_clock) * (1.0 - smoothstep(7.0, 9.0, _break_clock))
+	$People/TeaWatch.position = Vector3(-9.5, 0, 2).lerp(Vector3(-7.55, 0, 3.75), tea)
+	var on_stairs: bool = player.position.x > -7.0 and player.position.x < -5.1
+	var crosses_tea_watch: bool = on_stairs and player.position.y < 0.85 and player.position.distance_to($People/TeaWatch.position) < 1.85
+	if crosses_tea_watch and _tea_distraction <= 0.0 and player.velocity.length() > 2.2:
+		_confirm_story_alert("TeaWatch")
+		_say("TEA WATCH  /  Who’s there?", 2.0)
+		_capture()
+	var on_bare_boards: bool = player.position.y > 3 and player.position.x < -11.45
+	if on_bare_boards and player.position.distance_to($People/LandingWatch.position) < 1.6 and player.velocity.length() > 2.2:
+		_confirm_story_alert("LandingWatch")
+		_say("LANDING WATCH  /  What was that?", 2.0)
+		_capture()
 
 
 func _can_try_lock() -> bool:
@@ -422,7 +521,7 @@ func _return_to_office() -> void:
 	if not await _wait_for_door():
 		return
 	await _swing(true)
-	if not await _walk_master([OFFICE_ROUTE[0]], 1.8):
+	if not await _walk_master([STAIR_FOOT, STAIR_TOP, OFFICE_ENTRY], 1.8):
 		return
 	await _swing(false)
 	_office_returning = false
@@ -462,7 +561,7 @@ func _tick_office_patrol(delta: float) -> void:
 
 func _tick_master_sight(delta: float) -> void:
 	_master_visible = false
-	if not (_office_patrolling or _office_returning) or not _in_office() or barrel.conceals(player, master):
+	if not (_office_patrolling or _office_returning) or not _in_office() or player.position.x > -7.13 or _behind_chart_rack() or barrel.conceals(player, master):
 		_master_awareness = 0.0
 		return
 	var offset: Vector3 = player.global_position - master.global_position
@@ -472,7 +571,9 @@ func _tick_master_sight(delta: float) -> void:
 	if in_view and _ray_clear(master.global_position + Vector3.UP * 1.06, player.global_position + Vector3.UP * 0.36):
 		_master_visible = offset.length() < 0.94 or player.get_node("ExposureSensor").exposure > 0.12
 	_master_awareness = clampf(_master_awareness + delta * (0.80 if _master_visible else -1.45), 0.0, 1.0)
+	_story_alerts["Shipmaster"].update_awareness(_master_awareness)
 	if _master_awareness >= 1.0:
+		_confirm_story_alert("Shipmaster")
 		_capture()
 
 
@@ -536,7 +637,7 @@ func _show_other_ship() -> void:
 	checkpoint = Checkpoint.BARREL
 	_remember_barrel()
 	_start_barrel_run()
-	_say("ROOK  /  The last barrels went onto the lighter! I’ll have to bring my own.", 6.0)
+	_say("ROOK  /  The last barrels went onto the lighter! The guard courtyard had a barrel for a card table.", 6.0)
 	var overview := create_tween()
 	player.follow_size = 18.3
 	overview.tween_interval(4.0)
@@ -552,6 +653,7 @@ func _show_other_ship() -> void:
 
 
 func _remember_barrel() -> void:
+	_checkpoint_table_taken = not $Cargo/SpareBarrel/Tabletop.visible
 	_checkpoint_barrel = Vector3(barrel.position.x, barrel.barrel_base_y, barrel.position.z)
 
 
@@ -569,12 +671,7 @@ func _prepare_courier() -> void:
 		await get_tree().physics_frame
 	if not is_inside_tree() or _restart_queued:
 		return
-	var route: Array[Vector3] = []
-	if master.position.z > 0.55 and master.position.x < -7.05:
-		route.assign([Vector3(-10.55, 0, 2.65), Vector3(-7.0, 0, 2.65)])
-	elif master.position.z <= 0.55:
-		route.append(Vector3(-6.10, 0, master.position.z))
-	route.append(OFFICE_ROUTE[0])
+	var route: Array[Vector3] = [Vector3(master.position.x, 2.8, -3.18), OFFICE_ENTRY, STAIR_TOP, STAIR_FOOT]
 	await _walk_master(route, 2.8)
 
 
@@ -620,7 +717,7 @@ func _load_barrel() -> void:
 	approach.tween_property(porter, "position", Vector3(-0.18, 0, -9.16), 1.6)
 	await approach.finished
 	var hoist_path: Array[Vector3] = [Vector3(0.4, 2.5, -9.1), Vector3(-0.65, 2.5, -21), Vector3(-0.65, 0, -21)]
-	await barrel.carry_to(hoist_path)
+	await barrel.carry_to(hoist_path, $Quay/HoistLine)
 	_start_fire()
 
 
@@ -630,6 +727,7 @@ func _start_fire() -> void:
 	var boom: MeshInstance3D = $Quay/HoistBoom
 	boom.position = Vector3(-4.8, 3.63, -11.6)
 	boom.rotation.y = 1.2
+	$Quay/HoistLine.hide()
 	$Moon.light_energy = 0.52
 	barrel.position = _point("Boarding") + Vector3(-0.93, -0.07, -0.45)
 	barrel.rotation.x = PI * 0.5
@@ -641,8 +739,7 @@ func _start_fire() -> void:
 	_ignite($Ships/Fire/Smoke)
 	_fire_sound.play()
 	_objective.get_parent().hide()
-	for caption in [_story, _prompt]:
-		caption.get_parent().add_theme_stylebox_override("panel", ShipEvidence.caption_style())
+	_prompt.get_parent().add_theme_stylebox_override("panel", ShipEvidence.caption_style())
 	seal.get_node("Caption").hide()
 	match checkpoint:
 		Checkpoint.TRANSFER:
@@ -819,6 +916,8 @@ func _in_flames(patch: Node3D) -> bool:
 func _finish() -> void:
 	phase = Phase.ENDING
 	_evidence.hide()
+	_styled_hud.hide()
+	_caption.hide()
 	player.set_interaction_locked(true)
 	_fire_sound.stop()
 	comic.begin(controller)
@@ -826,7 +925,16 @@ func _finish() -> void:
 
 func _on_noise(at: Vector3, radius: float, kind: String) -> void:
 	if phase < Phase.LOADING and guard.active:
-		guard.hear_sound(at, minf(radius, 2.3) if barrel.player_inside else radius, kind)
+		if guard.hear_sound(at, minf(radius, 2.3) if barrel.player_inside else radius, kind):
+			_alert_eye.notify_heard(kind)
+
+
+func _confirm_story_alert(title: String) -> void:
+	_story_alerts[title].confirm()
+	_confirmed_alert_time = 2.0
+	_alert_eye.extra_awareness = 1.0
+	_alert_eye.extra_pursuit = true
+	_alert_eye.refresh()
 
 
 func _capture() -> void:
@@ -846,7 +954,7 @@ func _fail(reason: String) -> void:
 	if not is_inside_tree():
 		return
 	_retry = {"checkpoint": checkpoint, "variant": signature.variant_index,
-		"seated": _checkpoint_pins, "barrel_position": _checkpoint_barrel}
+		"seated": _checkpoint_pins, "barrel_position": _checkpoint_barrel, "table_taken": _checkpoint_table_taken}
 	if get_tree().reload_current_scene() != OK:
 		_retry.clear()
 		_restart_queued = false
@@ -861,7 +969,11 @@ func _office_cover() -> bool:
 	if _near($Points/Desk, 1.55):
 		return false
 	var sensor: StealthExposureSensor = $Player/ExposureSensor
-	return sensor.exposure < 0.12 or not _ray_clear(master.position + Vector3.UP, player.position + Vector3.UP * 0.42)
+	return _behind_chart_rack() or sensor.exposure < 0.12 or not _ray_clear(master.position + Vector3.UP, player.position + Vector3.UP * 0.42)
+
+
+func _behind_chart_rack() -> bool:
+	return player.position.x > -8.82 and player.position.x < -7.60 and absf(player.position.z - 0.16) < 0.68
 
 
 func _ray_clear(from: Vector3, to: Vector3) -> bool:
@@ -871,7 +983,7 @@ func _ray_clear(from: Vector3, to: Vector3) -> bool:
 
 
 func _in_office() -> bool:
-	return player.position.x > -12.6 and player.position.x < -3.55 and player.position.z < 4.43 and player.position.z > -4.4
+	return player.position.y > 2.9 and player.position.x > -12.6 and player.position.x < -3.55 and player.position.z < 4.43 and player.position.z > -4.4
 
 
 func _near(target: Node3D, distance: float) -> bool:
@@ -901,10 +1013,11 @@ func _stow_original_stock() -> void:
 
 
 func _say(message: String, seconds := 4.2) -> void:
-	_story.text = message
+	var parts := message.split("  /  ", false, 1)
+	var speaker := parts[0].capitalize() if parts.size() > 1 else ""
+	_caption.display_caption(speaker, parts[-1])
+	_caption.visible = not _dialogue.active and modal == Modal.NONE
 	_story_left = seconds
-	_story.get_parent().reset_size()
-	_story.get_parent().show()
 
 
 func _contact_tick(pitch: float) -> void:
@@ -915,6 +1028,15 @@ func _contact_tick(pitch: float) -> void:
 			Input.start_joy_vibration(device, 0.13, 0.0, 0.06)
 
 
+func _nearby_exhibit() -> Node3D:
+	if phase >= Phase.LOADING or barrel.player_inside or barrel.transition_in_progress:
+		return null
+	for prop in $Quay/PlacesToExplore.get_children():
+		if _near(prop, 1.55):
+			return prop
+	return null
+
+
 func _update_ui() -> void:
 	var key := "Circle" if controller else "E"
 	var bell_key := "Triangle" if controller else "Q"
@@ -923,7 +1045,7 @@ func _update_ui() -> void:
 	var destination: Node3D
 	match phase:
 		Phase.SCOUT:
-			objective = "Check the outbound berth"
+			objective = "Check the outbound berth" if _kit_briefed else "Meet Kit or check the outbound berth"
 			destination = $Points/Scout
 		Phase.DISTRACTION:
 			objective = "Draw the watch away from the gangway"
@@ -936,7 +1058,9 @@ func _update_ui() -> void:
 			objective = "Pick the shipmaster’s office lock"
 			destination = $Points/OfficeLock
 		Phase.ENTER_OFFICE:
-			objective = "Find the manifest"
+			objective = "Reach the upstairs manifest"
+			if _tea_distraction <= 0.0 and _near($Quay/Office/TeaKettle, 1.25):
+				prompt = key + "   Rattle the kettle"
 			destination = $Points/Desk
 		Phase.STUDY:
 			objective = "Forge the signature from cover" if studied else "Study the shipmaster’s signature"
@@ -956,7 +1080,7 @@ func _update_ui() -> void:
 			objective = "Find the potato barrel at sorting"
 			destination = $Points/SortingOverlook
 		Phase.BARREL_RUN:
-			objective = "%02ds   /   %s" % [ceili(delivery_left), "Reach the hoist in the barrel" if barrel.player_inside else "Find the spare barrel"]
+			objective = "%02ds   /   %s" % [ceili(delivery_left), "Reach the hoist in the barrel" if barrel.player_inside else "Find the courtyard barrel"]
 			destination = $Points/LoadingMark if barrel.player_inside else barrel
 		Phase.LOADING:
 			objective = "Stay inside the barrel"
@@ -970,9 +1094,17 @@ func _update_ui() -> void:
 		elif _can_try_lock():
 			prompt = key + "   Pick the lock" if not _seen() else "Wait for the next opening"
 		elif prompt.is_empty() and _near(barrel, 1.35):
-			prompt = key + "   Climb inside the barrel"
+			prompt = "Wait for the guards to go for tea" if $Cargo/SpareBarrel/Tabletop.visible and not _card_guards_away() else key + "   Climb inside the barrel"
 	if not barrel.player_inside and door_unlocked and phase < Phase.SORTING and _near($Quay/Office/Door, 1.48) and absf(door.rotation.y) < 0.3:
 		prompt = key + "   Open the office door"
+	if _dialogue.active:
+		_dialogue.set_advance_hint("Cross / Circle" if controller else "Space / E")
+	elif not _kit_briefed and phase == Phase.SCOUT and _near($People/Kit, 2.1):
+		prompt = key + "   Talk to Kit"
+	if prompt.is_empty():
+		var exhibit := _nearby_exhibit()
+		if exhibit:
+			prompt = key + "   Inspect " + str(exhibit.name).to_lower()
 	if destination != null:
 		var offset := destination.global_position - player.global_position as Vector3
 		var flat := Vector2(offset.dot(camera.global_basis.x), offset.dot(camera.global_basis.z))
@@ -982,11 +1114,14 @@ func _update_ui() -> void:
 	if _prompt.text != prompt:
 		_prompt.text = prompt
 		_prompt.get_parent().reset_size()
-	_prompt.get_parent().visible = modal == Modal.NONE and not prompt.is_empty()
+	_prompt.get_parent().visible = not _dialogue.active and modal == Modal.NONE and not prompt.is_empty()
 	_patrol.text = "SHIPMASTER  /  %s" % ("WATCHING" if _master_visible else "PACING") if _office_patrolling and _in_office() else "DOCK WATCH  /  " + guard.state_name()
 	if _smoking and _near($Points/OfficeLock, 3.5):
 		_patrol.text = "SHIPMASTER  /  " + ("WATCHING THE DOOR" if _master_visible else "SMOKING OUTSIDE")
-	_patrol.get_parent().visible = phase < Phase.LOADING
+	_patrol.get_parent().visible = phase < Phase.LOADING and (_office_patrolling and _in_office() or _smoking and _near($Points/OfficeLock, 3.5))
+	_styled_hud.visible = phase < Phase.LOADING and modal != Modal.SIGNATURE and not _dialogue.active
+	_alert_eye.extra_awareness = maxf(_master_awareness, 1.0 if _confirmed_alert_time > 0 else 0.0)
+	_alert_eye.extra_pursuit = _confirmed_alert_time > 0
 
 
 func _build_audio() -> void:
@@ -1045,11 +1180,8 @@ func _build_ui(variant: int) -> void:
 	screen.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	screen.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	layer.add_child(screen)
-	_objective = _hud_label(screen, Vector2(26, 22), "THE LAST BARREL", 19)
+	_objective = _build_objective(screen)
 	_patrol = _hud_label(screen, Vector2(26, 72), "", 14)
-	_story = _hud_label(screen, Vector2(26, 740), "", 19)
-	_story.get_parent().set_anchors_preset(Control.PRESET_BOTTOM_LEFT, true)
-	_story.get_parent().position = Vector2(26, screen.size.y - 122.0)
 	_prompt = _hud_label(screen, Vector2(26, 804), "", 18)
 	_prompt.get_parent().set_anchors_preset(Control.PRESET_BOTTOM_LEFT, true)
 	_prompt.get_parent().position = Vector2(26, screen.size.y - 65.0)
@@ -1074,6 +1206,64 @@ func _build_ui(variant: int) -> void:
 	layer.add_child(comic)
 	_dock_cutaway = preload("res://Modules/Gameplay/LastBarrel/dock_cutaway.tscn").instantiate()
 	screen.add_child(_dock_cutaway)
+	_styled_hud = preload("res://UI/StyledHUD.tscn").instantiate()
+	_styled_hud.layer = layer.layer
+	_styled_hud.show_coin_counter = false
+	add_child(_styled_hud)
+	_alert_eye = _styled_hud.get_node("Control/EyeAnchor/AlertEye")
+	_alert_eye.texture_progress_bar.tint_under.a = 0.38
+	var dialogue_scene := preload("res://UI/DialogueBox.tscn")
+	_caption = dialogue_scene.instantiate()
+	_dialogue = dialogue_scene.instantiate()
+	screen.add_child(_caption)
+	screen.add_child(_dialogue)
+	_caption.set_process_input(false)
+	_dialogue.set_process_input(false)
+	_dialogue.dialogue_finished.connect(func():
+		_kit_briefed = true
+		player.set_interaction_locked(false)
+		_layout_dialogue(screen)
+		_say("ROOK  /  Time to see what’s already been loaded.", 5.0))
+	screen.resized.connect(_layout_dialogue.bind(screen))
+	_layout_dialogue(screen)
+
+
+func _build_objective(screen: Control) -> Label:
+	var label := _hud_label(screen, Vector2(26, 22), "", 21)
+	var panel := label.get_parent() as PanelContainer
+	var padding := StyleBoxEmpty.new()
+	padding.content_margin_left = 19
+	padding.content_margin_right = 20
+	padding.content_margin_top = 11
+	padding.content_margin_bottom = 11
+	panel.add_theme_stylebox_override("panel", padding)
+	var paper := ColorRect.new()
+	paper.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	paper.show_behind_parent = true
+	var finish := ShaderMaterial.new()
+	finish.shader = preload("res://Modules/Gameplay/LastBarrel/objective_paper.gdshader")
+	paper.material = finish
+	label.add_child(paper)
+	paper.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	paper.offset_left = -19
+	paper.offset_right = 20
+	paper.offset_top = -11
+	paper.offset_bottom = 11
+	label.add_theme_color_override("font_color", Color("272329"))
+	var font := SystemFont.new()
+	font.font_names = PackedStringArray(["Georgia", "DejaVu Serif", "Liberation Serif"])
+	font.font_weight = 700
+	label.add_theme_font_override("font", font)
+	return label
+
+
+func _layout_dialogue(screen: Control) -> void:
+	var fit := minf((screen.size.x - 48.0) / 1667.0, 0.65)
+	if not _dialogue.active:
+		_dialogue.scale = Vector2.ONE * fit
+		_dialogue.position = Vector2(screen.size.x * 0.5, screen.size.y - 302.0 * fit)
+	_caption.scale = Vector2.ONE * minf(fit, 0.47)
+	_caption.position = Vector2(screen.size.x * 0.5, screen.size.y - 175.0)
 
 
 func _hud_label(parent: Control, at: Vector2, line: String, font_size: int) -> Label:

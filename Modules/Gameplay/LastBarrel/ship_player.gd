@@ -3,6 +3,7 @@ extends "res://scripts/exchange_player.gd"
 
 const LANTERN := preload("res://Modules/Gameplay/LastBarrel/search_lantern.tscn")
 var aboard := false
+var quay_intro := 6.0
 var _lantern: Node3D
 var _skeleton: Skeleton3D
 var _hand: int
@@ -15,6 +16,7 @@ func _ready() -> void:
 	overview_camera.fov = 46.0
 	var harbor: Environment = get_world_3d().environment.duplicate()
 	harbor.ambient_light_color = Color("a1b2ce")
+	harbor.ambient_light_energy = 0.34
 	harbor.glow_enabled = true
 	harbor.glow_intensity = 0.5
 	harbor.glow_hdr_threshold = 1.35
@@ -103,11 +105,16 @@ func _frame_quay() -> void:
 	# At the threshold, lift the view over the eaves so the desk and both
 	# sides of Rook's cover remain visible throughout the shipmaster's patrol.
 	var office := (1.0 - smoothstep(-4.0, -2.7, at.x)) * (1.0 - smoothstep(3.3, 5.2, at.z))
+	var frontage := get_node("../Quay/Office/UpperFrontage") as Node3D
+	frontage.visible = office < 0.45
+	quay_intro = 0.0 if velocity.length() > 1.0 or interaction_locked else maxf(0.0, quay_intro - get_physics_process_delta_time())
+	var wide := smoothstep(0.0, 2.0, quay_intro)
 	var near_south_wall := smoothstep(12.0, 16.6, at.z)
 	var offset := Vector3(2.25, 4.0 + 2.4 * near_south_wall, 7.55)
 	offset = offset.lerp(Vector3(2.9, 8.6, 4.0), office)
 	var lead := Vector3(velocity.x, 0, velocity.z) * 0.18
 	var target := at + Vector3(0, 0.34, -0.92) + lead
 	_focus = _focus.lerp(target, 1.0 - exp(-6.5 * get_physics_process_delta_time()))
-	overview_camera.global_position = _focus + offset * (follow_size / 11.1)
-	overview_camera.look_at(_focus)
+	var focus := _focus.lerp(Vector3(-2.0, 1.2, 7.0), wide)
+	overview_camera.global_position = focus + (offset * (follow_size / 11.1)).lerp(Vector3(14, 28, 39), wide)
+	overview_camera.look_at(focus)

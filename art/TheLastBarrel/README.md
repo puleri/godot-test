@@ -2,12 +2,14 @@
 
 Open `Levels/TheLastBarrel.tscn` in Godot and press **F6** for the full level. Open `Levels/TheLastBarrelShip.tscn` and press **F6** to begin aboard the merchant. Both scenes use the same ship and search sequence.
 
+Rook starts above the quay at the closed fish market. Take the fish steps or cart ramp down to the gate. The east seawall has a short stair to the tide landing.
+
 - **WASD / left stick** moves Rook. **Shift / L1** walks quietly.
 - **E / Circle** interacts. **Q / Triangle** rings the bell or backs out of a minigame. **R** starts a fresh run.
-- Rook starts within reach of the spare barrel. Enter it, move it and climb out anywhere along the quay. At the office he can start picking during gaps between the smoking shipmaster’s glances. Ringing the dock bell draws the watch into an argument and the shipmaster leaves to settle it.
+- At the quarters, pick the lock between the smoking shipmaster’s glances. Ring the quay bell to draw him away. Walk quietly past the tea watch or rattle the kettle, then take the stairs to the writing room. Use the runner near the landing guard and the chart rack for cover.
 - At the office lock, sweep left or right until the pick finds contact. Hold **E / Circle** to seat a pin. Backing out keeps the seated pins.
 - At the desk, study the signature in the bottom-right corner. In cover, select strokes with **← / →** or the **stick / D-pad**. Use **E / Circle** to ink each stroke and submit the completed signature. **Space / Cross** undoes a stroke.
-- After the lighter is loaded, reach the marked hoist spot **inside** the spare barrel before the manifest handoff. Pressing interact again climbs out.
+- After the lighter is loaded, cross to the guards’ courtyard. Wait until the card players leave for tea, climb in their table barrel, and reach the marked hoist spot before the manifest handoff. Pressing interact again climbs out.
 - Aboard the merchant, **E / Circle** reads the cargo slate, inspects crate tags, and opens the purser’s strongbox.
 - **Space / Cross** reveals each panel of the ending.
 

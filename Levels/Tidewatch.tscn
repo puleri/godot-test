@@ -1,0 +1,69 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Levels/Tidewatch/level.gd" id="level"]
+[ext_resource type="PackedScene" path="res://scenes/Player_v2.tscn" id="rook"]
+[ext_resource type="Script" path="res://Levels/Tidewatch/rook.gd" id="player"]
+[ext_resource type="Script" path="res://scripts/stealth_exposure_sensor.gd" id="sensor"]
+[ext_resource type="PackedScene" path="res://Characters/Hound/hound_npc.tscn" id="hound"]
+[ext_resource type="Script" path="res://scripts/layered_stealth_guard.gd" id="guard"]
+
+[node name="Tidewatch" type="Node3D"]
+script = ExtResource("level")
+
+[node name="Camera" type="Camera3D" parent="."]
+projection = 1
+size = 6.7
+near = 0.1
+far = 120.0
+
+[node name="Player" parent="." instance=ExtResource("rook")]
+position = Vector3(-4, 0.49, 0)
+collision_layer = 4
+floor_snap_length = 0.18
+script = ExtResource("player")
+overview_camera_path = NodePath("../Camera")
+
+[node name="ExposureSensor" type="Node3D" parent="Player"]
+script = ExtResource("sensor")
+
+[node name="Routes" type="Node3D" parent="."]
+
+[node name="Warehouse" type="Node3D" parent="Routes"]
+
+[node name="West" type="Marker3D" parent="Routes/Warehouse"]
+position = Vector3(7.1, 0, 0)
+
+[node name="East" type="Marker3D" parent="Routes/Warehouse"]
+position = Vector3(11.3, 0, 0)
+
+[node name="PumpHouse" type="Node3D" parent="Routes"]
+
+[node name="West" type="Marker3D" parent="Routes/PumpHouse"]
+position = Vector3(20.25, 0, 0)
+
+[node name="East" type="Marker3D" parent="Routes/PumpHouse"]
+position = Vector3(23.7, 0, 0)
+
+[node name="Guards" type="Node3D" parent="."]
+
+[node name="WarehouseWatch" parent="Guards" instance=ExtResource("hound")]
+position = Vector3(11.3, 0, 0)
+rotation = Vector3(0, 1.5708, 0)
+script = ExtResource("guard")
+player_path = NodePath("../../Player")
+route_path = NodePath("../../Routes/Warehouse")
+has_lamp = false
+show_vision = false
+sight_range = 7.5
+navigation_height_offset = 0.0
+
+[node name="PumpWatch" parent="Guards" instance=ExtResource("hound")]
+position = Vector3(23.7, 0, 0)
+rotation = Vector3(0, 1.5708, 0)
+script = ExtResource("guard")
+player_path = NodePath("../../Player")
+route_path = NodePath("../../Routes/PumpHouse")
+has_lamp = false
+show_vision = false
+sight_range = 8.5
+navigation_height_offset = 0.0

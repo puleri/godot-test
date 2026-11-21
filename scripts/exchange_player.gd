@@ -8,6 +8,7 @@ signal noise_emitted(at: Vector3, audible_radius: float, kind: String)
 @export var sprint_noise_radius := 8.0
 @export var landing_noise_radius := 7.5
 var _step_distance := 0.0
+var _consecutive_steps := 0
 var _air_time := 0.0
 
 @export var follow_size := 9.4
@@ -46,11 +47,13 @@ func _physics_process(delta: float) -> void:
 	var moved := Vector2(global_position.x - before.x, global_position.z - before.z).length()
 	if moved < 0.001:
 		_step_distance = 0
+		_consecutive_steps = 0
 		return
 	_step_distance += moved
-	if _step_distance >= 1.2:
+	if _consecutive_steps == 0 or _step_distance >= 1.2:
 		_step_distance = fmod(_step_distance, 1.2)
+		_consecutive_steps = mini(_consecutive_steps + 1, 4)
 		var stick_strength := Input.get_vector("move_left", "move_right", "move_up", "move_down").length()
 		var quiet := Input.is_action_pressed("quiet_walk") or (controller_movement_active and stick_strength <= 0.45 and not Input.is_action_pressed("sprint"))
 		var radius := quiet_noise_radius if quiet else (sprint_noise_radius if Input.is_action_pressed("sprint") else walking_noise_radius)
-		noise_emitted.emit(global_position, radius, "FOOTSTEPS")
+		noise_emitted.emit(global_position, radius * (float(_consecutive_steps) / 4.0), "FOOTSTEPS")

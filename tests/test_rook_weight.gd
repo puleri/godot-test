@@ -112,6 +112,9 @@ func _check_contacts(path: String) -> void:
 	var worst_drift := 0.0
 	var worst_target_error := 0.0
 	var worst_length_error := 0.0
+	var max_ankle_offset := 0.0
+	var max_knee_offset := 0.0
+	var side: Vector3 = player.visual_pivot.global_basis.z.normalized()
 	var last_foot: Array[Vector3] = [_pose["Bone.034"].origin, _pose["Bone.035"].origin]
 	var last_planted: Array[bool] = modifier.foot_placement.planted.duplicate()
 	var worst_jump := 0.0
@@ -130,6 +133,10 @@ func _check_contacts(path: String) -> void:
 		for i in 2:
 			var names := ["Bone.030", "Bone.032", "Bone.034"] if i == 0 else ["Bone.031", "Bone.033", "Bone.035"]
 			var ankle: Vector3 = _pose[names[2]].origin
+			var hip: Vector3 = _pose[names[0]].origin
+			var knee: Vector3 = _pose[names[1]].origin
+			max_ankle_offset = maxf(max_ankle_offset, absf((ankle - hip).dot(side)))
+			max_knee_offset = maxf(max_knee_offset, absf((knee - hip).dot(side)))
 			worst_jump = maxf(worst_jump, ankle.distance_to(last_foot[i]))
 			if modifier.foot_placement.planted[i] and last_planted[i]:
 				worst_drift = maxf(worst_drift, ankle.distance_to(last_foot[i]))
@@ -144,6 +151,8 @@ func _check_contacts(path: String) -> void:
 	Input.action_release("move_right")
 	var expected_phase: float = fposmod(phase_start + traveled / modifier.foot_placement.stride_length, 1.0)
 	_check(absf(angle_difference(expected_phase * TAU, player._walk_cycle_phase * TAU)) < 0.01, label + " gait phase follows resolved distance")
+	var leg_length: float = float(measured_lengths[0][0]) + float(measured_lengths[0][1])
+	_check(max_ankle_offset < leg_length * 0.1 and max_knee_offset < leg_length * 0.08, "%s straight walking keeps ankles and knees aligned under the hips (%.3f / %.3f m)" % [label, max_ankle_offset, max_knee_offset])
 	_check(contact_frames > 100 and worst_drift < 0.012 and worst_target_error < 0.015, "%s planted contacts hold world position (drift %.4f, error %.4f)" % [label, worst_drift, worst_target_error])
 	_check(worst_length_error < 0.0001, "%s IK preserves bone lengths (error %.6f)" % [label, worst_length_error])
 	_check(worst_jump < 0.18, "%s swing has no abrupt ankle teleport (max %.3f)" % [label, worst_jump])
@@ -196,6 +205,17 @@ func _check_contacts(path: String) -> void:
 	floor_body.position.x += 0.1
 	await _frames(1)
 	_check(absf((_pose["Bone.034"].origin - foot_before).x - 0.1) < 0.015, label + " planted foot follows a moving support")
+	# Start from a planted idle and walk in the opposite direction.
+	Input.action_press("move_left")
+	var start_ankle_offset := 0.0
+	for frame in 40:
+		await _frames(1)
+		var turn_side: Vector3 = player.visual_pivot.global_basis.z.normalized()
+		for names in [["Bone.030", "Bone.034"], ["Bone.031", "Bone.035"]]:
+			var hip_to_ankle: Vector3 = _pose[names[1]].origin - _pose[names[0]].origin
+			start_ankle_offset = maxf(start_ankle_offset, absf(hip_to_ankle.dot(turn_side)))
+	Input.action_release("move_left")
+	_check(start_ankle_offset < leg_length * 0.12, "%s turning out of idle keeps the first steps narrow (%.3f m)" % [label, start_ankle_offset])
 	Input.action_press("jump")
 	await _frames(2)
 	Input.action_release("jump")

@@ -44,7 +44,7 @@ func _export_last_barrel() -> void:
 		["Lighter", ["Ships/PotatoLighter"]],
 		["Cargo", ["Cargo"]],
 		["Cast", ["Player", "Guards", "People"]],
-		["Backdrop", ["HarborBackdrop", "HarborWater"]],
+		["Backdrop", ["HarborBackdrop", "HarborWater", "HillsideCity"]],
 	]:
 		var visual := Node3D.new()
 		visual.name = spec[0]
