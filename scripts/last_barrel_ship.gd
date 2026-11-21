@@ -3,6 +3,7 @@ extends RefCounted
 ## while the far side carries the full ceiling knees, hull ceiling and cabin windows.
 
 const JOINERY := preload("res://scripts/last_barrel_ship_mesh.gd")
+const LIGHTS := preload("res://scripts/last_barrel_lights.gd")
 const BARREL := preload("res://Modules/Props/CargoBarrel.tscn")
 const PLANKS := preload("res://Mesh/Harboretum-Mesh/wood_planks.tscn")
 const PLANK_COLORS := ["oak", "oak_dark", "oak", "oak_light", "oak_red", "oak", "oak_red"]
@@ -153,7 +154,7 @@ func _freight(deck: Node3D) -> void:
 	_rails(deck,-2.75,6.87,FAR,0,true)
 	_rails(deck,-2.75,6.87,NEAR,0,false)
 	_cargo_slate(_group(deck,"CargoSlate",Vector3(2.62,0,-23.76)))
-	_lantern(deck,"HatchLantern",Vector3(3.63,1.18,-23.69),4.2)
+	_lantern(deck, "HatchLantern", Vector3(3.63, 1.18, -23.69), Vector3(2.85, 0.15, -22.95), 3.1, 38.0)
 	_crate(deck,"DocksideStores",Vector3(-1.52,0,-24.26),1.18,0.91,0.98,"oak_red")
 	_crate(deck,"DocksideStoresUpper",Vector3(-1.52,0.91,-24.26),0.90,0.66,0.76,"oak")
 	_bale(deck,Vector3(5.10,0,-24.77),1.18)
@@ -280,8 +281,8 @@ func _hold(hold: Node3D) -> void:
 		_block(hold,at + Vector3.UP*0.49,Vector3(0.76,0.98,0.76))
 	_crate(hold,"PortChest",Vector3(15.77,-1.20,-18.45),1.32,0.66,0.99,"oak_red")
 	_coil(hold,Vector3(10.73,-1.17,-18.41),0.42)
-	_lantern(hold,"HoldLantern",Vector3(10.67,1.14,-25.15),4.9)
-	_lantern(hold,"ConsignmentLantern",Vector3(16.55,1.25,-25.18),4.5)
+	_lantern(hold, "HoldLantern", Vector3(10.67, 1.14, -25.15), Vector3(9.95, -1.2, -23.65), 3.9, 30.0)
+	_lantern(hold, "ConsignmentLantern", Vector3(16.55, 1.25, -25.18), Vector3(15.55, -1.2, -23.6), 4.0, 29.0)
 
 
 func _crate(parent: Node3D, title: String, at: Vector3, w: float, h: float, d: float, wood: String) -> Node3D:
@@ -377,7 +378,7 @@ func _chest(parent: Node3D, title: String, at: Vector3, transferred: bool) -> vo
 	_block(chest,Vector3(0,h/2,0),Vector3(w,h,d))
 
 
-func _lantern(parent: Node3D, title: String, at: Vector3, reach: float) -> void:
+func _lantern(parent: Node3D, title: String, at: Vector3, target: Vector3, reach: float, angle: float) -> SpotLight3D:
 	var lamp := _group(parent,title,at)
 	# Glass, blackened roof, bail, four corner mullions and a fingertip of flame.
 	j.rod(lamp,"metal",Vector3(0,-0.22,0),Vector3(0,-0.16,0),0.18,0.20,6)
@@ -389,16 +390,8 @@ func _lantern(parent: Node3D, title: String, at: Vector3, reach: float) -> void:
 		j.rod(lamp,"brass",offset+Vector3.DOWN*0.16,offset+Vector3.UP*0.16,0.013,0.014,5)
 	j.ring(lamp,"metal",Vector3(0,0.37,0),0.069,0.011,Vector3.RIGHT,Vector3.UP,12)
 	j.timber(lamp,"metal",Vector3(0,0.45,-0.39),Vector3(0,0.45,0),0.046,0.046)
-	var light := OmniLight3D.new()
-	light.name = "Light"
-	light.position = Vector3(0,0.02,0.13)
-	light.light_color = Color("ffbb77")
-	light.light_energy = 2.5
-	light.light_size = 0.10
-	light.shadow_enabled = true
-	light.omni_attenuation = 1.20
-	light.omni_range = reach
-	lamp.add_child(light)
+	return LIGHTS.add_spot(lamp, "Light", Vector3(0, -0.20, 0.13), target - at,
+		Color("ffbb77"), 3.5, reach, angle)
 
 
 func _passages(root: Node3D) -> void:
@@ -437,7 +430,7 @@ func _passages(root: Node3D) -> void:
 		j.box(entry,"oak_dark",Vector3(0,1.24,s*1.18),Vector3(0.22,2.48,0.22))
 		j.timber(entry,"oak",Vector3(0,2.02,s*1.16),Vector3(0,2.47,s*0.76),0.16,0.19)
 	j.timber(entry,"oak_dark",Vector3(0,2.49,-1.30),Vector3(0,2.49,1.30),0.22,0.25)
-	_lantern(root,"CabinDoorLamp",Vector3(21.35,2.35,-25.39),4.6)
+	_lantern(root, "CabinDoorLamp", Vector3(21.35, 2.35, -25.39), Vector3(21.7, 0.45, -24.35), 3.5, 32.0)
 
 
 func _cabin(cabin: Node3D) -> void:
@@ -460,7 +453,7 @@ func _cabin(cabin: Node3D) -> void:
 		j.timber(back,"frame",Vector3(x,3.84,FAR+0.73),Vector3(x,4.17,FAR+1.58),0.26,0.28)
 	_block(back,Vector3(24.98,2.19,FAR),Vector3(6.36,3.12,0.20))
 	_chest(cabin,"Strongbox",Vector3(25.05,0.65,-24.46),false)
-	_lantern(cabin,"PurserLantern",Vector3(23.17,2.52,-25.33),4.75)
+	_lantern(cabin, "PurserLantern", Vector3(23.17, 2.52, -25.33), Vector3(24.75, 0.7, -24.15), 4.0, 33.0)
 	_pigeonholes(cabin, Vector3(27.03,0.65,-25.00))
 	_chart_table(cabin)
 	var rug := _group(cabin,"WoolRunner",Vector3(25.03,0.665,-21.7))

@@ -226,25 +226,24 @@ func _freight(quay: Node3D) -> void:
 func _lamps(quay: Node3D, office: Node3D) -> void:
 	var fittings := preload("res://scripts/last_barrel_ship.gd").new()
 	for spec in [
-		[office, "OfficePorchLamp", Vector3(-6.9, 2.03, 4.96), false],
-		[office, "WritingLamp", Vector3(-9.9, 5.1, -2.2), false],
-		[quay, "BellLamp", Vector3(3.38, 2.85, -5.28), true],
-		[quay, "SortingLamp", Vector3(-3, 2.5, -9.7), true],
-		[quay, "GateLamp", Vector3(7.6, 2.6, -9.9), true],
-		[quay, "LighterLamp", Vector3(-8.2, 2.0, -17.3), true],
-		[quay, "BarrelLamp", Vector3(-11.6, 2.6, 14.1), true],
-		[office, "TeaLamp", Vector3(-10.4, 2.4, 2.1), false],
+		[office, "OfficePorchLamp", Vector3(-6.9, 2.03, 4.96), Vector3(-6.1, 0, 5.45), false],
+		[office, "WritingLamp", Vector3(-9.9, 5.1, -2.2), Vector3(-10.2, 3.04, -1.85), false],
+		[quay, "BellLamp", Vector3(3.38, 2.85, -5.28), Vector3(3.95, 0, -5.38), true],
+		[quay, "SortingLamp", Vector3(-3, 2.5, -9.7), Vector3(-2.75, 0, -8.85), true],
+		[quay, "GateLamp", Vector3(7.6, 2.6, -9.9), Vector3(6.95, 0, -9.35), true],
+		[quay, "LighterLamp", Vector3(-8.2, 2.0, -17.3), Vector3(-7.8, 0, -17.0), true],
+		[quay, "BarrelLamp", Vector3(-11.6, 2.6, 14.1), Vector3(-10.9, 0, 13.6), true],
+		[office, "TeaLamp", Vector3(-10.4, 2.4, 2.1), Vector3(-10.15, 0, 2.15), false],
 	]:
 		var parent: Node3D = spec[0]
 		var at: Vector3 = spec[2]
-		fittings._lantern(parent, spec[1], at, 4.8)
-		var fixture: Node3D = parent.get_node(spec[1])
-		var light: OmniLight3D = fixture.get_node("Light")
-		light.light_energy = 1.7
-		light.light_color = Color("ffc48a")
+		var light := fittings._lantern(parent, spec[1], at, spec[3], 4.4, 30.0)
+		light.light_color = Color.WHITE
+		# Keep exposure tied to the visible pool as the rendered cone gets brighter.
+		light.set_meta("stealth_strength", 0.50)
 		light.add_to_group("stealth_lights", true)
-		if spec[3]:
-			joinery.timber(fixture, "frame", Vector3(0, -at.y, -0.43), Vector3(0, 0.49, -0.43), 0.135, 0.14)
+		if spec[4]:
+			joinery.timber(light.get_parent(), "frame", Vector3(0, -at.y, -0.43), Vector3(0, 0.49, -0.43), 0.135, 0.14)
 	fittings.j.finish()
 
 
@@ -297,8 +296,8 @@ func _harbor_life(level: Node3D, quay: Node3D, office: Node3D) -> void:
 	joinery.box(lighter, "lamp", Vector3(-1.71, 1.08, 0), Vector3(0.025, 0.37, 0.6))
 
 	var shore_lamps := preload("res://scripts/last_barrel_ship.gd").new()
-	shore_lamps._lantern(quay, "NetMendingLamp", Vector3(10.35, 1.42, 7.12), 4.2)
-	shore_lamps._lantern(quay, "TallyLamp", Vector3(-12.27, 2.14, -7.12), 4.1)
+	shore_lamps._lantern(quay, "NetMendingLamp", Vector3(10.35, 1.42, 7.12), Vector3(10.4, 0, 7.6), 2.6, 30.0)
+	shore_lamps._lantern(quay, "TallyLamp", Vector3(-12.27, 2.14, -7.12), Vector3(-11.75, 0, -6.8), 3.5, 28.0)
 	shore_lamps.j.finish()
 	var details := _group(quay, "PlacesToExplore")
 	_exhibit(details, "Tide slate", Vector3(-12.85, 0, 15.95),

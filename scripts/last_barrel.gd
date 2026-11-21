@@ -13,6 +13,7 @@ const Pins := preload("res://Modules/Gameplay/Lockpicking/listening_pins.gd")
 const Comic := preload("res://Modules/Gameplay/LastBarrel/ending_comic.gd")
 const ShipEvidence := preload("res://Modules/Gameplay/LastBarrel/ship_evidence.gd")
 const DockCutaway := preload("res://Modules/Gameplay/LastBarrel/dock_cutaway.gd")
+const BLOCK_PRINT_LIGHTING := preload("res://scenes/BlockPrintLighting.tscn")
 const DELIVERY_WINDOW := 65.0
 const DECK_FIRE := 12.0
 const PORT_FIRE := 26.0
@@ -43,6 +44,7 @@ const SHIP_PROPS := {
 static var _retry: Dictionary = {}
 
 @export var start_aboard := false
+@export var block_print_lighting := true
 
 @onready var player = $Player
 @onready var guard = $Guards/DockWatch
@@ -112,6 +114,8 @@ var _delivery_arrived := false
 
 
 func _ready() -> void:
+	if block_print_lighting:
+		add_child(BLOCK_PRINT_LIGHTING.instantiate())
 	get_window().content_scale_size = Vector2i(1440, 900)
 	get_window().content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
 	_build_ui(int(_retry.get("variant", -1)))
@@ -728,7 +732,6 @@ func _start_fire() -> void:
 	boom.position = Vector3(-4.8, 3.63, -11.6)
 	boom.rotation.y = 1.2
 	$Quay/HoistLine.hide()
-	$Moon.light_energy = 0.52
 	barrel.position = _point("Boarding") + Vector3(-0.93, -0.07, -0.45)
 	barrel.rotation.x = PI * 0.5
 	player.begin_ship_search()
@@ -1206,6 +1209,8 @@ func _build_ui(variant: int) -> void:
 	layer.add_child(comic)
 	_dock_cutaway = preload("res://Modules/Gameplay/LastBarrel/dock_cutaway.tscn").instantiate()
 	screen.add_child(_dock_cutaway)
+	if block_print_lighting:
+		_dock_cutaway.view.add_child(BLOCK_PRINT_LIGHTING.instantiate())
 	_styled_hud = preload("res://UI/StyledHUD.tscn").instantiate()
 	_styled_hud.layer = layer.layer
 	_styled_hud.show_coin_counter = false

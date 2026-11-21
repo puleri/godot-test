@@ -14,18 +14,7 @@ func _ready() -> void:
 	super._ready()
 	overview_camera.projection = Camera3D.PROJECTION_PERSPECTIVE
 	overview_camera.fov = 46.0
-	var harbor: Environment = get_world_3d().environment.duplicate()
-	harbor.ambient_light_color = Color("a1b2ce")
-	harbor.ambient_light_energy = 0.34
-	harbor.glow_enabled = true
-	harbor.glow_intensity = 0.5
-	harbor.glow_hdr_threshold = 1.35
-	harbor.ssao_enabled = true
-	harbor.ssao_radius = 0.7
-	harbor.fog_enabled = true
-	harbor.fog_density = 0.002
-	harbor.fog_light_color = Color("41526b")
-	overview_camera.environment = harbor
+	overview_camera.environment = null
 	if get_viewport().msaa_3d == Viewport.MSAA_DISABLED:
 		get_viewport().msaa_3d = Viewport.MSAA_2X
 		_enabled_msaa = true
@@ -44,21 +33,7 @@ func begin_ship_search() -> void:
 	# Let rooms, ribs and crates recede in perspective as Rook approaches them.
 	overview_camera.projection = Camera3D.PROJECTION_PERSPECTIVE
 	overview_camera.fov = 42.0
-	overview_camera.environment = get_world_3d().environment.duplicate()
-	var atmosphere := overview_camera.environment
-	atmosphere.background_color = Color("263854")
-	atmosphere.ambient_light_color = Color("9eb0d0")
-	atmosphere.ambient_light_energy = 0.44
-	atmosphere.ssao_enabled = true
-	atmosphere.ssao_radius = 0.65
-	atmosphere.ssao_intensity = 1.6
-	atmosphere.glow_enabled = true
-	atmosphere.glow_intensity = 0.48
-	atmosphere.glow_hdr_threshold = 1.25
-	atmosphere.fog_enabled = true
-	atmosphere.fog_light_color = Color("44536a")
-	atmosphere.fog_density = 0.003
-	atmosphere.fog_sky_affect = 0.0
+	overview_camera.environment = null
 	_focus = global_position
 	_update_phase_camera()
 

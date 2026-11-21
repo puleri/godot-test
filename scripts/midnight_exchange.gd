@@ -8,6 +8,7 @@ const SignatureForgery := preload("res://Modules/Gameplay/SignatureForgery/signa
 const STATION_REACH := 1.8
 
 @export var readable_lamp_ground := true
+@export var block_print_lighting := true
 @export var play_opening_dialogue := true
 @export var play_establishing_shot := true
 @export_range(1.0, 20.0) var establishing_shot_duration := 7.0
@@ -57,6 +58,8 @@ var _wait_for_interact_release := false
 func _ready() -> void:
 	_configure_harbor_backdrop()
 	_configure_ground_lighting()
+	if block_print_lighting:
+		add_child(preload("res://scenes/BlockPrintLighting.tscn").instantiate())
 	get_window().content_scale_size = Vector2i(1440, 900)
 	get_window().content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
 	for guard in $Guards.get_children():

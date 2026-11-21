@@ -2,6 +2,7 @@ extends "res://scripts/midnight_exchange_builder.gd"
 ## Authored room shell, two berths, and saved markers for the encounter.
 
 const SHIP := preload("res://scripts/last_barrel_ship.gd")
+const LIGHTS := preload("res://scripts/last_barrel_lights.gd")
 const QUAY_ART := preload("res://scripts/last_barrel_quay.gd")
 const PLANKS := preload("res://Mesh/Harboretum-Mesh/wood_planks.tscn")
 const LOCK_DEMO := preload("res://Modules/Gameplay/Lockpicking/Doorway.tscn")
@@ -134,14 +135,14 @@ func _market_approach(quay: Node3D) -> void:
 	_wall_span(market, Vector3(-13.5, 2.8, 37.6), Vector3.RIGHT, 9.5, true)
 
 	_sign(market, "QUAY", Vector3(-4.75, 1.3, 18.15))
-	for spec in [[Vector3(-2.25, 5.1, 29.0), 5.0], [Vector3(-10.8, 4.45, 26.4), 3.4], [Vector3(-5.85, 2.45, 17.4), 4.0]]:
-		var light := OmniLight3D.new()
-		light.position = spec[0]
-		light.light_color = Color("ffc586")
-		light.light_energy = 2.2
-		light.omni_range = spec[1]
-		market.add_child(light)
-		_box(market, "WallLantern", light.position, Vector3(0.17, 0.24, 0.17), BRASS)
+	for spec in [
+		["MarketStallLight", Vector3(-2.25, 5.1, 29.0), Vector3(-2.85, 2.8, 28.65), 3.8],
+		["CartRampLight", Vector3(-10.8, 4.45, 26.4), Vector3(-9.55, 2.8, 26.1), 3.2],
+		["FishStepsLight", Vector3(-5.85, 2.45, 17.4), Vector3(-4.9, 0.0, 18.8), 4.4],
+	]:
+		var fixture: Vector3 = spec[1]
+		LIGHTS.add_spot(market, spec[0], fixture + Vector3.DOWN * 0.18, spec[2], Color("ffc586"), 3.5, spec[3], 28.0)
+		_box(market, "WallLantern", fixture, Vector3(0.17, 0.24, 0.17), BRASS)
 
 	var landing := kit.group(quay, "TideLanding")
 	_solid(landing, "WaterlinePlatform", Vector3(16.95, -1.13, 7.95), Vector3(3.5, 0.39, 3.0), Color("49464a"))
@@ -452,12 +453,21 @@ func _crow(parent: Node3D, title: String, asset: PackedScene, at: Vector3) -> No
 
 func _lighting(level: Node3D) -> void:
 	var world := WorldEnvironment.new()
-	world.environment = Environment.new()
-	world.environment.background_mode = Environment.BG_COLOR
-	world.environment.background_color = Color("192235")
+	var reference: Node3D = load("res://Levels/MidnightExchange.tscn").instantiate()
+	world.environment = reference.get_node("WorldEnvironment").environment.duplicate(true)
+	var sky := Sky.new()
+	sky.process_mode = Sky.PROCESS_MODE_REALTIME
+	var sky_material := ShaderMaterial.new()
+	sky_material.shader = preload("res://Materials/harbor_sky.gdshader")
+	sky.sky_material = sky_material
+	world.environment.sky = sky
+	world.environment.background_mode = Environment.BG_SKY
+	world.environment.reflected_light_source = Environment.REFLECTION_SOURCE_DISABLED
+	# A trace of fill keeps silhouettes readable between the lantern pools.
 	world.environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	world.environment.ambient_light_color = Color("8895b3")
-	world.environment.ambient_light_energy = 0.46
+	world.environment.ambient_light_color = Color("71809c")
+	world.environment.ambient_light_energy = 0.035
+	reference.free()
 	level.add_child(world)
 	var water := MeshInstance3D.new()
 	water.name = "HarborWater"
@@ -483,8 +493,7 @@ func _lighting(level: Node3D) -> void:
 	moon.name = "Moon"
 	moon.rotation_degrees = Vector3(-49, -32, 0)
 	moon.light_color = Color("9dadd3")
-	moon.light_energy = 0.76
-	moon.shadow_enabled = true
+	moon.light_energy = 0.045
 	level.add_child(moon)
 
 

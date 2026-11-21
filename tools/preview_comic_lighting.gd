@@ -17,6 +17,7 @@ func _run() -> void:
 	root.size = Vector2i(1440, 900)
 	var level = load("res://Levels/MidnightExchange.tscn").instantiate()
 	level.play_opening_dialogue = false
+	level.block_print_lighting = false
 	root.add_child(level)
 	current_scene = level
 	await level.ready_for_play

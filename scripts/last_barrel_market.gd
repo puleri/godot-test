@@ -1,6 +1,7 @@
 extends RefCounted
 
 const JOINERY := preload("res://scripts/last_barrel_ship_mesh.gd")
+const LIGHTS := preload("res://scripts/last_barrel_lights.gd")
 var j := JOINERY.new()
 
 
@@ -51,13 +52,8 @@ func build(level: Node3D) -> void:
 		j.rod(baskets, "oak_dark", Vector3(0, 0.05, 0), Vector3(0, 0.38, 0), 0.21, 0.31, 10)
 		j.ring(baskets, "cord", Vector3(0, 0.39, 0), 0.30, 0.025, Vector3.RIGHT, Vector3.FORWARD, 12)
 		j.box(baskets, "canvas_dark", Vector3(0.55, 0.11, 0.05), Vector3(0.55, 0.2, 0.38), Basis.IDENTITY, 0.06)
-	var market_lamp := OmniLight3D.new()
-	market_lamp.name = "BriefingLantern"
-	market_lamp.position = Vector3(-5.9, 5.0, 29.4)
-	market_lamp.light_color = Color("ffc58a")
-	market_lamp.light_energy = 2.0
-	market_lamp.omni_range = 4.2
-	market.add_child(market_lamp)
+	LIGHTS.add_spot(market, "BriefingLantern", Vector3(-5.9, 5.0, 29.4),
+		Vector3(-6.0, 2.8, 30.0), Color("ffc58a"), 3.8, 3.8, 32.0)
 	var skyline := Node3D.new()
 	skyline.name = "HillsideCity"
 	level.add_child(skyline)

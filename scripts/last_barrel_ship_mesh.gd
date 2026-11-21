@@ -172,7 +172,7 @@ func finish() -> void:
 		var visual := MeshInstance3D.new()
 		visual.name = "Joinery"
 		visual.mesh = mesh
-		if part.get_node_or_null("Light") is OmniLight3D:
+		if part.get_node_or_null("Light") is Light3D:
 			visual.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		part.add_child(visual)
 	batches.clear()
