@@ -1,0 +1,30 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://Mesh/TheLastBarrel/QuayArchway.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="BoxShape_pier"]
+size = Vector3(0.59, 2.25, 0.71)
+
+[node name="QuayArchway" type="Node3D"]
+
+[node name="ArchAndSign" parent="." instance=ExtResource("1_model")]
+
+[node name="Piers" type="StaticBody3D" parent="."]
+
+[node name="LeftPier" type="CollisionShape3D" parent="Piers"]
+position = Vector3(-1.54, 1.125, 0)
+shape = SubResource("BoxShape_pier")
+
+[node name="RightPier" type="CollisionShape3D" parent="Piers"]
+position = Vector3(1.54, 1.125, 0)
+shape = SubResource("BoxShape_pier")
+
+[node name="SignLight" type="SpotLight3D" parent="."]
+position = Vector3(0, 3.65, 3.0)
+rotation = Vector3(-0.16, 0, 0)
+light_color = Color(1, 0.9, 0.75, 1)
+light_energy = 4.0
+spot_range = 3.4
+spot_angle = 26.0
+spot_attenuation = 0.5
+spot_angle_attenuation = 0.55

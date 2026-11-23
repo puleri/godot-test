@@ -4,6 +4,7 @@ extends "res://scripts/midnight_exchange_builder.gd"
 const SHIP := preload("res://scripts/last_barrel_ship.gd")
 const LIGHTS := preload("res://scripts/last_barrel_lights.gd")
 const QUAY_ART := preload("res://scripts/last_barrel_quay.gd")
+const OFFICE := preload("res://Modules/Gameplay/LastBarrel/office_layout.gd")
 const PLANKS := preload("res://Mesh/Harboretum-Mesh/wood_planks.tscn")
 const LOCK_DEMO := preload("res://Modules/Gameplay/Lockpicking/Doorway.tscn")
 const CROW := preload("res://Characters/Crow/crow.glb")
@@ -134,7 +135,9 @@ func _market_approach(quay: Node3D) -> void:
 	_wall_span(market, Vector3(-3.2, 2.8, 26.3), Vector3.RIGHT, 4.9, true)
 	_wall_span(market, Vector3(-13.5, 2.8, 37.6), Vector3.RIGHT, 9.5, true)
 
-	_sign(market, "QUAY", Vector3(-4.75, 1.3, 18.15))
+	var archway := preload("res://Modules/Props/QuayArchway.tscn").instantiate() as Node3D
+	archway.position = Vector3(-4.75, 0, 18.15)
+	market.add_child(archway)
 	for spec in [
 		["MarketStallLight", Vector3(-2.25, 5.1, 29.0), Vector3(-2.85, 2.8, 28.65), 3.8],
 		["CartRampLight", Vector3(-10.8, 4.45, 26.4), Vector3(-9.55, 2.8, 26.1), 3.2],
@@ -184,14 +187,27 @@ func _descent(parent: Node3D, title: String, x: float, width: float, start: floa
 
 
 func _office(office: Node3D) -> void:
-	_wall_span(office, Vector3(-12.6, 0, -4.4), Vector3.RIGHT, 9.05)
-	_wall_span(office, Vector3(-12.6, 0, -4.4), Vector3.BACK, 8.9)
-	_wall_span(office, Vector3(-3.55, 0, -4.4), Vector3.BACK, 8.9)
-	# A glazed opening in the quay frontage lets Rook glimpse the writing room.
-	kit.box(office, Vector3(5.55, 2.6, 0.6), Vector3(-9.825, 1.3, 4.5))
-	_wall_span(office, Vector3(-5.15, 0, 4.5), Vector3.RIGHT, 1.6)
+	var ground := kit.group(office, "GroundFloor")
+	var loft := kit.group(office, "UpperFloor")
+	var shell := kit.group(office, "ExteriorWalls")
+	var width: float = OFFICE.EAST - OFFICE.WEST
+	var depth: float = OFFICE.FRONT - OFFICE.REAR
+	_wall_span(ground, Vector3(OFFICE.WEST, 0, OFFICE.REAR), Vector3.RIGHT, width)
+	_wall_span(ground, Vector3(OFFICE.WEST, 0, OFFICE.REAR), Vector3.BACK, depth)
+	_wall_span(shell, Vector3(OFFICE.EAST, 0, OFFICE.REAR), Vector3.BACK, depth)
+	# The window opening is visual only. Its wall still blocks traversal.
+	kit.box(shell, Vector3(5.55, 2.6, 0.6), Vector3(-9.825, 1.3, OFFICE.FRONT))
+	_wall_span(shell, Vector3(-5.15, 0, OFFICE.FRONT), Vector3.RIGHT, 1.6)
+	var floor_center := Vector3((OFFICE.WEST + OFFICE.EAST) * 0.5, 0.005, (OFFICE.REAR + OFFICE.FRONT) * 0.5)
+	_box(ground, "Subfloor", floor_center + Vector3.DOWN * 0.035, Vector3(width, 0.07, depth), TRIM)
+	var board_width := width / 23.0
+	for board in 23:
+		var at := Vector3(OFFICE.WEST + board_width * (board + 0.5), 0.01, floor_center.z)
+		var tint := WOOD.lightened(0.020 * (board % 4))
+		_box(ground, "Floorboard", at, Vector3(board_width - 0.015, 0.02, depth), tint)
+	_box(ground, "DoorSill", Vector3(-6.1, 0.022, 4.30), Vector3(1.82, 0.04, 0.40), WOOD.lightened(0.16))
 	var door := kit.group(office, "Door")
-	door.position = Vector3(-6.10, 0, 4.50)
+	door.position = Vector3(-6.10, 0, OFFICE.FRONT)
 	var assembly := LOCK_DEMO.instantiate()
 	for part in ["Hinge", "Jamb0", "Jamb1"]:
 		var node := assembly.get_node(part)
@@ -200,65 +216,92 @@ func _office(office: Node3D) -> void:
 		door.add_child(node)
 	assembly.free()
 	_box(door, "Timber lintel", Vector3(0, 2.79, 0), Vector3(2.16, 0.26, 0.35), WOOD)
-	var furnishings := office.get_child_count()
-	var desk = _station(office, "Manifest", "SHIPMASTER’S MANIFEST", Vector3(-10.10, 0, -2.75), 1.8)
+	var door_recess := _box(shell, "DoorwayShadow", Vector3(-6.1, 1.28, 4.24), Vector3(2.0, 2.58, 0.08), Color("171319"))
+	door_recess.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	var desk = _station(loft, "Manifest", "SHIPMASTER’S MANIFEST", Vector3(-10.10, OFFICE.UPPER_HEIGHT, -2.75), 1.8)
 	desk.get_node("Ring").hide()
 	desk.get_node("Caption").hide()
 	kit.box(desk, Vector3(1.10, 0.78, 0.8), Vector3.UP * 0.39)
-	_box(office, "ReplacedPage", Vector3(-10.03, 0.859, -2.53), Vector3(0.24, 0.008, 0.17), Color("e8cb8c")).hide()
-	_solid(office, "Bookcase", Vector3(-11.83, 0.73, 0.33), Vector3(0.58, 1.46, 2.8), WOOD)
+	_box(loft, "ReplacedPage", Vector3(-10.03, 3.659, -2.53), Vector3(0.24, 0.008, 0.17), Color("e8cb8c")).hide()
+	_solid(loft, "Bookcase", Vector3(-11.83, 3.53, 0.33), Vector3(0.58, 1.46, 2.8), WOOD)
 	for shift in [0.0, 0.42, 0.83]:
 		for index in 8:
-			_box(office, "LedgerVolume", Vector3(-11.49, 0.36 + shift, -0.72 + index * 0.27), Vector3(0.18, 0.30, 0.18), BRASS if index % 3 == 0 else Color("5e7974"))
-	_cover_wall(office, "FoldingScreen", Vector3(-8.48, 0, 1.10), 3.1)
-	_solid(office, "WritingCabinet", Vector3(-4.1, 0.65, -1.1), Vector3(0.52, 1.3, 1.8), WOOD)
-	_box(office, "OfficeRunner", Vector3(-7.7, 0.021, -1.6), Vector3(2.1, 0.025, 3.0), Color("63524b"))
-	for child in office.get_children().slice(furnishings):
-		child.position.y += 2.8
+			_box(loft, "LedgerVolume", Vector3(-11.49, 3.16 + shift, -0.72 + index * 0.27), Vector3(0.18, 0.30, 0.18), BRASS if index % 3 == 0 else Color("5e7974"))
+	_cover_wall(loft, "FoldingScreen", Vector3(-8.48, OFFICE.UPPER_HEIGHT, 1.10), 3.1)
+	_solid(loft, "WritingCabinet", Vector3(-4.1, 3.45, -1.1), Vector3(0.52, 1.3, 1.8), WOOD)
+	_box(loft, "OfficeRunner", Vector3(-7.7, 2.821, -1.6), Vector3(2.1, 0.025, 3.0), Color("63524b"))
 	_sign(office, "SHIPMASTER", Vector3(-6.1, 2.93, 4.5))
 
 
 func _build_upper_floor(office: Node3D) -> void:
-	var loft := kit.group(office, "UpperFloor")
+	var loft: Node3D = office.get_node("UpperFloor")
+	var ground: Node3D = office.get_node("GroundFloor")
+	var stairs := kit.group(office, "Staircase")
 	_solid(loft, "WritingRoomFloor", Vector3(-9.95, 2.70, 0.05), Vector3(5.3, 0.2, 8.5), WOOD)
 	_solid(loft, "Landing", Vector3(-5.48, 2.70, -3.53), Vector3(3.64, 0.2, 1.55), WOOD)
 	var stair := ConvexPolygonShape3D.new()
 	var vertices := PackedVector3Array()
-	for x in [-6.99, -5.07]:
-		vertices.append(Vector3(x, -0.18, 3.86))
-		vertices.append(Vector3(x, 0.0, 3.86))
-		vertices.append(Vector3(x, -0.18, -2.72))
-		vertices.append(Vector3(x, 2.8, -2.72))
+	for edge in [-0.5, 0.5]:
+		var x_offset := Vector3.RIGHT * float(edge) * OFFICE.STAIR_WIDTH
+		vertices.append(OFFICE.STAIR_FOOT + x_offset + Vector3.DOWN * 0.18)
+		vertices.append(OFFICE.STAIR_FOOT + x_offset)
+		vertices.append(Vector3(OFFICE.STAIR_HEAD.x, -0.18, OFFICE.STAIR_HEAD.z) + x_offset)
+		vertices.append(OFFICE.STAIR_HEAD + x_offset)
 	stair.points = vertices
-	kit.shape(loft, stair)
-	for step in 16:
-		_box(loft, "OakTread", Vector3(-6.03, step * 0.175, 3.57 - step * 0.394), Vector3(1.84, 0.19, 0.403), WOOD)
-	for x in [-12.58, -3.6]:
-		_solid(loft, "UpperSideWall", Vector3(x, 3.5, 0), Vector3(0.23, 1.4, 8.5), TRIM)
-	_solid(loft, "UpperRearWall", Vector3(-8.08, 3.5, -4.32), Vector3(9, 1.4, 0.27), TRIM)
+	kit.shape(stairs, stair)
+	const STEP_COUNT := 14
+	var tread_depth: float = (OFFICE.STAIR_FOOT.z - OFFICE.STAIR_HEAD.z) / STEP_COUNT
+	var rise: float = OFFICE.UPPER_HEIGHT / STEP_COUNT
+	var nosing := BoxMesh.new()
+	nosing.size = Vector3(OFFICE.STAIR_WIDTH - 0.06, 0.012, 0.055)
+	var nosing_material := _material(WOOD.lightened(0.16))
+	nosing_material.emission_enabled = true
+	nosing_material.emission = Color("86674d")
+	nosing_material.emission_energy_multiplier = 0.18
+	nosing.material = nosing_material
+	for step in STEP_COUNT:
+		var at := OFFICE.STAIR_FOOT + Vector3(0, rise * (step + 0.5), -tread_depth * (step + 0.5))
+		_box(stairs, "OakTread", at - Vector3.UP * rise * 0.5, Vector3(OFFICE.STAIR_WIDTH, rise, tread_depth + 0.014), WOOD)
+		var edge := MeshInstance3D.new()
+		edge.name = "TreadNosing"
+		edge.mesh = nosing
+		edge.position = at + Vector3(0, 0.004, tread_depth * 0.5 - 0.032)
+		edge.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		stairs.add_child(edge, true)
+	var landing_edge := _box(stairs, "LandingEdge", Vector3(-6.03, 2.69, -2.75), Vector3(OFFICE.STAIR_WIDTH, 0.20, 0.16), WOOD)
+	landing_edge.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	var facade := kit.group(office, "UpperFrontage")
+	_office_roof(facade)
+	_solid(loft, "UpperWestWall", Vector3(-12.58, 3.55, 0.05), Vector3(0.23, 1.9, 8.9), TRIM)
+	_solid(loft, "UpperRearWall", Vector3(-8.08, 3.55, -4.32), Vector3(9.12, 1.9, 0.27), TRIM)
+	_solid(facade, "UpperEastWall", Vector3(-3.6, 3.55, 0.05), Vector3(0.23, 1.9, 8.9), TRIM)
 	for side in [-1, 1]:
-		var roof := _box(facade, "SlateRoof", Vector3(-8.08, 5.85, 2.25 * side), Vector3(9.55, 0.19, 4.85), Color("283546"))
-		roof.rotation.x = 0.24 * side
+		_box(facade, "EavesWall", Vector3(-8.08, 4.95, 4.43 * side), Vector3(9.26, 1.02, 0.33), TRIM)
 	var runner := _box(loft, "LandingRunner", Vector3(-9.2, 2.815, 2.86), Vector3(2.7, 0.026, 1.12), Color("824f39"))
 	runner.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	for x in [-12.4, -10.1, -7.85, -5.65, -3.75]:
 		_box(facade, "TimberPost", Vector3(x, 4.08, 4.46), Vector3(0.22, 2.58, 0.35), WOOD)
 	for y in [3.06, 4.98]:
 		_box(facade, "FrontBeam", Vector3(-8.08, y, 4.46), Vector3(9.13, 0.53, 0.38), WOOD)
-	for x in [-11.25, -9.0, -6.75, -4.68]:
+	var left: float = OFFICE.WEST - 0.12
+	for x: float in [-11.25, -9.0, -6.75, -4.68]:
+		var pier_width := x - 0.75 - left
+		_box(facade, "WindowPier", Vector3(left + pier_width * 0.5, 4.0, 4.43), Vector3(pier_width, 1.5, 0.3), TRIM)
 		var window := _box(facade, "LitWindow", Vector3(x, 4.02, 4.44), Vector3(1.5, 1.15, 0.14), Color("dfa45e"))
 		var glass := window.mesh.material as StandardMaterial3D
 		glass.emission_enabled = true
 		glass.emission = Color("ad6b28")
 		_box(facade, "WindowMullion", Vector3(x, 4.02, 4.54), Vector3(0.09, 1.19, 0.1), WOOD)
+		left = x + 0.75
+	_box(facade, "WindowPier", Vector3(-3.68, 4.0, 4.43), Vector3(0.50, 1.5, 0.3), TRIM)
+	_box(facade, "FrontSillWall", Vector3(-8.08, 3.03, 4.43), Vector3(9.26, 0.83, 0.33), TRIM)
 	_box(facade, "UpperEaves", Vector3(-8.08, 5.35, 4.36), Vector3(9.45, 0.25, 1.74), TRIM)
 	_solid(loft, "ChartRack", Vector3(-9.02, 3.48, 0.16), Vector3(0.27, 1.36, 1.32), WOOD)
 	_solid(loft, "ChartRackWing", Vector3(-7.91, 3.48, 0.16), Vector3(0.21, 1.36, 1.32), WOOD)
 	_solid(loft, "StairRail", Vector3(-7.18, 3.23, 0.66), Vector3(0.16, 0.86, 6.66), WOOD)
-	_solid(office, "BreakBench", Vector3(-10.5, 0.32, 2.8), Vector3(2.6, 0.64, 0.65), WOOD)
+	_solid(ground, "BreakBench", Vector3(-10.5, 0.32, 2.8), Vector3(2.6, 0.64, 0.65), WOOD)
 
-	var kettle := kit.group(office, "TeaKettle")
+	var kettle := kit.group(ground, "TeaKettle")
 	kettle.position = Vector3(-7.63, 0.94, 3.62)
 	var pot := MeshInstance3D.new()
 	var body := CylinderMesh.new()
@@ -268,7 +311,33 @@ func _build_upper_floor(office: Node3D) -> void:
 	body.material = _material(BRASS)
 	pot.mesh = body
 	kettle.add_child(pot)
-	_solid(office, "TeaStand", Vector3(-7.63, 0.34, 3.64), Vector3(0.65, 0.68, 0.68), WOOD)
+	_solid(ground, "TeaStand", Vector3(-7.63, 0.34, 3.64), Vector3(0.65, 0.68, 0.68), WOOD)
+
+
+func _office_roof(facade: Node3D) -> void:
+	const ROOF_SLOPE := 0.24
+	const HALF_RUN := 2.32
+	const EAVE_Z := 4.6
+	var gable_base: float = OFFICE.ROOF_PEAK - tan(ROOF_SLOPE) * EAVE_Z
+	for side in [-1, 1]:
+		var roof := _box(facade, "SlateRoof", Vector3(-8.08, OFFICE.ROOF_PEAK - 0.07 - tan(ROOF_SLOPE) * HALF_RUN, HALF_RUN * side),
+			Vector3(9.65, 0.19, 4.88), Color("283546"))
+		roof.rotation.x = ROOF_SLOPE * side
+	for x in [OFFICE.WEST, OFFICE.EAST]:
+		_box(facade, "GableBase", Vector3(x, (4.45 + gable_base) * 0.5, 0), Vector3(0.23, gable_base - 4.44, 9.2), TRIM)
+		var surface := SurfaceTool.new()
+		surface.begin(Mesh.PRIMITIVE_TRIANGLES)
+		var material := _material(TRIM)
+		material.cull_mode = BaseMaterial3D.CULL_DISABLED
+		surface.set_material(material)
+		surface.add_vertex(Vector3(x, gable_base, -EAVE_Z))
+		surface.add_vertex(Vector3(x, OFFICE.ROOF_PEAK, 0))
+		surface.add_vertex(Vector3(x, gable_base, EAVE_Z))
+		surface.generate_normals()
+		var gable := MeshInstance3D.new()
+		gable.name = "RoofGable"
+		gable.mesh = surface.commit()
+		facade.add_child(gable, true)
 
 
 func _build_break_court(quay: Node3D) -> void:

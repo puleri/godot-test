@@ -87,6 +87,7 @@ func _office_front(office: Node3D) -> void:
 	# The open glazed bay runs between timber piers and looks into the office.
 	for span in [Vector2(0,1.31),Vector2(4.34,5.55)]:
 		var width: float = span.y-span.x
+		joinery.box(face,"wainscot",Vector3((span.x+span.y)*0.5,1.37,-0.17),Vector3(width,2.74,0.12))
 		var count := ceili(width/0.24)
 		for plank in count:
 			var x: float = span.x + width*(plank+0.5)/count
@@ -227,13 +228,13 @@ func _lamps(quay: Node3D, office: Node3D) -> void:
 	var fittings := preload("res://scripts/last_barrel_ship.gd").new()
 	for spec in [
 		[office, "OfficePorchLamp", Vector3(-6.9, 2.03, 4.96), Vector3(-6.1, 0, 5.45), false],
-		[office, "WritingLamp", Vector3(-9.9, 5.1, -2.2), Vector3(-10.2, 3.04, -1.85), false],
+		[office.get_node("UpperFloor"), "WritingLamp", Vector3(-9.9, 5.1, -2.2), Vector3(-10.2, 3.04, -1.85), false],
 		[quay, "BellLamp", Vector3(3.38, 2.85, -5.28), Vector3(3.95, 0, -5.38), true],
 		[quay, "SortingLamp", Vector3(-3, 2.5, -9.7), Vector3(-2.75, 0, -8.85), true],
 		[quay, "GateLamp", Vector3(7.6, 2.6, -9.9), Vector3(6.95, 0, -9.35), true],
 		[quay, "LighterLamp", Vector3(-8.2, 2.0, -17.3), Vector3(-7.8, 0, -17.0), true],
 		[quay, "BarrelLamp", Vector3(-11.6, 2.6, 14.1), Vector3(-10.9, 0, 13.6), true],
-		[office, "TeaLamp", Vector3(-10.4, 2.4, 2.1), Vector3(-10.15, 0, 2.15), false],
+		[office.get_node("GroundFloor"), "TeaLamp", Vector3(-10.4, 2.4, 2.1), Vector3(-10.15, 0, 2.15), false],
 	]:
 		var parent: Node3D = spec[0]
 		var at: Vector3 = spec[2]

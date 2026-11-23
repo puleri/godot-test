@@ -13,12 +13,13 @@ const Pins := preload("res://Modules/Gameplay/Lockpicking/listening_pins.gd")
 const Comic := preload("res://Modules/Gameplay/LastBarrel/ending_comic.gd")
 const ShipEvidence := preload("res://Modules/Gameplay/LastBarrel/ship_evidence.gd")
 const DockCutaway := preload("res://Modules/Gameplay/LastBarrel/dock_cutaway.gd")
+const OFFICE := preload("res://Modules/Gameplay/LastBarrel/office_layout.gd")
 const BLOCK_PRINT_LIGHTING := preload("res://scenes/BlockPrintLighting.tscn")
 const DELIVERY_WINDOW := 65.0
 const DECK_FIRE := 12.0
 const PORT_FIRE := 26.0
-const STAIR_FOOT := Vector3(-6.03, 0, 3.82)
-const STAIR_TOP := Vector3(-6.03, 2.8, -3.18)
+const STAIR_FOOT := OFFICE.STAIR_FOOT
+const STAIR_TOP := OFFICE.STAIR_TOP
 const OFFICE_ENTRY := Vector3(-8.2, 2.8, -3.18)
 const OFFICE_ROUTE := [
 	OFFICE_ENTRY, Vector3(-7.56, 2.8, -1.3), Vector3(-7.56, 2.8, 0.55),
@@ -45,6 +46,7 @@ static var _retry: Dictionary = {}
 
 @export var start_aboard := false
 @export var block_print_lighting := true
+@export var print_study_treatment := true
 
 @onready var player = $Player
 @onready var guard = $Guards/DockWatch
@@ -55,7 +57,7 @@ static var _retry: Dictionary = {}
 @onready var porter: Node3D = $People/Porter
 @onready var barrel = $Cargo/SpareBarrel
 @onready var door: Node3D = $Quay/Office/Door/Hinge
-@onready var desk = $Quay/Office/Manifest
+@onready var desk = $Quay/Office/UpperFloor/Manifest
 @onready var seal: Area3D = $Ships/OutboundMerchant/NightSeal
 @onready var camera: Camera3D = $LevelCamera
 
@@ -111,14 +113,29 @@ var _master_awareness := 0.0
 var _master_visible := false
 var _delivery_started := false
 var _delivery_arrived := false
+var _world_grade: ShaderMaterial
+var _original_spotlights: Dictionary = {}
+var _original_guard_angles: Dictionary = {}
 
 
 func _ready() -> void:
+	if _retry.has("print_study_treatment"):
+		print_study_treatment = _retry["print_study_treatment"]
+	var print_marks := preload("res://scripts/last_barrel_print_marks.gd").new()
+	print_marks.name = "PrintStudyMarks"
+	print_marks.visible = print_study_treatment
+	add_child(print_marks)
 	if block_print_lighting:
-		add_child(BLOCK_PRINT_LIGHTING.instantiate())
+		var print_lighting := BLOCK_PRINT_LIGHTING.instantiate()
+		var grade := print_lighting.get_node("WorldGrade") as ColorRect
+		_world_grade = grade.material.duplicate() as ShaderMaterial
+		grade.material = _world_grade
+		add_child(print_lighting)
+	player.office_view_changed.connect(_on_office_view_changed)
 	get_window().content_scale_size = Vector2i(1440, 900)
 	get_window().content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
 	_build_ui(int(_retry.get("variant", -1)))
+	_configure_print_lights()
 	_build_audio()
 	for title in ["Shipmaster", "TeaWatch", "LandingWatch"]:
 		var alert := preload("res://Modules/Gameplay/LastBarrel/story_alert.gd").new()
@@ -201,6 +218,11 @@ func _restore_checkpoint() -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("toggle_vision") and not event.is_echo() and modal == Modal.NONE:
+		print_study_treatment = not print_study_treatment
+		_apply_print_treatment()
+		get_viewport().set_input_as_handled()
+		return
 	if event is InputEventJoypadButton or (event is InputEventJoypadMotion and absf(event.axis_value) > 0.35):
 		controller = true
 	elif event is InputEventKey or event is InputEventMouseButton:
@@ -208,7 +230,34 @@ func _input(event: InputEvent) -> void:
 	signature.using_controller = controller
 
 
+func _configure_print_lights() -> void:
+	for light: SpotLight3D in find_children("*", "SpotLight3D", true, false):
+		_original_spotlights[light] = [light.light_energy, light.spot_angle, light.spot_attenuation, light.spot_angle_attenuation]
+	for actor in [guard, sentinel]:
+		_original_guard_angles[actor] = actor.lamp_fov_degrees
+	_apply_print_treatment()
+
+
+func _apply_print_treatment() -> void:
+	$PrintStudyMarks.visible = print_study_treatment
+	player.set_print_study_treatment(print_study_treatment)
+	for light: SpotLight3D in _original_spotlights:
+		var original: Array = _original_spotlights[light]
+		var is_guard := light.get_parent() == guard or light.get_parent() == sentinel
+		light.light_energy = (10.0 if is_guard else 7.5) if print_study_treatment else original[0]
+		light.spot_angle = (15.0 if is_guard else minf(original[1], 26.0)) if print_study_treatment else original[1]
+		light.spot_attenuation = (0.0 if is_guard else 0.7) if print_study_treatment else original[2]
+		light.spot_angle_attenuation = (0.24 if is_guard else 0.7) if print_study_treatment else original[3]
+	for actor in [guard, sentinel]:
+		actor.lamp_fov_degrees = 30.0 if print_study_treatment else _original_guard_angles[actor]
+		actor._sync_sight_light()
+
+
 func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode == KEY_T and modal == Modal.NONE:
+		$PrintStudyMarks.visible = not $PrintStudyMarks.visible
+		get_viewport().set_input_as_handled()
+		return
 	if modal == Modal.SIGNATURE and signature.handle_input(event):
 		get_viewport().set_input_as_handled()
 		return
@@ -260,7 +309,7 @@ func _interact() -> bool:
 		return true
 	if modal != Modal.NONE:
 		return false
-	if phase == Phase.ENTER_OFFICE and _tea_distraction <= 0.0 and _near($Quay/Office/TeaKettle, 1.25):
+	if phase == Phase.ENTER_OFFICE and _tea_distraction <= 0.0 and _near($Quay/Office/GroundFloor/TeaKettle, 1.25):
 		_tea_distraction = 4.0
 		_tick.play()
 		_say("ROOK  /  That rattle should keep the watch busy for a moment.", 3.0)
@@ -353,7 +402,7 @@ func _physics_process(delta: float) -> void:
 				phase = Phase.STUDY
 				_return_to_office()
 		Phase.LEAVE_OFFICE:
-			if not _in_office() and _near($Points/OfficeExit, 2.1):
+			if not OFFICE.contains(player.position) and _near($Points/OfficeExit, 2.1):
 				phase = Phase.SORTING
 				_say("ROOK  /  There should be one potato barrel left in sorting.")
 		Phase.SORTING:
@@ -397,8 +446,8 @@ func _tick_break_guards(delta: float) -> void:
 	$People/CardPartner.position = Vector3(-10.4, 0, 11.55).lerp(Vector3(-11.3, 0, 15.6), tea_break)
 	_tea_distraction = maxf(0.0, _tea_distraction - delta)
 	var tea := smoothstep(0.5, 3.0, _break_clock) * (1.0 - smoothstep(7.0, 9.0, _break_clock))
-	$People/TeaWatch.position = Vector3(-9.5, 0, 2).lerp(Vector3(-7.55, 0, 3.75), tea)
-	var on_stairs: bool = player.position.x > -7.0 and player.position.x < -5.1
+	$People/TeaWatch.position = Vector3(-9.5, 0, 2).lerp(Vector3(-7.55, 0, 2.65), tea)
+	var on_stairs: bool = absf(player.position.x - STAIR_FOOT.x) < OFFICE.STAIR_WIDTH * 0.5 and player.position.z < STAIR_FOOT.z + 0.55
 	var crosses_tea_watch: bool = on_stairs and player.position.y < 0.85 and player.position.distance_to($People/TeaWatch.position) < 1.85
 	if crosses_tea_watch and _tea_distraction <= 0.0 and player.velocity.length() > 2.2:
 		_confirm_story_alert("TeaWatch")
@@ -525,7 +574,7 @@ func _return_to_office() -> void:
 	if not await _wait_for_door():
 		return
 	await _swing(true)
-	if not await _walk_master([STAIR_FOOT, STAIR_TOP, OFFICE_ENTRY], 1.8):
+	if not await _walk_master([STAIR_FOOT, OFFICE.STAIR_HEAD, STAIR_TOP, OFFICE_ENTRY], 1.8):
 		return
 	await _swing(false)
 	_office_returning = false
@@ -632,7 +681,7 @@ func _draft_complete() -> void:
 func _swap_manifest() -> void:
 	manifest_swapped = true
 	phase = Phase.LEAVE_OFFICE
-	$Quay/Office/ReplacedPage.show()
+	$Quay/Office/UpperFloor/ReplacedPage.show()
 	_say("ROOK  /  Now to get back to sorting.", 4.0)
 
 
@@ -675,7 +724,7 @@ func _prepare_courier() -> void:
 		await get_tree().physics_frame
 	if not is_inside_tree() or _restart_queued:
 		return
-	var route: Array[Vector3] = [Vector3(master.position.x, 2.8, -3.18), OFFICE_ENTRY, STAIR_TOP, STAIR_FOOT]
+	var route: Array[Vector3] = [Vector3(master.position.x, 2.8, -3.18), OFFICE_ENTRY, STAIR_TOP, OFFICE.STAIR_HEAD, STAIR_FOOT]
 	await _walk_master(route, 2.8)
 
 
@@ -956,7 +1005,7 @@ func _fail(reason: String) -> void:
 	await get_tree().create_timer(1.15, false).timeout
 	if not is_inside_tree():
 		return
-	_retry = {"checkpoint": checkpoint, "variant": signature.variant_index,
+	_retry = {"checkpoint": checkpoint, "variant": signature.variant_index, "print_study_treatment": print_study_treatment,
 		"seated": _checkpoint_pins, "barrel_position": _checkpoint_barrel, "table_taken": _checkpoint_table_taken}
 	if get_tree().reload_current_scene() != OK:
 		_retry.clear()
@@ -986,7 +1035,13 @@ func _ray_clear(from: Vector3, to: Vector3) -> bool:
 
 
 func _in_office() -> bool:
-	return player.position.y > 2.9 and player.position.x > -12.6 and player.position.x < -3.55 and player.position.z < 4.43 and player.position.z > -4.4
+	return player.position.y > 2.9 and OFFICE.contains(player.position)
+
+
+func _on_office_view_changed(inside: bool) -> void:
+	if _world_grade:
+		_world_grade.set_shader_parameter("preserve_black", inside)
+	_dock_cutaway.office_view = inside
 
 
 func _near(target: Node3D, distance: float) -> bool:
@@ -1062,7 +1117,7 @@ func _update_ui() -> void:
 			destination = $Points/OfficeLock
 		Phase.ENTER_OFFICE:
 			objective = "Reach the upstairs manifest"
-			if _tea_distraction <= 0.0 and _near($Quay/Office/TeaKettle, 1.25):
+			if _tea_distraction <= 0.0 and _near($Quay/Office/GroundFloor/TeaKettle, 1.25):
 				prompt = key + "   Rattle the kettle"
 			destination = $Points/Desk
 		Phase.STUDY:

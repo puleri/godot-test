@@ -3,6 +3,7 @@ extends PanelContainer
 
 const FEEDBACK_LAYER := 19
 const FEEDBACK_MASK := 1 << (FEEDBACK_LAYER - 1)
+const OFFICE_SPEECH_LAYER := 15
 
 @onready var view: SubViewport = $Column/Picture/View
 @onready var lens: Camera3D = $Column/Picture/View/Lens
@@ -10,11 +11,16 @@ const FEEDBACK_MASK := 1 << (FEEDBACK_LAYER - 1)
 var subject: Node3D
 var gangway_post: Node3D
 var time_left := 0.0
+var office_view := false:
+	set(inside):
+		office_view = inside
+		visible = not inside and time_left > 0.0
 
 
 func _ready() -> void:
 	view.world_3d = get_viewport().world_3d
 	lens.set_cull_mask_value(FEEDBACK_LAYER, false)
+	lens.set_cull_mask_value(OFFICE_SPEECH_LAYER, false)
 	set_process(false)
 
 
@@ -24,7 +30,7 @@ func follow(actor: Node3D, line: String, seconds: float, post: Node3D = null) ->
 	time_left = seconds
 	caption.text = line
 	_frame_subject()
-	show()
+	visible = not office_view
 	view.render_target_update_mode = SubViewport.UPDATE_WHEN_VISIBLE
 	set_process(true)
 

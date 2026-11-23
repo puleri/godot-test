@@ -131,8 +131,30 @@ func _play_quay() -> void:
 			await _tap(KEY_E)
 	await create_timer(0.6).timeout
 	_check(level.door_unlocked and level.phase == level.Phase.ENTER_OFFICE, "Four pins open the physical office door")
+	var roof: MeshInstance3D = level.get_node("Quay/Office/UpperFrontage/SlateRoof")
+	var floorboard: MeshInstance3D = level.get_node("Quay/Office/GroundFloor/Floorboard")
+	var landing: MeshInstance3D = level.get_node("Quay/Office/UpperFloor/Landing")
+	var tread: MeshInstance3D = level.get_node("Quay/Office/Staircase/OakTread")
+	var outside_mask: int = level.camera.cull_mask
+	level._place_player(Vector3(-8.0, 0.49, -5.35))
+	_check(level.camera.global_position.y > level.OFFICE.ROOF_PEAK and roof.is_visible_in_tree()
+		and (level.camera.cull_mask & roof.layers) != 0,
+		"The exterior camera clears the roof even from behind the office")
+	level._place_player(Vector3(-6.1, 0.49, 5.45))
 	_check(await _walk(Vector3(-6.1, 0, 2.55), 1.9), "Rook can cross the picked doorway")
+	level._place_player(level.player.position)
+	var downstairs_mask: int = level.camera.cull_mask
+	_check(level.camera.environment != null and level.camera.environment.background_color == Color.BLACK
+		and (downstairs_mask & floorboard.layers) != 0 and (downstairs_mask & tread.layers) != 0
+		and (downstairs_mask & (landing.layers | roof.layers)) == 0,
+		"The ground floor and stairs are visible against black with the quay, roof and upper floor culled")
+	_check(level.player.position.y < 0.6, "The doorway opens onto flat floor before the stairs")
 	_check(await _walk(level.STAIR_TOP, 1.9) and await _walk(level.OFFICE_ENTRY), "Rook can climb the stairs to the writing room")
+	level._place_player(level.player.position)
+	var upstairs_mask: int = level.camera.cull_mask
+	_check((upstairs_mask & landing.layers) != 0 and (upstairs_mask & tread.layers) != 0
+		and (upstairs_mask & (floorboard.layers | roof.layers)) == 0,
+		"The upstairs view reveals the writing room and keeps the quay and ground floor hidden")
 	_check(level.player.position.y > 3.0, "The ramp reaches the upper floor")
 	_check(await _walk(Vector3(-10.1, 2.8, -1.45)), "Rook reaches the manuscript")
 	await _tap(KEY_E)
@@ -185,9 +207,16 @@ func _play_quay() -> void:
 	_check(await _walk(Vector3(-8.43, 2.8, -1.46)) and await _walk(Vector3(-8.43, 2.8, -3.18)) and await _walk(level.STAIR_TOP) and await _walk(level.STAIR_FOOT, 1.9), "Rook can escape down the stairs")
 	if failures > 0:
 		return
+	_check(await _walk(Vector3(-6.10, 0, 3.55), 1.9), "Rook can approach the door from the foot of the stairs")
+	level._place_player(level.player.position)
+	_check(level.camera.cull_mask == downstairs_mask and level.phase == level.Phase.LEAVE_OFFICE,
+		"The lower view returns on descent and the office objective stays active inside")
 	await _tap(KEY_E)
 	await create_timer(1.05).timeout
 	_check(await _walk(Vector3(-6.10, 0, 5.8), 1.9), "Rook escapes the office through the picked door")
+	level._place_player(level.player.position)
+	_check(level.camera.cull_mask == outside_mask and level.camera.environment == null,
+		"Stepping outside restores the exterior camera")
 	_check(await _walk(Vector3(-2.63, 0, 5.8)) and await _walk(Vector3(-2.66, 0, -5.8)) and await _walk(Vector3(-4.05, 0, -7.05)), "Rook reaches the sorting overlook")
 	_check(level.phase == level.Phase.BARREL_RUN and level.delivery_left > 39.0, "Wrong-ship reveal starts the handoff clock")
 	for destination in [Vector3(-2.65, 0, -5.65), Vector3(-2.65, 0, 12.83), Vector3(-9.37, 0, 12.83)]:
