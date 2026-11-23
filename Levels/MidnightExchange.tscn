@@ -22,7 +22,11 @@
 [ext_resource type="PackedScene" path="res://Mesh/Bell/bell.tscn" id="20_bell"]
 [ext_resource type="PackedScene" uid="uid://bbr7pulqj6ht6" path="res://Mesh/Boat/Boat_v1.tscn" id="21_frn33"]
 [ext_resource type="PackedScene" path="res://scenes/backdrops/HarborBackdrop.tscn" id="22_backdrop"]
-[ext_resource type="PackedScene" path="res://Modules/Buildings/StoneWarehouse.tscn" id="23_warehouse"]
+[ext_resource type="PackedScene" uid="uid://c00d8o8yw0csf" path="res://Modules/Buildings/StoneWarehouse.tscn" id="23_warehouse"]
+[ext_resource type="PackedScene" uid="uid://b0b34jyn0o686" path="res://Mesh/Harboretum-Mesh/stairs_6.tscn" id="24_a04gy"]
+[ext_resource type="PackedScene" uid="uid://c76xr16wsehw1" path="res://Mesh/Harboretum-Mesh/Large_arch_wall.tscn" id="25_728lu"]
+[ext_resource type="PackedScene" uid="uid://dqhnwg3tx0y1h" path="res://Mesh/Box/wood_box.tscn" id="26_bdl1q"]
+[ext_resource type="PackedScene" uid="uid://ba02m8t3bwfin" path="res://Mesh/Posters/Poster-WantedRook-1000.tscn" id="27_pl8wb"]
 
 [ext_resource type="PackedScene" path="res://Mesh/MidnightExchange/Manifest.glb" id="24_manifest"]
 [ext_resource type="PackedScene" path="res://Mesh/MidnightExchange/Crank.glb" id="25_crank"]
@@ -4847,6 +4851,7 @@ close_recognition_distance = 1.25
 suspicion_cap = 0.35
 suspicion_per_second = 0.25
 uncertain_investigation_delay = 0.8
+alerted_detection_multiplier = 0.3
 player_path = NodePath("../../Player")
 sight_range = 8.0
 field_of_view_degrees = 110.0
@@ -4858,8 +4863,12 @@ seconds_to_forget = 2.0
 lose_sight_delay = 0.65
 search_seconds = 6.0
 capture_distance = 0.7
+pursuit_response = 30.0
+pursuit_repath_seconds = 0.05
 navigation_height_offset = 0.5
 show_vision = false
+weighted_motion_enabled = true
+guard_motion_strength = 1.0
 sight_light_path = NodePath("SightLight")
 route_path = NodePath("../../Routes/SortingMouse")
 walk_speed = 1.65
@@ -4892,6 +4901,7 @@ close_recognition_distance = 1.25
 suspicion_cap = 0.35
 suspicion_per_second = 0.25
 uncertain_investigation_delay = 0.8
+alerted_detection_multiplier = 0.3
 player_path = NodePath("../../Player")
 sight_range = 10.0
 field_of_view_degrees = 100.0
@@ -4903,12 +4913,15 @@ seconds_to_forget = 2.0
 lose_sight_delay = 0.65
 search_seconds = 6.0
 capture_distance = 0.85
+pursuit_response = 30.0
+pursuit_repath_seconds = 0.05
 navigation_height_offset = 0.5
 show_vision = false
+weighted_motion_enabled = true
+guard_motion_strength = 1.0
 sight_light_path = NodePath("SightLight")
 route_path = NodePath("../../Routes/CrankHound")
 walk_speed = 1.4
-run_speed = 4.6
 acceleration = 8.0
 braking = 10.0
 pause_min_seconds = 1.8
@@ -4938,6 +4951,7 @@ close_recognition_distance = 1.25
 suspicion_cap = 0.35
 suspicion_per_second = 0.25
 uncertain_investigation_delay = 0.8
+alerted_detection_multiplier = 0.3
 player_path = NodePath("../../Player")
 sight_range = 8.0
 field_of_view_degrees = 110.0
@@ -4949,8 +4963,12 @@ seconds_to_forget = 2.0
 lose_sight_delay = 0.65
 search_seconds = 6.0
 capture_distance = 0.7
+pursuit_response = 30.0
+pursuit_repath_seconds = 0.05
 navigation_height_offset = 0.5
 show_vision = false
+weighted_motion_enabled = true
+guard_motion_strength = 1.0
 sight_light_path = NodePath("SightLight")
 route_path = NodePath("../../Routes/VaultMouse")
 walk_speed = 1.65
@@ -4974,10 +4992,10 @@ floor_snap_length = 0.35
 script = ExtResource("16_pdmvj")
 walking_noise_radius = 5.0
 quiet_noise_radius = 1.6
+sprint_noise_radius = 8.0
 landing_noise_radius = 7.5
 follow_size = 9.4
 overview_camera_path = NodePath("../LevelCamera")
-max_walk_speed = 4.2
 side_plane_z = 14.0
 
 [node name="PlayerMarker" type="MeshInstance3D" parent="Player" unique_id=1725774415]
@@ -5153,5 +5171,17 @@ transform = Transform3D(0.79675925, 0, 0.60429686, 0, 1, 0, -0.60429686, 0, 0.79
 [node name="HarborBackdrop2" parent="HarborBackdrop" unique_id=1117559820 instance=ExtResource("22_backdrop")]
 transform = Transform3D(0.9998203, 0, -0.01897481, 0, 1, 0, 0.01897481, 0, 0.9998203, -2.8867645, 0, 72.23767)
 
-[node name="NorthQuayWarehouse" parent="." instance=ExtResource("23_warehouse")]
-position = Vector3(-7, 0, -24)
+[node name="NorthQuayWarehouse" parent="." unique_id=246730797 instance=ExtResource("23_warehouse")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -24)
+
+[node name="Stairs_6" parent="." unique_id=334095983 instance=ExtResource("24_a04gy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5012245, -0.35904145, 11.922088)
+
+[node name="ArchWall" parent="." unique_id=61311553 instance=ExtResource("25_728lu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -1, 17)
+
+[node name="WoodBox" parent="." unique_id=877363779 instance=ExtResource("26_bdl1q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9673793, 0.010319838, 11.511365)
+
+[node name="Posters" parent="." unique_id=292074782 instance=ExtResource("27_pl8wb")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.2984663, 1.3437657, 10.428282)

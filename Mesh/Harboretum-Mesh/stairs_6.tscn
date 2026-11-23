@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b0b34jyn0o686"]
+
+[ext_resource type="PackedScene" uid="uid://c2cbgs6h6g30r" path="res://Mesh/Harboretum-Mesh/Stairs_6.fbx" id="1_k0a0l"]
+[ext_resource type="Material" uid="uid://do7a82h5f47uf" path="res://Materials/NewToon-Stone.tres" id="2_oabdi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5i6hu"]
+size = Vector3(0.04321289, 0.07006836, 0.005859375)
+
+[node name="Stairs_6" unique_id=334095983 instance=ExtResource("1_k0a0l")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="0" unique_id=110416288]
+transform = Transform3D(74.99999, 0, 0, 0, 20.024408, 72.27739, 0, -72.27739, 20.024408, 0, 0.8886225, 0.22391698)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1067977282]
+transform = Transform3D(1, 0, 0, 0, 1, -2.9802322e-08, 0, 2.9802322e-08, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_5i6hu")
+
+[node name="Stairs_6" parent="." index="1" unique_id=563562234]
+transform = Transform3D(75, 0, 0, 0, -3.2783541e-06, 75, 0, -75, -3.2783541e-06, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_oabdi")
+surface_material_override/1 = ExtResource("2_oabdi")

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dqhnwg3tx0y1h"]
+
+[ext_resource type="PackedScene" uid="uid://n8unyp0d2su" path="res://Mesh/Box/WoodBox.fbx" id="1_66ow6"]
+[ext_resource type="Material" uid="uid://65oe7h30g0d4" path="res://Materials/NewToon-WoodPlank.tres" id="2_xpsep"]
+
+[node name="WoodBox" unique_id=877363779 instance=ExtResource("1_66ow6")]
+
+[node name="WoodBox" parent="." index="0" unique_id=1068097581]
+surface_material_override/0 = ExtResource("2_xpsep")

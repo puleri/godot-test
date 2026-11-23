@@ -1,0 +1,32 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://y040vvd0lmsp"]
+
+[ext_resource type="Shader" uid="uid://70flgb4ewoav" path="res://Materials/stylized.gdshader" id="1_1m3ju"]
+[ext_resource type="Texture2D" uid="uid://dh0vonhswyorv" path="res://textures/T_StoneBrick.png" id="2_1m3ju"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_1m3ju")
+shader_parameter/albedo_color = Color(0.6366008, 0.6152225, 0.50134414, 1)
+shader_parameter/albedo_texture = ExtResource("2_1m3ju")
+shader_parameter/albedo_affect = 1.0
+shader_parameter/use_stepped = true
+shader_parameter/steps = 2.0
+shader_parameter/step_smoothness = 0.0
+shader_parameter/shadow_tint = Color(0, 0, 0, 1)
+shader_parameter/shadow_tint_amount = 0.4
+shader_parameter/toon_local_lighting = false
+shader_parameter/specular = 1.0
+shader_parameter/normal_strength = 0.0
+shader_parameter/use_rim = true
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/rim_amount = 2.0
+shader_parameter/rim_smoothness = 0.2
+shader_parameter/rim_mask_shadow = 1.0
+shader_parameter/rim_blend = 1.0
+shader_parameter/rim_uses_light_color = false
+shader_parameter/use_pattern = false
+shader_parameter/pattern_uv_mode = 2
+shader_parameter/pattern_tiling = 32.0
+shader_parameter/pattern_amount = 0.5
+shader_parameter/pattern_smoothness = 0.5
+shader_parameter/pattern_blend = 0.2

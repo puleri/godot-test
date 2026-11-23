@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c76xr16wsehw1"]
+
+[ext_resource type="PackedScene" uid="uid://dqu6tiq3ptohr" path="res://Mesh/Harboretum-Mesh/ArchWall.fbx" id="1_ifedf"]
+[ext_resource type="Material" uid="uid://do7a82h5f47uf" path="res://Materials/NewToon-Stone.tres" id="2_1d5tv"]
+[ext_resource type="Material" uid="uid://y040vvd0lmsp" path="res://Materials/StoneBrick.tres" id="3_uvbjr"]
+[ext_resource type="Material" uid="uid://b5v5br2k0catq" path="res://Materials/NewToon-Black.tres" id="4_1n1sg"]
+
+[node name="ArchWall" unique_id=61311553 instance=ExtResource("1_ifedf")]
+
+[node name="HarbouretumWall_3" parent="." index="0" unique_id=229532136]
+surface_material_override/0 = ExtResource("2_1d5tv")
+surface_material_override/1 = ExtResource("3_uvbjr")
+surface_material_override/2 = ExtResource("4_1n1sg")

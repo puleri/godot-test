@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://ba02m8t3bwfin"]
+
+[ext_resource type="PackedScene" uid="uid://feore47k4fwl" path="res://Mesh/Posters/Posters.fbx" id="1_dqj8j"]
+[ext_resource type="Shader" uid="uid://bvtkvtk13wqe5" path="res://Materials/Posters/Posters.tres" id="2_ah5rr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q6m1h"]
+render_priority = 0
+shader = ExtResource("2_ah5rr")
+
+[node name="Posters" unique_id=292074782 instance=ExtResource("1_dqj8j")]
+
+[node name="T_Posters_002" parent="." index="0" unique_id=1337824498]
+transform = Transform3D(800, 0, 0, 0, -3.496911e-05, 800, 0, -800, -3.496911e-05, 0, 0, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_q6m1h")
