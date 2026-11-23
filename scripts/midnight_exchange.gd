@@ -58,8 +58,13 @@ var _wait_for_interact_release := false
 func _ready() -> void:
 	_configure_harbor_backdrop()
 	_configure_ground_lighting()
+	_configure_exchange_lighting()
 	if block_print_lighting:
-		add_child(preload("res://scenes/BlockPrintLighting.tscn").instantiate())
+		var print_lighting := preload("res://scenes/BlockPrintLighting.tscn").instantiate()
+		var grade := print_lighting.get_node("WorldGrade") as ColorRect
+		grade.material = grade.material.duplicate()
+		grade.material.set_shader_parameter("middle_threshold", 0.23)
+		add_child(print_lighting)
 	get_window().content_scale_size = Vector2i(1440, 900)
 	get_window().content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
 	for guard in $Guards.get_children():
@@ -92,6 +97,19 @@ func _ready() -> void:
 		else:
 			_start_opening_dialogue()
 	ready_for_play.emit()
+
+
+func _configure_exchange_lighting() -> void:
+	for light: Node in $HarborLights.get_children():
+		if light is SpotLight3D:
+			light.spot_angle = 17.0
+			light.spot_angle_attenuation = 0.25
+	var moon := DirectionalLight3D.new()
+	moon.name = "Moonlight"
+	moon.rotation_degrees = Vector3(-49, -32, 0)
+	moon.light_color = Color("9dadd3")
+	moon.light_energy = 0.045
+	add_child(moon)
 
 
 func _configure_harbor_backdrop() -> void:

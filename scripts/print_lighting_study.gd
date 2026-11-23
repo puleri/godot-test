@@ -22,9 +22,15 @@ var carrier: Node3D
 var sweep_time := 0.0
 var sweep_paused := false
 var camera_focus := Vector3.ZERO
+var dot_dither := false
+var print_grade: ShaderMaterial
 
 
 func _ready() -> void:
+	var grade := $BlockPrintLighting/WorldGrade as ColorRect
+	print_grade = grade.material.duplicate() as ShaderMaterial
+	print_grade.set_shader_parameter("use_dot_dither", dot_dither)
+	grade.material = print_grade
 	get_window().content_scale_size = Vector2i(1280, 800)
 	get_window().content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
 	var environment := Environment.new()
@@ -98,6 +104,9 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	if not event is InputEventKey or not event.pressed or event.echo:
 		return
 	match event.physical_keycode:
+		KEY_TAB:
+			dot_dither = not dot_dither
+			print_grade.set_shader_parameter("use_dot_dither", dot_dither)
 		KEY_T:
 			marks.visible = not marks.visible
 		KEY_SPACE:
@@ -117,7 +126,8 @@ func _update_camera() -> void:
 
 
 func _update_controls() -> void:
-	controls.text = "WASD  Move handheld lantern   ·   Arrows  Pan   ·   R  Reset view\nT  Marks %s   ·   Space  Sweep %s" % [
+	controls.text = "Tab  Dither: %s\nWASD  Move lantern   ·   Arrows  Pan   ·   R  Reset view\nT  Marks %s   ·   Space  Sweep %s" % [
+		"Dot matrix" if dot_dither else "Grain",
 		"on" if marks.visible else "off", "paused" if sweep_paused else "moving"]
 
 
