@@ -1,6 +1,7 @@
 extends Node3D
 
 const LANTERN := preload("res://Modules/Gameplay/LastBarrel/search_lantern.tscn")
+const DITHER_MATRIX := preload("res://textures/dot-matrix-16x16 (1).png")
 const CARVED_CUTS := [
 	[Vector2(-0.66, 0.28), Vector2(0.23, 0.38), Vector2(0.56, 0.29), Vector2(0.08, 0.23), Vector2(-0.46, 0.22)],
 	[Vector2(-0.36, 0.08), Vector2(0.53, 0.18), Vector2(0.69, 0.08), Vector2(0.28, 0.04), Vector2(-0.31, 0.01)],
@@ -29,7 +30,7 @@ var print_grade: ShaderMaterial
 func _ready() -> void:
 	var grade := $BlockPrintLighting/WorldGrade as ColorRect
 	print_grade = grade.material.duplicate() as ShaderMaterial
-	print_grade.set_shader_parameter("use_dot_dither", dot_dither)
+	print_grade.set_shader_parameter("dither_matrix", DITHER_MATRIX)
 	grade.material = print_grade
 	get_window().content_scale_size = Vector2i(1280, 800)
 	get_window().content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
